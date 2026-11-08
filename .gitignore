@@ -5,3 +5,12 @@ __pycache__/
 .ipynb_checkpoints/
 .env
 .claude/settings.local.json
+
+# RobustRAG runtime artifacts. Experiment outputs belong in the shared Drive
+# outputs directory; these patterns prevent accidental commits from local runs.
+*.z
+log/
+logs/
+result/
+result_certify/
+artifacts/
