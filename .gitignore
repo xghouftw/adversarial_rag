@@ -1,0 +1,7 @@
+data/
+outputs/
+.venv/
+__pycache__/
+.ipynb_checkpoints/
+.env
+.claude/settings.local.json
