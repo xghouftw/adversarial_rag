@@ -72,7 +72,9 @@ The reproduction notebook is `notebooks/robustrag_reproduction.ipynb`.
 
 It:
 
-- pins upstream RobustRAG commit `9bc35b2fa5fa7d1088383b2789ec19a512d316b1`;
+- uses a checksum-verified, repository-local snapshot of upstream RobustRAG
+  commit `9bc35b2fa5fa7d1088383b2789ec19a512d316b1` under
+  `third_party/robustrag_upstream`, so notebooks do not fetch code at runtime;
 - checksum-verifies RealtimeQA and Open NQ;
 - uses an isolated Python 3.11 environment with the authors' 2024-era packages;
 - runs on the first 100 questions used by the upstream program;
@@ -559,6 +561,8 @@ The best present conclusion is:
 | `RAG Poisoning Proposal.pdf` | Original project proposal |
 | `AGENTS.md` | Research-integrity and implementation rules |
 | `ONBOARDING.md` | Colab, Drive, and output workflow |
+| `third_party/robustrag_upstream/` | Pinned upstream Python source snapshot; datasets remain outside git |
+| `reproduction/robustrag_setup.py` | Shared source verification, temporary runner preparation, and dataset verification |
 | `notebooks/robustrag_reproduction.ipynb` | Reproduction and initial RealtimeQA profiler |
 | `notebooks/nq_profiling.ipynb` | Cache-only NQ alpha 0.2/0.3 profiler; alpha 0.3 baseline-label bug remains |
 | `notebooks/promotion_attack.ipynb` | Standalone Colab driver for cache-only promotion selection and an explicitly gated GPU pilot |

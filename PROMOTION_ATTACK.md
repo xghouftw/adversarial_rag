@@ -272,7 +272,8 @@ Report raw mechanical and human-validated success separately.
 ## Running cache-only selection
 
 The command makes no LLM calls. Run it inside the pinned Python 3.11 environment
-after the existing notebook setup has prepared `/content/robustrag-runner`:
+after the notebook setup has prepared `/content/robustrag-runner` from the
+committed `third_party/robustrag_upstream` snapshot:
 
 ```bash
 PYTHONPATH="$PROJ" "$PYTHON" scripts/run_promotion_selection.py \

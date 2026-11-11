@@ -68,6 +68,24 @@ os.chdir(PROJ); sys.path.insert(0, PROJ)
 
 Tip: add `After editing any .py files, run ./push.sh.` to `CLAUDE.md` so Claude Code syncs for you.
 
+## Pinned upstream RobustRAG code
+
+The authors' Python source used by the experiments is committed in
+`third_party/robustrag_upstream` at commit
+`9bc35b2fa5fa7d1088383b2789ec19a512d316b1`. Notebooks use that local snapshot;
+they do not clone the authors' GitHub repository in Colab.
+
+The committed snapshot preserves the upstream Python source, with terminal
+newlines normalized where absent. The shared setup helper checks its hashes,
+copies it to `/content/robustrag-runner`, and applies the documented GPT-import
+compatibility change only to that temporary copy. The large JSON datasets
+remain under the shared Drive and are downloaded only when missing, with
+checksum verification.
+
+Changing the pinned commit is an experimental-methodology change. Update the
+snapshot, hashes, provenance note, and experiment configuration together; do
+not silently replace individual upstream files.
+
 ## Rules
 
 - Code moves only through git. Commit small and often, and run `git pull` before you start.
