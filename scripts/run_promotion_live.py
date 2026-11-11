@@ -18,20 +18,23 @@ from promotion_attack import (
     SpacyTextProcessor,
     UpstreamQueryAdapter,
     create_live_run,
+    enrich_records_with_certification,
     execute_live_candidates,
     file_sha256,
     finalize_live_run,
     load_upstream_question_records,
     plan_attacks,
+    resolve_target_selector,
     save_live_sweep,
 )
+from promotion_selectors.nlp import SpacyCandidateQualityAnalyzer
 
 
 def parse_args() -> argparse.Namespace:
     parser = argparse.ArgumentParser(
         description=(
-            "Run a bounded live promotion pilot from a frozen cache-only "
-            "selection artifact. This command loads Mistral-7B and makes GPU calls."
+            "Run a bounded live promotion pilot from a frozen selection "
+            "artifact. This command loads Mistral-7B and makes GPU calls."
         )
     )
     parser.add_argument("--selection-run", type=Path, required=True)
@@ -82,7 +85,10 @@ def main() -> None:
     )
     if selection_manifest.get("status") != "complete":
         raise ValueError("selection run is not complete")
-    if selection_manifest.get("kind") != "cache_only_promotion_selection":
+    if selection_manifest.get("kind") not in {
+        "cache_only_promotion_selection",
+        "llm_judged_promotion_selection",
+    }:
         raise ValueError("--selection-run is not a promotion selection artifact")
     saved_outcomes = json.loads(
         (args.selection_run / "selections.json").read_text()
@@ -103,6 +109,28 @@ def main() -> None:
         dataset_path=args.dataset_path,
         runner_dir=args.runner_dir,
     )
+    certification = selection_manifest.get("environment", {}).get(
+        "certification"
+    )
+    if certification is not None:
+        certification_run = Path(certification["certification_run"])
+        if (
+            file_sha256(certification_run / "summary.json")
+            != certification["certification_summary_sha256"]
+            or file_sha256(certification_run / "certified.json")
+            != certification["certified_json_sha256"]
+        ):
+            raise ValueError(
+                "certification artifact changed after target selection"
+            )
+        records, current_certification = enrich_records_with_certification(
+            records=records,
+            certification_run=certification_run,
+            source_run=source_run,
+            source_manifest=source_manifest,
+        )
+        if current_certification != certification:
+            raise ValueError("certification provenance changed after selection")
     saved_config = selection_manifest["config"]
     config = AttackConfig(**saved_config)
     config.validate()
@@ -110,6 +138,17 @@ def main() -> None:
     nlp = spacy.load("en_core_web_sm")
     extractor = SpacyKeywordExtractor(nlp)
     processor = SpacyTextProcessor(nlp)
+    selector_name = resolve_target_selector(config.target_selector)
+    candidate_analyzer = (
+        SpacyCandidateQualityAnalyzer(nlp)
+        if selector_name == "nlp_answer_shape"
+        else None
+    )
+    candidate_judge = None
+    if selector_name == "prometheus_judge":
+        from promotion_selectors.prometheus import RecordedCandidateJudge
+
+        candidate_judge = RecordedCandidateJudge(saved_outcomes)
     stopword_set = set(stopwords.words("english"))
     selections = plan_attacks(
         records=records,
@@ -117,6 +156,8 @@ def main() -> None:
         text_processor=processor,
         stopwords=stopword_set,
         config=config,
+        candidate_analyzer=candidate_analyzer,
+        candidate_judge=candidate_judge,
     )
 
     # Refuse live calls if current code/environment changes the frozen ranking.

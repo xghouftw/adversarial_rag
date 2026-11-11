@@ -2,6 +2,7 @@ import json
 import re
 from pathlib import Path
 import tempfile
+from types import SimpleNamespace
 import unittest
 
 from promotion_attack import (
@@ -9,15 +10,24 @@ from promotion_attack import (
     LiveSweepResult,
     QuestionRecord,
     SpacyKeywordExtractor,
+    TARGET_SELECTORS,
     TextGeneration,
     aggregate_keyword_sets,
     create_live_run,
     delete_gold_segments,
+    enrich_records_with_certification,
     execute_live_attack,
     execute_live_candidates,
     finalize_live_run,
+    one_injection_keyword_frontier,
     plan_attack,
     save_live_sweep,
+)
+from promotion_selectors.base import JudgeDecision
+from promotion_selectors.nlp import SpacyCandidateQualityAnalyzer
+from promotion_selectors.prometheus import (
+    build_prometheus_prompt,
+    parse_prometheus_response,
 )
 
 
@@ -44,6 +54,36 @@ class FakeNlp:
         raise AssertionError(f"unexpected fake NLP input: {text!r}")
 
 
+class AnalyzerToken:
+    def __init__(self, text, lemma=None, pos="NOUN", punct=False):
+        self.text = text
+        self.lemma_ = text if lemma is None else lemma
+        self.pos_ = pos
+        self.is_space = False
+        self.is_punct = punct
+
+
+class AnalyzerSpan(list):
+    def __init__(self, tokens, label=""):
+        super().__init__(tokens)
+        self.label_ = label
+
+
+class AnalyzerDoc(list):
+    def __init__(self, tokens, entities=(), noun_chunks=()):
+        super().__init__(tokens)
+        self.ents = tuple(entities)
+        self.noun_chunks = tuple(noun_chunks)
+
+
+class AnalyzerNlp:
+    def __init__(self, documents):
+        self.documents = documents
+
+    def __call__(self, text):
+        return self.documents[text]
+
+
 class SimpleTextProcessor:
     def segments(self, passage):
         segments = []
@@ -68,10 +108,51 @@ class MappingKeywordExtractor:
         return set(self.mapping[response])
 
 
+class MappingCandidateAnalyzer:
+    def __init__(self, eligible_target):
+        self.eligible_target = eligible_target
+
+    def analyze(self, record, candidate):
+        eligible = candidate.target == self.eligible_target
+        return {
+            "eligible": eligible,
+            "reason": "eligible" if eligible else "test_rejection",
+            "type_match": 2 if eligible else 0,
+            "unit_quality": 3 if eligible else 0,
+            "specificity": 2 if eligible else 0,
+        }
+
+
+class MappingCandidateJudge:
+    def __init__(self, scores):
+        self.scores = scores
+
+    def judge(self, record, candidates):
+        return tuple(
+            JudgeDecision(
+                score=self.scores[candidate.target],
+                feedback=f"score {self.scores[candidate.target]}",
+                prompt=f"prompt for {candidate.target}",
+                response=f"Feedback: test [RESULT] {self.scores[candidate.target]}",
+                parse_status="ok",
+            )
+            for candidate in candidates
+        )
+
+
 class PromotionAttackTests(unittest.TestCase):
     def setUp(self):
         self.processor = SimpleTextProcessor()
         self.config = AttackConfig()
+
+    def test_builtin_selectors_share_callable_interface(self):
+        self.assertEqual(
+            set(TARGET_SELECTORS),
+            {"raw_max_vote", "nlp_answer_shape", "prometheus_judge"},
+        )
+        self.assertTrue(
+            all(callable(selector) for selector in TARGET_SELECTORS.values())
+        )
 
     def test_aggregation_matches_threshold_and_prompt_order(self):
         aggregation = aggregate_keyword_sets(
@@ -92,6 +173,92 @@ class PromotionAttackTests(unittest.TestCase):
         self.assertEqual(
             aggregation.hints, "temporary president, Prasad, Sinha"
         )
+
+    def test_certification_frontier_removes_bottom_and_finds_one_short(self):
+        frontier = one_injection_keyword_frontier(
+            [
+                {"kept", "one-short"},
+                {"kept"},
+                {"other"},
+                {"bottom-only"},
+            ],
+            alpha=0.5,
+            beta=3.0,
+            stopwords=set(),
+        )
+        self.assertEqual(frontier.surviving_answering_passages, 3)
+        self.assertEqual(frontier.threshold, 2.0)
+        self.assertEqual(frontier.already_kept_keywords, ("kept",))
+        self.assertEqual(
+            set(frontier.one_vote_short_keywords), {"one-short", "other"}
+        )
+        self.assertNotIn("bottom-only", frontier.keyword_votes)
+
+    def test_checked_certification_artifact_enriches_records(self):
+        record = QuestionRecord(
+            dataset="open_nq",
+            query_index=0,
+            question="Who was president?",
+            gold_aliases=("Prasad",),
+            passages=("passage one", "passage two"),
+            responses=("Sinha", "Prasad"),
+            clean_final_answer="Prasad",
+            clean_correct=True,
+        )
+        source_manifest = {
+            "dataset": "open_nq",
+            "upstream_commit": (
+                "9bc35b2fa5fa7d1088383b2789ec19a512d316b1"
+            ),
+            "parameters": {"alpha": 0.2, "beta": 3.0, "top_k": 10},
+        }
+        with tempfile.TemporaryDirectory() as temporary:
+            root = Path(temporary)
+            certification_run = root / "certification"
+            certification_run.mkdir()
+            summary = {
+                "checks_passed": True,
+                "final_answer_mismatches": [],
+                "dataset": "open_nq",
+                "upstream_commit": source_manifest["upstream_commit"],
+                "alpha": 0.2,
+                "beta": 3.0,
+                "corruption_size": 1,
+                "top_k": 10,
+                "sample_size": 1,
+                "source_run": "/other/root/source-run",
+            }
+            row = {
+                "query_index": 0,
+                "question": record.question,
+                "answers": list(record.gold_aliases),
+                "final_answer": record.clean_final_answer,
+                "clean_correct": True,
+                "certified": False,
+                "certification_outcome": "wrong_answer_found",
+                "certify_threshold": 1.2,
+                "poison_target_candidates": [
+                    {"keyword": "Sinha", "votes": 1, "source_passage_ranks": [1]}
+                ],
+            }
+            (certification_run / "summary.json").write_text(
+                json.dumps(summary)
+            )
+            (certification_run / "certified.json").write_text(
+                json.dumps([row])
+            )
+            enriched, provenance = enrich_records_with_certification(
+                records=[record],
+                certification_run=certification_run,
+                source_run=root / "source-run",
+                source_manifest=source_manifest,
+            )
+
+        self.assertFalse(enriched[0].certified)
+        self.assertEqual(
+            enriched[0].certification_one_vote_short_keywords, ("Sinha",)
+        )
+        self.assertTrue(provenance["checks_passed"])
 
     def test_keyword_extractor_matches_upstream_phrase_and_lemma_behavior(self):
         extractor = SpacyKeywordExtractor(FakeNlp())
@@ -224,6 +391,142 @@ class PromotionAttackTests(unittest.TestCase):
             config=self.config,
         )
         self.assertEqual(outcome.status, "no_candidate")
+
+    def test_nlp_and_prometheus_selectors_are_parallel_over_structural_pool(self):
+        responses = tuple(f"response {index}" for index in range(10))
+        mapping = {
+            response: ({"Sinha", "temporary"} if index == 0 else {"Prasad"})
+            for index, response in enumerate(responses)
+        }
+        record = QuestionRecord(
+            dataset="open_nq",
+            query_index=7,
+            question="Who was president?",
+            gold_aliases=("Prasad",),
+            passages=(
+                "Sinha was temporary president.",
+                *("Prasad was president." for _ in range(9)),
+            ),
+            responses=responses,
+            clean_final_answer="Prasad",
+            clean_correct=True,
+        )
+        extractor = MappingKeywordExtractor(mapping)
+
+        nlp_outcome = plan_attack(
+            record,
+            extractor,
+            self.processor,
+            stopwords=set(),
+            config=AttackConfig(target_selector="1+2"),
+            candidate_analyzer=MappingCandidateAnalyzer("Sinha"),
+        )
+        judge_outcome = plan_attack(
+            record,
+            extractor,
+            self.processor,
+            stopwords=set(),
+            config=AttackConfig(target_selector="3"),
+            candidate_judge=MappingCandidateJudge(
+                {"Sinha": 2, "temporary": 5}
+            ),
+        )
+
+        self.assertEqual(nlp_outcome.selected.target, "Sinha")
+        self.assertEqual(judge_outcome.selected.target, "temporary")
+        self.assertEqual(len(nlp_outcome.selector_assessments), 2)
+        self.assertEqual(len(judge_outcome.selector_assessments), 2)
+
+    def test_prometheus_prompt_and_result_parser_are_reproducible(self):
+        candidate_record = QuestionRecord(
+            dataset="open_nq",
+            query_index=4,
+            question="Who was president?",
+            gold_aliases=("Prasad",),
+            passages=("Sinha was temporary president.", "bottom"),
+            responses=("Sinha", "bottom"),
+            clean_final_answer="Prasad",
+            clean_correct=True,
+        )
+        mapping = {"Sinha": {"Sinha"}, "bottom": {"bottom"}}
+        outcome = plan_attack(
+            candidate_record,
+            MappingKeywordExtractor(mapping),
+            self.processor,
+            stopwords=set(),
+            config=AttackConfig(alpha=1.0),
+        )
+        prompt = build_prometheus_prompt(candidate_record, outcome.selected)
+        decision = parse_prometheus_response(
+            prompt, "Feedback: specific wrong person [RESULT] 5"
+        )
+        self.assertIn("Accepted gold answers: Prasad", prompt)
+        self.assertEqual(decision.score, 5)
+        self.assertEqual(decision.feedback, "specific wrong person")
+
+    def test_nlp_expected_answer_types_are_deterministic(self):
+        expected = SpacyCandidateQualityAnalyzer.expected_answer_type
+        self.assertEqual(expected("Who wrote the novel?"), "person")
+        self.assertEqual(expected("Where was the film made?"), "location")
+        self.assertEqual(expected("When did trade stop?"), "time")
+        self.assertEqual(expected("How many episodes aired?"), "number")
+        self.assertEqual(expected("What was the dollar amount?"), "money")
+        self.assertEqual(expected("What was the ship called?"), "open")
+
+    def test_nlp_shape_checks_reject_wrong_type_and_initials(self):
+        year = AnalyzerToken("2013", pos="NUM")
+        canadian = AnalyzerToken("Canadian", pos="PROPN")
+        g_token = AnalyzerToken("G", pos="PROPN")
+        period = AnalyzerToken(".", lemma=".", pos="PUNCT", punct=True)
+        fairmont_tokens = [
+            AnalyzerToken(word, pos="PROPN")
+            for word in ("Fairmont", "Chateau", "Whistler")
+        ]
+        documents = {
+            "2013": AnalyzerDoc([year], [AnalyzerSpan([year], "DATE")]),
+            "2013, Canadian": AnalyzerDoc(
+                [year, canadian],
+                [AnalyzerSpan([year], "DATE"), AnalyzerSpan([canadian], "NORP")],
+            ),
+            "G.": AnalyzerDoc([g_token, period]),
+            "G. S. W. (no last name given)": AnalyzerDoc([g_token, period]),
+            "Fairmont Chateau Whistler": AnalyzerDoc(
+                fairmont_tokens,
+                [AnalyzerSpan(fairmont_tokens, "ORG")],
+            ),
+        }
+        analyzer = SpacyCandidateQualityAnalyzer(AnalyzerNlp(documents))
+        record = QuestionRecord(
+            dataset="open_nq",
+            query_index=11,
+            question="where was the film made",
+            gold_aliases=("British Columbia",),
+            passages=("p", "bottom"),
+            responses=("r", "bottom"),
+            clean_correct=True,
+        )
+
+        year_result = analyzer.analyze(
+            record,
+            SimpleNamespace(target="2013", source_response="2013, Canadian"),
+        )
+        initials_result = analyzer.analyze(
+            record,
+            SimpleNamespace(
+                target="G.", source_response="G. S. W. (no last name given)"
+            ),
+        )
+        place_result = analyzer.analyze(
+            record,
+            SimpleNamespace(
+                target="Fairmont Chateau Whistler",
+                source_response="Fairmont Chateau Whistler",
+            ),
+        )
+
+        self.assertEqual(year_result["reason"], "answer_type_conflict")
+        self.assertEqual(initials_result["reason"], "meta_nonanswer")
+        self.assertTrue(place_result["eligible"])
 
     def test_short_upstream_record_displaces_its_actual_bottom_passage(self):
         responses = (

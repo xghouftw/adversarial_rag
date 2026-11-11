@@ -1,8 +1,13 @@
 # Adversarial RobustRAG project: running research summary
 
-Last updated: 2026-11-10 (America/New_York)
+Last updated: 2026-11-11 (America/New_York)
 
 This is the living project record. Update it whenever an experimental result, methodological decision, implementation detail, or important limitation changes. Keep observed results separate from hypotheses and planned work. Raw outputs remain under the shared Drive and the ignored local `outputs/` directory; this file should summarize them without replacing them.
+
+Latest detailed handoff: `EXPERIMENT_LOG_2026-11-10.md` records the implemented
+promotion selectors, full selector-3 run, five-question live pilot, structural
+target-versus-gold finding, deferred lexical-family idea, document-generation
+variants, and recommended next experiments.
 
 ## 1. Project goal
 
@@ -111,7 +116,9 @@ Aggregate clean-correct but uncertified populations at alpha 0.2 are:
 - Open NQ: `59 - 25 = 34`;
 - combined: 60 questions.
 
-The saved artifacts do not yet provide convenient per-question certification labels. Recovering them is necessary before systematic attack selection.
+The cache-only replay in `notebooks/certification_flags.ipynb` now provides
+per-question labels. Its Open NQ artifact passes all consistency checks; its
+RealtimeQA artifact does not and must not yet be used for selection.
 
 ## 4. What the current attack profiler does
 
@@ -230,7 +237,9 @@ RealtimeQA alpha 0.3 profiling remains missing.
 4. **`safe` is misleading.** It means only that the heuristic found no candidate; it is not a robustness guarantee.
 5. **The target-only response assumption is optimistic.** Real injected responses contribute votes to every extracted phrase, possibly including the gold answer.
 6. **Final-answer behavior is unmodeled.** A wrong phrase can survive without changing the final answer. Clean examples already demonstrate this.
-7. **Per-question certification is missing.** Candidate selection cannot yet reliably distinguish uncertified targets from certified negative controls.
+7. **RealtimeQA per-question certification remains unresolved.** Open NQ can
+   distinguish uncertified attack cases from certified negative controls, but
+   the saved RealtimeQA replay has seven final-answer mismatches.
 8. **NQ alpha 0.3 uses the wrong baseline final-answer run.** This must be fixed before using its saved clean-correct labels.
 9. **Attack-profile provenance is incomplete.** Profiles should save a manifest containing dataset, alpha, beta, budget, source run, source hashes, notebook/git revision, environment, and timestamps.
 10. **Automatic latest-run selection is fragile.** The exact source run should be an explicit input and recorded.
@@ -358,8 +367,8 @@ Failure at each stage has a different interpretation and must be recorded separa
 
 ### 9.1 Implemented baseline scaffold (2026-11-10)
 
-The first composable baseline is implemented in `promotion_attack.py`, with the
-frozen methodology in `PROMOTION_ATTACK.md` and a cache-only entry point in
+The composable selectors are implemented in `promotion_attack.py`, with the
+frozen methodology in `PROMOTION_ATTACK.md` and the selection entry point in
 `scripts/run_promotion_selection.py`.
 
 Implemented strategy names are:
@@ -368,6 +377,13 @@ Implemented strategy names are:
   exclude keys retained cleanly, require source-grounded constructibility, and
   predict promotion by duplicating the complete source-response keyword set
   after removing the question's actual bottom processed passage;
+- target selector `nlp_answer_shape` (`1+2`): independently filter and rerank
+  that structural pool using deterministic question-type, named-entity,
+  noun-phrase, typed-value, completeness, specificity, echo, and fragment
+  features;
+- target selector `prometheus_judge` (`3`): independently score every item in
+  the same structural pool using a frozen Prometheus-2-7B direct-assessment
+  rubric, retaining scores four and five;
 - document generator `delete_gold_segments`: split the processed
   `title\ntext` passage into a title segment and body sentences, remove segments
   containing a complete gold alias under lemmatized token matching, preserve
@@ -384,12 +400,38 @@ thresholds, retained phrases, target/gold effects, and stage-level outcomes.
 It saves explicit source-run and dataset provenance and refuses to overwrite
 per-question live results.
 
-Nine local unit tests currently pass. They use synthetic fixtures to check
+The cache-only certification replay in `notebooks/certification_flags.ipynb`
+now supplies a useful upstream-derived intermediate set. After the bottom
+passage is removed, it records every surviving keyword below the attacked
+certificate threshold but within one injected vote of it. The promotion
+pipeline recomputes this frontier locally before document generation, restricts
+structural targets to it, and can load a checked replay to attach per-question
+certificate labels and verify that the saved and recomputed frontiers agree.
+This is a prefilter and consistency check, not a semantic candidate validator:
+the raw frontier includes gold aliases, fragments, and unrealizable targets.
+
+For the saved Open NQ alpha-0.2 artifacts, the certification replay passed all
+checks and contained 581 raw frontier keyword rows across the 100 questions.
+All 235 document-realizable structural candidates in the saved promotion
+selection were members of that frontier, as required by the one-injection
+mechanism. The saved RealtimeQA certification replay reports seven final-answer
+mismatches and `checks_passed: false`; the promotion loader therefore refuses
+it until that replay is corrected.
+
+Selectors `1+2` and `3` are parallel comparisons; Prometheus never receives the
+NLP-filtered pool. Modes `1` and `1+2` are cache-only. Mode `3` uses GPU model
+calls during target selection, saves every prompt/response/score and the
+resolved model commit, and replays those decisions without reloading Prometheus
+during the later Mistral attack.
+
+Sixteen local unit tests currently pass. They use synthetic fixtures to check
 upstream extraction behavior, aggregation and released-code hint order,
 gold-segment deletion, full-response duplication, clean-retained exclusion,
 short records with fewer than ten usable passages, live stage accounting,
-exhaustive call reuse, and checkpoint completeness. These are implementation
-tests, not experimental evidence. A local cache-only validation against the
+exhaustive call reuse, checkpoint completeness, frontier reconstruction, and
+certification-artifact validation, parallel NLP/Prometheus selection, and the
+Prometheus prompt/result parser. These are implementation tests, not
+experimental evidence. A local cache-only validation against the
 saved 100-question Open NQ run completed with 40 selected questions, 19
 baseline-correct questions with no candidate, and 41 baseline-incorrect
 questions. That temporary validation made no model calls and is not a preserved
@@ -565,19 +607,24 @@ The best present conclusion is:
 | `reproduction/robustrag_setup.py` | Shared source verification, temporary runner preparation, and dataset verification |
 | `notebooks/robustrag_reproduction.ipynb` | Reproduction and initial RealtimeQA profiler |
 | `notebooks/nq_profiling.ipynb` | Cache-only NQ alpha 0.2/0.3 profiler; alpha 0.3 baseline-label bug remains |
-| `notebooks/promotion_attack.ipynb` | Standalone Colab driver for cache-only promotion selection and an explicitly gated GPU pilot |
+| `notebooks/promotion_attack.ipynb` | Standalone Colab driver for selectable `1`, `1+2`, or `3` target selection and an explicitly gated Mistral pilot |
 | `promotion_attack.py` | Shared promotion selection, document construction, simulation, live execution, and artifact logic |
-| `scripts/run_promotion_selection.py` | Cache-only command invoked by the promotion notebook; makes no LLM calls |
+| `promotion_selectors/base.py` | Typed selector-function interface, immutable dependency context, shared result types, and selector-neutral text helpers |
+| `promotion_selectors/raw.py` | Raw structural selector (`1`) |
+| `promotion_selectors/nlp.py` | Deterministic answer-shape analyzer and selector (`1+2`) |
+| `promotion_selectors/prometheus.py` | Prometheus selector (`3`), rubric, parser, GPU adapter, and saved-decision replay |
+| `scripts/run_promotion_selection.py` | Selection command; modes `1`/`1+2` are cache-only and mode `3` calls Prometheus |
 | `scripts/run_promotion_live.py` | GPU command for a bounded live pilot from a frozen selection artifact |
 | `PROMOTION_ATTACK.md` | Frozen baseline algorithm, metrics, data format, and run instructions |
 | `tests/test_promotion_attack.py` | Synthetic implementation tests; not experimental evidence |
 | `EXPERIMENT_LOG_2026-11-08.md` | Detailed reproduction and first profiler handoff |
 | `EXPERIMENT_LOG_2026-11-09.md` | Draft live-attack evaluation protocol; currently untracked and internally dated Nov. 10 |
+| `EXPERIMENT_LOG_2026-11-10.md` | Selector-3 and live promotion results, interpretation, document-generation options, and current handoff |
 | `outputs/connor/robustrag-reproduction/table1-*` | Pulled reproduction manifests, logs, caches, metrics, and responses |
 | `outputs/connor/robustrag-reproduction/attack-profile-realtimeqa-alpha0.2-*` | RealtimeQA alpha 0.2 profile |
 | `outputs/manya/robustrag-reproduction/attack-profile-open_nq-alpha0.2-*` | Open NQ alpha 0.2 profile |
 | `outputs/manya/robustrag-reproduction/attack-profile-open_nq-alpha0.3-*` | Open NQ alpha 0.3 structural profile with incorrect saved clean-answer labels |
-| `outputs/<owner>/promotion-attack/promotion-selection-*` | New cache-only frozen target rankings and generated document plans; extension artifacts, not reproduction results |
+| `outputs/<owner>/promotion-attack/promotion-selection-*` | Frozen target rankings, selector assessments, and generated document plans; extension artifacts, not reproduction results |
 | `outputs/<owner>/promotion-attack/promotion-live-*` | New actual injected-response and attacked-final-answer pilot results; extension artifacts, not reproduction results |
 
 Use `./pull.sh` to refresh ignored local outputs from the shared Drive. Never commit caches or raw model outputs unless the data-management policy is deliberately changed.

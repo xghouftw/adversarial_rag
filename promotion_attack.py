@@ -9,7 +9,7 @@ upstream keyword extraction and aggregation behavior.
 from __future__ import annotations
 
 from collections import Counter
-from dataclasses import asdict, dataclass
+from dataclasses import asdict, dataclass, replace
 from datetime import datetime, timezone
 from hashlib import sha256
 import json
@@ -18,6 +18,21 @@ import re
 import string
 import sys
 from typing import Any, Callable, Iterable, Mapping, Protocol, Sequence
+
+from promotion_selectors import (
+    BUILTIN_SELECTORS,
+    CandidateAssessment,
+    CandidateJudge,
+    CandidateQualityAnalyzer,
+    JudgeDecision,
+    SelectorContext,
+    SelectorResult,
+    SpacyCandidateQualityAnalyzer,
+    TargetSelector,
+    contains_token_sequence,
+    normalized_text,
+    normalized_tokens,
+)
 
 
 UPSTREAM_COMMIT = "9bc35b2fa5fa7d1088383b2789ec19a512d316b1"
@@ -40,6 +55,15 @@ SEMANTIC_ABSTENTION = re.compile(
     r"not enough information|no information|unclear|unavailable)\b",
     re.IGNORECASE,
 )
+SELECTOR_ALIASES = {
+    "1": "raw_max_vote",
+    "1+2": "nlp_answer_shape",
+    "3": "prometheus_judge",
+}
+
+
+def resolve_target_selector(name: str) -> str:
+    return SELECTOR_ALIASES.get(name, name)
 
 
 class KeywordExtractor(Protocol):
@@ -71,7 +95,7 @@ class AttackConfig:
             raise ValueError("top_k must be at least two")
         if self.attack_budget != 1:
             raise ValueError("the implemented baseline supports attack_budget=1")
-        if self.target_selector not in TARGET_SELECTORS:
+        if resolve_target_selector(self.target_selector) not in TARGET_SELECTORS:
             raise ValueError(f"unknown target selector: {self.target_selector}")
         if self.document_generator not in DOCUMENT_GENERATORS:
             raise ValueError(f"unknown document generator: {self.document_generator}")
@@ -88,6 +112,9 @@ class QuestionRecord:
     clean_final_answer: str | None = None
     clean_correct: bool | None = None
     certified: bool | None = None
+    certification_outcome: str | None = None
+    certification_threshold: float | None = None
+    certification_one_vote_short_keywords: tuple[str, ...] | None = None
 
     def validate(self, top_k: int) -> None:
         if len(self.passages) != len(self.responses):
@@ -102,6 +129,17 @@ class QuestionRecord:
                 f"query {self.query_index} has {len(self.passages)} passages, "
                 f"exceeding configured top_k={top_k}"
             )
+        if self.certified and self.clean_correct is not True:
+            raise ValueError(
+                f"query {self.query_index} cannot be certified unless its clean "
+                "answer is correct"
+            )
+        frontier = self.certification_one_vote_short_keywords
+        if frontier is not None and len(frontier) != len(set(frontier)):
+            raise ValueError(
+                f"query {self.query_index} has duplicate certification-frontier "
+                "keywords"
+            )
 
 
 @dataclass(frozen=True)
@@ -111,6 +149,17 @@ class KeywordAggregation:
     counts: dict[str, int]
     retained_keywords: tuple[str, ...]
     hints: str
+
+
+@dataclass(frozen=True)
+class CertificationFrontier:
+    """Upstream injection certificate's keyword state after displacement."""
+
+    surviving_answering_passages: int
+    threshold: float
+    keyword_votes: dict[str, int]
+    already_kept_keywords: tuple[str, ...]
+    one_vote_short_keywords: tuple[str, ...]
 
 
 @dataclass(frozen=True)
@@ -161,6 +210,10 @@ class SelectionOutcome:
     candidate_count: int
     selected: Candidate | None
     candidates: tuple[Candidate, ...]
+    certification_outcome: str | None = None
+    certification_threshold: float | None = None
+    certification_one_vote_short_keywords: tuple[str, ...] = ()
+    selector_assessments: tuple[CandidateAssessment, ...] = ()
 
 
 @dataclass(frozen=True)
@@ -271,26 +324,6 @@ class SpacyTextProcessor:
         return tuple(tokens)
 
 
-def normalized_tokens(text: str) -> tuple[str, ...]:
-    return tuple(re.findall(r"[a-z0-9]+", str(text).casefold()))
-
-
-def normalized_text(text: str) -> str:
-    return " ".join(normalized_tokens(text))
-
-
-def contains_token_sequence(
-    container_tokens: Sequence[str], phrase_tokens: Sequence[str]
-) -> bool:
-    if not phrase_tokens or len(phrase_tokens) > len(container_tokens):
-        return False
-    width = len(phrase_tokens)
-    return any(
-        tuple(container_tokens[start : start + width]) == tuple(phrase_tokens)
-        for start in range(len(container_tokens) - width + 1)
-    )
-
-
 def contains_lemma_sequence(
     text: str, phrase: str, text_processor: TextProcessor
 ) -> bool:
@@ -359,6 +392,71 @@ def aggregate_keyword_sets(
     )
 
 
+def one_injection_keyword_frontier(
+    keyword_sets: Sequence[set[str]],
+    alpha: float,
+    beta: float,
+    stopwords: set[str],
+    attack_budget: int = 1,
+) -> CertificationFrontier:
+    """Reproduce the injection certificate's pre-final-answer keyword sets.
+
+    The bottom ``attack_budget`` benign responses are displaced. The upstream
+    certificate then assumes that every injected passage answers and identifies
+    keywords that an attacker could move across the threshold with at most that
+    many additional votes. The promotion scaffold currently supports only one
+    injected passage, so these are the certificate's "one vote short" keywords.
+    """
+    if attack_budget != 1:
+        raise ValueError("the implemented frontier supports attack_budget=1")
+    if len(keyword_sets) <= attack_budget:
+        raise ValueError("keyword_sets must include a surviving benign response")
+
+    survivors = keyword_sets[:-attack_budget]
+    answering_count = sum(bool(keywords) for keywords in survivors)
+    threshold = min(beta, alpha * (answering_count + attack_budget))
+    votes = Counter(
+        keyword for keywords in survivors for keyword in keywords
+    )
+    filtered_votes = {
+        keyword: count
+        for keyword, count in votes.items()
+        if keyword
+        and keyword not in UPSTREAM_PUNCTUATION
+        and keyword not in stopwords
+    }
+
+    def ordered(keywords: Iterable[str]) -> tuple[str, ...]:
+        return tuple(
+            sorted(
+                keywords,
+                key=lambda keyword: (
+                    -filtered_votes[keyword],
+                    -len(keyword),
+                    keyword,
+                ),
+            )
+        )
+
+    already_kept = ordered(
+        keyword
+        for keyword, count in filtered_votes.items()
+        if count >= threshold
+    )
+    one_vote_short = ordered(
+        keyword
+        for keyword, count in filtered_votes.items()
+        if threshold - attack_budget <= count < threshold
+    )
+    return CertificationFrontier(
+        surviving_answering_passages=answering_count,
+        threshold=threshold,
+        keyword_votes=filtered_votes,
+        already_kept_keywords=already_kept,
+        one_vote_short_keywords=one_vote_short,
+    )
+
+
 def delete_gold_segments(
     source_passage: str,
     target: str,
@@ -401,24 +499,10 @@ def delete_gold_segments(
 DocumentGenerator = Callable[
     [str, str, Sequence[str], TextProcessor], GeneratedDocument
 ]
-TargetSelector = Callable[
-    [
-        QuestionRecord,
-        Sequence[set[str]],
-        KeywordAggregation,
-        AttackConfig,
-        DocumentGenerator,
-        TextProcessor,
-        set[str],
-    ],
-    tuple[Candidate, ...],
-]
-
-
 DOCUMENT_GENERATORS: dict[str, DocumentGenerator] = {
     "delete_gold_segments": delete_gold_segments,
 }
-TARGET_SELECTORS: dict[str, TargetSelector] = {}
+TARGET_SELECTORS: dict[str, TargetSelector] = dict(BUILTIN_SELECTORS)
 
 
 def register_document_generator(name: str, generator: DocumentGenerator) -> None:
@@ -427,9 +511,14 @@ def register_document_generator(name: str, generator: DocumentGenerator) -> None
     DOCUMENT_GENERATORS[name] = generator
 
 
-def register_target_selector(name: str, selector: TargetSelector) -> None:
+def register_target_selector(
+    name: str,
+    selector: TargetSelector,
+) -> None:
     if not name or name in TARGET_SELECTORS:
         raise ValueError(f"target selector already registered or invalid: {name!r}")
+    if not callable(selector):
+        raise TypeError("selector must be callable")
     TARGET_SELECTORS[name] = selector
 
 
@@ -442,10 +531,14 @@ def is_candidate_response(response: str) -> bool:
 
 
 def is_candidate_keyword(keyword: str, stopwords: set[str]) -> bool:
-    return bool(keyword) and keyword not in UPSTREAM_PUNCTUATION and keyword not in stopwords
+    return (
+        bool(keyword)
+        and keyword not in UPSTREAM_PUNCTUATION
+        and keyword not in stopwords
+    )
 
 
-def raw_max_vote_selector(
+def enumerate_structural_candidates(
     record: QuestionRecord,
     keyword_sets: Sequence[set[str]],
     clean: KeywordAggregation,
@@ -454,10 +547,17 @@ def raw_max_vote_selector(
     text_processor: TextProcessor,
     stopwords: set[str],
 ) -> tuple[Candidate, ...]:
-    """Select mechanical non-gold promotions using full-response duplication."""
+    """Enumerate realizable promotions after the one-vote-short frontier."""
     survivor_count = len(record.responses) - config.attack_budget
     surviving_keyword_sets = list(keyword_sets[:survivor_count])
     clean_retained = set(clean.retained_keywords)
+    certification_frontier = one_injection_keyword_frontier(
+        keyword_sets,
+        config.alpha,
+        config.beta,
+        stopwords,
+    )
+    one_vote_short = set(certification_frontier.one_vote_short_keywords)
     candidates = []
 
     for source_index in range(survivor_count):
@@ -476,6 +576,8 @@ def raw_max_vote_selector(
 
         for target in source_keywords:
             if not is_candidate_keyword(target, stopwords):
+                continue
+            if target not in one_vote_short:
                 continue
             if phrase_matches_gold(target, record.gold_aliases):
                 continue
@@ -539,6 +641,7 @@ def raw_max_vote_selector(
             candidates,
             key=lambda candidate: (
                 -candidate.simulated_attacked_margin,
+                -candidate.surviving_target_votes,
                 normalized_text(candidate.target),
                 candidate.source_rank,
                 candidate.target,
@@ -547,15 +650,14 @@ def raw_max_vote_selector(
     )
 
 
-TARGET_SELECTORS["raw_max_vote"] = raw_max_vote_selector
-
-
 def plan_attack(
     record: QuestionRecord,
     keyword_extractor: KeywordExtractor,
     text_processor: TextProcessor,
     stopwords: set[str],
     config: AttackConfig = AttackConfig(),
+    candidate_analyzer: CandidateQualityAnalyzer | None = None,
+    candidate_judge: CandidateJudge | None = None,
 ) -> SelectionOutcome:
     config.validate()
     record.validate(config.top_k)
@@ -584,9 +686,37 @@ def plan_attack(
             candidate_count=0,
             selected=None,
             candidates=(),
+            certification_outcome=record.certification_outcome,
+            certification_threshold=record.certification_threshold,
+            certification_one_vote_short_keywords=(
+                record.certification_one_vote_short_keywords or ()
+            ),
         )
 
-    candidates = TARGET_SELECTORS[config.target_selector](
+    certification_frontier = one_injection_keyword_frontier(
+        keyword_sets,
+        config.alpha,
+        config.beta,
+        stopwords,
+    )
+    if record.certification_threshold is not None and abs(
+        record.certification_threshold - certification_frontier.threshold
+    ) > 1e-12:
+        raise ValueError(
+            f"query {record.query_index} certification threshold does not match "
+            "the locally recomputed frontier"
+        )
+    recorded_frontier = record.certification_one_vote_short_keywords
+    if recorded_frontier is not None and set(recorded_frontier) != set(
+        certification_frontier.one_vote_short_keywords
+    ):
+        raise ValueError(
+            f"query {record.query_index} certification one-vote-short keywords "
+            "do not match the locally recomputed frontier"
+        )
+
+    selector_name = resolve_target_selector(config.target_selector)
+    structural_candidates = enumerate_structural_candidates(
         record,
         keyword_sets,
         clean,
@@ -595,6 +725,16 @@ def plan_attack(
         text_processor,
         stopwords,
     )
+    selector_context = SelectorContext(
+        candidate_analyzer=candidate_analyzer,
+        candidate_judge=candidate_judge,
+    )
+    selector_result = TARGET_SELECTORS[selector_name](
+        record,
+        structural_candidates,
+        selector_context,
+    )
+    candidates = selector_result.candidates
     return SelectionOutcome(
         dataset=record.dataset,
         query_index=record.query_index,
@@ -612,6 +752,12 @@ def plan_attack(
         candidate_count=len(candidates),
         selected=candidates[0] if candidates else None,
         candidates=candidates,
+        certification_outcome=record.certification_outcome,
+        certification_threshold=certification_frontier.threshold,
+        certification_one_vote_short_keywords=(
+            certification_frontier.one_vote_short_keywords
+        ),
+        selector_assessments=selector_result.assessments,
     )
 
 
@@ -621,9 +767,19 @@ def plan_attacks(
     text_processor: TextProcessor,
     stopwords: set[str],
     config: AttackConfig = AttackConfig(),
+    candidate_analyzer: CandidateQualityAnalyzer | None = None,
+    candidate_judge: CandidateJudge | None = None,
 ) -> list[SelectionOutcome]:
     return [
-        plan_attack(record, keyword_extractor, text_processor, stopwords, config)
+        plan_attack(
+            record,
+            keyword_extractor,
+            text_processor,
+            stopwords,
+            config,
+            candidate_analyzer,
+            candidate_judge,
+        )
         for record in records
     ]
 
@@ -894,12 +1050,124 @@ def load_upstream_question_records(
             responses=responses,
             clean_final_answer=final_answer,
             clean_correct=clean_correct,
-            # The saved artifacts do not currently expose per-question labels.
+            # Optional certification enrichment is loaded separately so this
+            # source-run loader remains usable without the replay artifact.
             certified=None,
         )
         record.validate(top_k)
         records.append(record)
     return records, manifest
+
+
+def enrich_records_with_certification(
+    records: Sequence[QuestionRecord],
+    certification_run: str | Path,
+    source_run: str | Path,
+    source_manifest: Mapping[str, Any],
+) -> tuple[list[QuestionRecord], dict[str, Any]]:
+    """Attach a validated cache-only certification replay to question records.
+
+    The replay is optional enrichment. Selection still recomputes the keyword
+    frontier locally and checks it against the saved artifact before using it.
+    Artifacts whose own reproduction checks failed are rejected.
+    """
+    certification_run = Path(certification_run)
+    summary_path = certification_run / "summary.json"
+    certified_path = certification_run / "certified.json"
+    if not summary_path.is_file() or not certified_path.is_file():
+        raise ValueError(
+            "certification run must contain summary.json and certified.json"
+        )
+
+    summary = json.loads(summary_path.read_text())
+    rows = json.loads(certified_path.read_text())
+    if summary.get("checks_passed") is not True:
+        raise ValueError("certification replay did not pass all consistency checks")
+    if summary.get("final_answer_mismatches"):
+        raise ValueError("certification replay has final-answer mismatches")
+
+    source_run = Path(source_run)
+    parameters = source_manifest["parameters"]
+    expected = {
+        "dataset": source_manifest["dataset"],
+        "upstream_commit": source_manifest["upstream_commit"],
+        "alpha": float(parameters["alpha"]),
+        "beta": float(parameters["beta"]),
+        "corruption_size": 1,
+        "top_k": int(parameters["top_k"]),
+        "sample_size": len(records),
+    }
+    for key, value in expected.items():
+        observed = summary.get(key)
+        if observed != value:
+            raise ValueError(
+                f"certification {key} mismatch: expected {value!r}, "
+                f"found {observed!r}"
+            )
+    recorded_source = Path(str(summary.get("source_run", "")))
+    if recorded_source.name != source_run.name:
+        raise ValueError(
+            "certification replay was produced from a different source run"
+        )
+    if not isinstance(rows, list) or len(rows) != len(records):
+        raise ValueError("certification row count does not match source records")
+
+    rows_by_index = {}
+    for row in rows:
+        query_index = int(row["query_index"])
+        if query_index in rows_by_index:
+            raise ValueError(
+                f"duplicate certification row for query {query_index}"
+            )
+        rows_by_index[query_index] = row
+
+    enriched = []
+    for record in records:
+        row = rows_by_index.get(record.query_index)
+        if row is None:
+            raise ValueError(
+                f"missing certification row for query {record.query_index}"
+            )
+        if row.get("question") != record.question:
+            raise ValueError(
+                f"query {record.query_index} question differs in certification run"
+            )
+        if tuple(row.get("answers", ())) != record.gold_aliases:
+            raise ValueError(
+                f"query {record.query_index} gold aliases differ in certification run"
+            )
+        if row.get("final_answer") != record.clean_final_answer:
+            raise ValueError(
+                f"query {record.query_index} clean answer differs in certification run"
+            )
+        if bool(row.get("clean_correct")) != record.clean_correct:
+            raise ValueError(
+                f"query {record.query_index} clean-correct label differs in "
+                "certification run"
+            )
+        keyword_rows = row.get("poison_target_candidates")
+        one_vote_short = (
+            None
+            if keyword_rows is None
+            else tuple(item["keyword"] for item in keyword_rows)
+        )
+        enriched_record = replace(
+            record,
+            certified=bool(row.get("certified")),
+            certification_outcome=row.get("certification_outcome"),
+            certification_threshold=row.get("certify_threshold"),
+            certification_one_vote_short_keywords=one_vote_short,
+        )
+        enriched_record.validate(int(parameters["top_k"]))
+        enriched.append(enriched_record)
+
+    provenance = {
+        "certification_run": str(certification_run),
+        "certification_summary_sha256": file_sha256(summary_path),
+        "certified_json_sha256": file_sha256(certified_path),
+        "checks_passed": True,
+    }
+    return enriched, provenance
 
 
 def file_sha256(path: str | Path) -> str:
@@ -930,7 +1198,7 @@ def save_selection_run(
     outcomes: Sequence[SelectionOutcome],
     extra_manifest: Mapping[str, Any] | None = None,
 ) -> Path:
-    """Write a new cache-only selection artifact without overwriting results."""
+    """Write a new frozen selection artifact without overwriting results."""
     timestamp = datetime.now(timezone.utc).strftime("%Y%m%dT%H%M%S%fZ")
     dataset = str(source_manifest["dataset"])
     output_dir = (
@@ -943,22 +1211,36 @@ def save_selection_run(
     manifest = {
         "status": "complete",
         "created_at_utc": datetime.now(timezone.utc).isoformat(),
-        "kind": "cache_only_promotion_selection",
+        "kind": (
+            "llm_judged_promotion_selection"
+            if resolve_target_selector(config.target_selector)
+            == "prometheus_judge"
+            else "cache_only_promotion_selection"
+        ),
         "source_run": str(source_run),
         "source_manifest_sha256": file_sha256(source_manifest_path),
         "source_dataset_sha256": source_manifest.get("dataset_sha256"),
         "upstream_commit": source_manifest.get("upstream_commit"),
         "config": _jsonable(config),
+        "resolved_target_selector": resolve_target_selector(
+            config.target_selector
+        ),
         "question_count": len(outcomes),
         "selected_count": sum(outcome.selected is not None for outcome in outcomes),
         "certification_note": (
-            "Per-question certification labels are unavailable in the current "
-            "saved artifacts; certified is null."
+            "Validated per-question certification enrichment is attached."
+            if any(outcome.certified is not None for outcome in outcomes)
+            else "No per-question certification enrichment was supplied."
         ),
     }
     if extra_manifest:
         manifest["environment"] = _jsonable(extra_manifest)
     status_counts = Counter(outcome.status for outcome in outcomes)
+    assessment_reasons = Counter(
+        assessment.reason
+        for outcome in outcomes
+        for assessment in outcome.selector_assessments
+    )
     summary = {
         "question_count": len(outcomes),
         "statuses": dict(status_counts),
@@ -966,6 +1248,21 @@ def save_selection_run(
             outcome.selected is not None for outcome in outcomes
         ),
         "candidate_rows": sum(outcome.candidate_count for outcome in outcomes),
+        "structural_candidate_rows": sum(
+            len(outcome.selector_assessments) or outcome.candidate_count
+            for outcome in outcomes
+        ),
+        "selector_rejected_rows": sum(
+            not assessment.eligible
+            for outcome in outcomes
+            for assessment in outcome.selector_assessments
+        ),
+        "selector_assessment_reasons": dict(assessment_reasons),
+        "certified_questions": sum(outcome.certified is True for outcome in outcomes),
+        "certification_frontier_rows": sum(
+            len(outcome.certification_one_vote_short_keywords)
+            for outcome in outcomes
+        ),
     }
     (output_dir / "manifest.json").write_text(json.dumps(manifest, indent=2))
     (output_dir / "summary.json").write_text(json.dumps(summary, indent=2))
@@ -1065,16 +1362,25 @@ def finalize_live_run(output_dir: str | Path) -> None:
 __all__ = [
     "AttackConfig",
     "Candidate",
+    "CandidateAssessment",
+    "CandidateJudge",
+    "CandidateQualityAnalyzer",
+    "CertificationFrontier",
     "DOCUMENT_GENERATORS",
     "GeneratedDocument",
     "KeywordAggregation",
+    "JudgeDecision",
     "LiveAttackResult",
     "LiveSweepResult",
     "QuestionRecord",
     "SelectionOutcome",
+    "SelectorContext",
+    "SelectorResult",
+    "SpacyCandidateQualityAnalyzer",
     "SpacyKeywordExtractor",
     "SpacyTextProcessor",
     "TARGET_SELECTORS",
+    "TargetSelector",
     "TextGeneration",
     "UPSTREAM_COMMIT",
     "UpstreamQueryAdapter",
@@ -1083,14 +1389,18 @@ __all__ = [
     "delete_gold_segments",
     "execute_live_attack",
     "execute_live_candidates",
+    "enrich_records_with_certification",
+    "enumerate_structural_candidates",
     "file_sha256",
     "finalize_live_run",
     "load_upstream_question_records",
+    "one_injection_keyword_frontier",
     "phrase_matches_gold",
     "plan_attack",
     "plan_attacks",
     "register_document_generator",
     "register_target_selector",
+    "resolve_target_selector",
     "save_selection_run",
     "save_live_sweep",
 ]
