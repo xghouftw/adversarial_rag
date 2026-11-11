@@ -1,0 +1,1096 @@
+"""Composable one-passage promotion attacks for the RobustRAG reproduction.
+
+The core algorithm is deliberately independent of Colab, Hugging Face, and the
+upstream repository.  Callers provide the pinned spaCy pipeline and model-query
+callbacks.  This keeps cache-only selection testable while preserving the exact
+upstream keyword extraction and aggregation behavior.
+"""
+
+from __future__ import annotations
+
+from collections import Counter
+from dataclasses import asdict, dataclass
+from datetime import datetime, timezone
+from hashlib import sha256
+import json
+from pathlib import Path
+import re
+import string
+import sys
+from typing import Any, Callable, Iterable, Mapping, Protocol, Sequence
+
+
+UPSTREAM_COMMIT = "9bc35b2fa5fa7d1088383b2789ec19a512d316b1"
+UPSTREAM_PUNCTUATION = string.punctuation
+IGNORED_POS = {
+    "VERB",
+    "INTJ",
+    "ADP",
+    "AUX",
+    "CCONJ",
+    "DET",
+    "PART",
+    "PRON",
+    "SCONJ",
+    "PUNCT",
+    "SPACE",
+}
+SEMANTIC_ABSTENTION = re.compile(
+    r"\b(unknown|cannot determine|can't determine|insufficient information|"
+    r"not enough information|no information|unclear|unavailable)\b",
+    re.IGNORECASE,
+)
+
+
+class KeywordExtractor(Protocol):
+    def extract(self, response: str) -> set[str]: ...
+
+
+class TextProcessor(Protocol):
+    def segments(self, passage: str) -> list[str]: ...
+
+    def lemma_tokens(self, text: str) -> tuple[str, ...]: ...
+
+
+@dataclass(frozen=True)
+class AttackConfig:
+    alpha: float = 0.2
+    beta: float = 3.0
+    top_k: int = 10
+    attack_budget: int = 1
+    target_selector: str = "raw_max_vote"
+    document_generator: str = "delete_gold_segments"
+    require_clean_correct: bool = True
+
+    def validate(self) -> None:
+        if not 0 <= self.alpha <= 1:
+            raise ValueError("alpha must be between zero and one")
+        if self.beta <= 0:
+            raise ValueError("beta must be positive")
+        if self.top_k < 2:
+            raise ValueError("top_k must be at least two")
+        if self.attack_budget != 1:
+            raise ValueError("the implemented baseline supports attack_budget=1")
+        if self.target_selector not in TARGET_SELECTORS:
+            raise ValueError(f"unknown target selector: {self.target_selector}")
+        if self.document_generator not in DOCUMENT_GENERATORS:
+            raise ValueError(f"unknown document generator: {self.document_generator}")
+
+
+@dataclass(frozen=True)
+class QuestionRecord:
+    dataset: str
+    query_index: int
+    question: str
+    gold_aliases: tuple[str, ...]
+    passages: tuple[str, ...]
+    responses: tuple[str, ...]
+    clean_final_answer: str | None = None
+    clean_correct: bool | None = None
+    certified: bool | None = None
+
+    def validate(self, top_k: int) -> None:
+        if len(self.passages) != len(self.responses):
+            raise ValueError(
+                f"query {self.query_index} has {len(self.passages)} passages but "
+                f"{len(self.responses)} responses"
+            )
+        if not self.passages:
+            raise ValueError(f"query {self.query_index} has no usable passages")
+        if len(self.passages) > top_k:
+            raise ValueError(
+                f"query {self.query_index} has {len(self.passages)} passages, "
+                f"exceeding configured top_k={top_k}"
+            )
+
+
+@dataclass(frozen=True)
+class KeywordAggregation:
+    answering_count: int
+    threshold: float
+    counts: dict[str, int]
+    retained_keywords: tuple[str, ...]
+    hints: str
+
+
+@dataclass(frozen=True)
+class GeneratedDocument:
+    strategy: str
+    status: str
+    text: str
+    kept_segments: tuple[str, ...]
+    removed_segments: tuple[str, ...]
+    target_present: bool
+
+
+@dataclass(frozen=True)
+class Candidate:
+    target: str
+    source_index: int
+    source_rank: int
+    source_passage: str
+    source_response: str
+    document: GeneratedDocument
+    clean_target_votes: int
+    surviving_target_votes: int
+    simulated_attacked_target_votes: int
+    clean_threshold: float
+    simulated_attacked_threshold: float
+    simulated_attacked_margin: float
+    maximum_simulated_gold_votes: int
+    simulated_target_gold_gap: int
+    newly_retained_keywords: tuple[str, ...]
+    simulated_retained_keywords: tuple[str, ...]
+
+
+@dataclass(frozen=True)
+class SelectionOutcome:
+    dataset: str
+    query_index: int
+    question: str
+    gold_aliases: tuple[str, ...]
+    clean_final_answer: str | None
+    clean_correct: bool | None
+    certified: bool | None
+    status: str
+    target_selector: str
+    document_generator: str
+    clean_answering_count: int
+    clean_threshold: float
+    clean_retained_keywords: tuple[str, ...]
+    candidate_count: int
+    selected: Candidate | None
+    candidates: tuple[Candidate, ...]
+
+
+@dataclass(frozen=True)
+class TextGeneration:
+    prompt: str
+    response: str
+
+
+@dataclass(frozen=True)
+class LiveAttackResult:
+    dataset: str
+    query_index: int
+    question: str
+    target: str
+    source_rank: int
+    document_generator: str
+    poison_document: str
+    injected_prompt: str
+    injected_response: str
+    injected_keywords: tuple[str, ...]
+    response_realized: bool
+    attacked_answering_count: int
+    attacked_threshold: float
+    attacked_target_votes: int
+    attacked_retained_keywords: tuple[str, ...]
+    promotion_realized: bool
+    attacked_gold_retained: bool
+    final_prompt: str
+    attacked_final_answer: str
+    automatic_target_present: bool
+    automatic_gold_present: bool
+    automatic_strict_targeted_success: bool
+
+
+@dataclass(frozen=True)
+class LiveSweepResult:
+    dataset: str
+    query_index: int
+    question: str
+    attempted_candidates: int
+    unique_poison_documents: int
+    success_at_1: bool
+    success_at_3: bool
+    success_at_all: bool
+    results: tuple[LiveAttackResult, ...]
+
+
+class SpacyKeywordExtractor:
+    """Mirror the pinned upstream short-answer keyword extractor."""
+
+    def __init__(self, nlp: Any):
+        self.nlp = nlp
+
+    def extract(self, response: str) -> set[str]:
+        if "I don't" in response:
+            return set()
+
+        document = self.nlp(response)
+        phrases = [response.strip()]
+        current = []
+        for token in document:
+            if token.pos_ in IGNORED_POS:
+                if current:
+                    phrases.append(
+                        "".join(
+                            item.lemma_ + item.whitespace_ for item in current
+                        ).strip()
+                    )
+                    phrases.extend(item.lemma_ for item in current)
+                    current = []
+            else:
+                current.append(token)
+
+        # The upstream implementation adds the final phrase even when empty.
+        phrases.append(
+            "".join(item.lemma_ + item.whitespace_ for item in current).strip()
+        )
+        phrases.extend(item.lemma_ for item in current)
+        return set(phrases)
+
+
+class SpacyTextProcessor:
+    """Sentence/line segmentation and lemma matching for passage generation."""
+
+    def __init__(self, nlp: Any):
+        self.nlp = nlp
+
+    def segments(self, passage: str) -> list[str]:
+        # Process each nonempty line separately so the upstream ``title\ntext``
+        # representation keeps the title as its own removable segment.
+        segments = []
+        for line in passage.splitlines():
+            line = line.strip()
+            if not line:
+                continue
+            document = self.nlp(line)
+            sentences = [sentence.text.strip() for sentence in document.sents]
+            segments.extend(sentence for sentence in sentences if sentence)
+        return segments
+
+    def lemma_tokens(self, text: str) -> tuple[str, ...]:
+        tokens = []
+        for token in self.nlp(text):
+            if token.is_space or token.is_punct:
+                continue
+            normalized = normalized_tokens(token.lemma_)
+            tokens.extend(normalized)
+        return tuple(tokens)
+
+
+def normalized_tokens(text: str) -> tuple[str, ...]:
+    return tuple(re.findall(r"[a-z0-9]+", str(text).casefold()))
+
+
+def normalized_text(text: str) -> str:
+    return " ".join(normalized_tokens(text))
+
+
+def contains_token_sequence(
+    container_tokens: Sequence[str], phrase_tokens: Sequence[str]
+) -> bool:
+    if not phrase_tokens or len(phrase_tokens) > len(container_tokens):
+        return False
+    width = len(phrase_tokens)
+    return any(
+        tuple(container_tokens[start : start + width]) == tuple(phrase_tokens)
+        for start in range(len(container_tokens) - width + 1)
+    )
+
+
+def contains_lemma_sequence(
+    text: str, phrase: str, text_processor: TextProcessor
+) -> bool:
+    return contains_token_sequence(
+        text_processor.lemma_tokens(text), text_processor.lemma_tokens(phrase)
+    )
+
+
+def contains_normalized_phrase(text: str, phrase: str) -> bool:
+    return contains_token_sequence(normalized_tokens(text), normalized_tokens(phrase))
+
+
+def contains_upstream_answer(text: str, answer: str) -> bool:
+    """Mirror upstream QA evaluation: stripped, lowercase substring matching."""
+    return str(answer).strip().lower() in str(text).strip().lower()
+
+
+def phrase_matches_gold(phrase: str, gold_aliases: Sequence[str]) -> bool:
+    """Preserve the heuristic used by the existing attack profilers."""
+    phrase_normalized = normalized_text(phrase)
+    if not phrase_normalized:
+        return False
+    for alias in gold_aliases:
+        alias_normalized = normalized_text(alias)
+        if not alias_normalized:
+            continue
+        if phrase_normalized == alias_normalized:
+            return True
+        if len(phrase_normalized) >= 3 and phrase_normalized in alias_normalized:
+            return True
+        if len(alias_normalized) >= 3 and alias_normalized in phrase_normalized:
+            return True
+    return False
+
+
+def aggregate_keyword_sets(
+    keyword_sets: Sequence[set[str]],
+    alpha: float,
+    beta: float,
+    stopwords: set[str],
+) -> KeywordAggregation:
+    answering = [keywords for keywords in keyword_sets if keywords]
+    threshold = min(beta, alpha * len(answering))
+    counts = Counter(
+        keyword for keywords in answering for keyword in keywords
+    )
+    retained = {
+        keyword
+        for keyword, count in counts.items()
+        if count >= threshold
+        and keyword not in UPSTREAM_PUNCTUATION
+        and keyword not in stopwords
+    }
+
+    # Match the released code, which sorts by decreasing phrase length and
+    # reverse lexicographic order before constructing the final hint string.
+    retained_in_prompt_order = tuple(
+        sorted(retained, key=lambda keyword: (len(keyword), keyword), reverse=True)
+    )
+    return KeywordAggregation(
+        answering_count=len(answering),
+        threshold=threshold,
+        counts=dict(counts),
+        retained_keywords=retained_in_prompt_order,
+        hints=", ".join(retained_in_prompt_order),
+    )
+
+
+def delete_gold_segments(
+    source_passage: str,
+    target: str,
+    gold_aliases: Sequence[str],
+    text_processor: TextProcessor,
+) -> GeneratedDocument:
+    kept = []
+    removed = []
+    for segment in text_processor.segments(source_passage):
+        contains_gold = any(
+            contains_lemma_sequence(segment, alias, text_processor)
+            for alias in gold_aliases
+            if normalized_text(alias)
+        )
+        if contains_gold:
+            removed.append(segment)
+        else:
+            kept.append(segment)
+
+    text = "\n".join(kept).strip()
+    target_present = bool(text) and contains_lemma_sequence(
+        text, target, text_processor
+    )
+    if not text:
+        status = "empty_after_gold_deletion"
+    elif not target_present:
+        status = "target_absent_after_gold_deletion"
+    else:
+        status = "ok"
+    return GeneratedDocument(
+        strategy="delete_gold_segments",
+        status=status,
+        text=text,
+        kept_segments=tuple(kept),
+        removed_segments=tuple(removed),
+        target_present=target_present,
+    )
+
+
+DocumentGenerator = Callable[
+    [str, str, Sequence[str], TextProcessor], GeneratedDocument
+]
+TargetSelector = Callable[
+    [
+        QuestionRecord,
+        Sequence[set[str]],
+        KeywordAggregation,
+        AttackConfig,
+        DocumentGenerator,
+        TextProcessor,
+        set[str],
+    ],
+    tuple[Candidate, ...],
+]
+
+
+DOCUMENT_GENERATORS: dict[str, DocumentGenerator] = {
+    "delete_gold_segments": delete_gold_segments,
+}
+TARGET_SELECTORS: dict[str, TargetSelector] = {}
+
+
+def register_document_generator(name: str, generator: DocumentGenerator) -> None:
+    if not name or name in DOCUMENT_GENERATORS:
+        raise ValueError(f"document generator already registered or invalid: {name!r}")
+    DOCUMENT_GENERATORS[name] = generator
+
+
+def register_target_selector(name: str, selector: TargetSelector) -> None:
+    if not name or name in TARGET_SELECTORS:
+        raise ValueError(f"target selector already registered or invalid: {name!r}")
+    TARGET_SELECTORS[name] = selector
+
+
+def is_candidate_response(response: str) -> bool:
+    return (
+        bool(response.strip())
+        and "I don't" not in response
+        and not SEMANTIC_ABSTENTION.search(response)
+    )
+
+
+def is_candidate_keyword(keyword: str, stopwords: set[str]) -> bool:
+    return bool(keyword) and keyword not in UPSTREAM_PUNCTUATION and keyword not in stopwords
+
+
+def raw_max_vote_selector(
+    record: QuestionRecord,
+    keyword_sets: Sequence[set[str]],
+    clean: KeywordAggregation,
+    config: AttackConfig,
+    document_generator: DocumentGenerator,
+    text_processor: TextProcessor,
+    stopwords: set[str],
+) -> tuple[Candidate, ...]:
+    """Select mechanical non-gold promotions using full-response duplication."""
+    survivor_count = len(record.responses) - config.attack_budget
+    surviving_keyword_sets = list(keyword_sets[:survivor_count])
+    clean_retained = set(clean.retained_keywords)
+    candidates = []
+
+    for source_index in range(survivor_count):
+        source_response = record.responses[source_index]
+        if not is_candidate_response(source_response):
+            continue
+
+        source_keywords = keyword_sets[source_index]
+        simulated_attacked = aggregate_keyword_sets(
+            surviving_keyword_sets + [source_keywords],
+            config.alpha,
+            config.beta,
+            stopwords,
+        )
+        simulated_retained = set(simulated_attacked.retained_keywords)
+
+        for target in source_keywords:
+            if not is_candidate_keyword(target, stopwords):
+                continue
+            if phrase_matches_gold(target, record.gold_aliases):
+                continue
+            if target in clean_retained:
+                continue
+
+            document = document_generator(
+                record.passages[source_index],
+                target,
+                record.gold_aliases,
+                text_processor,
+            )
+            if document.status != "ok":
+                continue
+            if target not in simulated_retained:
+                continue
+
+            gold_counts = [
+                count
+                for phrase, count in simulated_attacked.counts.items()
+                if phrase_matches_gold(phrase, record.gold_aliases)
+            ]
+            attacked_target_votes = simulated_attacked.counts.get(target, 0)
+            maximum_gold_votes = max(gold_counts, default=0)
+            newly_retained = tuple(
+                sorted(
+                    simulated_retained - clean_retained,
+                    key=lambda phrase: (len(phrase), phrase),
+                    reverse=True,
+                )
+            )
+            candidates.append(
+                Candidate(
+                    target=target,
+                    source_index=source_index,
+                    source_rank=source_index + 1,
+                    source_passage=record.passages[source_index],
+                    source_response=source_response,
+                    document=document,
+                    clean_target_votes=clean.counts.get(target, 0),
+                    surviving_target_votes=sum(
+                        target in keywords for keywords in surviving_keyword_sets
+                    ),
+                    simulated_attacked_target_votes=attacked_target_votes,
+                    clean_threshold=clean.threshold,
+                    simulated_attacked_threshold=simulated_attacked.threshold,
+                    simulated_attacked_margin=(
+                        attacked_target_votes - simulated_attacked.threshold
+                    ),
+                    maximum_simulated_gold_votes=maximum_gold_votes,
+                    simulated_target_gold_gap=(
+                        attacked_target_votes - maximum_gold_votes
+                    ),
+                    newly_retained_keywords=newly_retained,
+                    simulated_retained_keywords=simulated_attacked.retained_keywords,
+                )
+            )
+
+    return tuple(
+        sorted(
+            candidates,
+            key=lambda candidate: (
+                -candidate.simulated_attacked_margin,
+                normalized_text(candidate.target),
+                candidate.source_rank,
+                candidate.target,
+            ),
+        )
+    )
+
+
+TARGET_SELECTORS["raw_max_vote"] = raw_max_vote_selector
+
+
+def plan_attack(
+    record: QuestionRecord,
+    keyword_extractor: KeywordExtractor,
+    text_processor: TextProcessor,
+    stopwords: set[str],
+    config: AttackConfig = AttackConfig(),
+) -> SelectionOutcome:
+    config.validate()
+    record.validate(config.top_k)
+    keyword_sets = [
+        keyword_extractor.extract(response) for response in record.responses
+    ]
+    clean = aggregate_keyword_sets(
+        keyword_sets, config.alpha, config.beta, stopwords
+    )
+
+    if config.require_clean_correct and record.clean_correct is not True:
+        return SelectionOutcome(
+            dataset=record.dataset,
+            query_index=record.query_index,
+            question=record.question,
+            gold_aliases=record.gold_aliases,
+            clean_final_answer=record.clean_final_answer,
+            clean_correct=record.clean_correct,
+            certified=record.certified,
+            status="baseline_not_verified_correct",
+            target_selector=config.target_selector,
+            document_generator=config.document_generator,
+            clean_answering_count=clean.answering_count,
+            clean_threshold=clean.threshold,
+            clean_retained_keywords=clean.retained_keywords,
+            candidate_count=0,
+            selected=None,
+            candidates=(),
+        )
+
+    candidates = TARGET_SELECTORS[config.target_selector](
+        record,
+        keyword_sets,
+        clean,
+        config,
+        DOCUMENT_GENERATORS[config.document_generator],
+        text_processor,
+        stopwords,
+    )
+    return SelectionOutcome(
+        dataset=record.dataset,
+        query_index=record.query_index,
+        question=record.question,
+        gold_aliases=record.gold_aliases,
+        clean_final_answer=record.clean_final_answer,
+        clean_correct=record.clean_correct,
+        certified=record.certified,
+        status="selected" if candidates else "no_candidate",
+        target_selector=config.target_selector,
+        document_generator=config.document_generator,
+        clean_answering_count=clean.answering_count,
+        clean_threshold=clean.threshold,
+        clean_retained_keywords=clean.retained_keywords,
+        candidate_count=len(candidates),
+        selected=candidates[0] if candidates else None,
+        candidates=candidates,
+    )
+
+
+def plan_attacks(
+    records: Iterable[QuestionRecord],
+    keyword_extractor: KeywordExtractor,
+    text_processor: TextProcessor,
+    stopwords: set[str],
+    config: AttackConfig = AttackConfig(),
+) -> list[SelectionOutcome]:
+    return [
+        plan_attack(record, keyword_extractor, text_processor, stopwords, config)
+        for record in records
+    ]
+
+
+def execute_live_attack(
+    record: QuestionRecord,
+    selection: SelectionOutcome,
+    keyword_extractor: KeywordExtractor,
+    stopwords: set[str],
+    config: AttackConfig,
+    query_isolated: Callable[[str, str], TextGeneration],
+    query_final: Callable[[str, str], TextGeneration],
+    candidate: Candidate | None = None,
+) -> LiveAttackResult:
+    config.validate()
+    record.validate(config.top_k)
+    if selection.selected is None:
+        raise ValueError("cannot execute an attack without a selected candidate")
+    if selection.query_index != record.query_index or selection.dataset != record.dataset:
+        raise ValueError("selection and question record do not match")
+    if selection.target_selector != config.target_selector:
+        raise ValueError("selection and live-run target selectors do not match")
+    if selection.document_generator != config.document_generator:
+        raise ValueError("selection and live-run document generators do not match")
+
+    keyword_sets = [
+        keyword_extractor.extract(response) for response in record.responses
+    ]
+    survivor_count = len(record.responses) - config.attack_budget
+    candidate = selection.selected if candidate is None else candidate
+    if candidate not in selection.candidates:
+        raise ValueError("candidate is not part of the frozen selection outcome")
+    injected = query_isolated(record.question, candidate.document.text)
+    injected_keywords = keyword_extractor.extract(injected.response)
+    attacked = aggregate_keyword_sets(
+        list(keyword_sets[:survivor_count]) + [injected_keywords],
+        config.alpha,
+        config.beta,
+        stopwords,
+    )
+    final = query_final(record.question, attacked.hints)
+
+    response_realized = candidate.target in injected_keywords
+    promotion_realized = (
+        candidate.target not in set(selection.clean_retained_keywords)
+        and candidate.target in set(attacked.retained_keywords)
+    )
+    attacked_gold_retained = any(
+        phrase_matches_gold(keyword, record.gold_aliases)
+        for keyword in attacked.retained_keywords
+    )
+    target_present = contains_normalized_phrase(
+        final.response, candidate.target
+    )
+    gold_present = any(
+        contains_upstream_answer(final.response, alias)
+        for alias in record.gold_aliases
+        if str(alias).strip()
+    )
+
+    return LiveAttackResult(
+        dataset=record.dataset,
+        query_index=record.query_index,
+        question=record.question,
+        target=candidate.target,
+        source_rank=candidate.source_rank,
+        document_generator=config.document_generator,
+        poison_document=candidate.document.text,
+        injected_prompt=injected.prompt,
+        injected_response=injected.response,
+        injected_keywords=tuple(
+            sorted(injected_keywords, key=lambda phrase: (len(phrase), phrase), reverse=True)
+        ),
+        response_realized=response_realized,
+        attacked_answering_count=attacked.answering_count,
+        attacked_threshold=attacked.threshold,
+        attacked_target_votes=attacked.counts.get(candidate.target, 0),
+        attacked_retained_keywords=attacked.retained_keywords,
+        promotion_realized=promotion_realized,
+        attacked_gold_retained=attacked_gold_retained,
+        final_prompt=final.prompt,
+        attacked_final_answer=final.response,
+        automatic_target_present=target_present,
+        automatic_gold_present=gold_present,
+        automatic_strict_targeted_success=target_present and not gold_present,
+    )
+
+
+def execute_live_candidates(
+    record: QuestionRecord,
+    selection: SelectionOutcome,
+    keyword_extractor: KeywordExtractor,
+    stopwords: set[str],
+    config: AttackConfig,
+    query_isolated: Callable[[str, str], TextGeneration],
+    query_final: Callable[[str, str], TextGeneration],
+    max_candidates: int | None = None,
+) -> LiveSweepResult:
+    """Execute a frozen candidate prefix while reusing identical model calls.
+
+    ``max_candidates=1`` is the one-shot baseline. ``None`` evaluates every
+    pre-enumerated candidate and supports success@all. Candidate order is never
+    changed in response to live outputs.
+    """
+    if selection.selected is None:
+        raise ValueError("cannot execute a sweep without candidates")
+    if max_candidates is not None and max_candidates < 1:
+        raise ValueError("max_candidates must be positive or None")
+    candidates = selection.candidates
+    if max_candidates is not None:
+        candidates = candidates[:max_candidates]
+
+    isolated_cache: dict[tuple[str, str], TextGeneration] = {}
+    final_cache: dict[tuple[str, str], TextGeneration] = {}
+
+    def cached_isolated(question: str, passage: str) -> TextGeneration:
+        key = (question, passage)
+        if key not in isolated_cache:
+            isolated_cache[key] = query_isolated(question, passage)
+        return isolated_cache[key]
+
+    def cached_final(question: str, hints: str) -> TextGeneration:
+        key = (question, hints)
+        if key not in final_cache:
+            final_cache[key] = query_final(question, hints)
+        return final_cache[key]
+
+    results = tuple(
+        execute_live_attack(
+            record=record,
+            selection=selection,
+            keyword_extractor=keyword_extractor,
+            stopwords=stopwords,
+            config=config,
+            query_isolated=cached_isolated,
+            query_final=cached_final,
+            candidate=candidate,
+        )
+        for candidate in candidates
+    )
+
+    def succeeded(prefix_size: int) -> bool:
+        return any(
+            result.automatic_strict_targeted_success
+            for result in results[:prefix_size]
+        )
+
+    return LiveSweepResult(
+        dataset=record.dataset,
+        query_index=record.query_index,
+        question=record.question,
+        attempted_candidates=len(results),
+        unique_poison_documents=len(isolated_cache),
+        success_at_1=succeeded(1),
+        success_at_3=succeeded(3),
+        success_at_all=succeeded(len(results)),
+        results=results,
+    )
+
+
+class UpstreamQueryAdapter:
+    """Build the pinned upstream isolated and final prompts around an LLM."""
+
+    def __init__(self, llm: Any, record: QuestionRecord):
+        self.llm = llm
+        self.record = record
+
+    def query_isolated(self, question: str, passage: str) -> TextGeneration:
+        item = {
+            "question": question,
+            "answer": list(self.record.gold_aliases),
+            "topk_content": [passage],
+        }
+        prompt = self.llm.wrap_prompt(
+            item, as_multi_choice=False, seperate=True
+        )[0]
+        return TextGeneration(prompt=prompt, response=self.llm.query(prompt))
+
+    def query_final(self, question: str, hints: str) -> TextGeneration:
+        item = {
+            "question": question,
+            "answer": list(self.record.gold_aliases),
+            "topk_content": list(self.record.passages),
+        }
+        prompt = self.llm.wrap_prompt(
+            item, as_multi_choice=False, hints=hints
+        )
+        return TextGeneration(prompt=prompt, response=self.llm.query(prompt))
+
+
+def load_upstream_question_records(
+    source_run: str | Path,
+    dataset_path: str | Path,
+    runner_dir: str | Path,
+) -> tuple[list[QuestionRecord], dict[str, Any]]:
+    """Load the exact processed passages and cached isolated responses.
+
+    The pinned upstream runtime and its dependencies must already exist.  The
+    function imports joblib lazily so the pure core remains locally testable.
+    """
+    import joblib  # type: ignore
+
+    source_run = Path(source_run)
+    dataset_path = Path(dataset_path)
+    runner_dir = Path(runner_dir)
+    manifest = json.loads((source_run / "manifest.json").read_text())
+    if manifest.get("upstream_commit") != UPSTREAM_COMMIT:
+        raise ValueError("source run does not use the pinned upstream commit")
+    if manifest.get("status") != "complete":
+        raise ValueError("source run is not complete")
+    expected_dataset_hash = manifest.get("dataset_sha256")
+    if expected_dataset_hash and file_sha256(dataset_path) != expected_dataset_hash:
+        raise ValueError("dataset checksum does not match the source-run manifest")
+    dataset = manifest["dataset"]
+    top_k = int(manifest["parameters"]["top_k"])
+    if top_k != 10:
+        raise ValueError(f"expected top_k=10, found {top_k}")
+    if runner_dir.as_posix() not in sys.path:
+        sys.path.insert(0, runner_dir.as_posix())
+
+    from src.dataset_utils import load_data  # type: ignore
+    from src.models import BaseModel  # type: ignore
+    from src.prompt_template import MISTRAL_TMPL  # type: ignore
+
+    cache_path = source_run / "cache" / f"mistral7b-{dataset}-10.z"
+    cache = joblib.load(cache_path)
+    data_tool = load_data(dataset, top_k, data_path=str(dataset_path))
+    prompt_builder = BaseModel()
+    prompt_builder.prompt_template = MISTRAL_TMPL
+
+    result_files = sorted((source_run / "result").glob("*keyword*.json"))
+    if len(result_files) != 1:
+        raise ValueError(
+            f"expected one keyword result file, found {len(result_files)}"
+        )
+    result_payload = json.loads(result_files[0].read_text())
+    clean_answers = {
+        row["query"]: row["defended"]
+        for row in result_payload
+        if "defended" in row
+    }
+
+    records = []
+    sample_limit = int(manifest["sample_limit"])
+    for query_index, raw_item in enumerate(data_tool.data[:sample_limit]):
+        item = data_tool.process_data_item(raw_item)
+        prompts = prompt_builder.wrap_prompt(
+            item, as_multi_choice=False, seperate=True
+        )
+        missing = [prompt for prompt in prompts if prompt not in cache]
+        if missing:
+            raise ValueError(
+                f"query {query_index} is missing {len(missing)} cached responses"
+            )
+        responses = tuple(cache[prompt] for prompt in prompts)
+        final_answer = clean_answers.get(item["question"])
+        clean_correct = (
+            None
+            if final_answer is None
+            else bool(data_tool.eval_response(final_answer, item))
+        )
+        record = QuestionRecord(
+            dataset=dataset,
+            query_index=query_index,
+            question=item["question"],
+            gold_aliases=tuple(item["answer"]),
+            passages=tuple(item["topk_content"]),
+            responses=responses,
+            clean_final_answer=final_answer,
+            clean_correct=clean_correct,
+            # The saved artifacts do not currently expose per-question labels.
+            certified=None,
+        )
+        record.validate(top_k)
+        records.append(record)
+    return records, manifest
+
+
+def file_sha256(path: str | Path) -> str:
+    digest = sha256()
+    with Path(path).open("rb") as source:
+        for chunk in iter(lambda: source.read(1024 * 1024), b""):
+            digest.update(chunk)
+    return digest.hexdigest()
+
+
+def _jsonable(value: Any) -> Any:
+    if hasattr(value, "__dataclass_fields__"):
+        return _jsonable(asdict(value))
+    if isinstance(value, Mapping):
+        return {str(key): _jsonable(item) for key, item in value.items()}
+    if isinstance(value, (list, tuple)):
+        return [_jsonable(item) for item in value]
+    if isinstance(value, set):
+        return sorted(_jsonable(item) for item in value)
+    return value
+
+
+def save_selection_run(
+    output_root: str | Path,
+    source_run: str | Path,
+    source_manifest: Mapping[str, Any],
+    config: AttackConfig,
+    outcomes: Sequence[SelectionOutcome],
+    extra_manifest: Mapping[str, Any] | None = None,
+) -> Path:
+    """Write a new cache-only selection artifact without overwriting results."""
+    timestamp = datetime.now(timezone.utc).strftime("%Y%m%dT%H%M%S%fZ")
+    dataset = str(source_manifest["dataset"])
+    output_dir = (
+        Path(output_root)
+        / f"promotion-selection-{dataset}-{config.target_selector}-"
+        f"{config.document_generator}-{timestamp}"
+    )
+    output_dir.mkdir(parents=True, exist_ok=False)
+    source_manifest_path = Path(source_run) / "manifest.json"
+    manifest = {
+        "status": "complete",
+        "created_at_utc": datetime.now(timezone.utc).isoformat(),
+        "kind": "cache_only_promotion_selection",
+        "source_run": str(source_run),
+        "source_manifest_sha256": file_sha256(source_manifest_path),
+        "source_dataset_sha256": source_manifest.get("dataset_sha256"),
+        "upstream_commit": source_manifest.get("upstream_commit"),
+        "config": _jsonable(config),
+        "question_count": len(outcomes),
+        "selected_count": sum(outcome.selected is not None for outcome in outcomes),
+        "certification_note": (
+            "Per-question certification labels are unavailable in the current "
+            "saved artifacts; certified is null."
+        ),
+    }
+    if extra_manifest:
+        manifest["environment"] = _jsonable(extra_manifest)
+    status_counts = Counter(outcome.status for outcome in outcomes)
+    summary = {
+        "question_count": len(outcomes),
+        "statuses": dict(status_counts),
+        "selected_questions": sum(
+            outcome.selected is not None for outcome in outcomes
+        ),
+        "candidate_rows": sum(outcome.candidate_count for outcome in outcomes),
+    }
+    (output_dir / "manifest.json").write_text(json.dumps(manifest, indent=2))
+    (output_dir / "summary.json").write_text(json.dumps(summary, indent=2))
+    (output_dir / "selections.json").write_text(
+        json.dumps(_jsonable(outcomes), indent=2, ensure_ascii=False)
+    )
+    return output_dir
+
+
+def save_live_sweep(output_dir: str | Path, sweep: LiveSweepResult) -> Path:
+    """Checkpoint one question's live sweep and refuse to overwrite it."""
+    output_dir = Path(output_dir)
+    output_dir.mkdir(parents=True, exist_ok=True)
+    output_path = output_dir / f"query-{sweep.query_index:03d}.json"
+    with output_path.open("x") as destination:
+        json.dump(_jsonable(sweep), destination, indent=2, ensure_ascii=False)
+    return output_path
+
+
+def create_live_run(
+    output_root: str | Path,
+    source_run: str | Path,
+    source_manifest: Mapping[str, Any],
+    config: AttackConfig,
+    query_indices: Sequence[int],
+    max_candidates: int | None,
+    extra_manifest: Mapping[str, Any] | None = None,
+) -> Path:
+    """Create a provenance-complete live run directory before model calls."""
+    config.validate()
+    if source_manifest.get("upstream_commit") != UPSTREAM_COMMIT:
+        raise ValueError("source run does not use the pinned upstream commit")
+    if len(set(query_indices)) != len(query_indices):
+        raise ValueError("query_indices must be unique")
+    if max_candidates is not None and max_candidates < 1:
+        raise ValueError("max_candidates must be positive or None")
+    timestamp = datetime.now(timezone.utc).strftime("%Y%m%dT%H%M%S%fZ")
+    dataset = str(source_manifest["dataset"])
+    output_dir = (
+        Path(output_root)
+        / f"promotion-live-{dataset}-{config.target_selector}-"
+        f"{config.document_generator}-{timestamp}"
+    )
+    output_dir.mkdir(parents=True, exist_ok=False)
+    (output_dir / "results").mkdir()
+    manifest = {
+        "status": "running",
+        "started_at_utc": datetime.now(timezone.utc).isoformat(),
+        "kind": "live_one_passage_promotion_attack",
+        "source_run": str(source_run),
+        "source_manifest_sha256": file_sha256(
+            Path(source_run) / "manifest.json"
+        ),
+        "source_dataset_sha256": source_manifest.get("dataset_sha256"),
+        "upstream_commit": source_manifest.get("upstream_commit"),
+        "model": source_manifest.get("parameters", {}).get("model"),
+        "greedy_decoding": source_manifest.get("parameters", {}).get(
+            "greedy_decoding"
+        ),
+        "config": _jsonable(config),
+        "query_indices": list(query_indices),
+        "max_candidates_per_question": max_candidates,
+        "search_mode": "exhaustive" if max_candidates is None else f"top_{max_candidates}",
+    }
+    if extra_manifest:
+        manifest["environment"] = _jsonable(extra_manifest)
+    (output_dir / "manifest.json").write_text(json.dumps(manifest, indent=2))
+    return output_dir
+
+
+def finalize_live_run(output_dir: str | Path) -> None:
+    """Mark a live run complete after all requested result checkpoints exist."""
+    output_dir = Path(output_dir)
+    manifest_path = output_dir / "manifest.json"
+    manifest = json.loads(manifest_path.read_text())
+    expected = {int(index) for index in manifest["query_indices"]}
+    observed = {
+        int(path.stem.removeprefix("query-"))
+        for path in (output_dir / "results").glob("query-*.json")
+    }
+    missing = sorted(expected - observed)
+    if missing:
+        raise ValueError(f"cannot finalize live run; missing query results: {missing}")
+    unexpected = sorted(observed - expected)
+    if unexpected:
+        raise ValueError(
+            f"cannot finalize live run; unexpected query results: {unexpected}"
+        )
+    manifest["status"] = "complete"
+    manifest["completed_at_utc"] = datetime.now(timezone.utc).isoformat()
+    manifest["result_count"] = len(observed)
+    temporary_path = output_dir / ".manifest.json.tmp"
+    temporary_path.write_text(json.dumps(manifest, indent=2))
+    temporary_path.replace(manifest_path)
+
+
+__all__ = [
+    "AttackConfig",
+    "Candidate",
+    "DOCUMENT_GENERATORS",
+    "GeneratedDocument",
+    "KeywordAggregation",
+    "LiveAttackResult",
+    "LiveSweepResult",
+    "QuestionRecord",
+    "SelectionOutcome",
+    "SpacyKeywordExtractor",
+    "SpacyTextProcessor",
+    "TARGET_SELECTORS",
+    "TextGeneration",
+    "UPSTREAM_COMMIT",
+    "UpstreamQueryAdapter",
+    "aggregate_keyword_sets",
+    "create_live_run",
+    "delete_gold_segments",
+    "execute_live_attack",
+    "execute_live_candidates",
+    "file_sha256",
+    "finalize_live_run",
+    "load_upstream_question_records",
+    "phrase_matches_gold",
+    "plan_attack",
+    "plan_attacks",
+    "register_document_generator",
+    "register_target_selector",
+    "save_selection_run",
+    "save_live_sweep",
+]
