@@ -14,7 +14,6 @@ from promotion_attack import (
     TextGeneration,
     aggregate_keyword_sets,
     create_live_run,
-    delete_gold_segments,
     enrich_records_with_certification,
     execute_live_attack,
     execute_live_candidates,
@@ -23,6 +22,7 @@ from promotion_attack import (
     plan_attack,
     save_live_sweep,
 )
+from promotion_generators import delete_gold_segments, gold_alias_substitution
 from promotion_selectors.base import JudgeDecision
 from promotion_selectors.nlp import SpacyCandidateQualityAnalyzer
 from promotion_selectors.prometheus import (
@@ -295,6 +295,75 @@ class PromotionAttackTests(unittest.TestCase):
             generated.removed_segments,
             ("Rajendra Prasad was elected president.",),
         )
+
+    def test_gold_alias_substitution_replaces_all_distinct_gold_spans(self):
+        generated = gold_alias_substitution(
+            "What the World Needs Now - song and lyrics by Missi Hale\n"
+            "Steve Mazzaro and Shaley Scott are listed.",
+            target="Shaley Scott",
+            gold_aliases=["Missi Hale", "Steve Mazzaro"],
+            text_processor=self.processor,
+        )
+        self.assertEqual(generated.status, "ok")
+        self.assertEqual(
+            generated.text,
+            "What the World Needs Now - song and lyrics by Shaley Scott\n"
+            "Shaley Scott and Shaley Scott are listed.",
+        )
+        self.assertEqual(
+            generated.removed_segments,
+            ("Missi Hale", "Steve Mazzaro"),
+        )
+        self.assertTrue(generated.target_present)
+
+    def test_gold_alias_substitution_prefers_longest_overlapping_alias(self):
+        generated = gold_alias_substitution(
+            "Assembly\nDr. Rajendra Prasad was elected president. "
+            "Sachidananda Sinha was temporary president.",
+            target="Sachidananda Sinha",
+            gold_aliases=["Rajendra Prasad", "Dr. Rajendra Prasad"],
+            text_processor=self.processor,
+        )
+        self.assertEqual(generated.status, "ok")
+        self.assertEqual(
+            generated.text,
+            "Assembly\nSachidananda Sinha was elected president. "
+            "Sachidananda Sinha was temporary president.",
+        )
+        self.assertEqual(generated.removed_segments, ("Dr. Rajendra Prasad",))
+
+    def test_gold_alias_substitution_preserves_currency_punctuation(self):
+        generated = gold_alias_substitution(
+            "Federal jurisdiction starts at $75,000. "
+            "CAFA has a separate $5 million threshold.",
+            target="$5 million",
+            gold_aliases=["$75,000", "75,000 dollars"],
+            text_processor=self.processor,
+        )
+        self.assertEqual(generated.status, "ok")
+        self.assertEqual(
+            generated.text,
+            "Federal jurisdiction starts at $5 million. "
+            "CAFA has a separate $5 million threshold.",
+        )
+        self.assertNotIn("$$", generated.text)
+
+    def test_gold_alias_substitution_requires_target_and_gold_in_source(self):
+        target_absent = gold_alias_substitution(
+            "Rajendra Prasad was elected president.",
+            target="Sachidananda Sinha",
+            gold_aliases=["Rajendra Prasad"],
+            text_processor=self.processor,
+        )
+        self.assertEqual(target_absent.status, "target_absent_from_source")
+
+        gold_absent = gold_alias_substitution(
+            "Sachidananda Sinha was temporary president.",
+            target="Sachidananda Sinha",
+            gold_aliases=["Rajendra Prasad"],
+            text_processor=self.processor,
+        )
+        self.assertEqual(gold_absent.status, "no_gold_alias_in_source")
 
     def test_raw_selector_uses_full_source_response_duplication(self):
         responses = (

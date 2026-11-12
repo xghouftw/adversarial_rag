@@ -19,6 +19,15 @@ import string
 import sys
 from typing import Any, Callable, Iterable, Mapping, Protocol, Sequence
 
+from promotion_generators import (
+    DOCUMENT_GENERATORS,
+    DocumentGenerator,
+    GeneratedDocument,
+    TextProcessor,
+    delete_gold_segments,
+    gold_alias_substitution,
+    register_document_generator,
+)
 from promotion_selectors import (
     BUILTIN_SELECTORS,
     CandidateAssessment,
@@ -68,12 +77,6 @@ def resolve_target_selector(name: str) -> str:
 
 class KeywordExtractor(Protocol):
     def extract(self, response: str) -> set[str]: ...
-
-
-class TextProcessor(Protocol):
-    def segments(self, passage: str) -> list[str]: ...
-
-    def lemma_tokens(self, text: str) -> tuple[str, ...]: ...
 
 
 @dataclass(frozen=True)
@@ -160,16 +163,6 @@ class CertificationFrontier:
     keyword_votes: dict[str, int]
     already_kept_keywords: tuple[str, ...]
     one_vote_short_keywords: tuple[str, ...]
-
-
-@dataclass(frozen=True)
-class GeneratedDocument:
-    strategy: str
-    status: str
-    text: str
-    kept_segments: tuple[str, ...]
-    removed_segments: tuple[str, ...]
-    target_present: bool
 
 
 @dataclass(frozen=True)
@@ -324,14 +317,6 @@ class SpacyTextProcessor:
         return tuple(tokens)
 
 
-def contains_lemma_sequence(
-    text: str, phrase: str, text_processor: TextProcessor
-) -> bool:
-    return contains_token_sequence(
-        text_processor.lemma_tokens(text), text_processor.lemma_tokens(phrase)
-    )
-
-
 def contains_normalized_phrase(text: str, phrase: str) -> bool:
     return contains_token_sequence(normalized_tokens(text), normalized_tokens(phrase))
 
@@ -457,58 +442,7 @@ def one_injection_keyword_frontier(
     )
 
 
-def delete_gold_segments(
-    source_passage: str,
-    target: str,
-    gold_aliases: Sequence[str],
-    text_processor: TextProcessor,
-) -> GeneratedDocument:
-    kept = []
-    removed = []
-    for segment in text_processor.segments(source_passage):
-        contains_gold = any(
-            contains_lemma_sequence(segment, alias, text_processor)
-            for alias in gold_aliases
-            if normalized_text(alias)
-        )
-        if contains_gold:
-            removed.append(segment)
-        else:
-            kept.append(segment)
-
-    text = "\n".join(kept).strip()
-    target_present = bool(text) and contains_lemma_sequence(
-        text, target, text_processor
-    )
-    if not text:
-        status = "empty_after_gold_deletion"
-    elif not target_present:
-        status = "target_absent_after_gold_deletion"
-    else:
-        status = "ok"
-    return GeneratedDocument(
-        strategy="delete_gold_segments",
-        status=status,
-        text=text,
-        kept_segments=tuple(kept),
-        removed_segments=tuple(removed),
-        target_present=target_present,
-    )
-
-
-DocumentGenerator = Callable[
-    [str, str, Sequence[str], TextProcessor], GeneratedDocument
-]
-DOCUMENT_GENERATORS: dict[str, DocumentGenerator] = {
-    "delete_gold_segments": delete_gold_segments,
-}
 TARGET_SELECTORS: dict[str, TargetSelector] = dict(BUILTIN_SELECTORS)
-
-
-def register_document_generator(name: str, generator: DocumentGenerator) -> None:
-    if not name or name in DOCUMENT_GENERATORS:
-        raise ValueError(f"document generator already registered or invalid: {name!r}")
-    DOCUMENT_GENERATORS[name] = generator
 
 
 def register_target_selector(
@@ -1387,6 +1321,7 @@ __all__ = [
     "aggregate_keyword_sets",
     "create_live_run",
     "delete_gold_segments",
+    "gold_alias_substitution",
     "execute_live_attack",
     "execute_live_candidates",
     "enrich_records_with_certification",

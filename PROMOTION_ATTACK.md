@@ -5,7 +5,9 @@ goal described in `SCRATCH.md` without claiming that raw extracted keywords are
 semantically valid wrong answers.
 
 The scaffold has independently replaceable target selection and document
-generation strategies. Shared attack mechanics first construct one frozen
+generation strategies. Document-generator interfaces and implementations live
+under `promotion_generators/`; selector implementations live under
+`promotion_selectors/`. Shared attack mechanics first construct one frozen
 structural candidate pool. A selector function then filters and ranks that pool
 without owning certification, document generation, or live attack logic. The
 CodeRunner-facing selector choices are:
@@ -14,7 +16,8 @@ CodeRunner-facing selector choices are:
 - `1+2`: structural selector followed by deterministic `nlp_answer_shape`;
 - `3`: independent Prometheus selector `prometheus_judge` over the same
   structural pool;
-- document generator: `delete_gold_segments`.
+- extractive document generator: `delete_gold_segments`;
+- constrained-rewrite document generator: `gold_alias_substitution`.
 
 Selectors `1+2` and `3` are parallel experimental alternatives. Selector `3`
 does not consume the output of selector `1+2`. All three begin after the same
@@ -157,6 +160,36 @@ The generator adds no text. It records all retained and removed segments.
 The word "segment" is deliberate: upstream passages include a title followed by
 a newline and body text. A gold-bearing title must be removable without merging
 it into the first sentence.
+
+## Document generator: `gold_alias_substitution`
+
+This strategy is a stronger constrained rewrite, not a claim-preserving
+extractive attack. It keeps a target that is already latent in the candidate's
+benign source passage, but fabricates a new relationship by placing that target
+in each gold-answer slot.
+
+Procedure:
+
+1. Require the selected target to occur in the original source passage under
+   the existing contiguous lemma-sequence match.
+2. Find every complete dataset gold alias using normalized token sequences.
+3. Resolve overlapping aliases longest-first, so a full alias such as
+   `Dr. Rajendra Prasad` is replaced once rather than as smaller components.
+4. Replace every non-overlapping occurrence with the exact selected target.
+5. Preserve all other source characters and their order.
+6. Reject the document if there is no target in the original source, no gold
+   alias to replace, or a complete gold alias remains after replacement.
+
+Multiple distinct gold spans are intentionally allowed. They all become the
+same target, which may make the isolated model more likely to emit that target.
+Repetition within one response still cannot contribute more than one exact
+keyword vote, because the upstream extractor represents each response as a set.
+
+The generated artifact records the rewritten segments and each original
+surface span that was replaced. Use this strategy with
+`--document-generator gold_alias_substitution`. Selector `1+2` is the intended
+first pairing because its deterministic answer-shape checks reduce obvious
+type-mismatched substitutions, although the generator remains selector-neutral.
 
 ## Target selector: `raw_max_vote`
 
@@ -364,8 +397,12 @@ automatic_strict_targeted_success:
     automatic_target_present and not automatic_gold_present
 ```
 
-Automatic metrics do not replace manual semantic grading. In particular, the
-upstream gold check counts negated gold strings as correct.
+Automatic metrics define a string-level partition, not semantic outcomes. A
+final answer containing both target and gold may be conflicting, may explicitly
+reject the target, may use it only as context, or may treat it as a compatible
+or equivalent answer. Do not label that category `mixed` or successful without
+manual review. Automatic metrics do not replace manual semantic grading. In
+particular, the upstream gold check counts negated gold strings as correct.
 
 ## Exhaustive mode and search budget
 
@@ -514,7 +551,7 @@ questions are only a pipeline check, not an attack-success estimate.
 
 ## Adding strategies later
 
-Document generators have the signature:
+Document generators live under `promotion_generators/` and have the signature:
 
 ```python
 (source_passage, target, gold_aliases, text_processor) -> GeneratedDocument
