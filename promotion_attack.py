@@ -68,6 +68,7 @@ SELECTOR_ALIASES = {
     "1": "raw_max_vote",
     "1+2": "nlp_answer_shape",
     "3": "prometheus_judge",
+    "4": "document_strength",
 }
 
 

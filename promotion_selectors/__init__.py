@@ -12,6 +12,10 @@ from .base import (
     normalized_text,
     normalized_tokens,
 )
+from .document_strength import (
+    document_strength_features,
+    select_document_strength,
+)
 from .nlp import SpacyCandidateQualityAnalyzer, select_nlp_answer_shape
 from .prometheus import (
     PROMETHEUS_MODEL,
@@ -28,8 +32,13 @@ from .raw import select_raw_max_vote
 BUILTIN_SELECTORS: dict[str, TargetSelector] = {
     "raw_max_vote": select_raw_max_vote,
     "nlp_answer_shape": select_nlp_answer_shape,
+    "document_strength": select_document_strength,
     "prometheus_judge": select_prometheus_judge,
 }
+
+NLP_ANALYZER_SELECTORS = frozenset(
+    {"nlp_answer_shape", "document_strength"}
+)
 
 
 __all__ = [
@@ -38,6 +47,7 @@ __all__ = [
     "CandidateJudge",
     "CandidateQualityAnalyzer",
     "JudgeDecision",
+    "NLP_ANALYZER_SELECTORS",
     "PROMETHEUS_MODEL",
     "PROMETHEUS_REVISION",
     "PrometheusCandidateJudge",
@@ -48,10 +58,12 @@ __all__ = [
     "TargetSelector",
     "build_prometheus_prompt",
     "contains_token_sequence",
+    "document_strength_features",
     "normalized_text",
     "normalized_tokens",
     "parse_prometheus_response",
     "select_nlp_answer_shape",
+    "select_document_strength",
     "select_prometheus_judge",
     "select_raw_max_vote",
 ]

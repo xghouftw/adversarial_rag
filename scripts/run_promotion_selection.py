@@ -22,6 +22,7 @@ from promotion_attack import (
     resolve_target_selector,
     save_selection_run,
 )
+from promotion_selectors import NLP_ANALYZER_SELECTORS
 from promotion_selectors.nlp import SpacyCandidateQualityAnalyzer
 
 
@@ -29,8 +30,8 @@ def parse_args() -> argparse.Namespace:
     parser = argparse.ArgumentParser(
         description=(
             "Select mechanically promotable one-passage targets from a pinned "
-            "RobustRAG reproduction run. Selectors 1 and 1+2 make no LLM "
-            "calls; selector 3 loads Prometheus-2-7B."
+            "RobustRAG reproduction run. Selectors 1, 1+2, and 4 make no "
+            "LLM calls; selector 3 loads Prometheus-2-7B."
         )
     )
     parser.add_argument("--source-run", type=Path, required=True)
@@ -61,7 +62,10 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument(
         "--target-selector",
         default="1",
-        help="1/raw_max_vote, 1+2/nlp_answer_shape, or 3/prometheus_judge",
+        help=(
+            "1/raw_max_vote, 1+2/nlp_answer_shape, 3/prometheus_judge, "
+            "or 4/document_strength"
+        ),
     )
     parser.add_argument("--document-generator", default="delete_gold_segments")
     parser.add_argument(
@@ -125,7 +129,7 @@ def main() -> None:
     selector_name = resolve_target_selector(config.target_selector)
     candidate_analyzer = (
         SpacyCandidateQualityAnalyzer(nlp)
-        if selector_name == "nlp_answer_shape"
+        if selector_name in NLP_ANALYZER_SELECTORS
         else None
     )
     candidate_judge = None

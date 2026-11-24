@@ -16,12 +16,15 @@ CodeRunner-facing selector choices are:
 - `1+2`: structural selector followed by deterministic `nlp_answer_shape`;
 - `3`: independent Prometheus selector `prometheus_judge` over the same
   structural pool;
+- `4`: selector `document_strength`, which applies `1+2` and then reranks its
+  eligible candidates using deterministic features of the generated passage;
 - extractive document generator: `delete_gold_segments`;
 - constrained-rewrite document generator: `gold_alias_substitution`.
 
 Selectors `1+2` and `3` are parallel experimental alternatives. Selector `3`
-does not consume the output of selector `1+2`. All three begin after the same
-one-injection certification frontier and structural-realizability screen.
+does not consume the output of selector `1+2`; selector `4` deliberately does.
+All four begin after the same one-injection certification frontier and
+structural-realizability screen.
 
 The primary reported result is `success@1`. An exhaustive, pre-enumerated sweep
 can additionally report `success@3` and `success@all`; these have a larger search
@@ -324,6 +327,31 @@ an initials-only target. They cannot determine whether a plausible person or
 place is factually wrong or alternatively correct. Human evaluation must not
 treat this selector as semantic ground truth.
 
+## Selector `4`: `document_strength`
+
+This is a deterministic document-aware extension of selector `1+2`. It keeps
+all `1+2` eligibility decisions and its complete ordering as a final
+tiebreaker. It then reranks eligible candidates lexicographically by:
+
+```text
+1. full normalized target occurs in the first generated passage segment
+2. number of complete gold spans replaced by gold_alias_substitution
+3. number of full normalized target occurrences in the generated passage
+4. complete selector 1+2 order
+```
+
+The replacement count is defined as zero for other document generators,
+because their `removed_segments` fields do not represent substituted gold
+spans. Target occurrences use contiguous normalized tokens, not substring or
+bag-of-words matching. Every structural candidate retains its `1+2` assessment
+and additionally records these three document-strength features.
+
+This selector tests the hypothesis that a candidate is more likely to be
+realized when the constrained rewrite places it early, replaces more gold
+mentions, and repeats it. These features are an unvalidated development
+heuristic, not semantic clustering and not evidence of improved attack success.
+Freeze the ranking before live calls and evaluate it on held-out questions.
+
 ## Selector `3`: `prometheus_judge`
 
 Selector `3` independently receives the same complete structural pool as
@@ -434,10 +462,10 @@ Report raw mechanical and human-validated success separately.
 
 ## Running target selection
 
-Selectors `1` and `1+2` make no LLM calls. Selector `3` loads Prometheus on a
-GPU and is saved as an `llm_judged_promotion_selection` rather than a cache-only
-artifact. Run inside the pinned Python 3.11 environment after the notebook has
-prepared `/content/robustrag-runner`:
+Selectors `1`, `1+2`, and `4` make no LLM calls. Selector `3` loads Prometheus
+on a GPU and is saved as an `llm_judged_promotion_selection` rather than a
+cache-only artifact. Run inside the pinned Python 3.11 environment after the
+notebook has prepared `/content/robustrag-runner`:
 
 ```bash
 PYTHONPATH="$PROJ" "$PYTHON" scripts/run_promotion_selection.py \
@@ -449,8 +477,8 @@ PYTHONPATH="$PROJ" "$PYTHON" scripts/run_promotion_selection.py \
   --target-selector "1+2"
 ```
 
-Use `--target-selector 1`, `--target-selector 1+2`, or
-`--target-selector 3`. Mode `3` additionally accepts the pinned Prometheus
+Use `--target-selector 1`, `--target-selector 1+2`, `--target-selector 3`, or
+`--target-selector 4`. Mode `3` additionally accepts the pinned Prometheus
 model/revision, cache directory, batch size, and maximum generated tokens; the
 notebook exposes these in its top configuration cell.
 
@@ -471,8 +499,8 @@ correct question, not just the first candidate. It also records the checked
 per-question certificate label, certification outcome and threshold, and the
 locally recomputed one-vote-short keyword frontier. Omitting
 `--certification-run` still computes the frontier, but certificate labels remain
-unavailable. Modes `1+2` and `3` additionally save one assessment row for every
-structural candidate, including rejected candidates.
+unavailable. Modes `1+2`, `3`, and `4` additionally save one assessment row for
+every structural candidate, including rejected candidates.
 
 ## Running a small live pilot
 

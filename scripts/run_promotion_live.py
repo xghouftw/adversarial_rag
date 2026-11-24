@@ -27,6 +27,7 @@ from promotion_attack import (
     resolve_target_selector,
     save_live_sweep,
 )
+from promotion_selectors import NLP_ANALYZER_SELECTORS
 from promotion_selectors.nlp import SpacyCandidateQualityAnalyzer
 
 
@@ -144,7 +145,7 @@ def main() -> None:
     selector_name = resolve_target_selector(config.target_selector)
     candidate_analyzer = (
         SpacyCandidateQualityAnalyzer(nlp)
-        if selector_name == "nlp_answer_shape"
+        if selector_name in NLP_ANALYZER_SELECTORS
         else None
     )
     candidate_judge = None

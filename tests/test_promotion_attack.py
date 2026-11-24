@@ -123,6 +123,17 @@ class MappingCandidateAnalyzer:
         }
 
 
+class AllEligibleCandidateAnalyzer:
+    def analyze(self, record, candidate):
+        return {
+            "eligible": True,
+            "reason": "eligible",
+            "type_match": 2,
+            "unit_quality": 3,
+            "specificity": 2,
+        }
+
+
 class MappingCandidateJudge:
     def __init__(self, scores):
         self.scores = scores
@@ -148,7 +159,12 @@ class PromotionAttackTests(unittest.TestCase):
     def test_builtin_selectors_share_callable_interface(self):
         self.assertEqual(
             set(TARGET_SELECTORS),
-            {"raw_max_vote", "nlp_answer_shape", "prometheus_judge"},
+            {
+                "raw_max_vote",
+                "nlp_answer_shape",
+                "document_strength",
+                "prometheus_judge",
+            },
         )
         self.assertTrue(
             all(callable(selector) for selector in TARGET_SELECTORS.values())
@@ -583,6 +599,59 @@ class PromotionAttackTests(unittest.TestCase):
         self.assertEqual(judge_outcome.selected.target, "temporary")
         self.assertEqual(len(nlp_outcome.selector_assessments), 2)
         self.assertEqual(len(judge_outcome.selector_assessments), 2)
+
+    def test_document_strength_reranks_nlp_candidates_by_generated_passage(self):
+        responses = tuple(f"response {index}" for index in range(10))
+        mapping = {
+            response: (
+                {"Alpha"}
+                if index == 0
+                else {"Beta"}
+                if index == 1
+                else {"Gold"}
+            )
+            for index, response in enumerate(responses)
+        }
+        record = QuestionRecord(
+            dataset="open_nq",
+            query_index=8,
+            question="Who won?",
+            gold_aliases=("Gold",),
+            passages=(
+                "Background material. Gold defeated Alpha.",
+                "Gold and Gold were reported with Beta.",
+                *("Gold was reported." for _ in range(8)),
+            ),
+            responses=responses,
+            clean_final_answer="Gold",
+            clean_correct=True,
+        )
+
+        outcome = plan_attack(
+            record,
+            MappingKeywordExtractor(mapping),
+            self.processor,
+            stopwords=set(),
+            config=AttackConfig(
+                target_selector="4",
+                document_generator="gold_alias_substitution",
+            ),
+            candidate_analyzer=AllEligibleCandidateAnalyzer(),
+        )
+
+        self.assertEqual(
+            [candidate.target for candidate in outcome.candidates],
+            ["Beta", "Alpha"],
+        )
+        beta_assessment = next(
+            assessment
+            for assessment in outcome.selector_assessments
+            if assessment.target == "Beta"
+        )
+        self.assertEqual(beta_assessment.selector, "document_strength")
+        self.assertTrue(beta_assessment.details["target_in_first_segment"])
+        self.assertEqual(beta_assessment.details["replaced_gold_spans"], 2)
+        self.assertEqual(beta_assessment.details["target_occurrences"], 3)
 
     def test_prometheus_prompt_and_result_parser_are_reproducible(self):
         candidate_record = QuestionRecord(

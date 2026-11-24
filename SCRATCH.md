@@ -385,6 +385,13 @@ Implemented strategy names are:
 - target selector `prometheus_judge` (`3`): independently score every item in
   the same structural pool using a frozen Prometheus-2-7B direct-assessment
   rubric, retaining scores four and five;
+- target selector `document_strength` (`4`, implemented 2026-11-24): preserve
+  selector `1+2` eligibility and rerank its candidates by whether the full
+  target occurs in the first generated segment, how many complete gold spans
+  `gold_alias_substitution` replaced, and how many full target occurrences the
+  generated passage contains. The existing `1+2` ranking is the final
+  tiebreaker. This is a cache-only development heuristic, not semantic
+  clustering and not an observed improvement;
 - document generator `delete_gold_segments`: split the processed
   `title\ntext` passage into a title segment and body sentences, remove segments
   containing a complete gold alias under lemmatized token matching, preserve
@@ -658,11 +665,14 @@ The best present conclusion is:
    uncertified questions.
 4. Add a displacement-only control to isolate the effect of target content
    from ejecting the bottom benign passage.
-5. Add the final-prompt-template regression test identified during independent
+5. Compare the cache-only selector `4` ranking with `1+2`, freeze it before any
+   new live calls, and evaluate it on held-out questions rather than reporting
+   performance on the 19 development outcomes used to motivate it.
+6. Add the final-prompt-template regression test identified during independent
    review and make structural-versus-eligible candidate counts explicit.
-6. Measure rewrite naturalness/detectability before making practical-stealth
+7. Measure rewrite naturalness/detectability before making practical-stealth
    claims.
-7. Profile RealtimeQA or larger search budgets only as separately labeled
+8. Profile RealtimeQA or larger search budgets only as separately labeled
    follow-up experiments after the Open NQ audit is frozen.
 
 ## 13. Project files and artifacts
@@ -683,8 +693,9 @@ The best present conclusion is:
 | `promotion_selectors/base.py` | Typed selector-function interface, immutable dependency context, shared result types, and selector-neutral text helpers |
 | `promotion_selectors/raw.py` | Raw structural selector (`1`) |
 | `promotion_selectors/nlp.py` | Deterministic answer-shape analyzer and selector (`1+2`) |
+| `promotion_selectors/document_strength.py` | Cache-only document-aware reranker over selector `1+2` candidates (`4`) |
 | `promotion_selectors/prometheus.py` | Prometheus selector (`3`), rubric, parser, GPU adapter, and saved-decision replay |
-| `scripts/run_promotion_selection.py` | Selection command; modes `1`/`1+2` are cache-only and mode `3` calls Prometheus |
+| `scripts/run_promotion_selection.py` | Selection command; modes `1`/`1+2`/`4` are cache-only and mode `3` calls Prometheus |
 | `scripts/run_promotion_live.py` | GPU command for a bounded live pilot from a frozen selection artifact |
 | `PROMOTION_ATTACK.md` | Frozen baseline algorithm, metrics, data format, and run instructions |
 | `tests/test_promotion_attack.py` | Synthetic implementation tests; not experimental evidence |
