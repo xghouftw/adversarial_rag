@@ -128,6 +128,9 @@ def main() -> None:
             certification_run=certification_run,
             source_run=source_run,
             source_manifest=source_manifest,
+            allowed_final_answer_mismatches=certification.get(
+                "allowed_final_answer_mismatches", ()
+            ),
         )
         if current_certification != certification:
             raise ValueError("certification provenance changed after selection")

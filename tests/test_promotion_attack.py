@@ -259,6 +259,84 @@ class PromotionAttackTests(unittest.TestCase):
             enriched[0].certification_one_vote_short_keywords, ("Sinha",)
         )
         self.assertTrue(provenance["checks_passed"])
+        self.assertFalse(enriched[0].certification_replay_answer_mismatch)
+        self.assertNotIn("allowed_final_answer_mismatches", provenance)
+
+    def test_certification_wording_mismatch_needs_exact_allow_list(self):
+        record = QuestionRecord(
+            dataset="realtimeqa",
+            query_index=0,
+            question="Which state?",
+            gold_aliases=("Minnesota",),
+            passages=("passage one", "passage two"),
+            responses=("Utah", "Minnesota"),
+            clean_final_answer="Minnesota and Utah (logged wording)",
+            clean_correct=True,
+        )
+        source_manifest = {
+            "dataset": "realtimeqa",
+            "upstream_commit": "9bc35b2fa5fa7d1088383b2789ec19a512d316b1",
+            "parameters": {"alpha": 0.2, "beta": 3.0, "top_k": 10},
+        }
+        summary = {
+            "checks_passed": False,
+            "final_answer_mismatches": [0],
+            "logged_correct": 1,
+            "replayed_correct": 1,
+            "logged_certified": 0,
+            "replayed_certified": 0,
+            "dataset": "realtimeqa",
+            "upstream_commit": source_manifest["upstream_commit"],
+            "alpha": 0.2,
+            "beta": 3.0,
+            "corruption_size": 1,
+            "top_k": 10,
+            "sample_size": 1,
+            "source_run": "/other/root/source-run",
+        }
+        row = {
+            "query_index": 0,
+            "question": record.question,
+            "answers": list(record.gold_aliases),
+            "final_answer": "Minnesota and Utah (replayed wording)",
+            "clean_correct": True,
+            "certified": False,
+            "certification_outcome": "wrong_answer_found",
+            "certify_threshold": 1.2,
+            "poison_target_candidates": [
+                {"keyword": "Utah", "votes": 1, "source_passage_ranks": [1]}
+            ],
+        }
+
+        def enrich(summary, allowed):
+            with tempfile.TemporaryDirectory() as temporary:
+                root = Path(temporary)
+                certification_run = root / "certification"
+                certification_run.mkdir()
+                (certification_run / "summary.json").write_text(json.dumps(summary))
+                (certification_run / "certified.json").write_text(json.dumps([row]))
+                return enrich_records_with_certification(
+                    records=[record],
+                    certification_run=certification_run,
+                    source_run=root / "source-run",
+                    source_manifest=source_manifest,
+                    allowed_final_answer_mismatches=allowed,
+                )
+
+        enriched, provenance = enrich(summary, [0])
+        self.assertTrue(enriched[0].certification_replay_answer_mismatch)
+        self.assertEqual(
+            enriched[0].clean_final_answer, "Minnesota and Utah (logged wording)"
+        )
+        self.assertFalse(provenance["checks_passed"])
+        self.assertEqual(provenance["allowed_final_answer_mismatches"], [0])
+
+        with self.assertRaisesRegex(ValueError, "allowed list"):
+            enrich(summary, [])
+        with self.assertRaisesRegex(ValueError, "allowed list"):
+            enrich(summary, [0, 1])
+        with self.assertRaisesRegex(ValueError, "consistency checks"):
+            enrich({**summary, "replayed_correct": 0}, [0])
 
     def test_keyword_extractor_matches_upstream_phrase_and_lemma_behavior(self):
         extractor = SpacyKeywordExtractor(FakeNlp())

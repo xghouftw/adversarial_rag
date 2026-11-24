@@ -118,6 +118,7 @@ class QuestionRecord:
     certification_outcome: str | None = None
     certification_threshold: float | None = None
     certification_one_vote_short_keywords: tuple[str, ...] | None = None
+    certification_replay_answer_mismatch: bool | None = None
 
     def validate(self, top_k: int) -> None:
         if len(self.passages) != len(self.responses):
@@ -207,6 +208,7 @@ class SelectionOutcome:
     certification_threshold: float | None = None
     certification_one_vote_short_keywords: tuple[str, ...] = ()
     selector_assessments: tuple[CandidateAssessment, ...] = ()
+    certification_replay_answer_mismatch: bool | None = None
 
 
 @dataclass(frozen=True)
@@ -625,6 +627,9 @@ def plan_attack(
             certification_one_vote_short_keywords=(
                 record.certification_one_vote_short_keywords or ()
             ),
+            certification_replay_answer_mismatch=(
+                record.certification_replay_answer_mismatch
+            ),
         )
 
     certification_frontier = one_injection_keyword_frontier(
@@ -692,6 +697,9 @@ def plan_attack(
             certification_frontier.one_vote_short_keywords
         ),
         selector_assessments=selector_result.assessments,
+        certification_replay_answer_mismatch=(
+            record.certification_replay_answer_mismatch
+        ),
     )
 
 
@@ -998,12 +1006,19 @@ def enrich_records_with_certification(
     certification_run: str | Path,
     source_run: str | Path,
     source_manifest: Mapping[str, Any],
+    allowed_final_answer_mismatches: Sequence[int] = (),
 ) -> tuple[list[QuestionRecord], dict[str, Any]]:
     """Attach a validated cache-only certification replay to question records.
 
     The replay is optional enrichment. Selection still recomputes the keyword
     frontier locally and checks it against the saved artifact before using it.
     Artifacts whose own reproduction checks failed are rejected.
+
+    ``allowed_final_answer_mismatches`` names questions whose replayed clean
+    final answer may differ in wording from the logged one. It must equal the
+    replay's own mismatch list exactly, the replayed correct and certified
+    totals must still match the log, and each listed question must keep its
+    logged correctness label. The logged answer remains the clean baseline.
     """
     certification_run = Path(certification_run)
     summary_path = certification_run / "summary.json"
@@ -1015,10 +1030,23 @@ def enrich_records_with_certification(
 
     summary = json.loads(summary_path.read_text())
     rows = json.loads(certified_path.read_text())
-    if summary.get("checks_passed") is not True:
+    allowed_mismatches = sorted({int(index) for index in allowed_final_answer_mismatches})
+    observed_mismatches = sorted(
+        int(index) for index in summary.get("final_answer_mismatches") or ()
+    )
+    if observed_mismatches != allowed_mismatches:
+        raise ValueError(
+            f"certification replay final-answer mismatches {observed_mismatches} "
+            f"differ from the allowed list {allowed_mismatches}"
+        )
+    totals_match = all(
+        summary.get(f"logged_{total}") == summary.get(f"replayed_{total}")
+        for total in ("correct", "certified")
+    )
+    if summary.get("checks_passed") is not True and not (
+        allowed_mismatches and totals_match
+    ):
         raise ValueError("certification replay did not pass all consistency checks")
-    if summary.get("final_answer_mismatches"):
-        raise ValueError("certification replay has final-answer mismatches")
 
     source_run = Path(source_run)
     parameters = source_manifest["parameters"]
@@ -1070,7 +1098,8 @@ def enrich_records_with_certification(
             raise ValueError(
                 f"query {record.query_index} gold aliases differ in certification run"
             )
-        if row.get("final_answer") != record.clean_final_answer:
+        answer_mismatch = row.get("final_answer") != record.clean_final_answer
+        if answer_mismatch and record.query_index not in allowed_mismatches:
             raise ValueError(
                 f"query {record.query_index} clean answer differs in certification run"
             )
@@ -1091,6 +1120,7 @@ def enrich_records_with_certification(
             certification_outcome=row.get("certification_outcome"),
             certification_threshold=row.get("certify_threshold"),
             certification_one_vote_short_keywords=one_vote_short,
+            certification_replay_answer_mismatch=answer_mismatch,
         )
         enriched_record.validate(int(parameters["top_k"]))
         enriched.append(enriched_record)
@@ -1099,8 +1129,10 @@ def enrich_records_with_certification(
         "certification_run": str(certification_run),
         "certification_summary_sha256": file_sha256(summary_path),
         "certified_json_sha256": file_sha256(certified_path),
-        "checks_passed": True,
+        "checks_passed": summary.get("checks_passed") is True,
     }
+    if allowed_mismatches:
+        provenance["allowed_final_answer_mismatches"] = allowed_mismatches
     return enriched, provenance
 
 

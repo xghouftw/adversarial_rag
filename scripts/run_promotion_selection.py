@@ -46,6 +46,16 @@ def parse_args() -> argparse.Namespace:
             "checks did not pass."
         ),
     )
+    parser.add_argument(
+        "--allowed-final-answer-mismatches",
+        type=int,
+        nargs="+",
+        default=[],
+        help=(
+            "Question indices whose replayed clean answer may differ in wording "
+            "from the logged one; must equal the replay's mismatch list."
+        ),
+    )
     parser.add_argument("--alpha", type=float)
     parser.add_argument("--beta", type=float)
     parser.add_argument(
@@ -87,6 +97,7 @@ def main() -> None:
             certification_run=args.certification_run,
             source_run=args.source_run,
             source_manifest=source_manifest,
+            allowed_final_answer_mismatches=args.allowed_final_answer_mismatches,
         )
     source_parameters = source_manifest["parameters"]
     config = AttackConfig(
