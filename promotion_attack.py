@@ -17,7 +17,10 @@ from pathlib import Path
 import re
 import string
 import sys
-from typing import Any, Callable, Iterable, Mapping, Protocol, Sequence
+from typing import TYPE_CHECKING, Any, Callable, Iterable, Mapping, Protocol, Sequence
+
+if TYPE_CHECKING:
+    from defense_selectors import LexicalFamilySelector
 
 from promotion_generators import (
     DOCUMENT_GENERATORS,
@@ -69,6 +72,7 @@ SELECTOR_ALIASES = {
     "1+2": "nlp_answer_shape",
     "3": "prometheus_judge",
     "4": "document_strength",
+    "5": "lexical_family",
 }
 
 
@@ -242,6 +246,8 @@ class LiveAttackResult:
     automatic_target_present: bool
     automatic_gold_present: bool
     automatic_strict_targeted_success: bool
+    hint_selector: str = "exact"
+    final_hint_keywords: tuple[str, ...] = ()
 
 
 @dataclass(frozen=True)
@@ -736,6 +742,7 @@ def execute_live_attack(
     query_isolated: Callable[[str, str], TextGeneration],
     query_final: Callable[[str, str], TextGeneration],
     candidate: Candidate | None = None,
+    hint_selector: LexicalFamilySelector | None = None,
 ) -> LiveAttackResult:
     config.validate()
     record.validate(config.top_k)
@@ -757,13 +764,23 @@ def execute_live_attack(
         raise ValueError("candidate is not part of the frozen selection outcome")
     injected = query_isolated(record.question, candidate.document.text)
     injected_keywords = keyword_extractor.extract(injected.response)
+    attacked_sets = keyword_sets[:survivor_count] + [injected_keywords]
     attacked = aggregate_keyword_sets(
-        list(keyword_sets[:survivor_count]) + [injected_keywords],
+        attacked_sets,
         config.alpha,
         config.beta,
         stopwords,
     )
-    final = query_final(record.question, attacked.hints)
+    final_keywords = attacked.retained_keywords
+    final_hints = attacked.hints
+    if hint_selector is not None:
+        final_keywords = hint_selector.select(
+            final_keywords,
+            (*record.responses[:survivor_count], injected.response),
+            attacked_sets,
+        )
+        final_hints = ", ".join(final_keywords)
+    final = query_final(record.question, final_hints)
 
     response_realized = candidate.target in injected_keywords
     promotion_realized = (
@@ -808,6 +825,8 @@ def execute_live_attack(
         automatic_target_present=target_present,
         automatic_gold_present=gold_present,
         automatic_strict_targeted_success=target_present and not gold_present,
+        hint_selector=hint_selector.name if hint_selector is not None else "exact",
+        final_hint_keywords=final_keywords,
     )
 
 
@@ -820,6 +839,7 @@ def execute_live_candidates(
     query_isolated: Callable[[str, str], TextGeneration],
     query_final: Callable[[str, str], TextGeneration],
     max_candidates: int | None = None,
+    hint_selector: LexicalFamilySelector | None = None,
 ) -> LiveSweepResult:
     """Execute a frozen candidate prefix while reusing identical model calls.
 
@@ -860,6 +880,7 @@ def execute_live_candidates(
             query_isolated=cached_isolated,
             query_final=cached_final,
             candidate=candidate,
+            hint_selector=hint_selector,
         )
         for candidate in candidates
     )

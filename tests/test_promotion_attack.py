@@ -163,6 +163,7 @@ class PromotionAttackTests(unittest.TestCase):
                 "raw_max_vote",
                 "nlp_answer_shape",
                 "document_strength",
+                "lexical_family",
                 "prometheus_judge",
             },
         )

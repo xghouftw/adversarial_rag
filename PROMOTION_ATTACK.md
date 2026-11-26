@@ -18,13 +18,18 @@ CodeRunner-facing selector choices are:
   structural pool;
 - `4`: selector `document_strength`, which applies `1+2` and then reranks its
   eligible candidates using deterministic features of the generated passage;
+- `5`: selector `lexical_family`, which applies `1+2` and reranks candidates
+  by how many newly retained exact hints form an unambiguous lexical family;
 - extractive document generator: `delete_gold_segments`;
 - constrained-rewrite document generator: `gold_alias_substitution`.
 
-Selectors `1+2` and `3` are parallel experimental alternatives. Selector `3`
-does not consume the output of selector `1+2`; selector `4` deliberately does.
-All four begin after the same one-injection certification frontier and
-structural-realizability screen.
+Selectors `1+2` and `3` are parallel experimental alternatives. Selectors `4`
+and `5` rerank the eligible output of `1+2`. All selectors begin after the same
+one-injection certification frontier and structural-realizability screen.
+Selector `5` uses contiguous normalized token containment, excludes fragments
+that fit multiple maximal phrases, and only rewards families with at least two
+newly retained hints. This is a ranking hypothesis, not a change to exact-string
+vote aggregation or a claim that related hints improve final-answer success.
 
 The primary reported result is `success@1`. An exhaustive, pre-enumerated sweep
 can additionally report `success@3` and `success@all`; these have a larger search
@@ -477,10 +482,10 @@ PYTHONPATH="$PROJ" "$PYTHON" scripts/run_promotion_selection.py \
   --target-selector "1+2"
 ```
 
-Use `--target-selector 1`, `--target-selector 1+2`, `--target-selector 3`, or
-`--target-selector 4`. Mode `3` additionally accepts the pinned Prometheus
-model/revision, cache directory, batch size, and maximum generated tokens; the
-notebook exposes these in its top configuration cell.
+Use `--target-selector 1`, `--target-selector 1+2`, `--target-selector 3`,
+`--target-selector 4`, or `--target-selector 5`. Mode `3` additionally accepts
+the pinned Prometheus model/revision, cache directory, batch size, and maximum
+generated tokens; the notebook exposes these in its top configuration cell.
 
 Use an explicit completed `current_v2` source run. The command defaults alpha,
 beta, and top-k from its manifest, saves a new timestamped directory, and never
@@ -506,6 +511,12 @@ every structural candidate, including rejected candidates.
 
 Do not launch a full sweep initially. In the Colab runtime, load the model with a
 new attack-specific cache, then execute a fixed small prefix:
+
+The live runner requires the source-run GPU family by default. For an
+exploratory mixed-hardware run, `--allow-gpu-mismatch` explicitly permits a
+different supported GPU family and records both GPU names plus
+`gpu_mismatch_allowed` in the live manifest. Treat those results as a
+hardware-deviated extension, not a hardware-matched reproduction.
 
 ```python
 from pathlib import Path
@@ -576,6 +587,36 @@ finalize_live_run(live_dir)
 The run helper creates a UTC-timestamped directory and records the source run,
 configuration, fixed query list, and search budget before model calls. Five
 questions are only a pipeline check, not an attack-success estimate.
+
+## Experimental defense hint selector
+
+Pass `--hint-selector lexical_family` to `python -m scripts.run_promotion_live`
+to apply the selector after ordinary keyword retention. The default is `exact`.
+Both modes replay the same frozen target choices. The live-run manifest records
+the option in `environment.hint_selector`. Each new result records the exact
+vote survivors in `attacked_retained_keywords` and the ordered hints sent to
+the final prompt in `final_hint_keywords`. Older runs used exact hints.
+
+For cache-only use with the pinned spaCy pipeline:
+
+```python
+from defense_selectors import LexicalFamilySelector
+
+final_keywords = LexicalFamilySelector(nlp).select(
+    aggregation.retained_keywords, responses, keyword_sets
+)
+```
+
+Supply the isolated responses and exact keyword sets from the same aggregation,
+in passage order. A retained multiword entity or noun chunk can explain a
+shorter hint inside its source span. The selector checks surface and lemma
+tokens in every response that voted for the shorter hint. It drops the hint
+only when all occurrences belong to one retained anchor. A separately
+mentioned town or a surname shared by two people stays in the prompt.
+
+Clean correctness and certification labels from the frozen run describe the
+original exact-hint defense. Accuracy and certification for the lexical-family
+variant require separate evaluation.
 
 ## Adding strategies later
 

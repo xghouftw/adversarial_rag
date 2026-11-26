@@ -42,6 +42,18 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument("--dataset-path", type=Path, required=True)
     parser.add_argument("--runner-dir", type=Path, required=True)
     parser.add_argument("--output-root", type=Path, required=True)
+    parser.add_argument(
+        "--allow-gpu-mismatch",
+        action="store_true",
+        help=(
+            "Allow live inference on a different GPU family from the source run; "
+            "the mismatch is recorded in the output manifest."
+        ),
+    )
+    parser.add_argument(
+        "--hint-selector", choices=("exact", "lexical_family"),
+        default="exact", help="Defense applied to retained hints before the final prompt.",
+    )
     scope = parser.add_mutually_exclusive_group(required=True)
     scope.add_argument("--limit", type=int)
     scope.add_argument("--query-indices", type=int, nargs="+")
@@ -73,6 +85,28 @@ def parse_max_candidates(value: str) -> int | None:
     if parsed < 1:
         raise ValueError("--max-candidates must be positive or 'all'")
     return parsed
+
+
+def validate_gpu_provenance(
+    source_gpu: str, current_gpu: str, allow_mismatch: bool
+) -> bool:
+    source_gpu_family = next(
+        (family for family in ("L4", "A100") if family in source_gpu),
+        None,
+    )
+    if source_gpu_family is None:
+        raise RuntimeError(
+            f"source run does not identify a supported L4/A100 GPU: {source_gpu!r}"
+        )
+    if source_gpu_family in current_gpu:
+        return False
+    if not allow_mismatch:
+        raise RuntimeError(
+            f"select an {source_gpu_family} runtime to match the source run; "
+            f"current GPU is {current_gpu!r}, or pass --allow-gpu-mismatch "
+            "for an explicitly recorded mixed-hardware run"
+        )
+    return True
 
 
 def main() -> None:
@@ -140,6 +174,10 @@ def main() -> None:
     config.validate()
 
     nlp = spacy.load("en_core_web_sm")
+    hint_selector = None
+    if args.hint_selector == "lexical_family":
+        from defense_selectors import LexicalFamilySelector
+        hint_selector = LexicalFamilySelector(nlp)
     extractor = SpacyKeywordExtractor(nlp)
     processor = SpacyTextProcessor(nlp)
     selector_name = resolve_target_selector(config.target_selector)
@@ -212,24 +250,16 @@ def main() -> None:
         raise RuntimeError("select a GPU runtime before running live attacks")
     current_gpu = torch.cuda.get_device_name(0)
     source_gpu = str(source_manifest.get("environment", {}).get("gpu", ""))
-    source_gpu_family = next(
-        (family for family in ("L4", "A100") if family in source_gpu),
-        None,
+    gpu_mismatch_allowed = validate_gpu_provenance(
+        source_gpu, current_gpu, args.allow_gpu_mismatch
     )
-    if source_gpu_family is None:
-        raise RuntimeError(
-            f"source run does not identify a supported L4/A100 GPU: {source_gpu!r}"
-        )
-    if source_gpu_family not in current_gpu:
-        raise RuntimeError(
-            f"select an {source_gpu_family} runtime to match the source run; "
-            f"current GPU is {current_gpu!r}"
-        )
 
     query_indices = [record.query_index for record, _ in selected_pairs]
     environment = {
+        "hint_selector": args.hint_selector,
         "gpu": current_gpu,
         "source_gpu": source_gpu,
+        "gpu_mismatch_allowed": gpu_mismatch_allowed,
         "packages": {
             package: importlib.metadata.version(package)
             for package in (
@@ -273,6 +303,7 @@ def main() -> None:
             query_isolated=adapter.query_isolated,
             query_final=adapter.query_final,
             max_candidates=max_candidates,
+            hint_selector=hint_selector,
         )
         save_live_sweep(live_dir / "results", sweep)
         model.dump_cache()
