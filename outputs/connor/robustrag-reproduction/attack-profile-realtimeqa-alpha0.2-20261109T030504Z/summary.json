@@ -1,0 +1,17 @@
+{
+  "promotion": {
+    "candidate_rows": 1946,
+    "unique_queries": 58,
+    "clean_correct_queries": 38
+  },
+  "threshold_suppression": {
+    "candidate_rows": 5,
+    "unique_queries": 4,
+    "clean_correct_queries": 1
+  },
+  "vote_loss": {
+    "candidate_rows": 1,
+    "unique_queries": 1,
+    "clean_correct_queries": 0
+  }
+}

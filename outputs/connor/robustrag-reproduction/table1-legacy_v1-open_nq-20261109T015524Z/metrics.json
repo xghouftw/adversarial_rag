@@ -1,0 +1,41 @@
+{
+  "no_rag": {
+    "sample_size": 100,
+    "correct_count": 30,
+    "accuracy": 0.3,
+    "counts": {
+      "undefended_correct": 30,
+      "defended_correct": 0,
+      "certified_correct": 0
+    },
+    "expected_correct_count": 30,
+    "matches_expected_correct_count": true
+  },
+  "vanilla": {
+    "sample_size": 100,
+    "correct_count": 62,
+    "accuracy": 0.62,
+    "counts": {
+      "undefended_correct": 62,
+      "defended_correct": 0,
+      "certified_correct": 0
+    },
+    "expected_correct_count": 61,
+    "matches_expected_correct_count": false
+  },
+  "keyword": {
+    "sample_size": 100,
+    "correct_count": 55,
+    "accuracy": 0.55,
+    "counts": {
+      "undefended_correct": 0,
+      "defended_correct": 55,
+      "certified_correct": 47
+    },
+    "certified_accuracy": 0.47,
+    "expected_correct_count": 54,
+    "matches_expected_correct_count": false,
+    "expected_certified_count": 47,
+    "matches_expected_certified_count": true
+  }
+}

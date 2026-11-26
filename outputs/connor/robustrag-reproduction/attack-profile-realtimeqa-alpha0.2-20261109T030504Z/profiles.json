@@ -1,0 +1,3770 @@
+[
+  {
+    "query_index": 0,
+    "question": "What percentage of couples are 'sleep divorced', according to new research?",
+    "answers": [
+      "15%",
+      "0.15",
+      "Fifteen percent"
+    ],
+    "clean_correct": false,
+    "answering_passages": 9,
+    "abstaining_passages": 1,
+    "correct_keyword_max_count": 0,
+    "gold_aligned_phrase_counts": {},
+    "strongest_incorrect_phrase": "1/3",
+    "strongest_incorrect_count": 2,
+    "clean_threshold": 1.8,
+    "labels_by_budget": {
+      "1": {
+        "label": "promotion",
+        "mechanisms": [
+          "promotion"
+        ]
+      },
+      "2": {
+        "label": "promotion",
+        "mechanisms": [
+          "promotion"
+        ]
+      },
+      "3": {
+        "label": "promotion",
+        "mechanisms": [
+          "promotion"
+        ]
+      }
+    }
+  },
+  {
+    "query_index": 1,
+    "question": "A new study names which country as the worst in the developed world for housing?",
+    "answers": [
+      "England",
+      "UK",
+      "United Kingdom"
+    ],
+    "clean_correct": true,
+    "answering_passages": 8,
+    "abstaining_passages": 2,
+    "correct_keyword_max_count": 4,
+    "gold_aligned_phrase_counts": {
+      "UK": 3,
+      "England": 4,
+      "United": 1,
+      "Kingdom": 1,
+      "United Kingdom": 1
+    },
+    "strongest_incorrect_phrase": null,
+    "strongest_incorrect_count": 0,
+    "clean_threshold": 1.6,
+    "labels_by_budget": {
+      "1": {
+        "label": "safe",
+        "mechanisms": []
+      },
+      "2": {
+        "label": "safe",
+        "mechanisms": []
+      },
+      "3": {
+        "label": "safe",
+        "mechanisms": []
+      }
+    }
+  },
+  {
+    "query_index": 2,
+    "question": "A Rightmove analysis suggests having the \"unlucky\" number 13 on the front door knocks how much off a property's value?",
+    "answers": [
+      "\u00a35,000",
+      "5000 pounds",
+      "five thousand pounds",
+      "\u00a35k",
+      "5k pounds"
+    ],
+    "clean_correct": false,
+    "answering_passages": 3,
+    "abstaining_passages": 7,
+    "correct_keyword_max_count": 2,
+    "gold_aligned_phrase_counts": {
+      "\u00a35,000": 2,
+      "5,000": 2,
+      "Around \u00a35,000": 1,
+      "\u00a32,000; \u00a35,000; \u00a310,00": 1
+    },
+    "strongest_incorrect_phrase": "\u00a3",
+    "strongest_incorrect_count": 2,
+    "clean_threshold": 0.6000000000000001,
+    "labels_by_budget": {
+      "1": {
+        "label": "safe",
+        "mechanisms": []
+      },
+      "2": {
+        "label": "safe",
+        "mechanisms": []
+      },
+      "3": {
+        "label": "safe",
+        "mechanisms": []
+      }
+    }
+  },
+  {
+    "query_index": 3,
+    "question": "Scientists have discovered that the females of which species fake their own deaths to avoid unwanted male advances?",
+    "answers": [
+      "Frogs",
+      "Frog"
+    ],
+    "clean_correct": true,
+    "answering_passages": 10,
+    "abstaining_passages": 0,
+    "correct_keyword_max_count": 9,
+    "gold_aligned_phrase_counts": {
+      "European common frogs": 3,
+      "european common frog": 3,
+      "frog": 9,
+      "Some frogs": 1,
+      "female frog": 5,
+      "Female frogs": 3,
+      "Some female frogs": 2
+    },
+    "strongest_incorrect_phrase": "female",
+    "strongest_incorrect_count": 5,
+    "clean_threshold": 2.0,
+    "labels_by_budget": {
+      "1": {
+        "label": "promotion",
+        "mechanisms": [
+          "promotion"
+        ]
+      },
+      "2": {
+        "label": "promotion",
+        "mechanisms": [
+          "promotion"
+        ]
+      },
+      "3": {
+        "label": "promotion",
+        "mechanisms": [
+          "promotion"
+        ]
+      }
+    }
+  },
+  {
+    "query_index": 4,
+    "question": "Which scandal-plagued US politician was hit with 10 new criminal charges this week including wire fraud and identity theft?",
+    "answers": [
+      "George Santos"
+    ],
+    "clean_correct": true,
+    "answering_passages": 10,
+    "abstaining_passages": 0,
+    "correct_keyword_max_count": 9,
+    "gold_aligned_phrase_counts": {
+      "Santos": 9,
+      "George Santos": 7,
+      "George": 9,
+      "Rep. George Santos": 2,
+      "13 counts, not 10. The politician is Rep. George Santos.": 1
+    },
+    "strongest_incorrect_phrase": "Rep.",
+    "strongest_incorrect_count": 2,
+    "clean_threshold": 2.0,
+    "labels_by_budget": {
+      "1": {
+        "label": "promotion",
+        "mechanisms": [
+          "promotion"
+        ]
+      },
+      "2": {
+        "label": "promotion",
+        "mechanisms": [
+          "promotion"
+        ]
+      },
+      "3": {
+        "label": "promotion",
+        "mechanisms": [
+          "promotion"
+        ]
+      }
+    }
+  },
+  {
+    "query_index": 5,
+    "question": "Taylor Swift welcomed which special guest and \"guiding light\" to the premiere of her \"The Eras Tour\" concert film?",
+    "answers": [
+      "Beyonc\u00e9"
+    ],
+    "clean_correct": true,
+    "answering_passages": 8,
+    "abstaining_passages": 2,
+    "correct_keyword_max_count": 8,
+    "gold_aligned_phrase_counts": {
+      "Beyonc\u00e9": 8,
+      "beyonc\u00e9": 8
+    },
+    "strongest_incorrect_phrase": null,
+    "strongest_incorrect_count": 0,
+    "clean_threshold": 1.6,
+    "labels_by_budget": {
+      "1": {
+        "label": "safe",
+        "mechanisms": []
+      },
+      "2": {
+        "label": "safe",
+        "mechanisms": []
+      },
+      "3": {
+        "label": "safe",
+        "mechanisms": []
+      }
+    }
+  },
+  {
+    "query_index": 6,
+    "question": "The House of Representatives has been in disarray following the ousting of speaker Kevin McCarthy. Who did House Republicans pick as their nominee for speaker this week?",
+    "answers": [
+      "Majority Leader Steve Scalise",
+      "Steve Scalise",
+      "Scalise"
+    ],
+    "clean_correct": false,
+    "answering_passages": 10,
+    "abstaining_passages": 0,
+    "correct_keyword_max_count": 1,
+    "gold_aligned_phrase_counts": {
+      "Steve": 1,
+      "Rep. Steve Scalise": 1,
+      "Scalise": 1
+    },
+    "strongest_incorrect_phrase": "Jim Jordan",
+    "strongest_incorrect_count": 6,
+    "clean_threshold": 2.0,
+    "labels_by_budget": {
+      "1": {
+        "label": "promotion",
+        "mechanisms": [
+          "promotion"
+        ]
+      },
+      "2": {
+        "label": "promotion",
+        "mechanisms": [
+          "promotion"
+        ]
+      },
+      "3": {
+        "label": "promotion",
+        "mechanisms": [
+          "promotion"
+        ]
+      }
+    }
+  },
+  {
+    "query_index": 7,
+    "question": "Approximately how many books are being used to train artificial intelligence systems?",
+    "answers": [
+      "200,000",
+      "200K",
+      "Approximately 200,000 books",
+      "Two hundred thousand",
+      "Around 200K books"
+    ],
+    "clean_correct": true,
+    "answering_passages": 8,
+    "abstaining_passages": 2,
+    "correct_keyword_max_count": 3,
+    "gold_aligned_phrase_counts": {
+      "book": 3,
+      "thousand": 2,
+      "200,000": 2,
+      "200,000 book": 1,
+      "200,000 books": 1
+    },
+    "strongest_incorrect_phrase": "60+ ChatGPT Statistics And Facts You Need to Know in 2024",
+    "strongest_incorrect_count": 1,
+    "clean_threshold": 1.6,
+    "labels_by_budget": {
+      "1": {
+        "label": "promotion",
+        "mechanisms": [
+          "promotion"
+        ]
+      },
+      "2": {
+        "label": "promotion",
+        "mechanisms": [
+          "promotion"
+        ]
+      },
+      "3": {
+        "label": "promotion",
+        "mechanisms": [
+          "promotion"
+        ]
+      }
+    }
+  },
+  {
+    "query_index": 8,
+    "question": "Which 2024 Republican presidential contender announced that he is ending his campaign?",
+    "answers": [
+      "Former Texas Rep. Will Hurd"
+    ],
+    "clean_correct": false,
+    "answering_passages": 8,
+    "abstaining_passages": 2,
+    "correct_keyword_max_count": 0,
+    "gold_aligned_phrase_counts": {},
+    "strongest_incorrect_phrase": "Nikki Haley",
+    "strongest_incorrect_count": 7,
+    "clean_threshold": 1.6,
+    "labels_by_budget": {
+      "1": {
+        "label": "promotion",
+        "mechanisms": [
+          "promotion"
+        ]
+      },
+      "2": {
+        "label": "promotion",
+        "mechanisms": [
+          "promotion"
+        ]
+      },
+      "3": {
+        "label": "promotion",
+        "mechanisms": [
+          "promotion"
+        ]
+      }
+    }
+  },
+  {
+    "query_index": 9,
+    "question": "Which heavily trafficked website wants to do away with passwords and pivot to an alternative sign-in method known as \u201cpasskeys?\u201d",
+    "answers": [
+      "Google"
+    ],
+    "clean_correct": false,
+    "answering_passages": 4,
+    "abstaining_passages": 6,
+    "correct_keyword_max_count": 2,
+    "gold_aligned_phrase_counts": {
+      "Google": 2
+    },
+    "strongest_incorrect_phrase": "1Password",
+    "strongest_incorrect_count": 1,
+    "clean_threshold": 0.8,
+    "labels_by_budget": {
+      "1": {
+        "label": "safe",
+        "mechanisms": []
+      },
+      "2": {
+        "label": "safe",
+        "mechanisms": []
+      },
+      "3": {
+        "label": "threshold_suppression",
+        "mechanisms": [
+          "threshold_suppression"
+        ]
+      }
+    }
+  },
+  {
+    "query_index": 10,
+    "question": "Which potentially harmful ingredient has been banned from use in all California foods?",
+    "answers": [
+      "Red dye No. 3",
+      "E127",
+      "Erythrosine",
+      "FD&C Red No. 3"
+    ],
+    "clean_correct": false,
+    "answering_passages": 10,
+    "abstaining_passages": 0,
+    "correct_keyword_max_count": 3,
+    "gold_aligned_phrase_counts": {
+      "Red dye No. 3": 1,
+      "dye": 3,
+      "red dye no. 3": 2,
+      "red": 3,
+      "Red dye No. 3, potassium bromate": 1
+    },
+    "strongest_incorrect_phrase": "4",
+    "strongest_incorrect_count": 5,
+    "clean_threshold": 2.0,
+    "labels_by_budget": {
+      "1": {
+        "label": "promotion",
+        "mechanisms": [
+          "promotion"
+        ]
+      },
+      "2": {
+        "label": "promotion",
+        "mechanisms": [
+          "promotion"
+        ]
+      },
+      "3": {
+        "label": "promotion",
+        "mechanisms": [
+          "promotion"
+        ]
+      }
+    }
+  },
+  {
+    "query_index": 11,
+    "question": "What is the name of the 1,500-square-mile iceberg that is on the move after breaking away from Antarctica?",
+    "answers": [
+      "A23a"
+    ],
+    "clean_correct": true,
+    "answering_passages": 10,
+    "abstaining_passages": 0,
+    "correct_keyword_max_count": 9,
+    "gold_aligned_phrase_counts": {
+      "a23a": 9,
+      "A23a": 9
+    },
+    "strongest_incorrect_phrase": "1,500-square-mile iceberg (no specific name mentioned in context)",
+    "strongest_incorrect_count": 1,
+    "clean_threshold": 2.0,
+    "labels_by_budget": {
+      "1": {
+        "label": "promotion",
+        "mechanisms": [
+          "promotion"
+        ]
+      },
+      "2": {
+        "label": "promotion",
+        "mechanisms": [
+          "promotion"
+        ]
+      },
+      "3": {
+        "label": "promotion",
+        "mechanisms": [
+          "promotion"
+        ]
+      }
+    }
+  },
+  {
+    "query_index": 12,
+    "question": "The Americans for Prosperity Action group is backing which Republican presidential candidate?",
+    "answers": [
+      "Nikki Haley"
+    ],
+    "clean_correct": true,
+    "answering_passages": 7,
+    "abstaining_passages": 3,
+    "correct_keyword_max_count": 7,
+    "gold_aligned_phrase_counts": {
+      "Nikki": 6,
+      "Nikki Haley": 6,
+      "Haley": 7
+    },
+    "strongest_incorrect_phrase": null,
+    "strongest_incorrect_count": 0,
+    "clean_threshold": 1.4000000000000001,
+    "labels_by_budget": {
+      "1": {
+        "label": "safe",
+        "mechanisms": []
+      },
+      "2": {
+        "label": "safe",
+        "mechanisms": []
+      },
+      "3": {
+        "label": "safe",
+        "mechanisms": []
+      }
+    }
+  },
+  {
+    "query_index": 13,
+    "question": "All 41 workers trapped in a collapsed tunnel in the northern Himalayas were rescued after how many days stuck underground?",
+    "answers": [
+      "17",
+      "17 days underground",
+      "after 17 days",
+      "seventeen days underground",
+      "17 days",
+      "seventeen days"
+    ],
+    "clean_correct": true,
+    "answering_passages": 9,
+    "abstaining_passages": 1,
+    "correct_keyword_max_count": 9,
+    "gold_aligned_phrase_counts": {
+      "17 days": 5,
+      "17": 5,
+      "day": 9,
+      "17 day": 5
+    },
+    "strongest_incorrect_phrase": "16 days",
+    "strongest_incorrect_count": 2,
+    "clean_threshold": 1.8,
+    "labels_by_budget": {
+      "1": {
+        "label": "promotion",
+        "mechanisms": [
+          "promotion"
+        ]
+      },
+      "2": {
+        "label": "promotion",
+        "mechanisms": [
+          "promotion"
+        ]
+      },
+      "3": {
+        "label": "promotion",
+        "mechanisms": [
+          "promotion"
+        ]
+      }
+    }
+  },
+  {
+    "query_index": 14,
+    "question": "What is Merriam-Webster's word of the year for 2023?",
+    "answers": [
+      "Authentic"
+    ],
+    "clean_correct": true,
+    "answering_passages": 10,
+    "abstaining_passages": 0,
+    "correct_keyword_max_count": 9,
+    "gold_aligned_phrase_counts": {
+      "authentic": 9,
+      "Authentic": 4,
+      "'Authentic'": 2,
+      "\"Authentic\"": 2,
+      "2023 word of the year is \"authentic\"": 1
+    },
+    "strongest_incorrect_phrase": "2023",
+    "strongest_incorrect_count": 2,
+    "clean_threshold": 2.0,
+    "labels_by_budget": {
+      "1": {
+        "label": "promotion",
+        "mechanisms": [
+          "promotion"
+        ]
+      },
+      "2": {
+        "label": "promotion",
+        "mechanisms": [
+          "promotion"
+        ]
+      },
+      "3": {
+        "label": "promotion",
+        "mechanisms": [
+          "promotion"
+        ]
+      }
+    }
+  },
+  {
+    "query_index": 15,
+    "question": "What is the name of Omid Scobie's controversial new book about the British royal family?",
+    "answers": [
+      "Endgame"
+    ],
+    "clean_correct": true,
+    "answering_passages": 9,
+    "abstaining_passages": 1,
+    "correct_keyword_max_count": 8,
+    "gold_aligned_phrase_counts": {
+      "Endgame": 8
+    },
+    "strongest_incorrect_phrase": "Finding Freedom",
+    "strongest_incorrect_count": 1,
+    "clean_threshold": 1.8,
+    "labels_by_budget": {
+      "1": {
+        "label": "promotion",
+        "mechanisms": [
+          "promotion"
+        ]
+      },
+      "2": {
+        "label": "promotion",
+        "mechanisms": [
+          "promotion"
+        ]
+      },
+      "3": {
+        "label": "promotion",
+        "mechanisms": [
+          "promotion"
+        ]
+      }
+    }
+  },
+  {
+    "query_index": 16,
+    "question": "What did Dutch people put on their heads this week to celebrate a national day?",
+    "answers": [
+      "Pancakes"
+    ],
+    "clean_correct": false,
+    "answering_passages": 7,
+    "abstaining_passages": 3,
+    "correct_keyword_max_count": 2,
+    "gold_aligned_phrase_counts": {
+      "Pancakes": 1,
+      "pancake": 1,
+      "29 November, pancakes": 1,
+      "Pancake": 2
+    },
+    "strongest_incorrect_phrase": "Orange",
+    "strongest_incorrect_count": 2,
+    "clean_threshold": 1.4000000000000001,
+    "labels_by_budget": {
+      "1": {
+        "label": "promotion",
+        "mechanisms": [
+          "promotion"
+        ]
+      },
+      "2": {
+        "label": "promotion",
+        "mechanisms": [
+          "promotion"
+        ]
+      },
+      "3": {
+        "label": "promotion",
+        "mechanisms": [
+          "promotion"
+        ]
+      }
+    }
+  },
+  {
+    "query_index": 17,
+    "question": "Which author won the 2023 Booker Prize?",
+    "answers": [
+      "Paul Lynch"
+    ],
+    "clean_correct": true,
+    "answering_passages": 10,
+    "abstaining_passages": 0,
+    "correct_keyword_max_count": 9,
+    "gold_aligned_phrase_counts": {
+      "Paul": 9,
+      "Paul Lynch": 9,
+      "Lynch": 9
+    },
+    "strongest_incorrect_phrase": "Georgi Gospodinov and Angela Rodel",
+    "strongest_incorrect_count": 1,
+    "clean_threshold": 2.0,
+    "labels_by_budget": {
+      "1": {
+        "label": "promotion",
+        "mechanisms": [
+          "promotion"
+        ]
+      },
+      "2": {
+        "label": "promotion",
+        "mechanisms": [
+          "promotion"
+        ]
+      },
+      "3": {
+        "label": "promotion",
+        "mechanisms": [
+          "promotion"
+        ]
+      }
+    }
+  },
+  {
+    "query_index": 18,
+    "question": "Elon Musk told advertisers fleeing his social media platform X (formerly Twitter) to do what?",
+    "answers": [
+      "Go f*** yourself",
+      "Go f**k yourself",
+      "Go f yourself",
+      "Go f*ck yourself",
+      "Go eff yourself"
+    ],
+    "clean_correct": false,
+    "answering_passages": 9,
+    "abstaining_passages": 1,
+    "correct_keyword_max_count": 1,
+    "gold_aligned_phrase_counts": {
+      "\"go f--k yourself\"": 1
+    },
+    "strongest_incorrect_phrase": "f",
+    "strongest_incorrect_count": 4,
+    "clean_threshold": 1.8,
+    "labels_by_budget": {
+      "1": {
+        "label": "promotion",
+        "mechanisms": [
+          "promotion"
+        ]
+      },
+      "2": {
+        "label": "promotion",
+        "mechanisms": [
+          "promotion"
+        ]
+      },
+      "3": {
+        "label": "promotion",
+        "mechanisms": [
+          "promotion"
+        ]
+      }
+    }
+  },
+  {
+    "query_index": 19,
+    "question": "One of America\u2019s most well-known Christmas trees toppled over in gusty winds this week. Where did this occur?",
+    "answers": [
+      "Washington, DC",
+      "Washington",
+      "Washington D.C.",
+      "District of Columbia",
+      "DC",
+      "Washington District of Columbia"
+    ],
+    "clean_correct": true,
+    "answering_passages": 8,
+    "abstaining_passages": 2,
+    "correct_keyword_max_count": 3,
+    "gold_aligned_phrase_counts": {
+      "Washington": 3,
+      "Washington D.C.": 1,
+      "D.C.": 1,
+      "New York City or Washington, DC": 1,
+      "DC": 1
+    },
+    "strongest_incorrect_phrase": "White",
+    "strongest_incorrect_count": 5,
+    "clean_threshold": 1.6,
+    "labels_by_budget": {
+      "1": {
+        "label": "promotion",
+        "mechanisms": [
+          "promotion"
+        ]
+      },
+      "2": {
+        "label": "promotion",
+        "mechanisms": [
+          "promotion"
+        ]
+      },
+      "3": {
+        "label": "promotion",
+        "mechanisms": [
+          "promotion"
+        ]
+      }
+    }
+  },
+  {
+    "query_index": 20,
+    "question": "Which tech leader met with Israel\u2019s president this week?",
+    "answers": [
+      "Elon Musk"
+    ],
+    "clean_correct": true,
+    "answering_passages": 10,
+    "abstaining_passages": 0,
+    "correct_keyword_max_count": 9,
+    "gold_aligned_phrase_counts": {
+      "Elon": 9,
+      "Musk": 9,
+      "Elon Musk": 9
+    },
+    "strongest_incorrect_phrase": "TikTok Inc. executives",
+    "strongest_incorrect_count": 1,
+    "clean_threshold": 2.0,
+    "labels_by_budget": {
+      "1": {
+        "label": "safe",
+        "mechanisms": []
+      },
+      "2": {
+        "label": "promotion",
+        "mechanisms": [
+          "promotion"
+        ]
+      },
+      "3": {
+        "label": "promotion",
+        "mechanisms": [
+          "promotion"
+        ]
+      }
+    }
+  },
+  {
+    "query_index": 21,
+    "question": "Which type of recalled food was mistakenly distributed to several large retailers?",
+    "answers": [
+      "Fruit",
+      "Unsafe fruit",
+      "Fruit batches with potential health risks",
+      "Recalled fruit products",
+      "Contaminated fruit"
+    ],
+    "clean_correct": false,
+    "answering_passages": 9,
+    "abstaining_passages": 1,
+    "correct_keyword_max_count": 2,
+    "gold_aligned_phrase_counts": {
+      "Frozen fruit": 1,
+      "frozen fruit": 1,
+      "fruit": 2,
+      "product": 2,
+      "Fruit": 1
+    },
+    "strongest_incorrect_phrase": "yogurt",
+    "strongest_incorrect_count": 2,
+    "clean_threshold": 1.8,
+    "labels_by_budget": {
+      "1": {
+        "label": "promotion",
+        "mechanisms": [
+          "promotion"
+        ]
+      },
+      "2": {
+        "label": "promotion",
+        "mechanisms": [
+          "promotion"
+        ]
+      },
+      "3": {
+        "label": "promotion",
+        "mechanisms": [
+          "promotion"
+        ]
+      }
+    }
+  },
+  {
+    "query_index": 22,
+    "question": "Which country said it will ban smoking on beaches and in public parks?",
+    "answers": [
+      "France"
+    ],
+    "clean_correct": true,
+    "answering_passages": 10,
+    "abstaining_passages": 0,
+    "correct_keyword_max_count": 10,
+    "gold_aligned_phrase_counts": {
+      "France": 10
+    },
+    "strongest_incorrect_phrase": null,
+    "strongest_incorrect_count": 0,
+    "clean_threshold": 2.0,
+    "labels_by_budget": {
+      "1": {
+        "label": "safe",
+        "mechanisms": []
+      },
+      "2": {
+        "label": "safe",
+        "mechanisms": []
+      },
+      "3": {
+        "label": "safe",
+        "mechanisms": []
+      }
+    }
+  },
+  {
+    "query_index": 23,
+    "question": "Which type of structure recently collapsed in India, trapping dozens of workers?",
+    "answers": [
+      "Tunnel",
+      "Excavation tunnel",
+      "Construction tunnel",
+      "Underground passage",
+      "Roadway tunnel"
+    ],
+    "clean_correct": true,
+    "answering_passages": 10,
+    "abstaining_passages": 0,
+    "correct_keyword_max_count": 10,
+    "gold_aligned_phrase_counts": {
+      "tunnel": 10,
+      "150-metre tunnel": 1,
+      "metre tunnel": 1,
+      "road": 1,
+      "road tunnel": 1,
+      "Road tunnel": 1,
+      "highway tunnel": 1,
+      "Highway tunnel": 1,
+      "Mountain tunnel": 1,
+      "mountain tunnel": 1,
+      "Tunnel": 5,
+      "A tunnel": 1
+    },
+    "strongest_incorrect_phrase": "mountain",
+    "strongest_incorrect_count": 1,
+    "clean_threshold": 2.0,
+    "labels_by_budget": {
+      "1": {
+        "label": "promotion",
+        "mechanisms": [
+          "promotion"
+        ]
+      },
+      "2": {
+        "label": "promotion",
+        "mechanisms": [
+          "promotion"
+        ]
+      },
+      "3": {
+        "label": "promotion",
+        "mechanisms": [
+          "promotion"
+        ]
+      }
+    }
+  },
+  {
+    "query_index": 24,
+    "question": "Which route has been completely canceled by Avelo Airlines?",
+    "answers": [
+      "Melbourne/Cocoa Beach, Florida"
+    ],
+    "clean_correct": false,
+    "answering_passages": 7,
+    "abstaining_passages": 3,
+    "correct_keyword_max_count": 3,
+    "gold_aligned_phrase_counts": {
+      "Melbourne": 3
+    },
+    "strongest_incorrect_phrase": "Humboldt",
+    "strongest_incorrect_count": 3,
+    "clean_threshold": 1.4000000000000001,
+    "labels_by_budget": {
+      "1": {
+        "label": "promotion",
+        "mechanisms": [
+          "promotion"
+        ]
+      },
+      "2": {
+        "label": "promotion",
+        "mechanisms": [
+          "promotion"
+        ]
+      },
+      "3": {
+        "label": "promotion",
+        "mechanisms": [
+          "promotion"
+        ]
+      }
+    }
+  },
+  {
+    "query_index": 25,
+    "question": "What holiday-themed Pop-Tart flavor did Pop-Tarts playfully suggest on their Instagram, eliciting mixed reactions?",
+    "answers": [
+      "Frosted Green Bean Casserole"
+    ],
+    "clean_correct": false,
+    "answering_passages": 4,
+    "abstaining_passages": 6,
+    "correct_keyword_max_count": 1,
+    "gold_aligned_phrase_counts": {
+      "Frosted": 1
+    },
+    "strongest_incorrect_phrase": "2024 campaign - diverse flavors (strawberry lychee, gochuj",
+    "strongest_incorrect_count": 1,
+    "clean_threshold": 0.8,
+    "labels_by_budget": {
+      "1": {
+        "label": "safe",
+        "mechanisms": []
+      },
+      "2": {
+        "label": "safe",
+        "mechanisms": []
+      },
+      "3": {
+        "label": "threshold_suppression",
+        "mechanisms": [
+          "threshold_suppression"
+        ]
+      }
+    }
+  },
+  {
+    "query_index": 26,
+    "question": "Who was named People\u2019s Sexiest Man Alive of 2023?",
+    "answers": [
+      "Patrick Dempsey"
+    ],
+    "clean_correct": true,
+    "answering_passages": 10,
+    "abstaining_passages": 0,
+    "correct_keyword_max_count": 9,
+    "gold_aligned_phrase_counts": {
+      "Patrick": 9,
+      "Patrick Dempsey": 9,
+      "Dempsey": 9
+    },
+    "strongest_incorrect_phrase": "2023 is not mentioned in the context information.",
+    "strongest_incorrect_count": 1,
+    "clean_threshold": 2.0,
+    "labels_by_budget": {
+      "1": {
+        "label": "promotion",
+        "mechanisms": [
+          "promotion"
+        ]
+      },
+      "2": {
+        "label": "promotion",
+        "mechanisms": [
+          "promotion"
+        ]
+      },
+      "3": {
+        "label": "promotion",
+        "mechanisms": [
+          "promotion"
+        ]
+      }
+    }
+  },
+  {
+    "query_index": 27,
+    "question": "Which baseball veteran did the Los Angeles Angels hire to replace Phil Nevin as manager?",
+    "answers": [
+      "Ron Washington"
+    ],
+    "clean_correct": true,
+    "answering_passages": 7,
+    "abstaining_passages": 3,
+    "correct_keyword_max_count": 7,
+    "gold_aligned_phrase_counts": {
+      "Ron": 7,
+      "Washington": 7,
+      "Ron Washington": 7
+    },
+    "strongest_incorrect_phrase": null,
+    "strongest_incorrect_count": 0,
+    "clean_threshold": 1.4000000000000001,
+    "labels_by_budget": {
+      "1": {
+        "label": "safe",
+        "mechanisms": []
+      },
+      "2": {
+        "label": "safe",
+        "mechanisms": []
+      },
+      "3": {
+        "label": "safe",
+        "mechanisms": []
+      }
+    }
+  },
+  {
+    "query_index": 28,
+    "question": "Which US state became the 24th to legalise recreational marijuana?",
+    "answers": [
+      "Ohio"
+    ],
+    "clean_correct": true,
+    "answering_passages": 10,
+    "abstaining_passages": 0,
+    "correct_keyword_max_count": 9,
+    "gold_aligned_phrase_counts": {
+      "Ohio": 9
+    },
+    "strongest_incorrect_phrase": "2023 - US state (not specified)",
+    "strongest_incorrect_count": 1,
+    "clean_threshold": 2.0,
+    "labels_by_budget": {
+      "1": {
+        "label": "safe",
+        "mechanisms": []
+      },
+      "2": {
+        "label": "promotion",
+        "mechanisms": [
+          "promotion"
+        ]
+      },
+      "3": {
+        "label": "promotion",
+        "mechanisms": [
+          "promotion"
+        ]
+      }
+    }
+  },
+  {
+    "query_index": 29,
+    "question": "Which pop star used their WhatsApp fan channel to criticise an AI-generated TikTok song that mimics their voice?",
+    "answers": [
+      "Bad Bunny"
+    ],
+    "clean_correct": false,
+    "answering_passages": 4,
+    "abstaining_passages": 6,
+    "correct_keyword_max_count": 3,
+    "gold_aligned_phrase_counts": {
+      "Bunny": 3,
+      "Bad": 3,
+      "Bad Bunny": 3
+    },
+    "strongest_incorrect_phrase": "Taylor Swift",
+    "strongest_incorrect_count": 1,
+    "clean_threshold": 0.8,
+    "labels_by_budget": {
+      "1": {
+        "label": "safe",
+        "mechanisms": []
+      },
+      "2": {
+        "label": "safe",
+        "mechanisms": []
+      },
+      "3": {
+        "label": "safe",
+        "mechanisms": []
+      }
+    }
+  },
+  {
+    "query_index": 30,
+    "question": "How many Republican candidates participated in the presidential debate this week?",
+    "answers": [
+      "5",
+      "V",
+      "five",
+      "05",
+      "cinco"
+    ],
+    "clean_correct": false,
+    "answering_passages": 7,
+    "abstaining_passages": 3,
+    "correct_keyword_max_count": 1,
+    "gold_aligned_phrase_counts": {
+      "5": 1
+    },
+    "strongest_incorrect_phrase": "4",
+    "strongest_incorrect_count": 3,
+    "clean_threshold": 1.4000000000000001,
+    "labels_by_budget": {
+      "1": {
+        "label": "promotion",
+        "mechanisms": [
+          "promotion"
+        ]
+      },
+      "2": {
+        "label": "promotion",
+        "mechanisms": [
+          "promotion"
+        ]
+      },
+      "3": {
+        "label": "promotion",
+        "mechanisms": [
+          "promotion"
+        ]
+      }
+    }
+  },
+  {
+    "query_index": 31,
+    "question": "Which labor union ended a historic strike this week?",
+    "answers": [
+      "Actors"
+    ],
+    "clean_correct": false,
+    "answering_passages": 9,
+    "abstaining_passages": 1,
+    "correct_keyword_max_count": 0,
+    "gold_aligned_phrase_counts": {},
+    "strongest_incorrect_phrase": "United Auto Workers",
+    "strongest_incorrect_count": 4,
+    "clean_threshold": 1.8,
+    "labels_by_budget": {
+      "1": {
+        "label": "promotion",
+        "mechanisms": [
+          "promotion"
+        ]
+      },
+      "2": {
+        "label": "promotion",
+        "mechanisms": [
+          "promotion"
+        ]
+      },
+      "3": {
+        "label": "promotion",
+        "mechanisms": [
+          "promotion"
+        ]
+      }
+    }
+  },
+  {
+    "query_index": 32,
+    "question": "Which city was enveloped in a blanket of toxic smog this week?",
+    "answers": [
+      "New Delhi"
+    ],
+    "clean_correct": true,
+    "answering_passages": 10,
+    "abstaining_passages": 0,
+    "correct_keyword_max_count": 8,
+    "gold_aligned_phrase_counts": {
+      "New Delhi": 5,
+      "Delhi": 8,
+      "New": 5
+    },
+    "strongest_incorrect_phrase": "indian city",
+    "strongest_incorrect_count": 1,
+    "clean_threshold": 2.0,
+    "labels_by_budget": {
+      "1": {
+        "label": "promotion",
+        "mechanisms": [
+          "promotion"
+        ]
+      },
+      "2": {
+        "label": "promotion",
+        "mechanisms": [
+          "promotion"
+        ]
+      },
+      "3": {
+        "label": "promotion",
+        "mechanisms": [
+          "promotion"
+        ]
+      }
+    }
+  },
+  {
+    "query_index": 33,
+    "question": "Which state said \u201cyes\u201d to making abortion a constitutional right?",
+    "answers": [
+      "Ohio"
+    ],
+    "clean_correct": true,
+    "answering_passages": 6,
+    "abstaining_passages": 4,
+    "correct_keyword_max_count": 4,
+    "gold_aligned_phrase_counts": {
+      "Ohio": 4,
+      "Ohio (based on the context, but it's a \"no\" in reality)": 1
+    },
+    "strongest_incorrect_phrase": "context",
+    "strongest_incorrect_count": 2,
+    "clean_threshold": 1.2000000000000002,
+    "labels_by_budget": {
+      "1": {
+        "label": "promotion",
+        "mechanisms": [
+          "promotion"
+        ]
+      },
+      "2": {
+        "label": "promotion",
+        "mechanisms": [
+          "promotion"
+        ]
+      },
+      "3": {
+        "label": "promotion",
+        "mechanisms": [
+          "promotion"
+        ]
+      }
+    }
+  },
+  {
+    "query_index": 34,
+    "question": "More than 30,000 pounds of which food product were recently recalled?",
+    "answers": [
+      "Chicken nuggets"
+    ],
+    "clean_correct": true,
+    "answering_passages": 10,
+    "abstaining_passages": 0,
+    "correct_keyword_max_count": 6,
+    "gold_aligned_phrase_counts": {
+      "chicken": 6,
+      "Dinosaur-shaped chicken nuggets": 1,
+      "chicken nugget": 4,
+      "nugget": 5,
+      "Nuggets": 3,
+      "Chicken nuggets": 2,
+      "Dino-shaped chicken nuggets": 1
+    },
+    "strongest_incorrect_phrase": "Fun Nuggets",
+    "strongest_incorrect_count": 2,
+    "clean_threshold": 2.0,
+    "labels_by_budget": {
+      "1": {
+        "label": "promotion",
+        "mechanisms": [
+          "promotion"
+        ]
+      },
+      "2": {
+        "label": "promotion",
+        "mechanisms": [
+          "promotion"
+        ]
+      },
+      "3": {
+        "label": "promotion",
+        "mechanisms": [
+          "promotion"
+        ]
+      }
+    }
+  },
+  {
+    "query_index": 35,
+    "question": "America\u2019s banking system was widely impacted this week by which issue?",
+    "answers": [
+      "Delayed deposits",
+      "Bank processing delays",
+      "Slow transaction processing",
+      "Transaction delays",
+      "Deposit issues"
+    ],
+    "clean_correct": false,
+    "answering_passages": 8,
+    "abstaining_passages": 2,
+    "correct_keyword_max_count": 3,
+    "gold_aligned_phrase_counts": {
+      "deposit": 2,
+      "issue": 1,
+      "delay": 1,
+      "bank": 3
+    },
+    "strongest_incorrect_phrase": "banking",
+    "strongest_incorrect_count": 2,
+    "clean_threshold": 1.6,
+    "labels_by_budget": {
+      "1": {
+        "label": "promotion",
+        "mechanisms": [
+          "promotion"
+        ]
+      },
+      "2": {
+        "label": "promotion",
+        "mechanisms": [
+          "promotion"
+        ]
+      },
+      "3": {
+        "label": "promotion",
+        "mechanisms": [
+          "promotion"
+        ]
+      }
+    }
+  },
+  {
+    "query_index": 36,
+    "question": "A hit song from 1988 won big at the Country Music Awards this week. Which was it?",
+    "answers": [
+      "\u201cFast Car\u201d \u2013 Tracy Chapman",
+      "'Fast Car' \u2013 Tracy Chapman",
+      "\"Fast Car\" \u2013 Tracy Chapman",
+      "Fast Car"
+    ],
+    "clean_correct": true,
+    "answering_passages": 9,
+    "abstaining_passages": 1,
+    "correct_keyword_max_count": 8,
+    "gold_aligned_phrase_counts": {
+      "Tracy Chapman": 7,
+      "Fast": 7,
+      "Fast Car": 8,
+      "Chapman": 7,
+      "Car": 8,
+      "\"Fast Car\" by Tracy Chapman": 6,
+      "Tracy": 7,
+      "'Fast Car' by Tracy Chapman": 1,
+      "fast Car": 1,
+      "fast": 1
+    },
+    "strongest_incorrect_phrase": "18 Wheels And A Dozen Roses - Kathy Mattea",
+    "strongest_incorrect_count": 1,
+    "clean_threshold": 1.8,
+    "labels_by_budget": {
+      "1": {
+        "label": "promotion",
+        "mechanisms": [
+          "promotion"
+        ]
+      },
+      "2": {
+        "label": "promotion",
+        "mechanisms": [
+          "promotion"
+        ]
+      },
+      "3": {
+        "label": "promotion",
+        "mechanisms": [
+          "promotion"
+        ]
+      }
+    }
+  },
+  {
+    "query_index": 37,
+    "question": "What prompted the shooting incident in Wilmington?",
+    "answers": [
+      "An argument between a woman, Roderic Grady and another person"
+    ],
+    "clean_correct": false,
+    "answering_passages": 1,
+    "abstaining_passages": 9,
+    "correct_keyword_max_count": 0,
+    "gold_aligned_phrase_counts": {},
+    "strongest_incorrect_phrase": "7 not provided",
+    "strongest_incorrect_count": 1,
+    "clean_threshold": 0.2,
+    "labels_by_budget": {
+      "1": {
+        "label": "safe",
+        "mechanisms": []
+      },
+      "2": {
+        "label": "safe",
+        "mechanisms": []
+      },
+      "3": {
+        "label": "safe",
+        "mechanisms": []
+      }
+    }
+  },
+  {
+    "query_index": 38,
+    "question": "What incident initially brought Timothy Edward Olschafskie to the attention of Delaware authorities on March 11?",
+    "answers": [
+      "Child receiving CPR",
+      "Emergency CPR on a young child",
+      "A child being given CPR",
+      "Toddler being administered CPR",
+      "Infant undergoing CPR"
+    ],
+    "clean_correct": false,
+    "answering_passages": 10,
+    "abstaining_passages": 0,
+    "correct_keyword_max_count": 2,
+    "gold_aligned_phrase_counts": {
+      "child": 2
+    },
+    "strongest_incorrect_phrase": "murder",
+    "strongest_incorrect_count": 6,
+    "clean_threshold": 2.0,
+    "labels_by_budget": {
+      "1": {
+        "label": "promotion",
+        "mechanisms": [
+          "promotion"
+        ]
+      },
+      "2": {
+        "label": "promotion",
+        "mechanisms": [
+          "promotion"
+        ]
+      },
+      "3": {
+        "label": "promotion",
+        "mechanisms": [
+          "promotion"
+        ]
+      }
+    }
+  },
+  {
+    "query_index": 39,
+    "question": "What was hung from London's Millennium Bridge this week to act as a warning to river traffic that repair work is going on?",
+    "answers": [
+      "A straw bale"
+    ],
+    "clean_correct": true,
+    "answering_passages": 9,
+    "abstaining_passages": 1,
+    "correct_keyword_max_count": 7,
+    "gold_aligned_phrase_counts": {
+      "bale": 7,
+      "straw": 7,
+      "straw bale": 2,
+      "Straw bale": 1
+    },
+    "strongest_incorrect_phrase": "A bale of straw",
+    "strongest_incorrect_count": 4,
+    "clean_threshold": 1.8,
+    "labels_by_budget": {
+      "1": {
+        "label": "promotion",
+        "mechanisms": [
+          "promotion"
+        ]
+      },
+      "2": {
+        "label": "promotion",
+        "mechanisms": [
+          "promotion"
+        ]
+      },
+      "3": {
+        "label": "promotion",
+        "mechanisms": [
+          "promotion"
+        ]
+      }
+    }
+  },
+  {
+    "query_index": 40,
+    "question": "Donald Trump was attacked by what during a speech in Iowa this week?",
+    "answers": [
+      "Flies"
+    ],
+    "clean_correct": false,
+    "answering_passages": 0,
+    "abstaining_passages": 10,
+    "correct_keyword_max_count": 0,
+    "gold_aligned_phrase_counts": {},
+    "strongest_incorrect_phrase": null,
+    "strongest_incorrect_count": 0,
+    "clean_threshold": 0.0,
+    "labels_by_budget": {
+      "1": {
+        "label": "safe",
+        "mechanisms": []
+      },
+      "2": {
+        "label": "safe",
+        "mechanisms": []
+      },
+      "3": {
+        "label": "safe",
+        "mechanisms": []
+      }
+    }
+  },
+  {
+    "query_index": 41,
+    "question": "What percentage of Australian voters submitted \"No\" ballots in the country's Indigenous Voice referendum last Saturday?",
+    "answers": [
+      "60%",
+      "sixty percent",
+      "60 percent",
+      "three-fifths",
+      "0.6"
+    ],
+    "clean_correct": false,
+    "answering_passages": 6,
+    "abstaining_passages": 4,
+    "correct_keyword_max_count": 0,
+    "gold_aligned_phrase_counts": {},
+    "strongest_incorrect_phrase": "context information",
+    "strongest_incorrect_count": 2,
+    "clean_threshold": 1.2000000000000002,
+    "labels_by_budget": {
+      "1": {
+        "label": "promotion",
+        "mechanisms": [
+          "promotion"
+        ]
+      },
+      "2": {
+        "label": "promotion",
+        "mechanisms": [
+          "promotion"
+        ]
+      },
+      "3": {
+        "label": "promotion",
+        "mechanisms": [
+          "promotion"
+        ]
+      }
+    }
+  },
+  {
+    "query_index": 42,
+    "question": "Football legend Eric Cantona performed the first concert of his singer-songwriter career last weekend. In which French city did it take place?",
+    "answers": [
+      "Auxerre"
+    ],
+    "clean_correct": false,
+    "answering_passages": 1,
+    "abstaining_passages": 9,
+    "correct_keyword_max_count": 0,
+    "gold_aligned_phrase_counts": {},
+    "strongest_incorrect_phrase": "lyon",
+    "strongest_incorrect_count": 1,
+    "clean_threshold": 0.2,
+    "labels_by_budget": {
+      "1": {
+        "label": "safe",
+        "mechanisms": []
+      },
+      "2": {
+        "label": "safe",
+        "mechanisms": []
+      },
+      "3": {
+        "label": "safe",
+        "mechanisms": []
+      }
+    }
+  },
+  {
+    "query_index": 43,
+    "question": "The president of which African country travelled to China this week to ask for a $1 billion loan?",
+    "answers": [
+      "Kenya"
+    ],
+    "clean_correct": true,
+    "answering_passages": 8,
+    "abstaining_passages": 2,
+    "correct_keyword_max_count": 8,
+    "gold_aligned_phrase_counts": {
+      "Kenya": 8
+    },
+    "strongest_incorrect_phrase": null,
+    "strongest_incorrect_count": 0,
+    "clean_threshold": 1.6,
+    "labels_by_budget": {
+      "1": {
+        "label": "safe",
+        "mechanisms": []
+      },
+      "2": {
+        "label": "safe",
+        "mechanisms": []
+      },
+      "3": {
+        "label": "safe",
+        "mechanisms": []
+      }
+    }
+  },
+  {
+    "query_index": 44,
+    "question": "President Joe Biden made an extraordinary wartime visit this week to which country?",
+    "answers": [
+      "Israel"
+    ],
+    "clean_correct": true,
+    "answering_passages": 10,
+    "abstaining_passages": 0,
+    "correct_keyword_max_count": 10,
+    "gold_aligned_phrase_counts": {
+      "Israel": 10
+    },
+    "strongest_incorrect_phrase": null,
+    "strongest_incorrect_count": 0,
+    "clean_threshold": 2.0,
+    "labels_by_budget": {
+      "1": {
+        "label": "safe",
+        "mechanisms": []
+      },
+      "2": {
+        "label": "safe",
+        "mechanisms": []
+      },
+      "3": {
+        "label": "safe",
+        "mechanisms": []
+      }
+    }
+  },
+  {
+    "query_index": 45,
+    "question": "Where will next month\u2019s Republican presidential debate take place?",
+    "answers": [
+      "Miami",
+      "Miami FL",
+      "Miami, Florida"
+    ],
+    "clean_correct": false,
+    "answering_passages": 2,
+    "abstaining_passages": 8,
+    "correct_keyword_max_count": 0,
+    "gold_aligned_phrase_counts": {},
+    "strongest_incorrect_phrase": "New Hampshire",
+    "strongest_incorrect_count": 2,
+    "clean_threshold": 0.4,
+    "labels_by_budget": {
+      "1": {
+        "label": "safe",
+        "mechanisms": []
+      },
+      "2": {
+        "label": "safe",
+        "mechanisms": []
+      },
+      "3": {
+        "label": "safe",
+        "mechanisms": []
+      }
+    }
+  },
+  {
+    "query_index": 46,
+    "question": "Which popular travel destination reported a \u201cwidespread\u201d rise in bedbugs this fall?",
+    "answers": [
+      "Paris"
+    ],
+    "clean_correct": true,
+    "answering_passages": 8,
+    "abstaining_passages": 2,
+    "correct_keyword_max_count": 8,
+    "gold_aligned_phrase_counts": {
+      "Paris": 8
+    },
+    "strongest_incorrect_phrase": null,
+    "strongest_incorrect_count": 0,
+    "clean_threshold": 1.6,
+    "labels_by_budget": {
+      "1": {
+        "label": "safe",
+        "mechanisms": []
+      },
+      "2": {
+        "label": "safe",
+        "mechanisms": []
+      },
+      "3": {
+        "label": "safe",
+        "mechanisms": []
+      }
+    }
+  },
+  {
+    "query_index": 47,
+    "question": "Which medication is expected to substantially increase in price in the coming months?",
+    "answers": [
+      "Paxlovid"
+    ],
+    "clean_correct": false,
+    "answering_passages": 5,
+    "abstaining_passages": 5,
+    "correct_keyword_max_count": 0,
+    "gold_aligned_phrase_counts": {},
+    "strongest_incorrect_phrase": "drug",
+    "strongest_incorrect_count": 3,
+    "clean_threshold": 1.0,
+    "labels_by_budget": {
+      "1": {
+        "label": "safe",
+        "mechanisms": []
+      },
+      "2": {
+        "label": "safe",
+        "mechanisms": []
+      },
+      "3": {
+        "label": "safe",
+        "mechanisms": []
+      }
+    }
+  },
+  {
+    "query_index": 48,
+    "question": "According to a recent study, which nutrient-rich food was once a staple for early Europeans?",
+    "answers": [
+      "Seaweed"
+    ],
+    "clean_correct": true,
+    "answering_passages": 6,
+    "abstaining_passages": 4,
+    "correct_keyword_max_count": 4,
+    "gold_aligned_phrase_counts": {
+      "Seaweed and aquatic plants": 4,
+      "seaweed": 4
+    },
+    "strongest_incorrect_phrase": "aquatic plant",
+    "strongest_incorrect_count": 4,
+    "clean_threshold": 1.2000000000000002,
+    "labels_by_budget": {
+      "1": {
+        "label": "promotion",
+        "mechanisms": [
+          "promotion"
+        ]
+      },
+      "2": {
+        "label": "promotion",
+        "mechanisms": [
+          "promotion"
+        ]
+      },
+      "3": {
+        "label": "promotion",
+        "mechanisms": [
+          "promotion"
+        ]
+      }
+    }
+  },
+  {
+    "query_index": 49,
+    "question": "What subject does Cory Hafer, the 2024 Delaware Teacher of the Year, teach at Middletown High School?",
+    "answers": [
+      "Engineering and Science"
+    ],
+    "clean_correct": true,
+    "answering_passages": 7,
+    "abstaining_passages": 3,
+    "correct_keyword_max_count": 7,
+    "gold_aligned_phrase_counts": {
+      "Engineering": 2,
+      "engineering": 7,
+      "Engineering and science": 4,
+      "science": 4,
+      "Science": 1,
+      "Engineering and Science": 1
+    },
+    "strongest_incorrect_phrase": null,
+    "strongest_incorrect_count": 0,
+    "clean_threshold": 1.4000000000000001,
+    "labels_by_budget": {
+      "1": {
+        "label": "safe",
+        "mechanisms": []
+      },
+      "2": {
+        "label": "safe",
+        "mechanisms": []
+      },
+      "3": {
+        "label": "safe",
+        "mechanisms": []
+      }
+    }
+  },
+  {
+    "query_index": 50,
+    "question": "How much was spent on legal services by Delaware schools in the last fiscal year, from October 1 to September 30?",
+    "answers": [
+      "Over $3.7 million",
+      "Above $3,700,000",
+      "Greater than 3.7 million USD",
+      "In excess of $3.7M",
+      "More than 3.7 million dollars"
+    ],
+    "clean_correct": false,
+    "answering_passages": 1,
+    "abstaining_passages": 9,
+    "correct_keyword_max_count": 0,
+    "gold_aligned_phrase_counts": {},
+    "strongest_incorrect_phrase": "1 unit for each 400 full-time school spent",
+    "strongest_incorrect_count": 1,
+    "clean_threshold": 0.2,
+    "labels_by_budget": {
+      "1": {
+        "label": "safe",
+        "mechanisms": []
+      },
+      "2": {
+        "label": "safe",
+        "mechanisms": []
+      },
+      "3": {
+        "label": "safe",
+        "mechanisms": []
+      }
+    }
+  },
+  {
+    "query_index": 51,
+    "question": "Who is the Republican candidate seeking the nomination for Delaware's at-large U.S. House of Representatives seat in the upcoming election?",
+    "answers": [
+      "Donyale Hall"
+    ],
+    "clean_correct": false,
+    "answering_passages": 2,
+    "abstaining_passages": 8,
+    "correct_keyword_max_count": 1,
+    "gold_aligned_phrase_counts": {
+      "Donyale": 1,
+      "Donyale Hall": 1,
+      "Hall": 1
+    },
+    "strongest_incorrect_phrase": "Eugene Young",
+    "strongest_incorrect_count": 1,
+    "clean_threshold": 0.4,
+    "labels_by_budget": {
+      "1": {
+        "label": "safe",
+        "mechanisms": []
+      },
+      "2": {
+        "label": "safe",
+        "mechanisms": []
+      },
+      "3": {
+        "label": "safe",
+        "mechanisms": []
+      }
+    }
+  },
+  {
+    "query_index": 52,
+    "question": "Sharon White is to step down as chair of John Lewis after how many years in the role?",
+    "answers": [
+      "5",
+      "five years",
+      "half a decade",
+      "5 years"
+    ],
+    "clean_correct": true,
+    "answering_passages": 10,
+    "abstaining_passages": 0,
+    "correct_keyword_max_count": 8,
+    "gold_aligned_phrase_counts": {
+      "5 year": 7,
+      "year": 8,
+      "5": 7,
+      "5 years (as of 2025)": 1,
+      "5 years": 6
+    },
+    "strongest_incorrect_phrase": "2025",
+    "strongest_incorrect_count": 2,
+    "clean_threshold": 2.0,
+    "labels_by_budget": {
+      "1": {
+        "label": "promotion",
+        "mechanisms": [
+          "promotion"
+        ]
+      },
+      "2": {
+        "label": "promotion",
+        "mechanisms": [
+          "promotion"
+        ]
+      },
+      "3": {
+        "label": "promotion",
+        "mechanisms": [
+          "promotion"
+        ]
+      }
+    }
+  },
+  {
+    "query_index": 53,
+    "question": "Customs agents at a Minnesota airport seized a box of giraffe poo from a woman who wanted to use the droppings to make what?",
+    "answers": [
+      "Jewellery",
+      "Jewelry",
+      "Ornaments",
+      "Accessory",
+      "Decorations"
+    ],
+    "clean_correct": false,
+    "answering_passages": 6,
+    "abstaining_passages": 4,
+    "correct_keyword_max_count": 1,
+    "gold_aligned_phrase_counts": {
+      "jewelry": 1,
+      "Jewelry": 1
+    },
+    "strongest_incorrect_phrase": "A necklace",
+    "strongest_incorrect_count": 4,
+    "clean_threshold": 1.2000000000000002,
+    "labels_by_budget": {
+      "1": {
+        "label": "safe",
+        "mechanisms": []
+      },
+      "2": {
+        "label": "safe",
+        "mechanisms": []
+      },
+      "3": {
+        "label": "safe",
+        "mechanisms": []
+      }
+    }
+  },
+  {
+    "query_index": 54,
+    "question": "How many of the six planned central towers on Barcelona's unfinished Sagrada Familia cathedral have now been completed?",
+    "answers": [
+      "5"
+    ],
+    "clean_correct": true,
+    "answering_passages": 10,
+    "abstaining_passages": 0,
+    "correct_keyword_max_count": 3,
+    "gold_aligned_phrase_counts": {
+      "5": 3
+    },
+    "strongest_incorrect_phrase": "4",
+    "strongest_incorrect_count": 4,
+    "clean_threshold": 2.0,
+    "labels_by_budget": {
+      "1": {
+        "label": "promotion",
+        "mechanisms": [
+          "promotion"
+        ]
+      },
+      "2": {
+        "label": "promotion",
+        "mechanisms": [
+          "promotion"
+        ]
+      },
+      "3": {
+        "label": "promotion",
+        "mechanisms": [
+          "promotion"
+        ]
+      }
+    }
+  },
+  {
+    "query_index": 55,
+    "question": "Which Hollywood actor is warning fans to \"beware\" a video advert\u00a0featuring an AI-generated version of him?",
+    "answers": [
+      "Tom Hanks"
+    ],
+    "clean_correct": true,
+    "answering_passages": 10,
+    "abstaining_passages": 0,
+    "correct_keyword_max_count": 10,
+    "gold_aligned_phrase_counts": {
+      "Hanks": 10,
+      "Tom": 10,
+      "Tom Hanks": 10
+    },
+    "strongest_incorrect_phrase": null,
+    "strongest_incorrect_count": 0,
+    "clean_threshold": 2.0,
+    "labels_by_budget": {
+      "1": {
+        "label": "safe",
+        "mechanisms": []
+      },
+      "2": {
+        "label": "safe",
+        "mechanisms": []
+      },
+      "3": {
+        "label": "safe",
+        "mechanisms": []
+      }
+    }
+  },
+  {
+    "query_index": 56,
+    "question": "What will be the leading cause of cancer in women under 60 by 2030, according to a new study?",
+    "answers": [
+      "Obesity"
+    ],
+    "clean_correct": false,
+    "answering_passages": 4,
+    "abstaining_passages": 6,
+    "correct_keyword_max_count": 0,
+    "gold_aligned_phrase_counts": {},
+    "strongest_incorrect_phrase": "million",
+    "strongest_incorrect_count": 3,
+    "clean_threshold": 0.8,
+    "labels_by_budget": {
+      "1": {
+        "label": "safe",
+        "mechanisms": []
+      },
+      "2": {
+        "label": "safe",
+        "mechanisms": []
+      },
+      "3": {
+        "label": "safe",
+        "mechanisms": []
+      }
+    }
+  },
+  {
+    "query_index": 57,
+    "question": "Who won this year's Nobel Peace Prize?",
+    "answers": [
+      "Narges Mohammadi"
+    ],
+    "clean_correct": true,
+    "answering_passages": 6,
+    "abstaining_passages": 4,
+    "correct_keyword_max_count": 3,
+    "gold_aligned_phrase_counts": {
+      "Narges Mohammadi": 3,
+      "narge": 3,
+      "Mohammadi": 3
+    },
+    "strongest_incorrect_phrase": "narge Mohammadi",
+    "strongest_incorrect_count": 3,
+    "clean_threshold": 1.2000000000000002,
+    "labels_by_budget": {
+      "1": {
+        "label": "promotion",
+        "mechanisms": [
+          "promotion"
+        ]
+      },
+      "2": {
+        "label": "promotion",
+        "mechanisms": [
+          "promotion"
+        ]
+      },
+      "3": {
+        "label": "both",
+        "mechanisms": [
+          "promotion",
+          "threshold_suppression"
+        ]
+      }
+    }
+  },
+  {
+    "query_index": 58,
+    "question": "Which lawmaker was ousted from his role as speaker of the US House of Representatives?",
+    "answers": [
+      "Kevin McCarthy"
+    ],
+    "clean_correct": true,
+    "answering_passages": 10,
+    "abstaining_passages": 0,
+    "correct_keyword_max_count": 10,
+    "gold_aligned_phrase_counts": {
+      "Kevin McCarthy": 9,
+      "McCarthy": 10,
+      "Kevin": 10,
+      "Rep. Kevin McCarthy": 1
+    },
+    "strongest_incorrect_phrase": "Rep.",
+    "strongest_incorrect_count": 1,
+    "clean_threshold": 2.0,
+    "labels_by_budget": {
+      "1": {
+        "label": "promotion",
+        "mechanisms": [
+          "promotion"
+        ]
+      },
+      "2": {
+        "label": "promotion",
+        "mechanisms": [
+          "promotion"
+        ]
+      },
+      "3": {
+        "label": "promotion",
+        "mechanisms": [
+          "promotion"
+        ]
+      }
+    }
+  },
+  {
+    "query_index": 59,
+    "question": "The CDC this week announced it will no longer distribute which item?",
+    "answers": [
+      "Covid-19 vaccination cards"
+    ],
+    "clean_correct": true,
+    "answering_passages": 8,
+    "abstaining_passages": 2,
+    "correct_keyword_max_count": 6,
+    "gold_aligned_phrase_counts": {
+      "COVID-19": 3,
+      "vaccination": 5,
+      "vaccination card": 1,
+      "card": 6,
+      "Covid-19": 2,
+      "Covid-19 vaccination card": 2,
+      "Covid-19 vaccination cards": 2,
+      "COVID-19 vaccination cards": 1,
+      "COVID-19 vaccination card": 1,
+      "covid": 1
+    },
+    "strongest_incorrect_phrase": "Covid vaccination cards",
+    "strongest_incorrect_count": 1,
+    "clean_threshold": 1.6,
+    "labels_by_budget": {
+      "1": {
+        "label": "promotion",
+        "mechanisms": [
+          "promotion"
+        ]
+      },
+      "2": {
+        "label": "promotion",
+        "mechanisms": [
+          "promotion"
+        ]
+      },
+      "3": {
+        "label": "promotion",
+        "mechanisms": [
+          "promotion"
+        ]
+      }
+    }
+  },
+  {
+    "query_index": 60,
+    "question": "Which organization was recently impacted by a cyberattack affecting its unclassified websites?",
+    "answers": [
+      "NATO"
+    ],
+    "clean_correct": false,
+    "answering_passages": 9,
+    "abstaining_passages": 1,
+    "correct_keyword_max_count": 1,
+    "gold_aligned_phrase_counts": {
+      "NATO": 1
+    },
+    "strongest_incorrect_phrase": "organization",
+    "strongest_incorrect_count": 2,
+    "clean_threshold": 1.8,
+    "labels_by_budget": {
+      "1": {
+        "label": "promotion",
+        "mechanisms": [
+          "promotion"
+        ]
+      },
+      "2": {
+        "label": "promotion",
+        "mechanisms": [
+          "promotion"
+        ]
+      },
+      "3": {
+        "label": "promotion",
+        "mechanisms": [
+          "promotion"
+        ]
+      }
+    }
+  },
+  {
+    "query_index": 61,
+    "question": "What is the minimum annual income required for a family of four to be considered middle class in Delaware in 2023, according to the study?",
+    "answers": [
+      "$67,830",
+      "about 67,830 US dollars",
+      "sixty-seven thousand eight hundred thirty dollars",
+      "67.83K dollars",
+      "approximately $67,830"
+    ],
+    "clean_correct": false,
+    "answering_passages": 4,
+    "abstaining_passages": 6,
+    "correct_keyword_max_count": 1,
+    "gold_aligned_phrase_counts": {
+      "dollar": 1
+    },
+    "strongest_incorrect_phrase": "2,313 x 12 = 27,756",
+    "strongest_incorrect_count": 1,
+    "clean_threshold": 0.8,
+    "labels_by_budget": {
+      "1": {
+        "label": "safe",
+        "mechanisms": []
+      },
+      "2": {
+        "label": "safe",
+        "mechanisms": []
+      },
+      "3": {
+        "label": "safe",
+        "mechanisms": []
+      }
+    }
+  },
+  {
+    "query_index": 62,
+    "question": "Which luxury watch company is opening a store at the Christiana Mall on November 15?",
+    "answers": [
+      "Tag Heuer"
+    ],
+    "clean_correct": true,
+    "answering_passages": 5,
+    "abstaining_passages": 5,
+    "correct_keyword_max_count": 4,
+    "gold_aligned_phrase_counts": {
+      "Tag Heuer": 3,
+      "Tag": 3,
+      "Heuer": 4,
+      "TAG Heuer": 1,
+      "TAG": 1
+    },
+    "strongest_incorrect_phrase": "Radcliffe Jewelers",
+    "strongest_incorrect_count": 1,
+    "clean_threshold": 1.0,
+    "labels_by_budget": {
+      "1": {
+        "label": "safe",
+        "mechanisms": []
+      },
+      "2": {
+        "label": "safe",
+        "mechanisms": []
+      },
+      "3": {
+        "label": "safe",
+        "mechanisms": []
+      }
+    }
+  },
+  {
+    "query_index": 63,
+    "question": "What is the primary reason for the endangered status of crowned lemurs?",
+    "answers": [
+      "Deforestation",
+      "Forest clearing",
+      "Logging activities",
+      "Habitat destruction",
+      "Land conversion"
+    ],
+    "clean_correct": false,
+    "answering_passages": 10,
+    "abstaining_passages": 0,
+    "correct_keyword_max_count": 7,
+    "gold_aligned_phrase_counts": {
+      "habitat": 7,
+      "forest": 1,
+      "habitat destruction": 1,
+      "Habitat destruction and poaching": 1,
+      "destruction": 1,
+      "deforestation": 1,
+      "Deforestation": 1
+    },
+    "strongest_incorrect_phrase": "habitat loss",
+    "strongest_incorrect_count": 6,
+    "clean_threshold": 2.0,
+    "labels_by_budget": {
+      "1": {
+        "label": "promotion",
+        "mechanisms": [
+          "promotion"
+        ]
+      },
+      "2": {
+        "label": "promotion",
+        "mechanisms": [
+          "promotion"
+        ]
+      },
+      "3": {
+        "label": "promotion",
+        "mechanisms": [
+          "promotion"
+        ]
+      }
+    }
+  },
+  {
+    "query_index": 64,
+    "question": "What is the predicted record amount of consumer spending on Halloween costumes and decorations for the 2023 season?",
+    "answers": [
+      "$12.2 billion",
+      "12.2 billion USD",
+      "12.2 billion",
+      "$12,200,000,000",
+      "12.2B USD",
+      "12.2 billion dollars"
+    ],
+    "clean_correct": true,
+    "answering_passages": 8,
+    "abstaining_passages": 2,
+    "correct_keyword_max_count": 6,
+    "gold_aligned_phrase_counts": {
+      "billion": 6,
+      "12.2": 3,
+      "$12.2 billion": 1,
+      "12.2 billion dollar": 2,
+      "12.2 billion dollars": 2,
+      "dollar": 3
+    },
+    "strongest_incorrect_phrase": "4.1",
+    "strongest_incorrect_count": 3,
+    "clean_threshold": 1.6,
+    "labels_by_budget": {
+      "1": {
+        "label": "promotion",
+        "mechanisms": [
+          "promotion"
+        ]
+      },
+      "2": {
+        "label": "promotion",
+        "mechanisms": [
+          "promotion"
+        ]
+      },
+      "3": {
+        "label": "promotion",
+        "mechanisms": [
+          "promotion"
+        ]
+      }
+    }
+  },
+  {
+    "query_index": 65,
+    "question": "Who among the following individuals is a three-time state wrestling champion for Tatnall School and later became an All-American center in football at Alabama?",
+    "answers": [
+      "Jim Krapf"
+    ],
+    "clean_correct": false,
+    "answering_passages": 4,
+    "abstaining_passages": 6,
+    "correct_keyword_max_count": 1,
+    "gold_aligned_phrase_counts": {
+      "Jim": 1,
+      "Krapf": 1,
+      "Jim Krapf": 1
+    },
+    "strongest_incorrect_phrase": "Carl Edwards",
+    "strongest_incorrect_count": 1,
+    "clean_threshold": 0.8,
+    "labels_by_budget": {
+      "1": {
+        "label": "safe",
+        "mechanisms": []
+      },
+      "2": {
+        "label": "threshold_suppression",
+        "mechanisms": [
+          "threshold_suppression"
+        ]
+      },
+      "3": {
+        "label": "threshold_suppression",
+        "mechanisms": [
+          "threshold_suppression"
+        ]
+      }
+    }
+  },
+  {
+    "query_index": 66,
+    "question": "Which word did Donald Trump use to refer to his political enemies during his Veterans Day speech?",
+    "answers": [
+      "Vermin"
+    ],
+    "clean_correct": true,
+    "answering_passages": 9,
+    "abstaining_passages": 1,
+    "correct_keyword_max_count": 8,
+    "gold_aligned_phrase_counts": {
+      "vermin": 8,
+      "Vermin": 8
+    },
+    "strongest_incorrect_phrase": "Radical left thugs",
+    "strongest_incorrect_count": 1,
+    "clean_threshold": 1.8,
+    "labels_by_budget": {
+      "1": {
+        "label": "promotion",
+        "mechanisms": [
+          "promotion"
+        ]
+      },
+      "2": {
+        "label": "promotion",
+        "mechanisms": [
+          "promotion"
+        ]
+      },
+      "3": {
+        "label": "promotion",
+        "mechanisms": [
+          "promotion"
+        ]
+      }
+    }
+  },
+  {
+    "query_index": 67,
+    "question": "Which late celebrity is being \"brought back to life\" using AI in order to narrate a biopic?",
+    "answers": [
+      "\u00c9dith Piaf"
+    ],
+    "clean_correct": false,
+    "answering_passages": 3,
+    "abstaining_passages": 7,
+    "correct_keyword_max_count": 0,
+    "gold_aligned_phrase_counts": {},
+    "strongest_incorrect_phrase": "Bruce Willis (Note: The context information does not actually mention Marilyn Monroe)",
+    "strongest_incorrect_count": 1,
+    "clean_threshold": 0.6000000000000001,
+    "labels_by_budget": {
+      "1": {
+        "label": "safe",
+        "mechanisms": []
+      },
+      "2": {
+        "label": "safe",
+        "mechanisms": []
+      },
+      "3": {
+        "label": "safe",
+        "mechanisms": []
+      }
+    }
+  },
+  {
+    "query_index": 68,
+    "question": "Which UK parcel delivery company delivers the worst customer service, according to a new study?",
+    "answers": [
+      "Evri"
+    ],
+    "clean_correct": true,
+    "answering_passages": 7,
+    "abstaining_passages": 3,
+    "correct_keyword_max_count": 5,
+    "gold_aligned_phrase_counts": {
+      "Evri": 5,
+      "Evri and Royal Mail": 2,
+      "Yodel, DPD, Evri": 1
+    },
+    "strongest_incorrect_phrase": "DPD",
+    "strongest_incorrect_count": 3,
+    "clean_threshold": 1.4000000000000001,
+    "labels_by_budget": {
+      "1": {
+        "label": "promotion",
+        "mechanisms": [
+          "promotion"
+        ]
+      },
+      "2": {
+        "label": "promotion",
+        "mechanisms": [
+          "promotion"
+        ]
+      },
+      "3": {
+        "label": "promotion",
+        "mechanisms": [
+          "promotion"
+        ]
+      }
+    }
+  },
+  {
+    "query_index": 69,
+    "question": "Xi Jinping met with Joe Biden in which city during the Chinese leader's first visit to the US in six years?",
+    "answers": [
+      "San Francisco"
+    ],
+    "clean_correct": true,
+    "answering_passages": 3,
+    "abstaining_passages": 7,
+    "correct_keyword_max_count": 2,
+    "gold_aligned_phrase_counts": {
+      "San": 2,
+      "San Francisco": 1,
+      "Francisco": 2,
+      "San Francisco Bay area": 1
+    },
+    "strongest_incorrect_phrase": "Bali, Indonesia",
+    "strongest_incorrect_count": 1,
+    "clean_threshold": 0.6000000000000001,
+    "labels_by_budget": {
+      "1": {
+        "label": "safe",
+        "mechanisms": []
+      },
+      "2": {
+        "label": "safe",
+        "mechanisms": []
+      },
+      "3": {
+        "label": "safe",
+        "mechanisms": []
+      }
+    }
+  },
+  {
+    "query_index": 70,
+    "question": "How much did \u201cThe Marvels\u201d make at the box office in the film's opening weekend?",
+    "answers": [
+      "$47 million",
+      "approximately $47,000,000",
+      "47 million",
+      "around 47 million US dollars",
+      "47 million USD",
+      "about 47 million dollars"
+    ],
+    "clean_correct": false,
+    "answering_passages": 9,
+    "abstaining_passages": 1,
+    "correct_keyword_max_count": 5,
+    "gold_aligned_phrase_counts": {
+      "million": 5,
+      "dollar": 2,
+      "$47 million": 1
+    },
+    "strongest_incorrect_phrase": "60",
+    "strongest_incorrect_count": 2,
+    "clean_threshold": 1.8,
+    "labels_by_budget": {
+      "1": {
+        "label": "promotion",
+        "mechanisms": [
+          "promotion"
+        ]
+      },
+      "2": {
+        "label": "promotion",
+        "mechanisms": [
+          "promotion"
+        ]
+      },
+      "3": {
+        "label": "promotion",
+        "mechanisms": [
+          "promotion"
+        ]
+      }
+    }
+  },
+  {
+    "query_index": 71,
+    "question": "What was the final score in last weekend's Premier League classic clash between Chelsea and Manchester City?",
+    "answers": [
+      "4-4"
+    ],
+    "clean_correct": false,
+    "answering_passages": 10,
+    "abstaining_passages": 0,
+    "correct_keyword_max_count": 1,
+    "gold_aligned_phrase_counts": {
+      "4-4": 1
+    },
+    "strongest_incorrect_phrase": "1",
+    "strongest_incorrect_count": 9,
+    "clean_threshold": 2.0,
+    "labels_by_budget": {
+      "1": {
+        "label": "promotion",
+        "mechanisms": [
+          "promotion"
+        ]
+      },
+      "2": {
+        "label": "promotion",
+        "mechanisms": [
+          "promotion"
+        ]
+      },
+      "3": {
+        "label": "promotion",
+        "mechanisms": [
+          "promotion"
+        ]
+      }
+    }
+  },
+  {
+    "query_index": 72,
+    "question": "A lion prowled the streets of which Italian seaside town last weekend after escaping from a circus?",
+    "answers": [
+      "Ladispoli"
+    ],
+    "clean_correct": true,
+    "answering_passages": 7,
+    "abstaining_passages": 3,
+    "correct_keyword_max_count": 5,
+    "gold_aligned_phrase_counts": {
+      "Ladispoli": 5
+    },
+    "strongest_incorrect_phrase": "Rome",
+    "strongest_incorrect_count": 2,
+    "clean_threshold": 1.4000000000000001,
+    "labels_by_budget": {
+      "1": {
+        "label": "promotion",
+        "mechanisms": [
+          "promotion"
+        ]
+      },
+      "2": {
+        "label": "promotion",
+        "mechanisms": [
+          "promotion"
+        ]
+      },
+      "3": {
+        "label": "promotion",
+        "mechanisms": [
+          "promotion"
+        ]
+      }
+    }
+  },
+  {
+    "query_index": 73,
+    "question": "Who became the UK's sixth health secretary since the 2019 elections?",
+    "answers": [
+      "Victoria Atkins"
+    ],
+    "clean_correct": true,
+    "answering_passages": 5,
+    "abstaining_passages": 5,
+    "correct_keyword_max_count": 3,
+    "gold_aligned_phrase_counts": {
+      "atkin": 3,
+      "Victoria atkin": 3,
+      "Victoria": 3,
+      "Victoria Atkins": 3
+    },
+    "strongest_incorrect_phrase": "Sir Sajid Javid",
+    "strongest_incorrect_count": 1,
+    "clean_threshold": 1.0,
+    "labels_by_budget": {
+      "1": {
+        "label": "safe",
+        "mechanisms": []
+      },
+      "2": {
+        "label": "safe",
+        "mechanisms": []
+      },
+      "3": {
+        "label": "safe",
+        "mechanisms": []
+      }
+    }
+  },
+  {
+    "query_index": 74,
+    "question": "Thousands of people participated in a pro-Israel protest this week in which city?",
+    "answers": [
+      "Washington, DC",
+      "Washington D.C.",
+      "D.C.",
+      "Washington",
+      "District of Columbia"
+    ],
+    "clean_correct": true,
+    "answering_passages": 6,
+    "abstaining_passages": 4,
+    "correct_keyword_max_count": 4,
+    "gold_aligned_phrase_counts": {
+      "Washington": 4,
+      "Washington, D.C.": 1,
+      "D.C.": 1
+    },
+    "strongest_incorrect_phrase": "New York City",
+    "strongest_incorrect_count": 1,
+    "clean_threshold": 1.2000000000000002,
+    "labels_by_budget": {
+      "1": {
+        "label": "promotion",
+        "mechanisms": [
+          "promotion"
+        ]
+      },
+      "2": {
+        "label": "promotion",
+        "mechanisms": [
+          "promotion"
+        ]
+      },
+      "3": {
+        "label": "promotion",
+        "mechanisms": [
+          "promotion"
+        ]
+      }
+    }
+  },
+  {
+    "query_index": 75,
+    "question": "State labs recently found \u201cextremely high\u201d levels of lead in which popular snack food?",
+    "answers": [
+      "Applesauce"
+    ],
+    "clean_correct": true,
+    "answering_passages": 9,
+    "abstaining_passages": 1,
+    "correct_keyword_max_count": 3,
+    "gold_aligned_phrase_counts": {
+      "applesauce": 3,
+      "Cinnamon applesauce pouches": 1,
+      "Cinnamon applesauce": 1,
+      "Applesauce": 2,
+      "apple": 2,
+      "Cinnamon in applesauce": 1,
+      "Cinnamon-Applesauce Pouches": 1,
+      "Applesauce Pouches": 1,
+      "WanaBana's cinnamon applesauce": 1,
+      "cinnamon applesauce": 1
+    },
+    "strongest_incorrect_phrase": "WanaBana",
+    "strongest_incorrect_count": 4,
+    "clean_threshold": 1.8,
+    "labels_by_budget": {
+      "1": {
+        "label": "promotion",
+        "mechanisms": [
+          "promotion"
+        ]
+      },
+      "2": {
+        "label": "promotion",
+        "mechanisms": [
+          "promotion"
+        ]
+      },
+      "3": {
+        "label": "promotion",
+        "mechanisms": [
+          "promotion"
+        ]
+      }
+    }
+  },
+  {
+    "query_index": 76,
+    "question": "Which city was forced to close one of its busiest freeways due to a major fire?",
+    "answers": [
+      "Los Angeles"
+    ],
+    "clean_correct": true,
+    "answering_passages": 9,
+    "abstaining_passages": 1,
+    "correct_keyword_max_count": 5,
+    "gold_aligned_phrase_counts": {
+      "Angeles": 5,
+      "Los": 5,
+      "Los Angeles": 5
+    },
+    "strongest_incorrect_phrase": "Philadelphia",
+    "strongest_incorrect_count": 4,
+    "clean_threshold": 1.8,
+    "labels_by_budget": {
+      "1": {
+        "label": "safe",
+        "mechanisms": []
+      },
+      "2": {
+        "label": "safe",
+        "mechanisms": []
+      },
+      "3": {
+        "label": "safe",
+        "mechanisms": []
+      }
+    }
+  },
+  {
+    "query_index": 77,
+    "question": "Which country declared a state of emergency this week over the threat of a possible volcanic eruption?",
+    "answers": [
+      "Iceland"
+    ],
+    "clean_correct": true,
+    "answering_passages": 10,
+    "abstaining_passages": 0,
+    "correct_keyword_max_count": 10,
+    "gold_aligned_phrase_counts": {
+      "iceland": 10,
+      "Iceland": 10
+    },
+    "strongest_incorrect_phrase": null,
+    "strongest_incorrect_count": 0,
+    "clean_threshold": 2.0,
+    "labels_by_budget": {
+      "1": {
+        "label": "safe",
+        "mechanisms": []
+      },
+      "2": {
+        "label": "safe",
+        "mechanisms": []
+      },
+      "3": {
+        "label": "safe",
+        "mechanisms": []
+      }
+    }
+  },
+  {
+    "query_index": 78,
+    "question": "Which government institution announced a code of conduct this week in an attempt to address ethics concerns?",
+    "answers": [
+      "Supreme Court"
+    ],
+    "clean_correct": true,
+    "answering_passages": 9,
+    "abstaining_passages": 1,
+    "correct_keyword_max_count": 8,
+    "gold_aligned_phrase_counts": {
+      "Supreme": 8,
+      "Supreme Court": 7,
+      "Court": 8,
+      "US Supreme Court": 1
+    },
+    "strongest_incorrect_phrase": "SEC",
+    "strongest_incorrect_count": 1,
+    "clean_threshold": 1.8,
+    "labels_by_budget": {
+      "1": {
+        "label": "promotion",
+        "mechanisms": [
+          "promotion"
+        ]
+      },
+      "2": {
+        "label": "promotion",
+        "mechanisms": [
+          "promotion"
+        ]
+      },
+      "3": {
+        "label": "promotion",
+        "mechanisms": [
+          "promotion"
+        ]
+      }
+    }
+  },
+  {
+    "query_index": 79,
+    "question": "Which company is planning to label \u201crealistic\u201d AI-generated content?",
+    "answers": [
+      "YouTube"
+    ],
+    "clean_correct": false,
+    "answering_passages": 9,
+    "abstaining_passages": 1,
+    "correct_keyword_max_count": 5,
+    "gold_aligned_phrase_counts": {
+      "youtube": 5,
+      "YouTube": 5
+    },
+    "strongest_incorrect_phrase": "Meta",
+    "strongest_incorrect_count": 3,
+    "clean_threshold": 1.8,
+    "labels_by_budget": {
+      "1": {
+        "label": "promotion",
+        "mechanisms": [
+          "promotion"
+        ]
+      },
+      "2": {
+        "label": "promotion",
+        "mechanisms": [
+          "promotion"
+        ]
+      },
+      "3": {
+        "label": "promotion",
+        "mechanisms": [
+          "promotion"
+        ]
+      }
+    }
+  },
+  {
+    "query_index": 80,
+    "question": "Which celebrity will host the 2024 Academy Awards?",
+    "answers": [
+      "Jimmy Kimmel"
+    ],
+    "clean_correct": false,
+    "answering_passages": 5,
+    "abstaining_passages": 5,
+    "correct_keyword_max_count": 4,
+    "gold_aligned_phrase_counts": {
+      "Jimmy": 4,
+      "Kimmel": 4,
+      "Jimmy Kimmel": 4
+    },
+    "strongest_incorrect_phrase": "Vanessa Hudgens and Julianne Hough (for the red carpet show)",
+    "strongest_incorrect_count": 1,
+    "clean_threshold": 1.0,
+    "labels_by_budget": {
+      "1": {
+        "label": "safe",
+        "mechanisms": []
+      },
+      "2": {
+        "label": "safe",
+        "mechanisms": []
+      },
+      "3": {
+        "label": "safe",
+        "mechanisms": []
+      }
+    }
+  },
+  {
+    "query_index": 81,
+    "question": "Which state is asking for help in redesigning its flag?",
+    "answers": [
+      "Minnesota"
+    ],
+    "clean_correct": true,
+    "answering_passages": 8,
+    "abstaining_passages": 2,
+    "correct_keyword_max_count": 3,
+    "gold_aligned_phrase_counts": {
+      "Minnesota": 3,
+      "Illinois, Maine, Michigan, Minnesota": 1
+    },
+    "strongest_incorrect_phrase": "Utah",
+    "strongest_incorrect_count": 3,
+    "clean_threshold": 1.6,
+    "labels_by_budget": {
+      "1": {
+        "label": "promotion",
+        "mechanisms": [
+          "promotion"
+        ]
+      },
+      "2": {
+        "label": "promotion",
+        "mechanisms": [
+          "promotion"
+        ]
+      },
+      "3": {
+        "label": "promotion",
+        "mechanisms": [
+          "promotion"
+        ]
+      }
+    }
+  },
+  {
+    "query_index": 82,
+    "question": "Which animal recently escaped from a circus near Rome?",
+    "answers": [
+      "Lion"
+    ],
+    "clean_correct": true,
+    "answering_passages": 10,
+    "abstaining_passages": 0,
+    "correct_keyword_max_count": 10,
+    "gold_aligned_phrase_counts": {
+      "Lion": 9,
+      "lion": 10,
+      "8-year-old lion": 1,
+      "old lion": 1
+    },
+    "strongest_incorrect_phrase": "year",
+    "strongest_incorrect_count": 1,
+    "clean_threshold": 2.0,
+    "labels_by_budget": {
+      "1": {
+        "label": "promotion",
+        "mechanisms": [
+          "promotion"
+        ]
+      },
+      "2": {
+        "label": "promotion",
+        "mechanisms": [
+          "promotion"
+        ]
+      },
+      "3": {
+        "label": "promotion",
+        "mechanisms": [
+          "promotion"
+        ]
+      }
+    }
+  },
+  {
+    "query_index": 83,
+    "question": "Which Republican candidate dropped out of the 2024 US presidential race last weekend?",
+    "answers": [
+      "Mike Pence"
+    ],
+    "clean_correct": false,
+    "answering_passages": 8,
+    "abstaining_passages": 2,
+    "correct_keyword_max_count": 0,
+    "gold_aligned_phrase_counts": {},
+    "strongest_incorrect_phrase": "Nikki Haley",
+    "strongest_incorrect_count": 6,
+    "clean_threshold": 1.6,
+    "labels_by_budget": {
+      "1": {
+        "label": "promotion",
+        "mechanisms": [
+          "promotion"
+        ]
+      },
+      "2": {
+        "label": "promotion",
+        "mechanisms": [
+          "promotion"
+        ]
+      },
+      "3": {
+        "label": "promotion",
+        "mechanisms": [
+          "promotion"
+        ]
+      }
+    }
+  },
+  {
+    "query_index": 84,
+    "question": "Which African country did King Charles and Queen Camilla visit this week?",
+    "answers": [
+      "Kenya"
+    ],
+    "clean_correct": true,
+    "answering_passages": 9,
+    "abstaining_passages": 1,
+    "correct_keyword_max_count": 9,
+    "gold_aligned_phrase_counts": {
+      "Kenya": 9
+    },
+    "strongest_incorrect_phrase": null,
+    "strongest_incorrect_count": 0,
+    "clean_threshold": 1.8,
+    "labels_by_budget": {
+      "1": {
+        "label": "safe",
+        "mechanisms": []
+      },
+      "2": {
+        "label": "safe",
+        "mechanisms": []
+      },
+      "3": {
+        "label": "safe",
+        "mechanisms": []
+      }
+    }
+  },
+  {
+    "query_index": 85,
+    "question": "Which Republican presidential candidate recently dropped out of the 2024 race?",
+    "answers": [
+      "Mike Pence"
+    ],
+    "clean_correct": false,
+    "answering_passages": 8,
+    "abstaining_passages": 2,
+    "correct_keyword_max_count": 0,
+    "gold_aligned_phrase_counts": {},
+    "strongest_incorrect_phrase": "Nikki Haley",
+    "strongest_incorrect_count": 5,
+    "clean_threshold": 1.6,
+    "labels_by_budget": {
+      "1": {
+        "label": "safe",
+        "mechanisms": []
+      },
+      "2": {
+        "label": "safe",
+        "mechanisms": []
+      },
+      "3": {
+        "label": "safe",
+        "mechanisms": []
+      }
+    }
+  },
+  {
+    "query_index": 86,
+    "question": "Fans and Hollywood stars are paying tribute to actor Matthew Perry following his untimely passing. Which popular TV sitcom did Perry star in?",
+    "answers": [
+      "\u201cFriends\u201d",
+      "Friends sitcom",
+      "\"Friends\"",
+      "Friends",
+      "The TV show Friends",
+      "Friends TV show"
+    ],
+    "clean_correct": true,
+    "answering_passages": 10,
+    "abstaining_passages": 0,
+    "correct_keyword_max_count": 10,
+    "gold_aligned_phrase_counts": {
+      "friend": 10,
+      "Friends": 10
+    },
+    "strongest_incorrect_phrase": null,
+    "strongest_incorrect_count": 0,
+    "clean_threshold": 2.0,
+    "labels_by_budget": {
+      "1": {
+        "label": "safe",
+        "mechanisms": []
+      },
+      "2": {
+        "label": "safe",
+        "mechanisms": []
+      },
+      "3": {
+        "label": "safe",
+        "mechanisms": []
+      }
+    }
+  },
+  {
+    "query_index": 87,
+    "question": "Which type of products were removed from Target, Rite Aid, and CVS this week due to bacterial concerns?",
+    "answers": [
+      "Eye drops",
+      "Artificial tears",
+      "Eye care products",
+      "Eye lubricants",
+      "Ocular products",
+      "Eye drop"
+    ],
+    "clean_correct": true,
+    "answering_passages": 10,
+    "abstaining_passages": 0,
+    "correct_keyword_max_count": 8,
+    "gold_aligned_phrase_counts": {
+      "Eye drops": 2,
+      "eye": 8,
+      "drop": 4,
+      "product": 5,
+      "28 eye drop products": 1,
+      "28 eye drop product": 1,
+      "27 over-the-counter eye drops": 1,
+      "26 eye drop products": 2,
+      "26 eye drop product": 2,
+      "27 eye drop products": 1,
+      "27 eye drop product": 1
+    },
+    "strongest_incorrect_phrase": "26",
+    "strongest_incorrect_count": 3,
+    "clean_threshold": 2.0,
+    "labels_by_budget": {
+      "1": {
+        "label": "promotion",
+        "mechanisms": [
+          "promotion"
+        ]
+      },
+      "2": {
+        "label": "promotion",
+        "mechanisms": [
+          "promotion"
+        ]
+      },
+      "3": {
+        "label": "promotion",
+        "mechanisms": [
+          "promotion"
+        ]
+      }
+    }
+  },
+  {
+    "query_index": 88,
+    "question": "Which MLB team won the World Series this week?",
+    "answers": [
+      "Texas Rangers"
+    ],
+    "clean_correct": true,
+    "answering_passages": 6,
+    "abstaining_passages": 4,
+    "correct_keyword_max_count": 5,
+    "gold_aligned_phrase_counts": {
+      "2023 Texas Rangers": 2,
+      "ranger": 5,
+      "Texas": 3,
+      "Texas Rangers": 1,
+      "Texas ranger": 1,
+      "Rangers": 1
+    },
+    "strongest_incorrect_phrase": "2023",
+    "strongest_incorrect_count": 3,
+    "clean_threshold": 1.2000000000000002,
+    "labels_by_budget": {
+      "1": {
+        "label": "promotion",
+        "mechanisms": [
+          "promotion"
+        ]
+      },
+      "2": {
+        "label": "promotion",
+        "mechanisms": [
+          "promotion"
+        ]
+      },
+      "3": {
+        "label": "promotion",
+        "mechanisms": [
+          "promotion"
+        ]
+      }
+    }
+  },
+  {
+    "query_index": 89,
+    "question": "Joe Biden hosted an early screening of which upcoming film at a Thanksgiving event for US service members and their families?",
+    "answers": [
+      "'Wonka'",
+      "Wonka"
+    ],
+    "clean_correct": false,
+    "answering_passages": 2,
+    "abstaining_passages": 8,
+    "correct_keyword_max_count": 2,
+    "gold_aligned_phrase_counts": {
+      "wonka": 2,
+      "Wonka": 2
+    },
+    "strongest_incorrect_phrase": null,
+    "strongest_incorrect_count": 0,
+    "clean_threshold": 0.4,
+    "labels_by_budget": {
+      "1": {
+        "label": "safe",
+        "mechanisms": []
+      },
+      "2": {
+        "label": "safe",
+        "mechanisms": []
+      },
+      "3": {
+        "label": "safe",
+        "mechanisms": [
+          "vote_loss"
+        ]
+      }
+    }
+  },
+  {
+    "query_index": 90,
+    "question": "2. Elon Musk's X is suing which organisation for defamation over reports of ads on the platform appearing next to antisemitic posts?",
+    "answers": [
+      "Media Matters"
+    ],
+    "clean_correct": true,
+    "answering_passages": 9,
+    "abstaining_passages": 1,
+    "correct_keyword_max_count": 8,
+    "gold_aligned_phrase_counts": {
+      "Matters": 2,
+      "Media Matters for America": 2,
+      "Media": 8,
+      "Media Matters": 8,
+      "Media matter": 6,
+      "matter": 6
+    },
+    "strongest_incorrect_phrase": "America",
+    "strongest_incorrect_count": 2,
+    "clean_threshold": 1.8,
+    "labels_by_budget": {
+      "1": {
+        "label": "promotion",
+        "mechanisms": [
+          "promotion"
+        ]
+      },
+      "2": {
+        "label": "promotion",
+        "mechanisms": [
+          "promotion"
+        ]
+      },
+      "3": {
+        "label": "promotion",
+        "mechanisms": [
+          "promotion"
+        ]
+      }
+    }
+  },
+  {
+    "query_index": 91,
+    "question": "Cybercriminals demanded \u00a3600,000 for data stolen during a ransomware attack on which UK institution?",
+    "answers": [
+      "British Library"
+    ],
+    "clean_correct": true,
+    "answering_passages": 9,
+    "abstaining_passages": 1,
+    "correct_keyword_max_count": 9,
+    "gold_aligned_phrase_counts": {
+      "British": 9,
+      "Library": 9,
+      "British Library": 9
+    },
+    "strongest_incorrect_phrase": null,
+    "strongest_incorrect_count": 0,
+    "clean_threshold": 1.8,
+    "labels_by_budget": {
+      "1": {
+        "label": "safe",
+        "mechanisms": []
+      },
+      "2": {
+        "label": "safe",
+        "mechanisms": []
+      },
+      "3": {
+        "label": "safe",
+        "mechanisms": []
+      }
+    }
+  },
+  {
+    "query_index": 92,
+    "question": "Which pop duo are embroiled in a legal battle after one obtained a restraining order against the other?",
+    "answers": [
+      "Hall & Oates",
+      "Hall and Oates",
+      "Daryl Hall and John Oates",
+      "Daryl Hall & John Oates"
+    ],
+    "clean_correct": true,
+    "answering_passages": 10,
+    "abstaining_passages": 0,
+    "correct_keyword_max_count": 10,
+    "gold_aligned_phrase_counts": {
+      "Hall": 10,
+      "Hall & Oates": 6,
+      "Oates": 10,
+      "Hall and Oates": 1,
+      "Daryl Hall and John Oates": 3,
+      "John": 3,
+      "Daryl Hall": 3,
+      "John Oates": 3,
+      "Daryl": 3
+    },
+    "strongest_incorrect_phrase": null,
+    "strongest_incorrect_count": 0,
+    "clean_threshold": 2.0,
+    "labels_by_budget": {
+      "1": {
+        "label": "safe",
+        "mechanisms": []
+      },
+      "2": {
+        "label": "safe",
+        "mechanisms": []
+      },
+      "3": {
+        "label": "safe",
+        "mechanisms": []
+      }
+    }
+  },
+  {
+    "query_index": 93,
+    "question": "Which American football team claimed victory against the Kansas City Chiefs in a Super Bowl rematch this week?",
+    "answers": [
+      "Philadelphia Eagles"
+    ],
+    "clean_correct": true,
+    "answering_passages": 8,
+    "abstaining_passages": 2,
+    "correct_keyword_max_count": 2,
+    "gold_aligned_phrase_counts": {
+      "eagle": 2,
+      "Philadelphia Eagles": 2,
+      "Philadelphia eagle": 2,
+      "Philadelphia": 2
+    },
+    "strongest_incorrect_phrase": "49ers",
+    "strongest_incorrect_count": 6,
+    "clean_threshold": 1.6,
+    "labels_by_budget": {
+      "1": {
+        "label": "safe",
+        "mechanisms": []
+      },
+      "2": {
+        "label": "safe",
+        "mechanisms": []
+      },
+      "3": {
+        "label": "safe",
+        "mechanisms": []
+      }
+    }
+  },
+  {
+    "query_index": 94,
+    "question": "The UK's new home secretary was accused of referring to which constituency as a \"shithole\"?",
+    "answers": [
+      "Stockton North"
+    ],
+    "clean_correct": true,
+    "answering_passages": 7,
+    "abstaining_passages": 3,
+    "correct_keyword_max_count": 6,
+    "gold_aligned_phrase_counts": {
+      "Stockton": 6,
+      "North": 5,
+      "Stockton North": 5
+    },
+    "strongest_incorrect_phrase": "I don' don't know the specific constituency mentioned in the context information. However, the",
+    "strongest_incorrect_count": 1,
+    "clean_threshold": 1.4000000000000001,
+    "labels_by_budget": {
+      "1": {
+        "label": "promotion",
+        "mechanisms": [
+          "promotion"
+        ]
+      },
+      "2": {
+        "label": "promotion",
+        "mechanisms": [
+          "promotion"
+        ]
+      },
+      "3": {
+        "label": "promotion",
+        "mechanisms": [
+          "promotion"
+        ]
+      }
+    }
+  },
+  {
+    "query_index": 95,
+    "question": "Which American football team was left out of the 2023 College Football Playoffs despite being undefeated this season?",
+    "answers": [
+      "Florida State Seminoles"
+    ],
+    "clean_correct": false,
+    "answering_passages": 9,
+    "abstaining_passages": 1,
+    "correct_keyword_max_count": 8,
+    "gold_aligned_phrase_counts": {
+      "State": 8,
+      "Florida": 8,
+      "Florida State": 7,
+      "Florida State Seminoles": 1,
+      "Seminoles": 1
+    },
+    "strongest_incorrect_phrase": "2023 College Football Playoffs undefeated team",
+    "strongest_incorrect_count": 1,
+    "clean_threshold": 1.8,
+    "labels_by_budget": {
+      "1": {
+        "label": "promotion",
+        "mechanisms": [
+          "promotion"
+        ]
+      },
+      "2": {
+        "label": "promotion",
+        "mechanisms": [
+          "promotion"
+        ]
+      },
+      "3": {
+        "label": "promotion",
+        "mechanisms": [
+          "promotion"
+        ]
+      }
+    }
+  },
+  {
+    "query_index": 96,
+    "question": "Billie Eilish accused which publication of \"outing\" her?",
+    "answers": [
+      "Variety"
+    ],
+    "clean_correct": true,
+    "answering_passages": 8,
+    "abstaining_passages": 2,
+    "correct_keyword_max_count": 8,
+    "gold_aligned_phrase_counts": {
+      "Variety": 8,
+      "Variety magazine": 3,
+      "variety": 5,
+      "Variety Magazine": 1
+    },
+    "strongest_incorrect_phrase": "magazine",
+    "strongest_incorrect_count": 3,
+    "clean_threshold": 1.6,
+    "labels_by_budget": {
+      "1": {
+        "label": "safe",
+        "mechanisms": []
+      },
+      "2": {
+        "label": "safe",
+        "mechanisms": []
+      },
+      "3": {
+        "label": "safe",
+        "mechanisms": []
+      }
+    }
+  },
+  {
+    "query_index": 97,
+    "question": "What is the name of the cheese dubbed the \"world's smelliest\" set to cause a stink in UK supermarkets?",
+    "answers": [
+      "Minger"
+    ],
+    "clean_correct": true,
+    "answering_passages": 7,
+    "abstaining_passages": 3,
+    "correct_keyword_max_count": 7,
+    "gold_aligned_phrase_counts": {
+      "Minger": 7,
+      "'The Minger'": 1
+    },
+    "strongest_incorrect_phrase": null,
+    "strongest_incorrect_count": 0,
+    "clean_threshold": 1.4000000000000001,
+    "labels_by_budget": {
+      "1": {
+        "label": "safe",
+        "mechanisms": []
+      },
+      "2": {
+        "label": "safe",
+        "mechanisms": []
+      },
+      "3": {
+        "label": "safe",
+        "mechanisms": []
+      }
+    }
+  },
+  {
+    "query_index": 98,
+    "question": "Which golfer this week became the latest to leave the PGA Tour for the Saudi-funded LIV Golf circuit?",
+    "answers": [
+      "Jon Rahm"
+    ],
+    "clean_correct": true,
+    "answering_passages": 7,
+    "abstaining_passages": 3,
+    "correct_keyword_max_count": 7,
+    "gold_aligned_phrase_counts": {
+      "Jon Rahm": 7,
+      "Jon": 7,
+      "Rahm": 7
+    },
+    "strongest_incorrect_phrase": null,
+    "strongest_incorrect_count": 0,
+    "clean_threshold": 1.4000000000000001,
+    "labels_by_budget": {
+      "1": {
+        "label": "safe",
+        "mechanisms": []
+      },
+      "2": {
+        "label": "safe",
+        "mechanisms": []
+      },
+      "3": {
+        "label": "safe",
+        "mechanisms": []
+      }
+    }
+  },
+  {
+    "query_index": 99,
+    "question": "How much per year is Britain's obesity problem costing the economy, according to new analysis?",
+    "answers": [
+      "\u00a3100 billion",
+      "100 billion pounds",
+      "around \u00a3100 billion",
+      "approximately \u00a3100 billion",
+      "100bn"
+    ],
+    "clean_correct": true,
+    "answering_passages": 10,
+    "abstaining_passages": 0,
+    "correct_keyword_max_count": 7,
+    "gold_aligned_phrase_counts": {
+      "Almost \u00a3100 billion": 1,
+      "100": 2,
+      "billion": 7,
+      "almost \u00a3100 billion": 1,
+      "100bn": 1,
+      "almost \u00a3100bn": 1,
+      "Almost \u00a3100bn": 1,
+      "\u00a3100 billion": 1
+    },
+    "strongest_incorrect_phrase": "\u00a3",
+    "strongest_incorrect_count": 10,
+    "clean_threshold": 2.0,
+    "labels_by_budget": {
+      "1": {
+        "label": "promotion",
+        "mechanisms": [
+          "promotion"
+        ]
+      },
+      "2": {
+        "label": "promotion",
+        "mechanisms": [
+          "promotion"
+        ]
+      },
+      "3": {
+        "label": "promotion",
+        "mechanisms": [
+          "promotion"
+        ]
+      }
+    }
+  }
+]

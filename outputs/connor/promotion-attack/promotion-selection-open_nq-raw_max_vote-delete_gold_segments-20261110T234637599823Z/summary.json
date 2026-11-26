@@ -1,0 +1,10 @@
+{
+  "question_count": 100,
+  "statuses": {
+    "baseline_not_verified_correct": 41,
+    "selected": 40,
+    "no_candidate": 19
+  },
+  "selected_questions": 40,
+  "candidate_rows": 235
+}

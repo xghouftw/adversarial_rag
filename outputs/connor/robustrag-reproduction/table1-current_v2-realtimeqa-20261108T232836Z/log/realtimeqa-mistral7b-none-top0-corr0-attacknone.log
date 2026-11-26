@@ -1,0 +1,6 @@
+Namespace(model_name='mistral7b', dataset_name='realtimeqa', top_k=0, attack_method='none', defense_method='none', alpha=0.3, beta=3.0, eta=0.0, corruption_size=0, subsample_iter=1, temperature=1.0, debug=False, save_response=True, use_cache=True, no_vanilla=False)
+Loading data from data/realtimeqa.json......
+Total samples: 100
+undefended_corr_cnt: 8
+defended_corr_cnt: 0
+certify_cnt: 0

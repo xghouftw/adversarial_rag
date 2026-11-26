@@ -1,0 +1,19 @@
+{
+  "question_count": 100,
+  "statuses": {
+    "baseline_not_verified_correct": 41,
+    "selected": 26,
+    "no_candidate": 33
+  },
+  "selected_questions": 26,
+  "candidate_rows": 47,
+  "structural_candidate_rows": 235,
+  "selector_rejected_rows": 188,
+  "selector_assessment_reasons": {
+    "eligible": 47,
+    "judge_score_below_4": 183,
+    "judge_parse_error": 5
+  },
+  "certified_questions": 25,
+  "certification_frontier_rows": 581
+}

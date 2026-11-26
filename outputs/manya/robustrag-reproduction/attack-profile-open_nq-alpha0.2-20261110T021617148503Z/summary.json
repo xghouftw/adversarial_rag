@@ -1,0 +1,18 @@
+{
+  "source_run": "/content/drive/MyDrive/Fall '26/COSC 89.4/adversarial_rag-shared/outputs/connor/robustrag-reproduction/table1-current_v2-open_nq-20261109T021501Z",
+  "promotion": {
+    "candidate_rows": 3102,
+    "unique_queries": 81,
+    "clean_correct_queries": 50
+  },
+  "threshold_suppression": {
+    "candidate_rows": 2,
+    "unique_queries": 2,
+    "clean_correct_queries": 1
+  },
+  "vote_loss": {
+    "candidate_rows": 8,
+    "unique_queries": 3,
+    "clean_correct_queries": 1
+  }
+}

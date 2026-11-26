@@ -1,0 +1,90 @@
+diff --git a/scripts/run_promotion_live.py b/scripts/run_promotion_live.py
+index abb3f63..2ff99ab 100644
+--- a/scripts/run_promotion_live.py
++++ b/scripts/run_promotion_live.py
+@@ -17,6 +17,7 @@ from promotion_attack import (
+     SpacyKeywordExtractor,
+     SpacyTextProcessor,
+     UpstreamQueryAdapter,
++    aggregate_keyword_sets,
+     create_live_run,
+     enrich_records_with_certification,
+     execute_live_candidates,
+@@ -49,6 +50,15 @@ def parse_args() -> argparse.Namespace:
+         default="1",
+         help="Positive integer for success@k, or 'all' for exhaustive search.",
+     )
++    parser.add_argument(
++        "--allow-gpu-mismatch",
++        action="store_true",
++        help=(
++            "Run on a GPU other than the source run's. Records the deviation "
++            "and first regenerates each selected question's clean final answer "
++            "on this GPU, comparing it with the cached source-run answer."
++        ),
++    )
+     return parser.parse_args()
+
+
+@@ -219,7 +229,8 @@ def main() -> None:
+         raise RuntimeError(
+             f"source run does not identify a supported L4/A100 GPU: {source_gpu!r}"
+         )
+-    if source_gpu_family not in current_gpu:
++    gpu_mismatch = current_gpu.removeprefix("NVIDIA ").split()[0].split("-")[0] != source_gpu_family
++    if gpu_mismatch and not args.allow_gpu_mismatch:
+         raise RuntimeError(
+             f"select an {source_gpu_family} runtime to match the source run; "
+             f"current GPU is {current_gpu!r}"
+@@ -229,6 +240,7 @@ def main() -> None:
+     environment = {
+         "gpu": current_gpu,
+         "source_gpu": source_gpu,
++        "gpu_mismatch_allowed": gpu_mismatch,
+         "packages": {
+             package: importlib.metadata.version(package)
+             for package in (
+@@ -261,6 +273,43 @@ def main() -> None:
+         "mistral7b",
+         cache_path=str(live_dir / "mistral-attack-cache.z"),
+     )
++    if gpu_mismatch:
++        # Hardware-drift control: regenerate each clean final answer from the
++        # cached isolated responses and compare it with the source-run answer.
++        drift_rows = []
++        for record, _ in selected_pairs:
++            clean = aggregate_keyword_sets(
++                [extractor.extract(response) for response in record.responses],
++                config.alpha,
++                config.beta,
++                stopword_set,
++            )
++            regenerated = UpstreamQueryAdapter(model, record).query_final(
++                record.question, clean.hints
++            )
++            drift_rows.append(
++                {
++                    "query_index": record.query_index,
++                    "identical": regenerated.response == record.clean_final_answer,
++                    "source_clean_final_answer": record.clean_final_answer,
++                    "regenerated_clean_final_answer": regenerated.response,
++                }
++            )
++        model.dump_cache()
++        drift = {
++            "source_gpu": source_gpu,
++            "current_gpu": current_gpu,
++            "identical": sum(row["identical"] for row in drift_rows),
++            "checked": len(drift_rows),
++            "drifted_query_indices": [
++                row["query_index"] for row in drift_rows if not row["identical"]
++            ],
++            "rows": drift_rows,
++        }
++        with (live_dir / "clean-drift-check.json").open("x") as destination:
++            json.dump(drift, destination, indent=2, ensure_ascii=False)
++        print(json.dumps({key: drift[key] for key in drift if key != "rows"}), flush=True)
++
+     for record, selection in selected_pairs:
+         adapter = UpstreamQueryAdapter(model, record)
+         sweep = execute_live_candidates(

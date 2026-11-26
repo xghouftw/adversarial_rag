@@ -1,0 +1,24 @@
+{
+  "dataset": "open_nq",
+  "source_run": "/content/drive/MyDrive/Fall '26/COSC 89.4/adversarial_rag-shared/outputs/connor/robustrag-reproduction/table1-current_v2-open_nq-20261109T021501Z",
+  "upstream_commit": "9bc35b2fa5fa7d1088383b2789ec19a512d316b1",
+  "alpha": 0.2,
+  "beta": 3.0,
+  "corruption_size": 1,
+  "top_k": 10,
+  "sample_size": 100,
+  "python_hash_seed": "0",
+  "logged_correct": 59,
+  "replayed_correct": 59,
+  "logged_certified": 25,
+  "replayed_certified": 25,
+  "final_answer_mismatches": [],
+  "outcome_counts": {
+    "not_run_incorrect": 41,
+    "certified": 25,
+    "skipped_too_many_keywords": 16,
+    "threshold_too_low": 4,
+    "wrong_answer_found": 14
+  },
+  "checks_passed": true
+}

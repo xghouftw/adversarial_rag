@@ -1,0 +1,45 @@
+{
+  "status": "complete",
+  "started_at_utc": "2026-11-12T04:15:55.414799+00:00",
+  "kind": "live_one_passage_promotion_attack",
+  "source_run": "/content/drive/MyDrive/colab/adversarial_rag-shared/outputs/connor/robustrag-reproduction/table1-current_v2-open_nq-20261109T021501Z",
+  "source_manifest_sha256": "f7d12877d7b4437eea37336c7ee5b1a8cf8bcf4a1e57553ac0e84055fcbbc4e3",
+  "source_dataset_sha256": "32a71eab0a71f67e8f07ca8fddf8d9ac4d18c841d92df3f77a0e0cfa11ad8f11",
+  "upstream_commit": "9bc35b2fa5fa7d1088383b2789ec19a512d316b1",
+  "model": "mistralai/Mistral-7B-Instruct-v0.2",
+  "greedy_decoding": true,
+  "config": {
+    "alpha": 0.2,
+    "beta": 3.0,
+    "top_k": 10,
+    "attack_budget": 1,
+    "target_selector": "1+2",
+    "document_generator": "gold_alias_substitution",
+    "require_clean_correct": true
+  },
+  "query_indices": [
+    2,
+    3,
+    5,
+    7,
+    8
+  ],
+  "max_candidates_per_question": 1,
+  "search_mode": "top_1",
+  "environment": {
+    "gpu": "NVIDIA L4",
+    "source_gpu": "NVIDIA L4, 580.82.07, 23034 MiB",
+    "packages": {
+      "torch": "2.2.1",
+      "transformers": "4.40.1",
+      "spacy": "3.7.4",
+      "en-core-web-sm": "3.7.1",
+      "nltk": "3.8.1",
+      "joblib": "1.3.2"
+    },
+    "selection_run": "/content/drive/MyDrive/colab/adversarial_rag-shared/outputs/connor/promotion-attack/promotion-selection-open_nq-1+2-gold_alias_substitution-20261112T040930335723Z",
+    "selection_manifest_sha256": "67feac0d75ab1f321d11b8c5377c07549dd72707c022c35cc0935fff97395680"
+  },
+  "completed_at_utc": "2026-11-12T04:17:59.099996+00:00",
+  "result_count": 5
+}

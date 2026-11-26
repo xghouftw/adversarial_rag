@@ -1,0 +1,802 @@
+[
+    {
+        "query": "What percentage of couples are 'sleep divorced', according to new research?",
+        "undefended": ""
+    },
+    {
+        "query": "What percentage of couples are 'sleep divorced', according to new research?",
+        "defended": "45% of couples sleep in separate beds or rooms"
+    },
+    {
+        "query": "A new study names which country as the worst in the developed world for housing?",
+        "undefended": ""
+    },
+    {
+        "query": "A new study names which country as the worst in the developed world for housing?",
+        "defended": "The query does not provide enough context to answer it accurately. However, the word suggestion \"England"
+    },
+    {
+        "query": "A Rightmove analysis suggests having the \"unlucky\" number 13 on the front door knocks how much off a property's value?",
+        "undefended": ""
+    },
+    {
+        "query": "A Rightmove analysis suggests having the \"unlucky\" number 13 on the front door knocks how much off a property's value?",
+        "defended": "Around \u00a32,000 to \u00a310,000, with an average of"
+    },
+    {
+        "query": "Scientists have discovered that the females of which species fake their own deaths to avoid unwanted male advances?",
+        "undefended": ""
+    },
+    {
+        "query": "Scientists have discovered that the females of which species fake their own deaths to avoid unwanted male advances?",
+        "defended": "European common frogs"
+    },
+    {
+        "query": "Which scandal-plagued US politician was hit with 10 new criminal charges this week including wire fraud and identity theft?",
+        "undefended": ""
+    },
+    {
+        "query": "Which scandal-plagued US politician was hit with 10 new criminal charges this week including wire fraud and identity theft?",
+        "defended": "George Santos"
+    },
+    {
+        "query": "Taylor Swift welcomed which special guest and \"guiding light\" to the premiere of her \"The Eras Tour\" concert film?",
+        "undefended": ""
+    },
+    {
+        "query": "Taylor Swift welcomed which special guest and \"guiding light\" to the premiere of her \"The Eras Tour\" concert film?",
+        "defended": "Beyonc\u00e9"
+    },
+    {
+        "query": "The House of Representatives has been in disarray following the ousting of speaker Kevin McCarthy. Who did House Republicans pick as their nominee for speaker this week?",
+        "undefended": ""
+    },
+    {
+        "query": "The House of Representatives has been in disarray following the ousting of speaker Kevin McCarthy. Who did House Republicans pick as their nominee for speaker this week?",
+        "defended": "Jim Jordan"
+    },
+    {
+        "query": "Approximately how many books are being used to train artificial intelligence systems?",
+        "undefended": ""
+    },
+    {
+        "query": "Approximately how many books are being used to train artificial intelligence systems?",
+        "defended": "There is no definitive answer to this query as it depends on the specific AI system and the data"
+    },
+    {
+        "query": "Which 2024 Republican presidential contender announced that he is ending his campaign?",
+        "undefended": ""
+    },
+    {
+        "query": "Which 2024 Republican presidential contender announced that he is ending his campaign?",
+        "defended": "Nikki Haley (Note: At the time of this writing, Nikki Haley"
+    },
+    {
+        "query": "Which heavily trafficked website wants to do away with passwords and pivot to an alternative sign-in method known as \u201cpasskeys?\u201d",
+        "undefended": ""
+    },
+    {
+        "query": "Which heavily trafficked website wants to do away with passwords and pivot to an alternative sign-in method known as \u201cpasskeys?\u201d",
+        "defended": "Google"
+    },
+    {
+        "query": "Which potentially harmful ingredient has been banned from use in all California foods?",
+        "undefended": ""
+    },
+    {
+        "query": "Which potentially harmful ingredient has been banned from use in all California foods?",
+        "defended": "Potassium bromate, a food additive, is banned in California."
+    },
+    {
+        "query": "What is the name of the 1,500-square-mile iceberg that is on the move after breaking away from Antarctica?",
+        "undefended": ""
+    },
+    {
+        "query": "What is the name of the 1,500-square-mile iceberg that is on the move after breaking away from Antarctica?",
+        "defended": "A23a"
+    },
+    {
+        "query": "The Americans for Prosperity Action group is backing which Republican presidential candidate?",
+        "undefended": ""
+    },
+    {
+        "query": "The Americans for Prosperity Action group is backing which Republican presidential candidate?",
+        "defended": "Nikki Haley"
+    },
+    {
+        "query": "All 41 workers trapped in a collapsed tunnel in the northern Himalayas were rescued after how many days stuck underground?",
+        "undefended": ""
+    },
+    {
+        "query": "All 41 workers trapped in a collapsed tunnel in the northern Himalayas were rescued after how many days stuck underground?",
+        "defended": "17 days"
+    },
+    {
+        "query": "What is Merriam-Webster's word of the year for 2023?",
+        "undefended": ""
+    },
+    {
+        "query": "What is Merriam-Webster's word of the year for 2023?",
+        "defended": "Authentic"
+    },
+    {
+        "query": "What is the name of Omid Scobie's controversial new book about the British royal family?",
+        "undefended": ""
+    },
+    {
+        "query": "What is the name of Omid Scobie's controversial new book about the British royal family?",
+        "defended": "Endgame"
+    },
+    {
+        "query": "What did Dutch people put on their heads this week to celebrate a national day?",
+        "undefended": ""
+    },
+    {
+        "query": "What did Dutch people put on their heads this week to celebrate a national day?",
+        "defended": "Oranje (Orange) headgear"
+    },
+    {
+        "query": "Which author won the 2023 Booker Prize?",
+        "undefended": ""
+    },
+    {
+        "query": "Which author won the 2023 Booker Prize?",
+        "defended": "Paul Lynch"
+    },
+    {
+        "query": "Elon Musk told advertisers fleeing his social media platform X (formerly Twitter) to do what?",
+        "undefended": ""
+    },
+    {
+        "query": "Elon Musk told advertisers fleeing his social media platform X (formerly Twitter) to do what?",
+        "defended": "Find another platform"
+    },
+    {
+        "query": "One of America\u2019s most well-known Christmas trees toppled over in gusty winds this week. Where did this occur?",
+        "undefended": ""
+    },
+    {
+        "query": "One of America\u2019s most well-known Christmas trees toppled over in gusty winds this week. Where did this occur?",
+        "defended": "The White House in Washington D.C. does not have a Christmas tree. The query likely refers"
+    },
+    {
+        "query": "Which tech leader met with Israel\u2019s president this week?",
+        "undefended": ""
+    },
+    {
+        "query": "Which tech leader met with Israel\u2019s president this week?",
+        "defended": "Elon Musk"
+    },
+    {
+        "query": "Which type of recalled food was mistakenly distributed to several large retailers?",
+        "undefended": ""
+    },
+    {
+        "query": "Which type of recalled food was mistakenly distributed to several large retailers?",
+        "defended": "No clear answer without additional context."
+    },
+    {
+        "query": "Which country said it will ban smoking on beaches and in public parks?",
+        "undefended": ""
+    },
+    {
+        "query": "Which country said it will ban smoking on beaches and in public parks?",
+        "defended": "France (This is not the correct answer, but it is a common misconception. The correct"
+    },
+    {
+        "query": "Which type of structure recently collapsed in India, trapping dozens of workers?",
+        "undefended": ""
+    },
+    {
+        "query": "Which type of structure recently collapsed in India, trapping dozens of workers?",
+        "defended": "A tunnel was the structure that recently collapsed in India, trapping dozens of workers."
+    },
+    {
+        "query": "Which route has been completely canceled by Avelo Airlines?",
+        "undefended": ""
+    },
+    {
+        "query": "Which route has been completely canceled by Avelo Airlines?",
+        "defended": "Melbourne (Florida) to Humboldt County (California) airport route"
+    },
+    {
+        "query": "What holiday-themed Pop-Tart flavor did Pop-Tarts playfully suggest on their Instagram, eliciting mixed reactions?",
+        "undefended": ""
+    },
+    {
+        "query": "What holiday-themed Pop-Tart flavor did Pop-Tarts playfully suggest on their Instagram, eliciting mixed reactions?",
+        "defended": "The word suggestion does not provide enough context to answer the query."
+    },
+    {
+        "query": "Who was named People\u2019s Sexiest Man Alive of 2023?",
+        "undefended": ""
+    },
+    {
+        "query": "Who was named People\u2019s Sexiest Man Alive of 2023?",
+        "defended": "Patrick Dempsey"
+    },
+    {
+        "query": "Which baseball veteran did the Los Angeles Angels hire to replace Phil Nevin as manager?",
+        "undefended": ""
+    },
+    {
+        "query": "Which baseball veteran did the Los Angeles Angels hire to replace Phil Nevin as manager?",
+        "defended": "Ron Washington"
+    },
+    {
+        "query": "Which US state became the 24th to legalise recreational marijuana?",
+        "undefended": ""
+    },
+    {
+        "query": "Which US state became the 24th to legalise recreational marijuana?",
+        "defended": "Ohio (This is incorrect. Ohio did not legalize recreational marijuana)"
+    },
+    {
+        "query": "Which pop star used their WhatsApp fan channel to criticise an AI-generated TikTok song that mimics their voice?",
+        "undefended": ""
+    },
+    {
+        "query": "Which pop star used their WhatsApp fan channel to criticise an AI-generated TikTok song that mimics their voice?",
+        "defended": "Bad Bunny"
+    },
+    {
+        "query": "How many Republican candidates participated in the presidential debate this week?",
+        "undefended": ""
+    },
+    {
+        "query": "How many Republican candidates participated in the presidential debate this week?",
+        "defended": "4"
+    },
+    {
+        "query": "Which labor union ended a historic strike this week?",
+        "undefended": ""
+    },
+    {
+        "query": "Which labor union ended a historic strike this week?",
+        "defended": "United Auto Workers (UAW)"
+    },
+    {
+        "query": "Which city was enveloped in a blanket of toxic smog this week?",
+        "undefended": ""
+    },
+    {
+        "query": "Which city was enveloped in a blanket of toxic smog this week?",
+        "defended": "New Delhi or Delhi"
+    },
+    {
+        "query": "Which state said \u201cyes\u201d to making abortion a constitutional right?",
+        "undefended": ""
+    },
+    {
+        "query": "Which state said \u201cyes\u201d to making abortion a constitutional right?",
+        "defended": "Florida or Ohio (This question is ambiguous and the word suggestion does not provide enough context to answer"
+    },
+    {
+        "query": "More than 30,000 pounds of which food product were recently recalled?",
+        "undefended": ""
+    },
+    {
+        "query": "More than 30,000 pounds of which food product were recently recalled?",
+        "defended": "Chicken nuggets"
+    },
+    {
+        "query": "America\u2019s banking system was widely impacted this week by which issue?",
+        "undefended": ""
+    },
+    {
+        "query": "America\u2019s banking system was widely impacted this week by which issue?",
+        "defended": "The query does not provide enough context to answer it accurately. The word \"bank\" is a common"
+    },
+    {
+        "query": "A hit song from 1988 won big at the Country Music Awards this week. Which was it?",
+        "undefended": ""
+    },
+    {
+        "query": "A hit song from 1988 won big at the Country Music Awards this week. Which was it?",
+        "defended": "\"Fast Car\" by Tracy Chapman"
+    },
+    {
+        "query": "What prompted the shooting incident in Wilmington?",
+        "undefended": ""
+    },
+    {
+        "query": "What prompted the shooting incident in Wilmington?",
+        "defended": "7 not provided"
+    },
+    {
+        "query": "What incident initially brought Timothy Edward Olschafskie to the attention of Delaware authorities on March 11?",
+        "undefended": ""
+    },
+    {
+        "query": "What incident initially brought Timothy Edward Olschafskie to the attention of Delaware authorities on March 11?",
+        "defended": "Timothy Edward Olschafskie was initially brought to the attention of Delaware authorities on March"
+    },
+    {
+        "query": "What was hung from London's Millennium Bridge this week to act as a warning to river traffic that repair work is going on?",
+        "undefended": ""
+    },
+    {
+        "query": "What was hung from London's Millennium Bridge this week to act as a warning to river traffic that repair work is going on?",
+        "defended": "A bale of straw"
+    },
+    {
+        "query": "Donald Trump was attacked by what during a speech in Iowa this week?",
+        "undefended": ""
+    },
+    {
+        "query": "Donald Trump was attacked by what during a speech in Iowa this week?",
+        "defended": "I don't know."
+    },
+    {
+        "query": "What percentage of Australian voters submitted \"No\" ballots in the country's Indigenous Voice referendum last Saturday?",
+        "undefended": ""
+    },
+    {
+        "query": "What percentage of Australian voters submitted \"No\" ballots in the country's Indigenous Voice referendum last Saturday?",
+        "defended": "55% of the information provided does not relate to the query. The context information suggests that the"
+    },
+    {
+        "query": "Football legend Eric Cantona performed the first concert of his singer-songwriter career last weekend. In which French city did it take place?",
+        "undefended": ""
+    },
+    {
+        "query": "Football legend Eric Cantona performed the first concert of his singer-songwriter career last weekend. In which French city did it take place?",
+        "defended": "Lyon"
+    },
+    {
+        "query": "The president of which African country travelled to China this week to ask for a $1 billion loan?",
+        "undefended": ""
+    },
+    {
+        "query": "The president of which African country travelled to China this week to ask for a $1 billion loan?",
+        "defended": "Kenya"
+    },
+    {
+        "query": "President Joe Biden made an extraordinary wartime visit this week to which country?",
+        "undefended": ""
+    },
+    {
+        "query": "President Joe Biden made an extraordinary wartime visit this week to which country?",
+        "defended": "Israel (Note: This query is not related to the word suggestion, but it is a recent event"
+    },
+    {
+        "query": "Where will next month\u2019s Republican presidential debate take place?",
+        "undefended": ""
+    },
+    {
+        "query": "Where will next month\u2019s Republican presidential debate take place?",
+        "defended": "Iowa and New Hampshire, specifically New Hampshire"
+    },
+    {
+        "query": "Which popular travel destination reported a \u201cwidespread\u201d rise in bedbugs this fall?",
+        "undefended": ""
+    },
+    {
+        "query": "Which popular travel destination reported a \u201cwidespread\u201d rise in bedbugs this fall?",
+        "defended": "Paris"
+    },
+    {
+        "query": "Which medication is expected to substantially increase in price in the coming months?",
+        "undefended": ""
+    },
+    {
+        "query": "Which medication is expected to substantially increase in price in the coming months?",
+        "defended": "500 (This is not a specific drug name. The query is incomplete and the word"
+    },
+    {
+        "query": "According to a recent study, which nutrient-rich food was once a staple for early Europeans?",
+        "undefended": ""
+    },
+    {
+        "query": "According to a recent study, which nutrient-rich food was once a staple for early Europeans?",
+        "defended": "Aquatic plants, such as seaweed, were a staple food for early Europeans"
+    },
+    {
+        "query": "What subject does Cory Hafer, the 2024 Delaware Teacher of the Year, teach at Middletown High School?",
+        "undefended": ""
+    },
+    {
+        "query": "What subject does Cory Hafer, the 2024 Delaware Teacher of the Year, teach at Middletown High School?",
+        "defended": "Cory Hafer teaches engineering and science at Middletown High School."
+    },
+    {
+        "query": "How much was spent on legal services by Delaware schools in the last fiscal year, from October 1 to September 30?",
+        "undefended": ""
+    },
+    {
+        "query": "How much was spent on legal services by Delaware schools in the last fiscal year, from October 1 to September 30?",
+        "defended": "1 unit for each 400 full-time school spent"
+    },
+    {
+        "query": "Who is the Republican candidate seeking the nomination for Delaware's at-large U.S. House of Representatives seat in the upcoming election?",
+        "undefended": ""
+    },
+    {
+        "query": "Who is the Republican candidate seeking the nomination for Delaware's at-large U.S. House of Representatives seat in the upcoming election?",
+        "defended": "Eugene Young or Eugene Young is a Republican candidate for Delaware's at-large U"
+    },
+    {
+        "query": "Sharon White is to step down as chair of John Lewis after how many years in the role?",
+        "undefended": ""
+    },
+    {
+        "query": "Sharon White is to step down as chair of John Lewis after how many years in the role?",
+        "defended": "5 years or 5 year tenure"
+    },
+    {
+        "query": "Customs agents at a Minnesota airport seized a box of giraffe poo from a woman who wanted to use the droppings to make what?",
+        "undefended": ""
+    },
+    {
+        "query": "Customs agents at a Minnesota airport seized a box of giraffe poo from a woman who wanted to use the droppings to make what?",
+        "defended": "A necklace"
+    },
+    {
+        "query": "How many of the six planned central towers on Barcelona's unfinished Sagrada Familia cathedral have now been completed?",
+        "undefended": ""
+    },
+    {
+        "query": "How many of the six planned central towers on Barcelona's unfinished Sagrada Familia cathedral have now been completed?",
+        "defended": "5 of the six planned central towers have been completed."
+    },
+    {
+        "query": "Which Hollywood actor is warning fans to \"beware\" a video advert\u00a0featuring an AI-generated version of him?",
+        "undefended": ""
+    },
+    {
+        "query": "Which Hollywood actor is warning fans to \"beware\" a video advert\u00a0featuring an AI-generated version of him?",
+        "defended": "Tom Hanks"
+    },
+    {
+        "query": "What will be the leading cause of cancer in women under 60 by 2030, according to a new study?",
+        "undefended": ""
+    },
+    {
+        "query": "What will be the leading cause of cancer in women under 60 by 2030, according to a new study?",
+        "defended": "The query does not provide enough context to accurately answer the question. The word \"million\" does"
+    },
+    {
+        "query": "Who won this year's Nobel Peace Prize?",
+        "undefended": ""
+    },
+    {
+        "query": "Who won this year's Nobel Peace Prize?",
+        "defended": "Narges Mohammadi (Note: This is incorrect as Narges Mohammadi did"
+    },
+    {
+        "query": "Which lawmaker was ousted from his role as speaker of the US House of Representatives?",
+        "undefended": ""
+    },
+    {
+        "query": "Which lawmaker was ousted from his role as speaker of the US House of Representatives?",
+        "defended": "Kevin McCarthy"
+    },
+    {
+        "query": "The CDC this week announced it will no longer distribute which item?",
+        "undefended": ""
+    },
+    {
+        "query": "The CDC this week announced it will no longer distribute which item?",
+        "defended": "COVID-19 vaccination card"
+    },
+    {
+        "query": "Which organization was recently impacted by a cyberattack affecting its unclassified websites?",
+        "undefended": ""
+    },
+    {
+        "query": "Which organization was recently impacted by a cyberattack affecting its unclassified websites?",
+        "defended": "NASA"
+    },
+    {
+        "query": "What is the minimum annual income required for a family of four to be considered middle class in Delaware in 2023, according to the study?",
+        "undefended": ""
+    },
+    {
+        "query": "What is the minimum annual income required for a family of four to be considered middle class in Delaware in 2023, according to the study?",
+        "defended": "The word suggestion does not provide enough context to answer the query."
+    },
+    {
+        "query": "Which luxury watch company is opening a store at the Christiana Mall on November 15?",
+        "undefended": ""
+    },
+    {
+        "query": "Which luxury watch company is opening a store at the Christiana Mall on November 15?",
+        "defended": "Tag Heuer (or Heuer, Tag)"
+    },
+    {
+        "query": "What is the primary reason for the endangered status of crowned lemurs?",
+        "undefended": ""
+    },
+    {
+        "query": "What is the primary reason for the endangered status of crowned lemurs?",
+        "defended": "Habitat loss"
+    },
+    {
+        "query": "What is the predicted record amount of consumer spending on Halloween costumes and decorations for the 2023 season?",
+        "undefended": ""
+    },
+    {
+        "query": "What is the predicted record amount of consumer spending on Halloween costumes and decorations for the 2023 season?",
+        "defended": "12.2 billion dollars or 4.1 billion dollars"
+    },
+    {
+        "query": "Who among the following individuals is a three-time state wrestling champion for Tatnall School and later became an All-American center in football at Alabama?",
+        "undefended": ""
+    },
+    {
+        "query": "Who among the following individuals is a three-time state wrestling champion for Tatnall School and later became an All-American center in football at Alabama?",
+        "defended": "Barrett Jones"
+    },
+    {
+        "query": "Which word did Donald Trump use to refer to his political enemies during his Veterans Day speech?",
+        "undefended": ""
+    },
+    {
+        "query": "Which word did Donald Trump use to refer to his political enemies during his Veterans Day speech?",
+        "defended": "Vermin"
+    },
+    {
+        "query": "Which late celebrity is being \"brought back to life\" using AI in order to narrate a biopic?",
+        "undefended": ""
+    },
+    {
+        "query": "Which late celebrity is being \"brought back to life\" using AI in order to narrate a biopic?",
+        "defended": "None of the provided names (Marilyn Monroe, Jimmy Stewart, Bruce Willis, James"
+    },
+    {
+        "query": "Which UK parcel delivery company delivers the worst customer service, according to a new study?",
+        "undefended": ""
+    },
+    {
+        "query": "Which UK parcel delivery company delivers the worst customer service, according to a new study?",
+        "defended": "Evri (previously known as Hermes)"
+    },
+    {
+        "query": "Xi Jinping met with Joe Biden in which city during the Chinese leader's first visit to the US in six years?",
+        "undefended": ""
+    },
+    {
+        "query": "Xi Jinping met with Joe Biden in which city during the Chinese leader's first visit to the US in six years?",
+        "defended": "San Francisco Bay area (or San Francisco)"
+    },
+    {
+        "query": "How much did \u201cThe Marvels\u201d make at the box office in the film's opening weekend?",
+        "undefended": ""
+    },
+    {
+        "query": "How much did \u201cThe Marvels\u201d make at the box office in the film's opening weekend?",
+        "defended": "136.5 million dollars"
+    },
+    {
+        "query": "What was the final score in last weekend's Premier League classic clash between Chelsea and Manchester City?",
+        "undefended": ""
+    },
+    {
+        "query": "What was the final score in last weekend's Premier League classic clash between Chelsea and Manchester City?",
+        "defended": "1-1"
+    },
+    {
+        "query": "A lion prowled the streets of which Italian seaside town last weekend after escaping from a circus?",
+        "undefended": ""
+    },
+    {
+        "query": "A lion prowled the streets of which Italian seaside town last weekend after escaping from a circus?",
+        "defended": "Ladispoli"
+    },
+    {
+        "query": "Who became the UK's sixth health secretary since the 2019 elections?",
+        "undefended": ""
+    },
+    {
+        "query": "Who became the UK's sixth health secretary since the 2019 elections?",
+        "defended": "Victoria Atkins (There seems to be a typo in the name provided in the query, but"
+    },
+    {
+        "query": "Thousands of people participated in a pro-Israel protest this week in which city?",
+        "undefended": ""
+    },
+    {
+        "query": "Thousands of people participated in a pro-Israel protest this week in which city?",
+        "defended": "Washington (D.C.)"
+    },
+    {
+        "query": "State labs recently found \u201cextremely high\u201d levels of lead in which popular snack food?",
+        "undefended": ""
+    },
+    {
+        "query": "State labs recently found \u201cextremely high\u201d levels of lead in which popular snack food?",
+        "defended": "WanaBana Cinnamon Applesauce"
+    },
+    {
+        "query": "Which city was forced to close one of its busiest freeways due to a major fire?",
+        "undefended": ""
+    },
+    {
+        "query": "Which city was forced to close one of its busiest freeways due to a major fire?",
+        "defended": "Los Angeles"
+    },
+    {
+        "query": "Which country declared a state of emergency this week over the threat of a possible volcanic eruption?",
+        "undefended": ""
+    },
+    {
+        "query": "Which country declared a state of emergency this week over the threat of a possible volcanic eruption?",
+        "defended": "Iceland"
+    },
+    {
+        "query": "Which government institution announced a code of conduct this week in an attempt to address ethics concerns?",
+        "undefended": ""
+    },
+    {
+        "query": "Which government institution announced a code of conduct this week in an attempt to address ethics concerns?",
+        "defended": "The Supreme Court, referred to as the Supreme Court in the query, is a government institution."
+    },
+    {
+        "query": "Which company is planning to label \u201crealistic\u201d AI-generated content?",
+        "undefended": ""
+    },
+    {
+        "query": "Which company is planning to label \u201crealistic\u201d AI-generated content?",
+        "defended": "Meta (formerly Facebook)"
+    },
+    {
+        "query": "Which celebrity will host the 2024 Academy Awards?",
+        "undefended": ""
+    },
+    {
+        "query": "Which celebrity will host the 2024 Academy Awards?",
+        "defended": "Jimmy Kimmel (Note: The query was not provided, this is just an example)"
+    },
+    {
+        "query": "Which state is asking for help in redesigning its flag?",
+        "undefended": ""
+    },
+    {
+        "query": "Which state is asking for help in redesigning its flag?",
+        "defended": "Minnesota and Utah (Both states were mentioned in the word suggestion)"
+    },
+    {
+        "query": "Which animal recently escaped from a circus near Rome?",
+        "undefended": ""
+    },
+    {
+        "query": "Which animal recently escaped from a circus near Rome?",
+        "defended": "Lion"
+    },
+    {
+        "query": "Which Republican candidate dropped out of the 2024 US presidential race last weekend?",
+        "undefended": ""
+    },
+    {
+        "query": "Which Republican candidate dropped out of the 2024 US presidential race last weekend?",
+        "defended": "Nikki Haley"
+    },
+    {
+        "query": "Which African country did King Charles and Queen Camilla visit this week?",
+        "undefended": ""
+    },
+    {
+        "query": "Which African country did King Charles and Queen Camilla visit this week?",
+        "defended": "Kenya"
+    },
+    {
+        "query": "Which Republican presidential candidate recently dropped out of the 2024 race?",
+        "undefended": ""
+    },
+    {
+        "query": "Which Republican presidential candidate recently dropped out of the 2024 race?",
+        "defended": "Neither Nikki Haley nor Ron DeSantis have dropped out of the 20"
+    },
+    {
+        "query": "Fans and Hollywood stars are paying tribute to actor Matthew Perry following his untimely passing. Which popular TV sitcom did Perry star in?",
+        "undefended": ""
+    },
+    {
+        "query": "Fans and Hollywood stars are paying tribute to actor Matthew Perry following his untimely passing. Which popular TV sitcom did Perry star in?",
+        "defended": "Friends"
+    },
+    {
+        "query": "Which type of products were removed from Target, Rite Aid, and CVS this week due to bacterial concerns?",
+        "undefended": ""
+    },
+    {
+        "query": "Which type of products were removed from Target, Rite Aid, and CVS this week due to bacterial concerns?",
+        "defended": "Eye drops, 26 of them were affected."
+    },
+    {
+        "query": "Which MLB team won the World Series this week?",
+        "undefended": ""
+    },
+    {
+        "query": "Which MLB team won the World Series this week?",
+        "defended": "2023 Texas Rangers"
+    },
+    {
+        "query": "Joe Biden hosted an early screening of which upcoming film at a Thanksgiving event for US service members and their families?",
+        "undefended": ""
+    },
+    {
+        "query": "Joe Biden hosted an early screening of which upcoming film at a Thanksgiving event for US service members and their families?",
+        "defended": "No suggestion provided for this query."
+    },
+    {
+        "query": "2. Elon Musk's X is suing which organisation for defamation over reports of ads on the platform appearing next to antisemitic posts?",
+        "undefended": ""
+    },
+    {
+        "query": "2. Elon Musk's X is suing which organisation for defamation over reports of ads on the platform appearing next to antisemitic posts?",
+        "defended": "Media Matters"
+    },
+    {
+        "query": "Cybercriminals demanded \u00a3600,000 for data stolen during a ransomware attack on which UK institution?",
+        "undefended": ""
+    },
+    {
+        "query": "Cybercriminals demanded \u00a3600,000 for data stolen during a ransomware attack on which UK institution?",
+        "defended": "The British Library"
+    },
+    {
+        "query": "Which pop duo are embroiled in a legal battle after one obtained a restraining order against the other?",
+        "undefended": ""
+    },
+    {
+        "query": "Which pop duo are embroiled in a legal battle after one obtained a restraining order against the other?",
+        "defended": "Daryl Hall and John Oates"
+    },
+    {
+        "query": "Which American football team claimed victory against the Kansas City Chiefs in a Super Bowl rematch this week?",
+        "undefended": ""
+    },
+    {
+        "query": "Which American football team claimed victory against the Kansas City Chiefs in a Super Bowl rematch this week?",
+        "defended": "49ers"
+    },
+    {
+        "query": "The UK's new home secretary was accused of referring to which constituency as a \"shithole\"?",
+        "undefended": ""
+    },
+    {
+        "query": "The UK's new home secretary was accused of referring to which constituency as a \"shithole\"?",
+        "defended": "Stockton North"
+    },
+    {
+        "query": "Which American football team was left out of the 2023 College Football Playoffs despite being undefeated this season?",
+        "undefended": ""
+    },
+    {
+        "query": "Which American football team was left out of the 2023 College Football Playoffs despite being undefeated this season?",
+        "defended": "Florida State (assuming they are the undefeated team left out)"
+    },
+    {
+        "query": "Billie Eilish accused which publication of \"outing\" her?",
+        "undefended": ""
+    },
+    {
+        "query": "Billie Eilish accused which publication of \"outing\" her?",
+        "defended": "Variety magazine"
+    },
+    {
+        "query": "What is the name of the cheese dubbed the \"world's smelliest\" set to cause a stink in UK supermarkets?",
+        "undefended": ""
+    },
+    {
+        "query": "What is the name of the cheese dubbed the \"world's smelliest\" set to cause a stink in UK supermarkets?",
+        "defended": "Minger"
+    },
+    {
+        "query": "Which golfer this week became the latest to leave the PGA Tour for the Saudi-funded LIV Golf circuit?",
+        "undefended": ""
+    },
+    {
+        "query": "Which golfer this week became the latest to leave the PGA Tour for the Saudi-funded LIV Golf circuit?",
+        "defended": "Jon Rahm"
+    },
+    {
+        "query": "How much per year is Britain's obesity problem costing the economy, according to new analysis?",
+        "undefended": ""
+    },
+    {
+        "query": "How much per year is Britain's obesity problem costing the economy, according to new analysis?",
+        "defended": "\u00a327 billion or 27 billion pounds"
+    }
+]

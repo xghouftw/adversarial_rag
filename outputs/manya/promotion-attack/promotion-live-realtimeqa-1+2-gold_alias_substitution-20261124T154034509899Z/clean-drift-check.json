@@ -1,0 +1,88 @@
+{
+  "source_gpu": "NVIDIA L4, 580.82.07, 23034 MiB",
+  "current_gpu": "NVIDIA A100-SXM4-80GB",
+  "identical": 6,
+  "checked": 12,
+  "drifted_query_indices": [
+    14,
+    23,
+    39,
+    75,
+    78,
+    81
+  ],
+  "rows": [
+    {
+      "query_index": 14,
+      "identical": false,
+      "source_clean_final_answer": "The word \"authentic\" was suggested by experts as a possibility for Merriam-Webster",
+      "regenerated_clean_final_answer": "The word \"authentic\" was suggested by experts, but Merriam-Webster's"
+    },
+    {
+      "query_index": 19,
+      "identical": true,
+      "source_clean_final_answer": "The White House in Washington D.C. does not have a Christmas tree. The query likely refers",
+      "regenerated_clean_final_answer": "The White House in Washington D.C. does not have a Christmas tree. The query likely refers"
+    },
+    {
+      "query_index": 23,
+      "identical": false,
+      "source_clean_final_answer": "A tunnel was the structure that recently collapsed in India, trapping dozens of workers.",
+      "regenerated_clean_final_answer": "A tunnel"
+    },
+    {
+      "query_index": 34,
+      "identical": true,
+      "source_clean_final_answer": "Chicken nuggets",
+      "regenerated_clean_final_answer": "Chicken nuggets"
+    },
+    {
+      "query_index": 39,
+      "identical": false,
+      "source_clean_final_answer": "A bale of straw, specifically a straw bale, was hung from London's Millenn",
+      "regenerated_clean_final_answer": "A bale of straw or a straw bale (This is a common misconception. The"
+    },
+    {
+      "query_index": 58,
+      "identical": true,
+      "source_clean_final_answer": "Kevin McCarthy",
+      "regenerated_clean_final_answer": "Kevin McCarthy"
+    },
+    {
+      "query_index": 68,
+      "identical": true,
+      "source_clean_final_answer": "Evri (previously known as Hermes)",
+      "regenerated_clean_final_answer": "Evri (previously known as Hermes)"
+    },
+    {
+      "query_index": 75,
+      "identical": false,
+      "source_clean_final_answer": "WanaBana applesauce with cinnamon",
+      "regenerated_clean_final_answer": "Applesauce (specifically, WanaBana brand with cinnamon flavor)"
+    },
+    {
+      "query_index": 78,
+      "identical": false,
+      "source_clean_final_answer": "The Supreme Court, referred to as the Supreme Court in the query, is a government institution.",
+      "regenerated_clean_final_answer": "The Supreme Court, referred to as the Supreme Court in the query, is the correct answer."
+    },
+    {
+      "query_index": 81,
+      "identical": false,
+      "source_clean_final_answer": "Minnesota and Utah (Both states were mentioned in the word suggestion)",
+      "regenerated_clean_final_answer": "Minnesota and Utah (Both states were mentioned in the word suggestion, but only Minnesota is currently seeking"
+    },
+    {
+      "query_index": 82,
+      "identical": true,
+      "source_clean_final_answer": "Lion",
+      "regenerated_clean_final_answer": "Lion"
+    },
+    {
+      "query_index": 87,
+      "identical": true,
+      "source_clean_final_answer": "26 eye drop products",
+      "regenerated_clean_final_answer": "26 eye drop products"
+    }
+  ]
+}

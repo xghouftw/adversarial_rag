@@ -1,0 +1,48 @@
+{
+  "status": "complete",
+  "created_at_utc": "2026-11-24T15:32:12.091287+00:00",
+  "kind": "cache_only_promotion_selection",
+  "source_run": "/workspace/adversarial_rag-shared/outputs/connor/robustrag-reproduction/table1-current_v2-realtimeqa-20261108T232836Z",
+  "source_manifest_sha256": "d112302e8c84eedc49bbd4055d0d85a5dc4bb4101cf600e5339ae17062c2aab1",
+  "source_dataset_sha256": "0924fd01734f90e7910d6cb5802d387aaf5811eeba650667a8e72d6b94d7941e",
+  "upstream_commit": "9bc35b2fa5fa7d1088383b2789ec19a512d316b1",
+  "config": {
+    "alpha": 0.2,
+    "beta": 3.0,
+    "top_k": 10,
+    "attack_budget": 1,
+    "target_selector": "1+2",
+    "document_generator": "gold_alias_substitution",
+    "require_clean_correct": true
+  },
+  "resolved_target_selector": "nlp_answer_shape",
+  "question_count": 100,
+  "selected_count": 12,
+  "certification_note": "Validated per-question certification enrichment is attached.",
+  "environment": {
+    "packages": {
+      "spacy": "3.7.4",
+      "en-core-web-sm": "3.7.1",
+      "nltk": "3.8.1",
+      "joblib": "1.3.2",
+      "torch": "2.2.1",
+      "transformers": "4.40.1"
+    },
+    "certification": {
+      "certification_run": "/workspace/adversarial_rag-shared/outputs/manya/robustrag-reproduction/certification-realtimeqa-alpha0.2-20261110T232634708653Z",
+      "certification_summary_sha256": "24a85265e448b6444dbfd6a9a4a253f4f6941936a2569a2095c0a66e80aa5917",
+      "certified_json_sha256": "94661a7535cb3165ca5f5748a81f7e1e8e9c8939f538736f0b2180a723c1d550",
+      "checks_passed": false,
+      "allowed_final_answer_mismatches": [
+        14,
+        39,
+        72,
+        78,
+        81,
+        90,
+        97
+      ]
+    },
+    "selector_model": null
+  }
+}

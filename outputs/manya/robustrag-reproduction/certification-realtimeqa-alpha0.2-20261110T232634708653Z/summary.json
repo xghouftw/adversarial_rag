@@ -1,0 +1,32 @@
+{
+  "dataset": "realtimeqa",
+  "source_run": "/content/drive/MyDrive/Fall '26/COSC 89.4/adversarial_rag-shared/outputs/connor/robustrag-reproduction/table1-current_v2-realtimeqa-20261108T232836Z",
+  "upstream_commit": "9bc35b2fa5fa7d1088383b2789ec19a512d316b1",
+  "alpha": 0.2,
+  "beta": 3.0,
+  "corruption_size": 1,
+  "top_k": 10,
+  "sample_size": 100,
+  "python_hash_seed": "0",
+  "logged_correct": 61,
+  "replayed_correct": 61,
+  "logged_certified": 35,
+  "replayed_certified": 35,
+  "final_answer_mismatches": [
+    14,
+    39,
+    72,
+    78,
+    81,
+    90,
+    97
+  ],
+  "outcome_counts": {
+    "not_run_incorrect": 39,
+    "wrong_answer_found": 19,
+    "certified": 35,
+    "skipped_too_many_keywords": 6,
+    "threshold_too_low": 1
+  },
+  "checks_passed": false
+}

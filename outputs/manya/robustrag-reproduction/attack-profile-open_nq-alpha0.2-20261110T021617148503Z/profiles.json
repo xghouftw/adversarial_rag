@@ -1,0 +1,4226 @@
+[
+  {
+    "query_index": 0,
+    "question": "when did the newest macbook pro come out",
+    "answers": [
+      "June 5, 2017",
+      "October 27, 2016",
+      "June\u00a05,\u00a02017",
+      "5th of June, 2017",
+      "27th of October, 2016",
+      "June 5th, 2017"
+    ],
+    "clean_correct": false,
+    "answering_passages": 8,
+    "abstaining_passages": 2,
+    "correct_keyword_max_count": 1,
+    "gold_aligned_phrase_counts": {
+      "7th": 1,
+      "October": 1
+    },
+    "strongest_incorrect_phrase": "November",
+    "strongest_incorrect_count": 3,
+    "clean_threshold": 1.6,
+    "labels_by_budget": {
+      "1": {
+        "label": "promotion",
+        "mechanisms": [
+          "promotion"
+        ]
+      },
+      "2": {
+        "label": "promotion",
+        "mechanisms": [
+          "promotion"
+        ]
+      },
+      "3": {
+        "label": "promotion",
+        "mechanisms": [
+          "promotion"
+        ]
+      }
+    }
+  },
+  {
+    "query_index": 1,
+    "question": "how long did it take to build the great pyramid of egypt",
+    "answers": [
+      "20-year period",
+      "two decades",
+      "around 20 years",
+      "approximately 20 years",
+      "about 20 years"
+    ],
+    "clean_correct": false,
+    "answering_passages": 9,
+    "abstaining_passages": 1,
+    "correct_keyword_max_count": 9,
+    "gold_aligned_phrase_counts": {
+      "year": 9,
+      "20 year": 7,
+      "20 years": 7
+    },
+    "strongest_incorrect_phrase": "20",
+    "strongest_incorrect_count": 8,
+    "clean_threshold": 1.8,
+    "labels_by_budget": {
+      "1": {
+        "label": "promotion",
+        "mechanisms": [
+          "promotion"
+        ]
+      },
+      "2": {
+        "label": "promotion",
+        "mechanisms": [
+          "promotion"
+        ]
+      },
+      "3": {
+        "label": "promotion",
+        "mechanisms": [
+          "promotion"
+        ]
+      }
+    }
+  },
+  {
+    "query_index": 2,
+    "question": "when did the us cut off trade with cuba",
+    "answers": [
+      "1961",
+      "1962",
+      "In 1962",
+      "Early 1960s",
+      "In 1961"
+    ],
+    "clean_correct": true,
+    "answering_passages": 9,
+    "abstaining_passages": 1,
+    "correct_keyword_max_count": 7,
+    "gold_aligned_phrase_counts": {
+      "1962": 7,
+      "1960": 1,
+      "1962-1963": 1
+    },
+    "strongest_incorrect_phrase": "1963",
+    "strongest_incorrect_count": 1,
+    "clean_threshold": 1.8,
+    "labels_by_budget": {
+      "1": {
+        "label": "promotion",
+        "mechanisms": [
+          "promotion"
+        ]
+      },
+      "2": {
+        "label": "promotion",
+        "mechanisms": [
+          "promotion"
+        ]
+      },
+      "3": {
+        "label": "promotion",
+        "mechanisms": [
+          "promotion"
+        ]
+      }
+    }
+  },
+  {
+    "query_index": 3,
+    "question": "who wrote the phantom of the opera music",
+    "answers": [
+      "Andrew Lloyd Webber"
+    ],
+    "clean_correct": true,
+    "answering_passages": 9,
+    "abstaining_passages": 1,
+    "correct_keyword_max_count": 9,
+    "gold_aligned_phrase_counts": {
+      "Andrew Lloyd Webber": 9,
+      "Andrew": 9,
+      "Webber": 9,
+      "Lloyd": 9,
+      "Andrew Lloyd Webber, Richard Stilgoe, Charles Hart, Mike Batt": 1
+    },
+    "strongest_incorrect_phrase": "Richard Stilgoe",
+    "strongest_incorrect_count": 1,
+    "clean_threshold": 1.8,
+    "labels_by_budget": {
+      "1": {
+        "label": "promotion",
+        "mechanisms": [
+          "promotion"
+        ]
+      },
+      "2": {
+        "label": "promotion",
+        "mechanisms": [
+          "promotion"
+        ]
+      },
+      "3": {
+        "label": "promotion",
+        "mechanisms": [
+          "promotion"
+        ]
+      }
+    }
+  },
+  {
+    "query_index": 4,
+    "question": "where was the tv show friday night lights filmed",
+    "answers": [
+      "Austin",
+      "Pflugerville",
+      "Kyle",
+      "Manor",
+      "Del Valle"
+    ],
+    "clean_correct": false,
+    "answering_passages": 10,
+    "abstaining_passages": 0,
+    "correct_keyword_max_count": 5,
+    "gold_aligned_phrase_counts": {
+      "Austin and Pflugerville": 1,
+      "Pflugerville": 1,
+      "Austin": 5,
+      "Austin Bergstrom International Airport": 1,
+      "Del": 2,
+      "Old Del Valle High School athletic facility": 1,
+      "Valle": 2,
+      "Old Del Valle High School athletic facility near the Austin Bergstrom International Airport.": 1,
+      "Austin, Texas": 1,
+      "Manor": 1,
+      "Manor, Burleson Manor Road": 1,
+      "Burleson Manor Road": 1,
+      "Del Valle High School (near Austin airport)": 1,
+      "Del Valle High School": 1,
+      "Austin airport": 1
+    },
+    "strongest_incorrect_phrase": "fictional",
+    "strongest_incorrect_count": 2,
+    "clean_threshold": 2.0,
+    "labels_by_budget": {
+      "1": {
+        "label": "promotion",
+        "mechanisms": [
+          "promotion"
+        ]
+      },
+      "2": {
+        "label": "promotion",
+        "mechanisms": [
+          "promotion"
+        ]
+      },
+      "3": {
+        "label": "promotion",
+        "mechanisms": [
+          "promotion"
+        ]
+      }
+    }
+  },
+  {
+    "query_index": 5,
+    "question": "who was the first president of the constituent assembly",
+    "answers": [
+      "Dr. Rajendra Prasad",
+      "Rajendra Prasad"
+    ],
+    "clean_correct": true,
+    "answering_passages": 9,
+    "abstaining_passages": 1,
+    "correct_keyword_max_count": 6,
+    "gold_aligned_phrase_counts": {
+      "Rajendra": 6,
+      "Prasad": 6,
+      "Dr. Rajendra Prasad": 1,
+      "Rajendra Prasad": 4,
+      "Dr Rajendra Prasad": 1
+    },
+    "strongest_incorrect_phrase": "Dr",
+    "strongest_incorrect_count": 3,
+    "clean_threshold": 1.8,
+    "labels_by_budget": {
+      "1": {
+        "label": "promotion",
+        "mechanisms": [
+          "promotion"
+        ]
+      },
+      "2": {
+        "label": "promotion",
+        "mechanisms": [
+          "promotion"
+        ]
+      },
+      "3": {
+        "label": "promotion",
+        "mechanisms": [
+          "promotion"
+        ]
+      }
+    }
+  },
+  {
+    "query_index": 6,
+    "question": "who plays harley quinn in the lego batman movie",
+    "answers": [
+      "Jenny Slate"
+    ],
+    "clean_correct": true,
+    "answering_passages": 7,
+    "abstaining_passages": 3,
+    "correct_keyword_max_count": 7,
+    "gold_aligned_phrase_counts": {
+      "Jenny Slate": 7,
+      "Slate": 7,
+      "Jenny": 7
+    },
+    "strongest_incorrect_phrase": null,
+    "strongest_incorrect_count": 0,
+    "clean_threshold": 1.4000000000000001,
+    "labels_by_budget": {
+      "1": {
+        "label": "safe",
+        "mechanisms": []
+      },
+      "2": {
+        "label": "safe",
+        "mechanisms": []
+      },
+      "3": {
+        "label": "safe",
+        "mechanisms": []
+      }
+    }
+  },
+  {
+    "query_index": 7,
+    "question": "who won the champions league final in 2016",
+    "answers": [
+      "Real Madrid"
+    ],
+    "clean_correct": true,
+    "answering_passages": 10,
+    "abstaining_passages": 0,
+    "correct_keyword_max_count": 9,
+    "gold_aligned_phrase_counts": {
+      "real Madrid": 7,
+      "Madrid": 9,
+      "Real Madrid": 9,
+      "real": 7,
+      "REAL MADRID": 1,
+      "REAL": 1,
+      "MADRID": 1,
+      "REAL MADRID and ATL\u00c9TICO (draw)": 1,
+      "Real Madrid and Atl\u00e9tico (5-3 pens)": 1,
+      "Real": 2,
+      "Real Madrid and Atletico Madrid (draw 1-1, penalty shootout 5-": 1
+    },
+    "strongest_incorrect_phrase": "penalty shootout 5-",
+    "strongest_incorrect_count": 1,
+    "clean_threshold": 2.0,
+    "labels_by_budget": {
+      "1": {
+        "label": "promotion",
+        "mechanisms": [
+          "promotion"
+        ]
+      },
+      "2": {
+        "label": "promotion",
+        "mechanisms": [
+          "promotion"
+        ]
+      },
+      "3": {
+        "label": "promotion",
+        "mechanisms": [
+          "promotion"
+        ]
+      }
+    }
+  },
+  {
+    "query_index": 8,
+    "question": "who sings the songs in crazy ex girlfriend",
+    "answers": [
+      "Rachel Bloom",
+      "Donna Lynne Champlin",
+      "Vincent Rodriguez III",
+      "Santino Fontana",
+      "The cast of Crazy Ex-Girlfriend"
+    ],
+    "clean_correct": true,
+    "answering_passages": 7,
+    "abstaining_passages": 3,
+    "correct_keyword_max_count": 2,
+    "gold_aligned_phrase_counts": {
+      "Bloom": 2,
+      "Rachel": 2,
+      "Rachel Bloom, Adam Schlesinger, and Jack Dolgen": 1,
+      "Rachel Bloom": 2,
+      "Rebecca Bunch (Rachel Bloom) sings the songs in the show Crazy Ex-G": 1,
+      "Crazy": 2,
+      "cast": 2,
+      "Girlfriend": 1,
+      "Crazy Ex-Girlfriend": 1
+    },
+    "strongest_incorrect_phrase": "Schlesinger",
+    "strongest_incorrect_count": 4,
+    "clean_threshold": 1.4000000000000001,
+    "labels_by_budget": {
+      "1": {
+        "label": "promotion",
+        "mechanisms": [
+          "promotion"
+        ]
+      },
+      "2": {
+        "label": "promotion",
+        "mechanisms": [
+          "promotion"
+        ]
+      },
+      "3": {
+        "label": "promotion",
+        "mechanisms": [
+          "promotion"
+        ]
+      }
+    }
+  },
+  {
+    "query_index": 9,
+    "question": "who played sonny in lemony snicket's a series of unfortunate events",
+    "answers": [
+      "Presley Smith"
+    ],
+    "clean_correct": false,
+    "answering_passages": 8,
+    "abstaining_passages": 2,
+    "correct_keyword_max_count": 3,
+    "gold_aligned_phrase_counts": {
+      "Presley Smith (actress) and Tara Strong (voice)": 1,
+      "Smith": 3,
+      "Presley": 3,
+      "Presley Smith": 2,
+      "Presley Smith (acted), Tara Strong (voice)": 1
+    },
+    "strongest_incorrect_phrase": "context information",
+    "strongest_incorrect_count": 2,
+    "clean_threshold": 1.6,
+    "labels_by_budget": {
+      "1": {
+        "label": "promotion",
+        "mechanisms": [
+          "promotion"
+        ]
+      },
+      "2": {
+        "label": "promotion",
+        "mechanisms": [
+          "promotion"
+        ]
+      },
+      "3": {
+        "label": "promotion",
+        "mechanisms": [
+          "promotion"
+        ]
+      }
+    }
+  },
+  {
+    "query_index": 10,
+    "question": "who does the voice of mickey mouse on mickey mouse clubhouse",
+    "answers": [
+      "Bret Iwan",
+      "Wayne Allwine"
+    ],
+    "clean_correct": true,
+    "answering_passages": 9,
+    "abstaining_passages": 1,
+    "correct_keyword_max_count": 6,
+    "gold_aligned_phrase_counts": {
+      "Iwan": 6,
+      "Wayne Allwine (Seasons 1-3) and Bret Iwan (Season": 1,
+      "Bret Iwan": 6,
+      "Allwine": 4,
+      "Wayne": 4,
+      "Wayne Allwine": 4,
+      "Bret": 6,
+      "Wayne Allwine and 9 others": 1,
+      "Wayne Allwine, Russi Taylor, and Tony Anselmo have provided the voice of Mic": 1
+    },
+    "strongest_incorrect_phrase": "Tony Anselmo",
+    "strongest_incorrect_count": 1,
+    "clean_threshold": 1.8,
+    "labels_by_budget": {
+      "1": {
+        "label": "promotion",
+        "mechanisms": [
+          "promotion"
+        ]
+      },
+      "2": {
+        "label": "promotion",
+        "mechanisms": [
+          "promotion"
+        ]
+      },
+      "3": {
+        "label": "promotion",
+        "mechanisms": [
+          "promotion"
+        ]
+      }
+    }
+  },
+  {
+    "query_index": 11,
+    "question": "where was the film coming home for christmas filmed",
+    "answers": [
+      "British Columbia"
+    ],
+    "clean_correct": true,
+    "answering_passages": 7,
+    "abstaining_passages": 3,
+    "correct_keyword_max_count": 3,
+    "gold_aligned_phrase_counts": {
+      "Columbia": 3,
+      "Vancouver, British Columbia, Canada": 1,
+      "British Columbia": 3,
+      "British": 3,
+      "Porteau Cove, British Columbia, Canada": 1,
+      "Vancouver and British Columbia": 1
+    },
+    "strongest_incorrect_phrase": "Canada",
+    "strongest_incorrect_count": 3,
+    "clean_threshold": 1.4000000000000001,
+    "labels_by_budget": {
+      "1": {
+        "label": "promotion",
+        "mechanisms": [
+          "promotion"
+        ]
+      },
+      "2": {
+        "label": "promotion",
+        "mechanisms": [
+          "promotion"
+        ]
+      },
+      "3": {
+        "label": "promotion",
+        "mechanisms": [
+          "promotion"
+        ]
+      }
+    }
+  },
+  {
+    "query_index": 12,
+    "question": "who gave the famous objective co relative theory",
+    "answers": [
+      "T.S. Eliot"
+    ],
+    "clean_correct": true,
+    "answering_passages": 10,
+    "abstaining_passages": 0,
+    "correct_keyword_max_count": 9,
+    "gold_aligned_phrase_counts": {
+      "T.S. Eliot": 6,
+      "T.S.": 6,
+      "Eliot": 9,
+      "T. S. Eliot (misconception)": 1,
+      "T. S. Eliot": 2,
+      "T.S. Eliot and Ivor Armstrong Richards presented the objective correlative theory in": 1
+    },
+    "strongest_incorrect_phrase": "S.",
+    "strongest_incorrect_count": 3,
+    "clean_threshold": 2.0,
+    "labels_by_budget": {
+      "1": {
+        "label": "promotion",
+        "mechanisms": [
+          "promotion"
+        ]
+      },
+      "2": {
+        "label": "promotion",
+        "mechanisms": [
+          "promotion"
+        ]
+      },
+      "3": {
+        "label": "promotion",
+        "mechanisms": [
+          "promotion"
+        ]
+      }
+    }
+  },
+  {
+    "query_index": 13,
+    "question": "who took the first steps on the moon in 1969",
+    "answers": [
+      "Neil Armstrong",
+      "Armstrong",
+      "Neil A. Armstrong",
+      "Astronaut Neil Armstrong",
+      "Commander Neil Armstrong"
+    ],
+    "clean_correct": true,
+    "answering_passages": 10,
+    "abstaining_passages": 0,
+    "correct_keyword_max_count": 9,
+    "gold_aligned_phrase_counts": {
+      "Neil": 9,
+      "Armstrong": 9,
+      "Neil Armstrong": 9,
+      "Neil Armstrong and Buzz Aldrin": 1,
+      "Neil Armstrong and Edwin Aldrin": 1
+    },
+    "strongest_incorrect_phrase": "Aldrin",
+    "strongest_incorrect_count": 3,
+    "clean_threshold": 2.0,
+    "labels_by_budget": {
+      "1": {
+        "label": "safe",
+        "mechanisms": []
+      },
+      "2": {
+        "label": "promotion",
+        "mechanisms": [
+          "promotion"
+        ]
+      },
+      "3": {
+        "label": "promotion",
+        "mechanisms": [
+          "promotion"
+        ]
+      }
+    }
+  },
+  {
+    "query_index": 14,
+    "question": "who won the national championship in volleyball 2017",
+    "answers": [
+      "Ohio State",
+      "OSU",
+      "Buckeyes"
+    ],
+    "clean_correct": false,
+    "answering_passages": 6,
+    "abstaining_passages": 4,
+    "correct_keyword_max_count": 0,
+    "gold_aligned_phrase_counts": {},
+    "strongest_incorrect_phrase": "Nebraska",
+    "strongest_incorrect_count": 6,
+    "clean_threshold": 1.2000000000000002,
+    "labels_by_budget": {
+      "1": {
+        "label": "promotion",
+        "mechanisms": [
+          "promotion"
+        ]
+      },
+      "2": {
+        "label": "promotion",
+        "mechanisms": [
+          "promotion"
+        ]
+      },
+      "3": {
+        "label": "promotion",
+        "mechanisms": [
+          "promotion"
+        ]
+      }
+    }
+  },
+  {
+    "query_index": 15,
+    "question": "where is the white castle that harold and kumar go to",
+    "answers": [
+      "in Cherry Hill",
+      "NJ",
+      "Cherry Hill, New Jersey",
+      "Cherry Hill, NJ",
+      "New Jersey"
+    ],
+    "clean_correct": true,
+    "answering_passages": 5,
+    "abstaining_passages": 5,
+    "correct_keyword_max_count": 2,
+    "gold_aligned_phrase_counts": {
+      "Cherry": 2,
+      "Cherry Hill": 2,
+      "Hill": 2,
+      "NJ": 1
+    },
+    "strongest_incorrect_phrase": "N.J.",
+    "strongest_incorrect_count": 2,
+    "clean_threshold": 1.0,
+    "labels_by_budget": {
+      "1": {
+        "label": "safe",
+        "mechanisms": []
+      },
+      "2": {
+        "label": "safe",
+        "mechanisms": []
+      },
+      "3": {
+        "label": "safe",
+        "mechanisms": []
+      }
+    }
+  },
+  {
+    "query_index": 16,
+    "question": "who sings what the world needs now in boss baby",
+    "answers": [
+      "Missi Hale",
+      "Steve Mazzaro",
+      "Hans Zimmer"
+    ],
+    "clean_correct": true,
+    "answering_passages": 6,
+    "abstaining_passages": 4,
+    "correct_keyword_max_count": 4,
+    "gold_aligned_phrase_counts": {
+      "Hale": 4,
+      "Missi": 4,
+      "Missi Hale": 4,
+      "Missi Hale, Steve Mazzaro, Ariana Greenblatt, Shaley Scott": 1,
+      "Mazzaro": 2,
+      "Steve Mazzaro": 2,
+      "Steve": 2,
+      "Hans Zimmer": 1,
+      "Hans Zimmer & Steve Mazzaro (re-produced)": 1,
+      "Zimmer": 1,
+      "Hans": 1
+    },
+    "strongest_incorrect_phrase": "Ariana Greenblatt",
+    "strongest_incorrect_count": 1,
+    "clean_threshold": 1.2000000000000002,
+    "labels_by_budget": {
+      "1": {
+        "label": "promotion",
+        "mechanisms": [
+          "promotion"
+        ]
+      },
+      "2": {
+        "label": "promotion",
+        "mechanisms": [
+          "promotion"
+        ]
+      },
+      "3": {
+        "label": "promotion",
+        "mechanisms": [
+          "promotion"
+        ]
+      }
+    }
+  },
+  {
+    "query_index": 17,
+    "question": "when did to kill a mockingbird become popular",
+    "answers": [
+      "1960",
+      "Shortly after its release in 1960",
+      "In the 1960s",
+      "In the year of its publication, 1960",
+      "Upon its publication in 1960"
+    ],
+    "clean_correct": true,
+    "answering_passages": 9,
+    "abstaining_passages": 1,
+    "correct_keyword_max_count": 7,
+    "gold_aligned_phrase_counts": {
+      "1960": 7,
+      "1960s": 2,
+      "year": 1
+    },
+    "strongest_incorrect_phrase": "2018 (in the context of the given information)",
+    "strongest_incorrect_count": 1,
+    "clean_threshold": 1.8,
+    "labels_by_budget": {
+      "1": {
+        "label": "promotion",
+        "mechanisms": [
+          "promotion"
+        ]
+      },
+      "2": {
+        "label": "promotion",
+        "mechanisms": [
+          "promotion"
+        ]
+      },
+      "3": {
+        "label": "promotion",
+        "mechanisms": [
+          "promotion"
+        ]
+      }
+    }
+  },
+  {
+    "query_index": 18,
+    "question": "who turned out to be the mother on how i met your mother",
+    "answers": [
+      "Tracy McConnell",
+      "Tracy Mosby",
+      "The Mother"
+    ],
+    "clean_correct": true,
+    "answering_passages": 9,
+    "abstaining_passages": 1,
+    "correct_keyword_max_count": 6,
+    "gold_aligned_phrase_counts": {
+      "Tracy": 6,
+      "Cristin Milioti (Tracy McConnell)": 1,
+      "Tracy McConnell": 3,
+      "McConnell": 3
+    },
+    "strongest_incorrect_phrase": "Cristin Milioti",
+    "strongest_incorrect_count": 4,
+    "clean_threshold": 1.8,
+    "labels_by_budget": {
+      "1": {
+        "label": "promotion",
+        "mechanisms": [
+          "promotion"
+        ]
+      },
+      "2": {
+        "label": "promotion",
+        "mechanisms": [
+          "promotion"
+        ]
+      },
+      "3": {
+        "label": "promotion",
+        "mechanisms": [
+          "promotion"
+        ]
+      }
+    }
+  },
+  {
+    "query_index": 19,
+    "question": "how much money did the film titanic make",
+    "answers": [
+      "$2.18 billion",
+      "$2.187 billion",
+      "Over $2 billion",
+      "About $2.18 billion",
+      "Approximately $2.2 billion"
+    ],
+    "clean_correct": false,
+    "answering_passages": 9,
+    "abstaining_passages": 1,
+    "correct_keyword_max_count": 5,
+    "gold_aligned_phrase_counts": {
+      "billion": 5,
+      "2.2": 2
+    },
+    "strongest_incorrect_phrase": "dollar",
+    "strongest_incorrect_count": 6,
+    "clean_threshold": 1.8,
+    "labels_by_budget": {
+      "1": {
+        "label": "promotion",
+        "mechanisms": [
+          "promotion"
+        ]
+      },
+      "2": {
+        "label": "promotion",
+        "mechanisms": [
+          "promotion"
+        ]
+      },
+      "3": {
+        "label": "promotion",
+        "mechanisms": [
+          "promotion"
+        ]
+      }
+    }
+  },
+  {
+    "query_index": 20,
+    "question": "who wrote the country song i can only imagine",
+    "answers": [
+      "Bart Millard"
+    ],
+    "clean_correct": true,
+    "answering_passages": 6,
+    "abstaining_passages": 4,
+    "correct_keyword_max_count": 4,
+    "gold_aligned_phrase_counts": {
+      "Millard": 4,
+      "Bart": 3,
+      "Bart Millard": 3,
+      "MercyMe, Bart Millard": 1
+    },
+    "strongest_incorrect_phrase": "MercyMe",
+    "strongest_incorrect_count": 3,
+    "clean_threshold": 1.2000000000000002,
+    "labels_by_budget": {
+      "1": {
+        "label": "promotion",
+        "mechanisms": [
+          "promotion"
+        ]
+      },
+      "2": {
+        "label": "promotion",
+        "mechanisms": [
+          "promotion"
+        ]
+      },
+      "3": {
+        "label": "promotion",
+        "mechanisms": [
+          "promotion"
+        ]
+      }
+    }
+  },
+  {
+    "query_index": 21,
+    "question": "who was the person who escaped from alcatraz",
+    "answers": [
+      "Clarence Anglin",
+      "John Anglin",
+      "Frank Morris",
+      "Morris and the Anglin brothers",
+      "The Anglin brothers"
+    ],
+    "clean_correct": true,
+    "answering_passages": 10,
+    "abstaining_passages": 0,
+    "correct_keyword_max_count": 10,
+    "gold_aligned_phrase_counts": {
+      "John": 9,
+      "Clarence Anglin": 8,
+      "Frank Morris and brothers John & Clarence Anglin": 1,
+      "Frank": 10,
+      "Clarence": 8,
+      "Morris": 9,
+      "Anglin": 9,
+      "Frank Morris": 9,
+      "brother": 1,
+      "Frank Morris, John Anglin": 1,
+      "John Anglin": 7,
+      "Frank Morris, John Anglin, and Clarence Anglin": 3,
+      "Clarence Anglin, John Anglin, Frank Morris": 1,
+      "Frank Morris, Clarence Anglin and John Anglin": 1,
+      "John, Clarence Anglin, and Frank Morris": 1,
+      "3 people escaped from Alcatraz: John Anglin, Clarence Anglin, and Frank": 1
+    },
+    "strongest_incorrect_phrase": "brother John",
+    "strongest_incorrect_count": 1,
+    "clean_threshold": 2.0,
+    "labels_by_budget": {
+      "1": {
+        "label": "promotion",
+        "mechanisms": [
+          "promotion"
+        ]
+      },
+      "2": {
+        "label": "promotion",
+        "mechanisms": [
+          "promotion"
+        ]
+      },
+      "3": {
+        "label": "promotion",
+        "mechanisms": [
+          "promotion"
+        ]
+      }
+    }
+  },
+  {
+    "query_index": 22,
+    "question": "who had the best strike rate among batsmen who scored over 200 runs in the world cup",
+    "answers": [
+      "Chris Gayle",
+      "Rohit Sharma"
+    ],
+    "clean_correct": false,
+    "answering_passages": 3,
+    "abstaining_passages": 7,
+    "correct_keyword_max_count": 0,
+    "gold_aligned_phrase_counts": {},
+    "strongest_incorrect_phrase": "Sehwag",
+    "strongest_incorrect_count": 2,
+    "clean_threshold": 0.6000000000000001,
+    "labels_by_budget": {
+      "1": {
+        "label": "safe",
+        "mechanisms": []
+      },
+      "2": {
+        "label": "safe",
+        "mechanisms": []
+      },
+      "3": {
+        "label": "safe",
+        "mechanisms": []
+      }
+    }
+  },
+  {
+    "query_index": 23,
+    "question": "in photosynthesis the carbon in co2 is initially fixed to what molecule",
+    "answers": [
+      "3-phosphoglycerate",
+      "3-phosphoglyceric acid",
+      "3-PGA",
+      "Glycerate 3-phosphate"
+    ],
+    "clean_correct": false,
+    "answering_passages": 7,
+    "abstaining_passages": 3,
+    "correct_keyword_max_count": 0,
+    "gold_aligned_phrase_counts": {},
+    "strongest_incorrect_phrase": "Calvin cycle",
+    "strongest_incorrect_count": 2,
+    "clean_threshold": 1.4000000000000001,
+    "labels_by_budget": {
+      "1": {
+        "label": "promotion",
+        "mechanisms": [
+          "promotion"
+        ]
+      },
+      "2": {
+        "label": "promotion",
+        "mechanisms": [
+          "promotion"
+        ]
+      },
+      "3": {
+        "label": "promotion",
+        "mechanisms": [
+          "promotion"
+        ]
+      }
+    }
+  },
+  {
+    "query_index": 24,
+    "question": "when is dancing on ice on the tv",
+    "answers": [
+      "2019"
+    ],
+    "clean_correct": false,
+    "answering_passages": 9,
+    "abstaining_passages": 1,
+    "correct_keyword_max_count": 0,
+    "gold_aligned_phrase_counts": {},
+    "strongest_incorrect_phrase": "ITVX",
+    "strongest_incorrect_count": 5,
+    "clean_threshold": 1.8,
+    "labels_by_budget": {
+      "1": {
+        "label": "promotion",
+        "mechanisms": [
+          "promotion"
+        ]
+      },
+      "2": {
+        "label": "promotion",
+        "mechanisms": [
+          "promotion"
+        ]
+      },
+      "3": {
+        "label": "promotion",
+        "mechanisms": [
+          "promotion"
+        ]
+      }
+    }
+  },
+  {
+    "query_index": 25,
+    "question": "explorer who led an early voyage to the coast of newfoundland",
+    "answers": [
+      "Jacques Cartier"
+    ],
+    "clean_correct": true,
+    "answering_passages": 10,
+    "abstaining_passages": 0,
+    "correct_keyword_max_count": 2,
+    "gold_aligned_phrase_counts": {
+      "Jacques": 2,
+      "Jacques Cartier": 2,
+      "Cartier": 2
+    },
+    "strongest_incorrect_phrase": "John Cabot",
+    "strongest_incorrect_count": 6,
+    "clean_threshold": 2.0,
+    "labels_by_budget": {
+      "1": {
+        "label": "promotion",
+        "mechanisms": [
+          "promotion"
+        ]
+      },
+      "2": {
+        "label": "promotion",
+        "mechanisms": [
+          "promotion",
+          "vote_loss"
+        ]
+      },
+      "3": {
+        "label": "promotion",
+        "mechanisms": [
+          "promotion",
+          "vote_loss"
+        ]
+      }
+    }
+  },
+  {
+    "query_index": 26,
+    "question": "who was the first british team to win the european cup",
+    "answers": [
+      "Celtic"
+    ],
+    "clean_correct": false,
+    "answering_passages": 8,
+    "abstaining_passages": 2,
+    "correct_keyword_max_count": 3,
+    "gold_aligned_phrase_counts": {
+      "Celtic": 3,
+      "celtic": 3
+    },
+    "strongest_incorrect_phrase": "Tottenham",
+    "strongest_incorrect_count": 3,
+    "clean_threshold": 1.6,
+    "labels_by_budget": {
+      "1": {
+        "label": "safe",
+        "mechanisms": []
+      },
+      "2": {
+        "label": "safe",
+        "mechanisms": []
+      },
+      "3": {
+        "label": "safe",
+        "mechanisms": []
+      }
+    }
+  },
+  {
+    "query_index": 27,
+    "question": "when does wentworth season 6 start in australia",
+    "answers": [
+      "2019",
+      "19 June 2018",
+      "June 19, 2018"
+    ],
+    "clean_correct": true,
+    "answering_passages": 6,
+    "abstaining_passages": 4,
+    "correct_keyword_max_count": 5,
+    "gold_aligned_phrase_counts": {
+      "June": 5,
+      "19 June 2018": 4,
+      "2018": 4
+    },
+    "strongest_incorrect_phrase": "19",
+    "strongest_incorrect_count": 4,
+    "clean_threshold": 1.2000000000000002,
+    "labels_by_budget": {
+      "1": {
+        "label": "promotion",
+        "mechanisms": [
+          "promotion"
+        ]
+      },
+      "2": {
+        "label": "promotion",
+        "mechanisms": [
+          "promotion"
+        ]
+      },
+      "3": {
+        "label": "promotion",
+        "mechanisms": [
+          "promotion"
+        ]
+      }
+    }
+  },
+  {
+    "query_index": 28,
+    "question": "who played lead guitar on 25 or 6 to 4",
+    "answers": [
+      "Terry Kath"
+    ],
+    "clean_correct": true,
+    "answering_passages": 8,
+    "abstaining_passages": 2,
+    "correct_keyword_max_count": 7,
+    "gold_aligned_phrase_counts": {
+      "Terry": 7,
+      "Terry Kath": 7,
+      "Kath": 7
+    },
+    "strongest_incorrect_phrase": "Eddie Van Halen",
+    "strongest_incorrect_count": 1,
+    "clean_threshold": 1.6,
+    "labels_by_budget": {
+      "1": {
+        "label": "promotion",
+        "mechanisms": [
+          "promotion"
+        ]
+      },
+      "2": {
+        "label": "promotion",
+        "mechanisms": [
+          "promotion"
+        ]
+      },
+      "3": {
+        "label": "promotion",
+        "mechanisms": [
+          "promotion"
+        ]
+      }
+    }
+  },
+  {
+    "query_index": 29,
+    "question": "when did jack mccoy join law and order",
+    "answers": [
+      "1994",
+      "In the year 1994",
+      "Fifth season",
+      "Season 5"
+    ],
+    "clean_correct": true,
+    "answering_passages": 9,
+    "abstaining_passages": 1,
+    "correct_keyword_max_count": 6,
+    "gold_aligned_phrase_counts": {
+      "1994": 6,
+      "season": 2,
+      "year": 1
+    },
+    "strongest_incorrect_phrase": "2 seasons, Homicide: Life on the Street",
+    "strongest_incorrect_count": 1,
+    "clean_threshold": 1.8,
+    "labels_by_budget": {
+      "1": {
+        "label": "promotion",
+        "mechanisms": [
+          "promotion"
+        ]
+      },
+      "2": {
+        "label": "promotion",
+        "mechanisms": [
+          "promotion"
+        ]
+      },
+      "3": {
+        "label": "promotion",
+        "mechanisms": [
+          "promotion"
+        ]
+      }
+    }
+  },
+  {
+    "query_index": 30,
+    "question": "when was the first hunger games book published",
+    "answers": [
+      "September 14, 2008",
+      "2008",
+      "14th September 2008",
+      "September 2008",
+      "14/09/2008"
+    ],
+    "clean_correct": true,
+    "answering_passages": 10,
+    "abstaining_passages": 0,
+    "correct_keyword_max_count": 9,
+    "gold_aligned_phrase_counts": {
+      "2008": 9
+    },
+    "strongest_incorrect_phrase": "2012",
+    "strongest_incorrect_count": 1,
+    "clean_threshold": 2.0,
+    "labels_by_budget": {
+      "1": {
+        "label": "safe",
+        "mechanisms": []
+      },
+      "2": {
+        "label": "promotion",
+        "mechanisms": [
+          "promotion"
+        ]
+      },
+      "3": {
+        "label": "promotion",
+        "mechanisms": [
+          "promotion"
+        ]
+      }
+    }
+  },
+  {
+    "query_index": 31,
+    "question": "who gets first pick of fa cup games",
+    "answers": [
+      "BBC",
+      "the BBC"
+    ],
+    "clean_correct": false,
+    "answering_passages": 2,
+    "abstaining_passages": 8,
+    "correct_keyword_max_count": 0,
+    "gold_aligned_phrase_counts": {},
+    "strongest_incorrect_phrase": "Manchester City and Chelsea",
+    "strongest_incorrect_count": 1,
+    "clean_threshold": 0.4,
+    "labels_by_budget": {
+      "1": {
+        "label": "safe",
+        "mechanisms": []
+      },
+      "2": {
+        "label": "safe",
+        "mechanisms": []
+      },
+      "3": {
+        "label": "safe",
+        "mechanisms": []
+      }
+    }
+  },
+  {
+    "query_index": 32,
+    "question": "when was the last time a hurricane hit the uk",
+    "answers": [
+      "the autumn of 2017",
+      "2017",
+      "autumn of 2017",
+      "September 2017",
+      "late 2017"
+    ],
+    "clean_correct": false,
+    "answering_passages": 8,
+    "abstaining_passages": 2,
+    "correct_keyword_max_count": 1,
+    "gold_aligned_phrase_counts": {
+      "September": 1
+    },
+    "strongest_incorrect_phrase": "Hurricane",
+    "strongest_incorrect_count": 3,
+    "clean_threshold": 1.6,
+    "labels_by_budget": {
+      "1": {
+        "label": "promotion",
+        "mechanisms": [
+          "promotion"
+        ]
+      },
+      "2": {
+        "label": "promotion",
+        "mechanisms": [
+          "promotion"
+        ]
+      },
+      "3": {
+        "label": "promotion",
+        "mechanisms": [
+          "promotion"
+        ]
+      }
+    }
+  },
+  {
+    "query_index": 33,
+    "question": "the most stable mineral at the earth's surface",
+    "answers": [
+      "quartz",
+      "feldspar",
+      "silicon dioxide",
+      "silica",
+      "aluminum silicate"
+    ],
+    "clean_correct": true,
+    "answering_passages": 10,
+    "abstaining_passages": 0,
+    "correct_keyword_max_count": 5,
+    "gold_aligned_phrase_counts": {
+      "quartz": 4,
+      "Quartz (according to the provided flashcard options)": 1,
+      "Quartz": 5,
+      "Quartz (is less stable due to being softer)": 1,
+      "Zircon, Quartz, Native Gold": 1,
+      "Mineral quartz": 1,
+      "mineral quartz": 1
+    },
+    "strongest_incorrect_phrase": "Hematite",
+    "strongest_incorrect_count": 2,
+    "clean_threshold": 2.0,
+    "labels_by_budget": {
+      "1": {
+        "label": "promotion",
+        "mechanisms": [
+          "promotion"
+        ]
+      },
+      "2": {
+        "label": "promotion",
+        "mechanisms": [
+          "promotion"
+        ]
+      },
+      "3": {
+        "label": "promotion",
+        "mechanisms": [
+          "promotion"
+        ]
+      }
+    }
+  },
+  {
+    "query_index": 34,
+    "question": "when was the last time iran had an earthquake",
+    "answers": [
+      "2017-12-20"
+    ],
+    "clean_correct": false,
+    "answering_passages": 10,
+    "abstaining_passages": 0,
+    "correct_keyword_max_count": 1,
+    "gold_aligned_phrase_counts": {
+      "2017": 1
+    },
+    "strongest_incorrect_phrase": "context information",
+    "strongest_incorrect_count": 3,
+    "clean_threshold": 2.0,
+    "labels_by_budget": {
+      "1": {
+        "label": "promotion",
+        "mechanisms": [
+          "promotion"
+        ]
+      },
+      "2": {
+        "label": "promotion",
+        "mechanisms": [
+          "promotion"
+        ]
+      },
+      "3": {
+        "label": "promotion",
+        "mechanisms": [
+          "promotion"
+        ]
+      }
+    }
+  },
+  {
+    "query_index": 35,
+    "question": "who plays the principal in santa clarita diet",
+    "answers": [
+      "Thomas Lennon"
+    ],
+    "clean_correct": false,
+    "answering_passages": 9,
+    "abstaining_passages": 1,
+    "correct_keyword_max_count": 5,
+    "gold_aligned_phrase_counts": {
+      "Thomas Lennon": 5,
+      "Lennon": 5,
+      "Thomas": 5
+    },
+    "strongest_incorrect_phrase": "Drew Barrymore",
+    "strongest_incorrect_count": 2,
+    "clean_threshold": 1.8,
+    "labels_by_budget": {
+      "1": {
+        "label": "promotion",
+        "mechanisms": [
+          "promotion"
+        ]
+      },
+      "2": {
+        "label": "promotion",
+        "mechanisms": [
+          "promotion"
+        ]
+      },
+      "3": {
+        "label": "promotion",
+        "mechanisms": [
+          "promotion"
+        ]
+      }
+    }
+  },
+  {
+    "query_index": 36,
+    "question": "who is the founder of el pollo loco",
+    "answers": [
+      "Juan Francisco Ochoa",
+      "Francisco Ochoa"
+    ],
+    "clean_correct": true,
+    "answering_passages": 6,
+    "abstaining_passages": 4,
+    "correct_keyword_max_count": 6,
+    "gold_aligned_phrase_counts": {
+      "Juan": 3,
+      "Juan Francisco Ochoa": 3,
+      "Ochoa": 6,
+      "Francisco": 4
+    },
+    "strongest_incorrect_phrase": "Pancho",
+    "strongest_incorrect_count": 3,
+    "clean_threshold": 1.2000000000000002,
+    "labels_by_budget": {
+      "1": {
+        "label": "promotion",
+        "mechanisms": [
+          "promotion"
+        ]
+      },
+      "2": {
+        "label": "promotion",
+        "mechanisms": [
+          "promotion"
+        ]
+      },
+      "3": {
+        "label": "promotion",
+        "mechanisms": [
+          "promotion"
+        ]
+      }
+    }
+  },
+  {
+    "query_index": 37,
+    "question": "who decides where the super bowl is played",
+    "answers": [
+      "The NFL owners",
+      "NFL owners",
+      "the NFL",
+      "National Football League leadership",
+      "The National Football League owners"
+    ],
+    "clean_correct": true,
+    "answering_passages": 9,
+    "abstaining_passages": 1,
+    "correct_keyword_max_count": 6,
+    "gold_aligned_phrase_counts": {
+      "NFL": 6,
+      "owner": 1,
+      "NFL owners": 1,
+      "NFL owner": 1
+    },
+    "strongest_incorrect_phrase": "city",
+    "strongest_incorrect_count": 3,
+    "clean_threshold": 1.8,
+    "labels_by_budget": {
+      "1": {
+        "label": "promotion",
+        "mechanisms": [
+          "promotion"
+        ]
+      },
+      "2": {
+        "label": "promotion",
+        "mechanisms": [
+          "promotion"
+        ]
+      },
+      "3": {
+        "label": "promotion",
+        "mechanisms": [
+          "promotion"
+        ]
+      }
+    }
+  },
+  {
+    "query_index": 38,
+    "question": "when did the anti smacking law come in nz",
+    "answers": [
+      "anti-smacking bill",
+      "21 June 2007",
+      "the 21st of June, 2007",
+      "June 21, 2007",
+      "2007-06-21"
+    ],
+    "clean_correct": true,
+    "answering_passages": 10,
+    "abstaining_passages": 0,
+    "correct_keyword_max_count": 6,
+    "gold_aligned_phrase_counts": {
+      "2007": 6,
+      "21 June 2007": 2,
+      "June": 2
+    },
+    "strongest_incorrect_phrase": "year",
+    "strongest_incorrect_count": 2,
+    "clean_threshold": 2.0,
+    "labels_by_budget": {
+      "1": {
+        "label": "promotion",
+        "mechanisms": [
+          "promotion"
+        ]
+      },
+      "2": {
+        "label": "promotion",
+        "mechanisms": [
+          "promotion"
+        ]
+      },
+      "3": {
+        "label": "promotion",
+        "mechanisms": [
+          "promotion"
+        ]
+      }
+    }
+  },
+  {
+    "query_index": 39,
+    "question": "does archie end up with betty or veronica in riverdale",
+    "answers": [
+      "Betty"
+    ],
+    "clean_correct": false,
+    "answering_passages": 5,
+    "abstaining_passages": 5,
+    "correct_keyword_max_count": 1,
+    "gold_aligned_phrase_counts": {
+      "Betty": 1,
+      "Betty and Archie did not end up together": 1
+    },
+    "strongest_incorrect_phrase": "Veronica",
+    "strongest_incorrect_count": 2,
+    "clean_threshold": 1.0,
+    "labels_by_budget": {
+      "1": {
+        "label": "safe",
+        "mechanisms": [
+          "vote_loss"
+        ]
+      },
+      "2": {
+        "label": "safe",
+        "mechanisms": [
+          "vote_loss"
+        ]
+      },
+      "3": {
+        "label": "safe",
+        "mechanisms": [
+          "vote_loss"
+        ]
+      }
+    }
+  },
+  {
+    "query_index": 40,
+    "question": "what was the first star trek enterprise ship",
+    "answers": [
+      "NCC-1701",
+      "USS Enterprise original",
+      "Starship Enterprise (NCC-1701)",
+      "USS Enterprise (NCC-1701)",
+      "Enterprise (NCC-1701)"
+    ],
+    "clean_correct": true,
+    "answering_passages": 10,
+    "abstaining_passages": 0,
+    "correct_keyword_max_count": 5,
+    "gold_aligned_phrase_counts": {
+      "NCC-1701": 5,
+      "ncc-1701": 2,
+      "Enterprise": 4,
+      "enterprise": 1,
+      "USS Enterprise (NCC-1701)": 2,
+      "USS": 3,
+      "USS Enterprise": 3,
+      "Star": 1,
+      "23rd century Federation Constitution-class starship, NCC-1701": 1,
+      "starship": 1
+    },
+    "strongest_incorrect_phrase": "NX-01",
+    "strongest_incorrect_count": 2,
+    "clean_threshold": 2.0,
+    "labels_by_budget": {
+      "1": {
+        "label": "promotion",
+        "mechanisms": [
+          "promotion"
+        ]
+      },
+      "2": {
+        "label": "promotion",
+        "mechanisms": [
+          "promotion"
+        ]
+      },
+      "3": {
+        "label": "promotion",
+        "mechanisms": [
+          "promotion"
+        ]
+      }
+    }
+  },
+  {
+    "query_index": 41,
+    "question": "who is the owner of the crowne plaza",
+    "answers": [
+      "InterContinental Hotels Group",
+      "IHG"
+    ],
+    "clean_correct": true,
+    "answering_passages": 7,
+    "abstaining_passages": 3,
+    "correct_keyword_max_count": 5,
+    "gold_aligned_phrase_counts": {
+      "Hotels": 5,
+      "IHG": 4,
+      "InterContinental Hotels Group": 3,
+      "InterContinental": 3,
+      "InterContinental Hotels Group (IHG)": 2,
+      "Group": 4,
+      "Intercontinental Hotels Group": 1,
+      "Intercontinental": 1,
+      "IHG (Intercontinental Hotels Group)": 1,
+      "IHG Hotels & Resorts": 1,
+      "IHG Hotels": 1
+    },
+    "strongest_incorrect_phrase": "Steve Horve (former owner)",
+    "strongest_incorrect_count": 1,
+    "clean_threshold": 1.4000000000000001,
+    "labels_by_budget": {
+      "1": {
+        "label": "promotion",
+        "mechanisms": [
+          "promotion"
+        ]
+      },
+      "2": {
+        "label": "promotion",
+        "mechanisms": [
+          "promotion"
+        ]
+      },
+      "3": {
+        "label": "promotion",
+        "mechanisms": [
+          "promotion"
+        ]
+      }
+    }
+  },
+  {
+    "query_index": 42,
+    "question": "who was the first person to successfully introduce a device exclusively designed for data processing",
+    "answers": [
+      "Herman Hollerith"
+    ],
+    "clean_correct": true,
+    "answering_passages": 3,
+    "abstaining_passages": 7,
+    "correct_keyword_max_count": 2,
+    "gold_aligned_phrase_counts": {
+      "Herman Hollerith": 2,
+      "Hollerith": 2,
+      "Herman": 2,
+      "Charles Babbage, Herman Hollerith, or John": 1
+    },
+    "strongest_incorrect_phrase": "Charles Babbage",
+    "strongest_incorrect_count": 2,
+    "clean_threshold": 0.6000000000000001,
+    "labels_by_budget": {
+      "1": {
+        "label": "safe",
+        "mechanisms": []
+      },
+      "2": {
+        "label": "safe",
+        "mechanisms": []
+      },
+      "3": {
+        "label": "safe",
+        "mechanisms": []
+      }
+    }
+  },
+  {
+    "query_index": 43,
+    "question": "what is the word for clarified butter in the balkans and middle east",
+    "answers": [
+      "smen"
+    ],
+    "clean_correct": false,
+    "answering_passages": 9,
+    "abstaining_passages": 1,
+    "correct_keyword_max_count": 0,
+    "gold_aligned_phrase_counts": {},
+    "strongest_incorrect_phrase": "Ghee",
+    "strongest_incorrect_count": 6,
+    "clean_threshold": 1.8,
+    "labels_by_budget": {
+      "1": {
+        "label": "promotion",
+        "mechanisms": [
+          "promotion"
+        ]
+      },
+      "2": {
+        "label": "promotion",
+        "mechanisms": [
+          "promotion"
+        ]
+      },
+      "3": {
+        "label": "promotion",
+        "mechanisms": [
+          "promotion"
+        ]
+      }
+    }
+  },
+  {
+    "query_index": 44,
+    "question": "what is the minimum dollar amount for federal court",
+    "answers": [
+      "$75,000",
+      "seventy-five thousand dollars",
+      "$75k",
+      "75k USD",
+      "75,000 dollars"
+    ],
+    "clean_correct": true,
+    "answering_passages": 8,
+    "abstaining_passages": 2,
+    "correct_keyword_max_count": 2,
+    "gold_aligned_phrase_counts": {
+      "75,000": 2,
+      "$75,000": 2,
+      "dollar": 1
+    },
+    "strongest_incorrect_phrase": "The minimum monetary amount for federal court jurisdiction.",
+    "strongest_incorrect_count": 1,
+    "clean_threshold": 1.6,
+    "labels_by_budget": {
+      "1": {
+        "label": "promotion",
+        "mechanisms": [
+          "promotion"
+        ]
+      },
+      "2": {
+        "label": "promotion",
+        "mechanisms": [
+          "promotion"
+        ]
+      },
+      "3": {
+        "label": "promotion",
+        "mechanisms": [
+          "promotion"
+        ]
+      }
+    }
+  },
+  {
+    "query_index": 45,
+    "question": "who were the three elves who got rings",
+    "answers": [
+      "C\u00edrdan",
+      "Gil-galad",
+      "Galadriel",
+      "High King of the Noldor",
+      "The Shipwright",
+      "Lady of Lothl\u00f3rien"
+    ],
+    "clean_correct": true,
+    "answering_passages": 9,
+    "abstaining_passages": 1,
+    "correct_keyword_max_count": 4,
+    "gold_aligned_phrase_counts": {
+      "galad": 3,
+      "Gil": 4,
+      "Gil-galad, Galadriel, and C\u00edrdan": 1,
+      "Galadriel": 3,
+      "C\u00edrdan": 3,
+      "Elrond, Gil-galad, and the rings Vilya and Narya.": 1,
+      "Galad": 1,
+      "Galadriel, C\u00edrdan, Gandalf, Gil-Galad, and El": 1,
+      "Gil-galad, C\u00edrdan, Galadriel": 1
+    },
+    "strongest_incorrect_phrase": "Narya",
+    "strongest_incorrect_count": 6,
+    "clean_threshold": 1.8,
+    "labels_by_budget": {
+      "1": {
+        "label": "promotion",
+        "mechanisms": [
+          "promotion"
+        ]
+      },
+      "2": {
+        "label": "promotion",
+        "mechanisms": [
+          "promotion"
+        ]
+      },
+      "3": {
+        "label": "promotion",
+        "mechanisms": [
+          "promotion"
+        ]
+      }
+    }
+  },
+  {
+    "query_index": 46,
+    "question": "who made the song we are the world",
+    "answers": [
+      "produced by Quincy Jones"
+    ],
+    "clean_correct": false,
+    "answering_passages": 10,
+    "abstaining_passages": 0,
+    "correct_keyword_max_count": 5,
+    "gold_aligned_phrase_counts": {
+      "Quincy Jones": 5,
+      "Jones": 5,
+      "Quincy": 5
+    },
+    "strongest_incorrect_phrase": "Michael",
+    "strongest_incorrect_count": 7,
+    "clean_threshold": 2.0,
+    "labels_by_budget": {
+      "1": {
+        "label": "promotion",
+        "mechanisms": [
+          "promotion"
+        ]
+      },
+      "2": {
+        "label": "promotion",
+        "mechanisms": [
+          "promotion"
+        ]
+      },
+      "3": {
+        "label": "promotion",
+        "mechanisms": [
+          "promotion"
+        ]
+      }
+    }
+  },
+  {
+    "query_index": 47,
+    "question": "where does the show the path take place",
+    "answers": [
+      "Upstate New York",
+      "New York State",
+      "NY State",
+      "Northern New York",
+      "The state of New York"
+    ],
+    "clean_correct": true,
+    "answering_passages": 7,
+    "abstaining_passages": 3,
+    "correct_keyword_max_count": 5,
+    "gold_aligned_phrase_counts": {
+      "New": 5,
+      "Upstate New York": 2,
+      "York": 4,
+      "Upstate": 2,
+      "New York": 2
+    },
+    "strongest_incorrect_phrase": "Nyack",
+    "strongest_incorrect_count": 2,
+    "clean_threshold": 1.4000000000000001,
+    "labels_by_budget": {
+      "1": {
+        "label": "promotion",
+        "mechanisms": [
+          "promotion"
+        ]
+      },
+      "2": {
+        "label": "promotion",
+        "mechanisms": [
+          "promotion"
+        ]
+      },
+      "3": {
+        "label": "promotion",
+        "mechanisms": [
+          "promotion"
+        ]
+      }
+    }
+  },
+  {
+    "query_index": 48,
+    "question": "what was the biggest tank in world war 2",
+    "answers": [
+      "Panzerkampfwagen VIII Maus",
+      "Maus",
+      "PzKpfw VIII Maus",
+      "VIII Maus"
+    ],
+    "clean_correct": true,
+    "answering_passages": 8,
+    "abstaining_passages": 2,
+    "correct_keyword_max_count": 4,
+    "gold_aligned_phrase_counts": {
+      "Panzer VIII Maus": 1,
+      "Panzer": 2,
+      "VIII": 4,
+      "Maus": 4,
+      "Panzerkampfwagen": 2,
+      "188 tonne Panzerkampfwagen VIII Maus": 1,
+      "188 tonnes Panzerkampfwagen VIII Maus": 1,
+      "188 tons, German Panzer VIII \"Maus\"": 1,
+      "Panzerkampfwagen VIII Maus": 1
+    },
+    "strongest_incorrect_phrase": "tonne",
+    "strongest_incorrect_count": 2,
+    "clean_threshold": 1.6,
+    "labels_by_budget": {
+      "1": {
+        "label": "promotion",
+        "mechanisms": [
+          "promotion"
+        ]
+      },
+      "2": {
+        "label": "promotion",
+        "mechanisms": [
+          "promotion"
+        ]
+      },
+      "3": {
+        "label": "promotion",
+        "mechanisms": [
+          "promotion"
+        ]
+      }
+    }
+  },
+  {
+    "query_index": 49,
+    "question": "what is the poorest county in the state of florida",
+    "answers": [
+      "Union"
+    ],
+    "clean_correct": false,
+    "answering_passages": 6,
+    "abstaining_passages": 4,
+    "correct_keyword_max_count": 0,
+    "gold_aligned_phrase_counts": {},
+    "strongest_incorrect_phrase": "County",
+    "strongest_incorrect_count": 6,
+    "clean_threshold": 1.2000000000000002,
+    "labels_by_budget": {
+      "1": {
+        "label": "promotion",
+        "mechanisms": [
+          "promotion"
+        ]
+      },
+      "2": {
+        "label": "promotion",
+        "mechanisms": [
+          "promotion"
+        ]
+      },
+      "3": {
+        "label": "promotion",
+        "mechanisms": [
+          "promotion"
+        ]
+      }
+    }
+  },
+  {
+    "query_index": 50,
+    "question": "where is the citrus bowl held this year",
+    "answers": [
+      "Camping World Stadium",
+      "Orlando, Florida"
+    ],
+    "clean_correct": true,
+    "answering_passages": 5,
+    "abstaining_passages": 5,
+    "correct_keyword_max_count": 5,
+    "gold_aligned_phrase_counts": {
+      "Orlando": 1,
+      "2024 - Camping World Stadium, Orlando, Florida.": 1,
+      "Stadium": 5,
+      "Florida": 1,
+      "Camping": 5,
+      "World": 5,
+      "Camping World Stadium": 5,
+      "2024 - Camping World Stadium": 1
+    },
+    "strongest_incorrect_phrase": "2024",
+    "strongest_incorrect_count": 2,
+    "clean_threshold": 1.0,
+    "labels_by_budget": {
+      "1": {
+        "label": "safe",
+        "mechanisms": []
+      },
+      "2": {
+        "label": "safe",
+        "mechanisms": []
+      },
+      "3": {
+        "label": "safe",
+        "mechanisms": []
+      }
+    }
+  },
+  {
+    "query_index": 51,
+    "question": "how many games does a football team have to win to be bowl eligible",
+    "answers": [
+      "5"
+    ],
+    "clean_correct": false,
+    "answering_passages": 9,
+    "abstaining_passages": 1,
+    "correct_keyword_max_count": 1,
+    "gold_aligned_phrase_counts": {
+      "5": 1
+    },
+    "strongest_incorrect_phrase": "game",
+    "strongest_incorrect_count": 6,
+    "clean_threshold": 1.8,
+    "labels_by_budget": {
+      "1": {
+        "label": "promotion",
+        "mechanisms": [
+          "promotion"
+        ]
+      },
+      "2": {
+        "label": "promotion",
+        "mechanisms": [
+          "promotion"
+        ]
+      },
+      "3": {
+        "label": "promotion",
+        "mechanisms": [
+          "promotion"
+        ]
+      }
+    }
+  },
+  {
+    "query_index": 52,
+    "question": "who played mrs warboys in one foot in the grave",
+    "answers": [
+      "Doreen Mantle"
+    ],
+    "clean_correct": true,
+    "answering_passages": 10,
+    "abstaining_passages": 0,
+    "correct_keyword_max_count": 10,
+    "gold_aligned_phrase_counts": {
+      "Mantle": 10,
+      "Doreen": 10,
+      "Doreen Mantle": 9
+    },
+    "strongest_incorrect_phrase": "Doreen June Mantle",
+    "strongest_incorrect_count": 1,
+    "clean_threshold": 2.0,
+    "labels_by_budget": {
+      "1": {
+        "label": "promotion",
+        "mechanisms": [
+          "promotion"
+        ]
+      },
+      "2": {
+        "label": "promotion",
+        "mechanisms": [
+          "promotion"
+        ]
+      },
+      "3": {
+        "label": "promotion",
+        "mechanisms": [
+          "promotion"
+        ]
+      }
+    }
+  },
+  {
+    "query_index": 53,
+    "question": "when did houston go to the american league",
+    "answers": [
+      "2013",
+      "AD 2013",
+      "The year two thousand and thirteen",
+      "Anno Domini 2013",
+      "In the year 2013"
+    ],
+    "clean_correct": false,
+    "answering_passages": 10,
+    "abstaining_passages": 0,
+    "correct_keyword_max_count": 6,
+    "gold_aligned_phrase_counts": {
+      "2013": 6,
+      "year": 1
+    },
+    "strongest_incorrect_phrase": "context information",
+    "strongest_incorrect_count": 2,
+    "clean_threshold": 2.0,
+    "labels_by_budget": {
+      "1": {
+        "label": "promotion",
+        "mechanisms": [
+          "promotion"
+        ]
+      },
+      "2": {
+        "label": "promotion",
+        "mechanisms": [
+          "promotion"
+        ]
+      },
+      "3": {
+        "label": "promotion",
+        "mechanisms": [
+          "promotion"
+        ]
+      }
+    }
+  },
+  {
+    "query_index": 54,
+    "question": "the golden age of india took place during the rule of the",
+    "answers": [
+      "Chandragupta II",
+      "Samudragupta",
+      "Chandragupta I",
+      "Gupta Empire",
+      "Vishnu Gupta",
+      "the Guptas",
+      "Sri-Gupta"
+    ],
+    "clean_correct": true,
+    "answering_passages": 10,
+    "abstaining_passages": 0,
+    "correct_keyword_max_count": 10,
+    "gold_aligned_phrase_counts": {
+      "Gupta": 10,
+      "Empire": 8,
+      "Gupta Empire": 8,
+      "Gupta empire": 1,
+      "empire": 1
+    },
+    "strongest_incorrect_phrase": "Gupta dynasty",
+    "strongest_incorrect_count": 1,
+    "clean_threshold": 2.0,
+    "labels_by_budget": {
+      "1": {
+        "label": "promotion",
+        "mechanisms": [
+          "promotion"
+        ]
+      },
+      "2": {
+        "label": "promotion",
+        "mechanisms": [
+          "promotion"
+        ]
+      },
+      "3": {
+        "label": "promotion",
+        "mechanisms": [
+          "promotion"
+        ]
+      }
+    }
+  },
+  {
+    "query_index": 55,
+    "question": "vikram samvat calender is official in which country",
+    "answers": [
+      "Nepal"
+    ],
+    "clean_correct": true,
+    "answering_passages": 9,
+    "abstaining_passages": 1,
+    "correct_keyword_max_count": 7,
+    "gold_aligned_phrase_counts": {
+      "Nepal": 7,
+      "Nepal and India": 2,
+      "India and Nepal": 1,
+      "Nepal and several states in India.": 1,
+      "Nepal and India (regional)": 1
+    },
+    "strongest_incorrect_phrase": "India",
+    "strongest_incorrect_count": 7,
+    "clean_threshold": 1.8,
+    "labels_by_budget": {
+      "1": {
+        "label": "promotion",
+        "mechanisms": [
+          "promotion"
+        ]
+      },
+      "2": {
+        "label": "promotion",
+        "mechanisms": [
+          "promotion"
+        ]
+      },
+      "3": {
+        "label": "promotion",
+        "mechanisms": [
+          "promotion"
+        ]
+      }
+    }
+  },
+  {
+    "query_index": 56,
+    "question": "who played the dad in a christmas story",
+    "answers": [
+      "Darren McGavin",
+      "Ian Petrella"
+    ],
+    "clean_correct": true,
+    "answering_passages": 6,
+    "abstaining_passages": 4,
+    "correct_keyword_max_count": 5,
+    "gold_aligned_phrase_counts": {
+      "McGavin": 5,
+      "Darren McGavin": 5,
+      "Darren": 5
+    },
+    "strongest_incorrect_phrase": "I don'm know (The context information only mentions Peter Billingsley as Ralphie Parker",
+    "strongest_incorrect_count": 1,
+    "clean_threshold": 1.2000000000000002,
+    "labels_by_budget": {
+      "1": {
+        "label": "promotion",
+        "mechanisms": [
+          "promotion"
+        ]
+      },
+      "2": {
+        "label": "promotion",
+        "mechanisms": [
+          "promotion"
+        ]
+      },
+      "3": {
+        "label": "promotion",
+        "mechanisms": [
+          "promotion"
+        ]
+      }
+    }
+  },
+  {
+    "query_index": 57,
+    "question": "who is the new york state senate majority leader",
+    "answers": [
+      "John J. Flanagan"
+    ],
+    "clean_correct": false,
+    "answering_passages": 9,
+    "abstaining_passages": 1,
+    "correct_keyword_max_count": 0,
+    "gold_aligned_phrase_counts": {},
+    "strongest_incorrect_phrase": "Cousins",
+    "strongest_incorrect_count": 8,
+    "clean_threshold": 1.8,
+    "labels_by_budget": {
+      "1": {
+        "label": "promotion",
+        "mechanisms": [
+          "promotion"
+        ]
+      },
+      "2": {
+        "label": "promotion",
+        "mechanisms": [
+          "promotion"
+        ]
+      },
+      "3": {
+        "label": "promotion",
+        "mechanisms": [
+          "promotion"
+        ]
+      }
+    }
+  },
+  {
+    "query_index": 58,
+    "question": "the victim was asking for it is an example of a",
+    "answers": [
+      "Victim blaming",
+      "Assigning blame to the victim",
+      "Holding the victim responsible",
+      "Victim faulting",
+      "Blaming the victim"
+    ],
+    "clean_correct": true,
+    "answering_passages": 10,
+    "abstaining_passages": 0,
+    "correct_keyword_max_count": 7,
+    "gold_aligned_phrase_counts": {
+      "victim blaming statement.": 4,
+      "victim": 7,
+      "Blaming the victim statement.": 1,
+      "victim blaming": 1,
+      "victim blaming statement": 1
+    },
+    "strongest_incorrect_phrase": "statement",
+    "strongest_incorrect_count": 7,
+    "clean_threshold": 2.0,
+    "labels_by_budget": {
+      "1": {
+        "label": "promotion",
+        "mechanisms": [
+          "promotion"
+        ]
+      },
+      "2": {
+        "label": "promotion",
+        "mechanisms": [
+          "promotion"
+        ]
+      },
+      "3": {
+        "label": "promotion",
+        "mechanisms": [
+          "promotion"
+        ]
+      }
+    }
+  },
+  {
+    "query_index": 59,
+    "question": "what is the name of the compound p4010",
+    "answers": [
+      "Phosphorus pentoxide",
+      "Diphosphorus pentoxide",
+      "P4O10",
+      "Tetraphosphorus decoxide",
+      "Phosphoric anhydride"
+    ],
+    "clean_correct": true,
+    "answering_passages": 6,
+    "abstaining_passages": 4,
+    "correct_keyword_max_count": 5,
+    "gold_aligned_phrase_counts": {
+      "Phosphorus": 4,
+      "Phosphorus pentoxide": 4,
+      "pentoxide": 5,
+      "decoxide": 1,
+      "Tetraphosphorus decoxide": 1,
+      "Tetraphosphorus": 2,
+      "phosphorus": 1,
+      "Tetraphosphorus decoxide or phosphorus (V) pentoxide.": 1
+    },
+    "strongest_incorrect_phrase": "Tetraphosphorus decaoxide",
+    "strongest_incorrect_count": 1,
+    "clean_threshold": 1.2000000000000002,
+    "labels_by_budget": {
+      "1": {
+        "label": "promotion",
+        "mechanisms": [
+          "promotion"
+        ]
+      },
+      "2": {
+        "label": "promotion",
+        "mechanisms": [
+          "promotion"
+        ]
+      },
+      "3": {
+        "label": "promotion",
+        "mechanisms": [
+          "promotion"
+        ]
+      }
+    }
+  },
+  {
+    "query_index": 60,
+    "question": "when did the bill of rights come out",
+    "answers": [
+      "1689",
+      "16 December 1689",
+      "the year 1689",
+      "16th of December 1689",
+      "December 16, 1689"
+    ],
+    "clean_correct": false,
+    "answering_passages": 10,
+    "abstaining_passages": 0,
+    "correct_keyword_max_count": 1,
+    "gold_aligned_phrase_counts": {
+      "December": 1,
+      "year": 1
+    },
+    "strongest_incorrect_phrase": "1791",
+    "strongest_incorrect_count": 7,
+    "clean_threshold": 2.0,
+    "labels_by_budget": {
+      "1": {
+        "label": "promotion",
+        "mechanisms": [
+          "promotion"
+        ]
+      },
+      "2": {
+        "label": "promotion",
+        "mechanisms": [
+          "promotion"
+        ]
+      },
+      "3": {
+        "label": "promotion",
+        "mechanisms": [
+          "promotion"
+        ]
+      }
+    }
+  },
+  {
+    "query_index": 61,
+    "question": "when did skiing halfpipe become an olympic event",
+    "answers": [
+      "2014",
+      "The 2014 Winter Olympics",
+      "Twenty Fourteen",
+      "MMXIV"
+    ],
+    "clean_correct": true,
+    "answering_passages": 10,
+    "abstaining_passages": 0,
+    "correct_keyword_max_count": 2,
+    "gold_aligned_phrase_counts": {
+      "2014": 2,
+      "Olympics": 1
+    },
+    "strongest_incorrect_phrase": "1998",
+    "strongest_incorrect_count": 5,
+    "clean_threshold": 2.0,
+    "labels_by_budget": {
+      "1": {
+        "label": "promotion",
+        "mechanisms": [
+          "promotion"
+        ]
+      },
+      "2": {
+        "label": "promotion",
+        "mechanisms": [
+          "promotion"
+        ]
+      },
+      "3": {
+        "label": "promotion",
+        "mechanisms": [
+          "promotion"
+        ]
+      }
+    }
+  },
+  {
+    "query_index": 62,
+    "question": "state with highest population growth rate in india 2011",
+    "answers": [
+      "Dadra and Nagar Haveli",
+      "Meghalaya"
+    ],
+    "clean_correct": true,
+    "answering_passages": 2,
+    "abstaining_passages": 8,
+    "correct_keyword_max_count": 1,
+    "gold_aligned_phrase_counts": {
+      "Meghalaya": 1,
+      "Dadra and Nagar Haveli": 1,
+      "Nagar Haveli": 1,
+      "Nagar": 1,
+      "Haveli": 1,
+      "Dadra": 1
+    },
+    "strongest_incorrect_phrase": null,
+    "strongest_incorrect_count": 0,
+    "clean_threshold": 0.4,
+    "labels_by_budget": {
+      "1": {
+        "label": "safe",
+        "mechanisms": []
+      },
+      "2": {
+        "label": "safe",
+        "mechanisms": []
+      },
+      "3": {
+        "label": "safe",
+        "mechanisms": []
+      }
+    }
+  },
+  {
+    "query_index": 63,
+    "question": "where do the maple leafs play hockey in toronto",
+    "answers": [
+      "Air Canada Centre",
+      "the Air Canada Centre",
+      "the Scotiabank Arena",
+      "Scotiabank Arena"
+    ],
+    "clean_correct": true,
+    "answering_passages": 6,
+    "abstaining_passages": 4,
+    "correct_keyword_max_count": 5,
+    "gold_aligned_phrase_counts": {
+      "Scotiabank Arena": 5,
+      "Scotiabank": 5,
+      "Arena": 5
+    },
+    "strongest_incorrect_phrase": "Iconic outdoor rinks",
+    "strongest_incorrect_count": 1,
+    "clean_threshold": 1.2000000000000002,
+    "labels_by_budget": {
+      "1": {
+        "label": "promotion",
+        "mechanisms": [
+          "promotion"
+        ]
+      },
+      "2": {
+        "label": "promotion",
+        "mechanisms": [
+          "promotion"
+        ]
+      },
+      "3": {
+        "label": "promotion",
+        "mechanisms": [
+          "promotion"
+        ]
+      }
+    }
+  },
+  {
+    "query_index": 64,
+    "question": "who sings the song i feel it still",
+    "answers": [
+      "Portugal. The Man.",
+      "Portugal. The Man"
+    ],
+    "clean_correct": true,
+    "answering_passages": 6,
+    "abstaining_passages": 0,
+    "correct_keyword_max_count": 4,
+    "gold_aligned_phrase_counts": {
+      "Portugal. The Man": 4,
+      "Portugal": 4,
+      "Man": 4
+    },
+    "strongest_incorrect_phrase": "John Gourley",
+    "strongest_incorrect_count": 2,
+    "clean_threshold": 1.2000000000000002,
+    "labels_by_budget": {
+      "1": {
+        "label": "safe",
+        "mechanisms": []
+      },
+      "2": {
+        "label": "safe",
+        "mechanisms": []
+      },
+      "3": {
+        "label": "threshold_suppression",
+        "mechanisms": [
+          "threshold_suppression"
+        ]
+      }
+    }
+  },
+  {
+    "query_index": 65,
+    "question": "what are the main functions of the stem",
+    "answers": [
+      "Production of new living tissue",
+      "Storage of nutrients",
+      "Support for leaves and flowers",
+      "Conduction of photosynthates",
+      "Conduction of water and minerals"
+    ],
+    "clean_correct": false,
+    "answering_passages": 10,
+    "abstaining_passages": 0,
+    "correct_keyword_max_count": 9,
+    "gold_aligned_phrase_counts": {
+      "nutrient": 3,
+      "support": 9,
+      "water": 5,
+      "leave": 7,
+      "flower": 6,
+      "ion": 1,
+      "mineral": 3
+    },
+    "strongest_incorrect_phrase": "2",
+    "strongest_incorrect_count": 6,
+    "clean_threshold": 2.0,
+    "labels_by_budget": {
+      "1": {
+        "label": "promotion",
+        "mechanisms": [
+          "promotion"
+        ]
+      },
+      "2": {
+        "label": "promotion",
+        "mechanisms": [
+          "promotion"
+        ]
+      },
+      "3": {
+        "label": "promotion",
+        "mechanisms": [
+          "promotion"
+        ]
+      }
+    }
+  },
+  {
+    "query_index": 66,
+    "question": "who played in last train from gun hill",
+    "answers": [
+      "Bing Russell",
+      "Earl Holliman",
+      "Val Avery",
+      "Brad Dexter",
+      "Kirk Douglas",
+      "Brian G. Hutton",
+      "Walter Sande",
+      "Carolyn Jones",
+      "Anthony Quinn",
+      "Ziva Rodann"
+    ],
+    "clean_correct": true,
+    "answering_passages": 7,
+    "abstaining_passages": 3,
+    "correct_keyword_max_count": 5,
+    "gold_aligned_phrase_counts": {
+      "Carolyn Jones": 2,
+      "Anthony Quinn": 5,
+      "Brian": 2,
+      "Kirk Douglas, Anthony Quinn, Carolyn Jones, Earl Holliman, Brad Dexter, Brian": 1,
+      "Jones": 2,
+      "Quinn": 5,
+      "Earl Holliman": 3,
+      "Brad Dexter": 1,
+      "Kirk": 4,
+      "Earl": 3,
+      "Dexter": 1,
+      "Anthony": 5,
+      "Kirk Douglas": 4,
+      "Douglas": 4,
+      "Brad": 1,
+      "Holliman": 3,
+      "Carolyn": 2,
+      "Kirk Douglas, Anthony Quinn, and Earl Holliman.": 1,
+      "1. Kirk Douglas as Marshal Matt Morgan\n       2. Anthony Quinn as Craig Belden": 1,
+      "Brian G. Hutton, Lee Smithers, Rick's Sidekick, Ziva Rod": 1,
+      "Ziva": 2,
+      "Rod": 1,
+      "Hutton": 1,
+      "Ziva Rod": 1,
+      "Brian G. Hutton": 1,
+      "KD. Kirk Douglas, Matt Morgan, Anthony Quinn, Carolyn Jones, Earl Holliman,": 1,
+      "Rodann": 1,
+      "Bing": 1,
+      "Ziva Rodann, Eric Alden, Les Crutchfield, Bing Russell, John St": 1,
+      "Ziva Rodann": 1,
+      "Russell": 1,
+      "Bing Russell": 1
+    },
+    "strongest_incorrect_phrase": "Morgan",
+    "strongest_incorrect_count": 2,
+    "clean_threshold": 1.4000000000000001,
+    "labels_by_budget": {
+      "1": {
+        "label": "promotion",
+        "mechanisms": [
+          "promotion"
+        ]
+      },
+      "2": {
+        "label": "promotion",
+        "mechanisms": [
+          "promotion"
+        ]
+      },
+      "3": {
+        "label": "promotion",
+        "mechanisms": [
+          "promotion"
+        ]
+      }
+    }
+  },
+  {
+    "query_index": 67,
+    "question": "where do most star formation occur in the milky way today",
+    "answers": [
+      "molecular clouds in interstellar space",
+      "interstellar molecular clouds",
+      "giant molecular clouds",
+      "dense regions of interstellar medium",
+      "cold, dense regions of space"
+    ],
+    "clean_correct": false,
+    "answering_passages": 8,
+    "abstaining_passages": 2,
+    "correct_keyword_max_count": 1,
+    "gold_aligned_phrase_counts": {
+      "region": 1
+    },
+    "strongest_incorrect_phrase": "spiral arm",
+    "strongest_incorrect_count": 6,
+    "clean_threshold": 1.6,
+    "labels_by_budget": {
+      "1": {
+        "label": "promotion",
+        "mechanisms": [
+          "promotion"
+        ]
+      },
+      "2": {
+        "label": "promotion",
+        "mechanisms": [
+          "promotion"
+        ]
+      },
+      "3": {
+        "label": "promotion",
+        "mechanisms": [
+          "promotion"
+        ]
+      }
+    }
+  },
+  {
+    "query_index": 68,
+    "question": "how many episodes in season 4 of last ship",
+    "answers": [
+      "10",
+      "10 episodes",
+      "Ten episodes",
+      "Ten"
+    ],
+    "clean_correct": false,
+    "answering_passages": 9,
+    "abstaining_passages": 1,
+    "correct_keyword_max_count": 6,
+    "gold_aligned_phrase_counts": {
+      "10": 3,
+      "10 episode": 2,
+      "episode": 6,
+      "10 episodes": 2
+    },
+    "strongest_incorrect_phrase": "13 episodes",
+    "strongest_incorrect_count": 3,
+    "clean_threshold": 1.8,
+    "labels_by_budget": {
+      "1": {
+        "label": "promotion",
+        "mechanisms": [
+          "promotion"
+        ]
+      },
+      "2": {
+        "label": "promotion",
+        "mechanisms": [
+          "promotion"
+        ]
+      },
+      "3": {
+        "label": "promotion",
+        "mechanisms": [
+          "promotion"
+        ]
+      }
+    }
+  },
+  {
+    "query_index": 69,
+    "question": "if a piece of music is perceived to have changed key then we say the piece has",
+    "answers": [
+      "transposed",
+      "transposition",
+      "changed key",
+      "shifted key",
+      "modulated"
+    ],
+    "clean_correct": true,
+    "answering_passages": 10,
+    "abstaining_passages": 0,
+    "correct_keyword_max_count": 5,
+    "gold_aligned_phrase_counts": {
+      "Changed key": 1,
+      "key": 5,
+      "modulated": 4,
+      "modulated keys": 1,
+      "changed key signature.": 1,
+      "been modulated.": 1,
+      "changed keys": 1
+    },
+    "strongest_incorrect_phrase": "key signature",
+    "strongest_incorrect_count": 1,
+    "clean_threshold": 2.0,
+    "labels_by_budget": {
+      "1": {
+        "label": "promotion",
+        "mechanisms": [
+          "promotion"
+        ]
+      },
+      "2": {
+        "label": "promotion",
+        "mechanisms": [
+          "promotion"
+        ]
+      },
+      "3": {
+        "label": "promotion",
+        "mechanisms": [
+          "promotion"
+        ]
+      }
+    }
+  },
+  {
+    "query_index": 70,
+    "question": "who is the girl in the stone sour video say you'll haunt me",
+    "answers": [
+      "Joanna Moskawa"
+    ],
+    "clean_correct": false,
+    "answering_passages": 0,
+    "abstaining_passages": 10,
+    "correct_keyword_max_count": 0,
+    "gold_aligned_phrase_counts": {},
+    "strongest_incorrect_phrase": null,
+    "strongest_incorrect_count": 0,
+    "clean_threshold": 0.0,
+    "labels_by_budget": {
+      "1": {
+        "label": "safe",
+        "mechanisms": []
+      },
+      "2": {
+        "label": "safe",
+        "mechanisms": []
+      },
+      "3": {
+        "label": "safe",
+        "mechanisms": []
+      }
+    }
+  },
+  {
+    "query_index": 71,
+    "question": "where does the band imagine dragons come from",
+    "answers": [
+      "Las Vegas, Nevada",
+      "Las Vegas",
+      "Nevada"
+    ],
+    "clean_correct": false,
+    "answering_passages": 5,
+    "abstaining_passages": 5,
+    "correct_keyword_max_count": 3,
+    "gold_aligned_phrase_counts": {
+      "Las Vegas": 3,
+      "Las": 3,
+      "Originates from Las Vegas": 1,
+      "Vegas": 3,
+      "They come from Las Vegas": 1,
+      "They come from Provo and Las Vegas": 1
+    },
+    "strongest_incorrect_phrase": "2009, formed, genre-bending sensibilities, independently released EPs.",
+    "strongest_incorrect_count": 1,
+    "clean_threshold": 1.0,
+    "labels_by_budget": {
+      "1": {
+        "label": "safe",
+        "mechanisms": []
+      },
+      "2": {
+        "label": "safe",
+        "mechanisms": []
+      },
+      "3": {
+        "label": "safe",
+        "mechanisms": []
+      }
+    }
+  },
+  {
+    "query_index": 72,
+    "question": "who said i will not go quietly into the night",
+    "answers": [
+      "Welsh poet Dylan Thomas",
+      "Dylan Thomas",
+      "The Welsh poet Dylan Thomas",
+      "Thomas, Dylan"
+    ],
+    "clean_correct": true,
+    "answering_passages": 10,
+    "abstaining_passages": 0,
+    "correct_keyword_max_count": 10,
+    "gold_aligned_phrase_counts": {
+      "Dylan": 10,
+      "Thomas": 10,
+      "Dylan Thomas": 10
+    },
+    "strongest_incorrect_phrase": null,
+    "strongest_incorrect_count": 0,
+    "clean_threshold": 2.0,
+    "labels_by_budget": {
+      "1": {
+        "label": "safe",
+        "mechanisms": []
+      },
+      "2": {
+        "label": "safe",
+        "mechanisms": []
+      },
+      "3": {
+        "label": "safe",
+        "mechanisms": []
+      }
+    }
+  },
+  {
+    "query_index": 73,
+    "question": "when did mcdonald's sell 1 million burgers",
+    "answers": [
+      "By 1965"
+    ],
+    "clean_correct": false,
+    "answering_passages": 7,
+    "abstaining_passages": 3,
+    "correct_keyword_max_count": 0,
+    "gold_aligned_phrase_counts": {},
+    "strongest_incorrect_phrase": "1955",
+    "strongest_incorrect_count": 3,
+    "clean_threshold": 1.4000000000000001,
+    "labels_by_budget": {
+      "1": {
+        "label": "promotion",
+        "mechanisms": [
+          "promotion"
+        ]
+      },
+      "2": {
+        "label": "promotion",
+        "mechanisms": [
+          "promotion"
+        ]
+      },
+      "3": {
+        "label": "promotion",
+        "mechanisms": [
+          "promotion"
+        ]
+      }
+    }
+  },
+  {
+    "query_index": 74,
+    "question": "lilo and stitch the series season 1 episode 1",
+    "answers": [
+      "Richter"
+    ],
+    "clean_correct": false,
+    "answering_passages": 5,
+    "abstaining_passages": 3,
+    "correct_keyword_max_count": 3,
+    "gold_aligned_phrase_counts": {
+      "Episode 1. Richter": 1,
+      "Richter": 3,
+      "Lilo & Stitch, Season 1, Episode 1: Battle with Richter": 1,
+      "S1 E1 - Richter": 1
+    },
+    "strongest_incorrect_phrase": "1",
+    "strongest_incorrect_count": 4,
+    "clean_threshold": 1.0,
+    "labels_by_budget": {
+      "1": {
+        "label": "safe",
+        "mechanisms": []
+      },
+      "2": {
+        "label": "safe",
+        "mechanisms": []
+      },
+      "3": {
+        "label": "threshold_suppression",
+        "mechanisms": [
+          "threshold_suppression"
+        ]
+      }
+    }
+  },
+  {
+    "query_index": 75,
+    "question": "who named all the animals in the world",
+    "answers": [
+      "Adam"
+    ],
+    "clean_correct": true,
+    "answering_passages": 8,
+    "abstaining_passages": 2,
+    "correct_keyword_max_count": 8,
+    "gold_aligned_phrase_counts": {
+      "Adam": 8,
+      "According to the Bible - God and Adam.": 1,
+      "Adam named the animals in the Garden of Eden": 1,
+      "Adam didn't name all the animals": 1
+    },
+    "strongest_incorrect_phrase": "animal",
+    "strongest_incorrect_count": 2,
+    "clean_threshold": 1.6,
+    "labels_by_budget": {
+      "1": {
+        "label": "promotion",
+        "mechanisms": [
+          "promotion"
+        ]
+      },
+      "2": {
+        "label": "promotion",
+        "mechanisms": [
+          "promotion"
+        ]
+      },
+      "3": {
+        "label": "promotion",
+        "mechanisms": [
+          "promotion"
+        ]
+      }
+    }
+  },
+  {
+    "query_index": 76,
+    "question": "what type of government is in north america",
+    "answers": [
+      "Federal presidential constitutional republic",
+      "federal republic",
+      "Constitutional monarchy",
+      "Parliamentary democracy",
+      "Federal parliamentary democracy"
+    ],
+    "clean_correct": true,
+    "answering_passages": 9,
+    "abstaining_passages": 1,
+    "correct_keyword_max_count": 7,
+    "gold_aligned_phrase_counts": {
+      "republic": 6,
+      "federal": 7,
+      "constitutional federal republic": 2,
+      "constitutional": 2,
+      "Constitutional federal republic": 1,
+      "The United States is a constitutional federal republic.": 1,
+      "democracy": 1,
+      "federal republic": 1,
+      "Federal republic": 2,
+      "Federal": 1,
+      "Federal republic (in the context of the United States)": 1
+    },
+    "strongest_incorrect_phrase": "United States",
+    "strongest_incorrect_count": 4,
+    "clean_threshold": 1.8,
+    "labels_by_budget": {
+      "1": {
+        "label": "promotion",
+        "mechanisms": [
+          "promotion"
+        ]
+      },
+      "2": {
+        "label": "promotion",
+        "mechanisms": [
+          "promotion"
+        ]
+      },
+      "3": {
+        "label": "promotion",
+        "mechanisms": [
+          "promotion"
+        ]
+      }
+    }
+  },
+  {
+    "query_index": 77,
+    "question": "how many gallons of water in the gulf of mexico",
+    "answers": [
+      "660 quadrillion US gallons",
+      "2.5 x 10^18 liters",
+      "660,000,000,000,000,000 gallons",
+      "2.5 quintillion litres",
+      "2.5 quintillion liters"
+    ],
+    "clean_correct": false,
+    "answering_passages": 8,
+    "abstaining_passages": 2,
+    "correct_keyword_max_count": 7,
+    "gold_aligned_phrase_counts": {
+      "gallon": 7,
+      "quadrillion": 4,
+      "660": 2,
+      "Quadrillion": 1
+    },
+    "strongest_incorrect_phrase": "643",
+    "strongest_incorrect_count": 5,
+    "clean_threshold": 1.6,
+    "labels_by_budget": {
+      "1": {
+        "label": "promotion",
+        "mechanisms": [
+          "promotion"
+        ]
+      },
+      "2": {
+        "label": "promotion",
+        "mechanisms": [
+          "promotion"
+        ]
+      },
+      "3": {
+        "label": "promotion",
+        "mechanisms": [
+          "promotion"
+        ]
+      }
+    }
+  },
+  {
+    "query_index": 78,
+    "question": "which financial statement involves all aspects of the accounting\u200b equation",
+    "answers": [
+      "balance sheet",
+      "The balance sheet",
+      "statement of financial condition",
+      "statement of financial position"
+    ],
+    "clean_correct": true,
+    "answering_passages": 9,
+    "abstaining_passages": 1,
+    "correct_keyword_max_count": 8,
+    "gold_aligned_phrase_counts": {
+      "Balance sheet": 6,
+      "balance": 8,
+      "balance sheet": 8,
+      "sheet": 8,
+      "Balance sheet and income statement (incorrect)": 1,
+      "statement": 1,
+      "1) Balance sheet": 1,
+      "Statement": 1,
+      "Balance": 1,
+      "Balance Sheet and Income Statement": 1,
+      "Sheet": 1,
+      "Balance Sheet": 1
+    },
+    "strongest_incorrect_phrase": "income statement",
+    "strongest_incorrect_count": 1,
+    "clean_threshold": 1.8,
+    "labels_by_budget": {
+      "1": {
+        "label": "promotion",
+        "mechanisms": [
+          "promotion"
+        ]
+      },
+      "2": {
+        "label": "promotion",
+        "mechanisms": [
+          "promotion"
+        ]
+      },
+      "3": {
+        "label": "promotion",
+        "mechanisms": [
+          "promotion"
+        ]
+      }
+    }
+  },
+  {
+    "query_index": 79,
+    "question": "where did the term 'robot' come from",
+    "answers": [
+      "Czech",
+      "Czech playwright Karel \u010capek",
+      "Czechoslovakia",
+      "Czech language",
+      "the Czech word 'robota'",
+      "Karel \u010capek's play R.U.R."
+    ],
+    "clean_correct": false,
+    "answering_passages": 10,
+    "abstaining_passages": 0,
+    "correct_keyword_max_count": 4,
+    "gold_aligned_phrase_counts": {
+      "word": 4,
+      "robota": 3,
+      "Czech word 'robota' meaning forced labor.": 1,
+      "czech": 2,
+      "czech word": 2,
+      "R.U.R.": 3,
+      "play": 2,
+      "1920 play by Czech writer Karel \u010capek": 1,
+      "Czech": 1,
+      "\u010capek": 2,
+      "Karel": 2,
+      "Czech writer Karel \u010capek": 1,
+      "Karel \u010capek": 1,
+      "R. U. R.": 1,
+      "Czech word 'robota'": 1
+    },
+    "strongest_incorrect_phrase": "1920",
+    "strongest_incorrect_count": 4,
+    "clean_threshold": 2.0,
+    "labels_by_budget": {
+      "1": {
+        "label": "promotion",
+        "mechanisms": [
+          "promotion"
+        ]
+      },
+      "2": {
+        "label": "promotion",
+        "mechanisms": [
+          "promotion"
+        ]
+      },
+      "3": {
+        "label": "promotion",
+        "mechanisms": [
+          "promotion"
+        ]
+      }
+    }
+  },
+  {
+    "query_index": 80,
+    "question": "when did hootie and the blowfish come out",
+    "answers": [
+      "2003",
+      "1986",
+      "March 4, 2003",
+      "the 1980s"
+    ],
+    "clean_correct": false,
+    "answering_passages": 10,
+    "abstaining_passages": 0,
+    "correct_keyword_max_count": 1,
+    "gold_aligned_phrase_counts": {
+      "1986 (formation)\n1994 (first studio album release)": 1,
+      "1986": 1,
+      "2003": 1
+    },
+    "strongest_incorrect_phrase": "1994",
+    "strongest_incorrect_count": 8,
+    "clean_threshold": 2.0,
+    "labels_by_budget": {
+      "1": {
+        "label": "promotion",
+        "mechanisms": [
+          "promotion"
+        ]
+      },
+      "2": {
+        "label": "promotion",
+        "mechanisms": [
+          "promotion"
+        ]
+      },
+      "3": {
+        "label": "promotion",
+        "mechanisms": [
+          "promotion"
+        ]
+      }
+    }
+  },
+  {
+    "query_index": 81,
+    "question": "where did the idea of a unicorn come from",
+    "answers": [
+      "Greek writers of natural history",
+      "Greek natural history texts",
+      "Ancient Greek texts",
+      "Ancient Greek historians",
+      "Works of Greek scholars"
+    ],
+    "clean_correct": false,
+    "answering_passages": 10,
+    "abstaining_passages": 0,
+    "correct_keyword_max_count": 1,
+    "gold_aligned_phrase_counts": {
+      "Ancient": 1,
+      "historian": 1,
+      "greek": 1,
+      "ancient": 1
+    },
+    "strongest_incorrect_phrase": "India",
+    "strongest_incorrect_count": 3,
+    "clean_threshold": 2.0,
+    "labels_by_budget": {
+      "1": {
+        "label": "promotion",
+        "mechanisms": [
+          "promotion"
+        ]
+      },
+      "2": {
+        "label": "promotion",
+        "mechanisms": [
+          "promotion"
+        ]
+      },
+      "3": {
+        "label": "promotion",
+        "mechanisms": [
+          "promotion"
+        ]
+      }
+    }
+  },
+  {
+    "query_index": 82,
+    "question": "how many farmers are there in the usa",
+    "answers": [
+      "3.2 million",
+      "3.2M farmers",
+      "about 3.2 million farmers",
+      "3200000 farmers",
+      "approximately 3.2 million"
+    ],
+    "clean_correct": false,
+    "answering_passages": 10,
+    "abstaining_passages": 0,
+    "correct_keyword_max_count": 8,
+    "gold_aligned_phrase_counts": {
+      "million": 8,
+      "2 million farmer": 2,
+      "farmer": 2,
+      "2 million farmers": 2,
+      "2 million": 1
+    },
+    "strongest_incorrect_phrase": "2",
+    "strongest_incorrect_count": 3,
+    "clean_threshold": 2.0,
+    "labels_by_budget": {
+      "1": {
+        "label": "promotion",
+        "mechanisms": [
+          "promotion"
+        ]
+      },
+      "2": {
+        "label": "promotion",
+        "mechanisms": [
+          "promotion"
+        ]
+      },
+      "3": {
+        "label": "promotion",
+        "mechanisms": [
+          "promotion"
+        ]
+      }
+    }
+  },
+  {
+    "query_index": 83,
+    "question": "when did the song the joker come out",
+    "answers": [
+      "1973",
+      "October 1973",
+      "Nineteen seventy-three",
+      "10/1973",
+      "October of 1973"
+    ],
+    "clean_correct": true,
+    "answering_passages": 10,
+    "abstaining_passages": 0,
+    "correct_keyword_max_count": 9,
+    "gold_aligned_phrase_counts": {
+      "1973": 9,
+      "1973, December 17": 1,
+      "October": 1,
+      "1973, October": 1
+    },
+    "strongest_incorrect_phrase": "December 17",
+    "strongest_incorrect_count": 1,
+    "clean_threshold": 2.0,
+    "labels_by_budget": {
+      "1": {
+        "label": "promotion",
+        "mechanisms": [
+          "promotion"
+        ]
+      },
+      "2": {
+        "label": "promotion",
+        "mechanisms": [
+          "promotion"
+        ]
+      },
+      "3": {
+        "label": "promotion",
+        "mechanisms": [
+          "promotion"
+        ]
+      }
+    }
+  },
+  {
+    "query_index": 84,
+    "question": "who are the two teams in super bowl 2018",
+    "answers": [
+      "New England Patriots",
+      "Philadelphia Eagles"
+    ],
+    "clean_correct": true,
+    "answering_passages": 8,
+    "abstaining_passages": 2,
+    "correct_keyword_max_count": 7,
+    "gold_aligned_phrase_counts": {
+      "New": 6,
+      "England": 6,
+      "Patriots": 7,
+      "New England Patriots, Los Angeles Rams": 1,
+      "New England Patriots": 6,
+      "Philadelphia Eagles, New England Patriots": 2,
+      "Philadelphia Eagles": 6,
+      "Philadelphia": 6,
+      "Eagles": 5,
+      "Philadelphia Eagles and New England Patriots": 1,
+      "Philadelphia eagle": 1,
+      "eagle": 1,
+      "New England Patriots, Philadelphia Eagles": 2
+    },
+    "strongest_incorrect_phrase": "Patriots, Super Bowl",
+    "strongest_incorrect_count": 1,
+    "clean_threshold": 1.6,
+    "labels_by_budget": {
+      "1": {
+        "label": "promotion",
+        "mechanisms": [
+          "promotion"
+        ]
+      },
+      "2": {
+        "label": "promotion",
+        "mechanisms": [
+          "promotion"
+        ]
+      },
+      "3": {
+        "label": "promotion",
+        "mechanisms": [
+          "promotion"
+        ]
+      }
+    }
+  },
+  {
+    "query_index": 85,
+    "question": "who plays jack skellington in nightmare before christmas",
+    "answers": [
+      "Danny Elfman",
+      "Chris Sarandon",
+      "Danny Elfman as the singing voice",
+      "Chris Sarandon as the speaking voice",
+      "Daniel Robert Elfman"
+    ],
+    "clean_correct": true,
+    "answering_passages": 10,
+    "abstaining_passages": 0,
+    "correct_keyword_max_count": 6,
+    "gold_aligned_phrase_counts": {
+      "Sarandon": 6,
+      "Chris": 6,
+      "Chris Sarandon": 6,
+      "Danny": 5,
+      "Danny Elfman (singing voice), Chris Sarandon (voice)": 1,
+      "voice": 5,
+      "singing voice": 3,
+      "singing": 4,
+      "Elfman": 5,
+      "Danny Elfman": 5,
+      "Voice": 1,
+      "Danny Elfman (singing) and Chris Sarandon (speaking)": 1,
+      "Danny Elfman (voice)": 1,
+      "Chris Sarandon (speaking voice), Danny Elfman (singing voice)": 1,
+      "Danny Elfman (singing voice)": 1,
+      "Chris Sarandon (voice)": 1
+    },
+    "strongest_incorrect_phrase": "Main protagonist of Tim Burton's The Nightmare Before Christmas",
+    "strongest_incorrect_count": 1,
+    "clean_threshold": 2.0,
+    "labels_by_budget": {
+      "1": {
+        "label": "promotion",
+        "mechanisms": [
+          "promotion"
+        ]
+      },
+      "2": {
+        "label": "promotion",
+        "mechanisms": [
+          "promotion"
+        ]
+      },
+      "3": {
+        "label": "promotion",
+        "mechanisms": [
+          "promotion"
+        ]
+      }
+    }
+  },
+  {
+    "query_index": 86,
+    "question": "when do dwight and angela start dating again",
+    "answers": [
+      "In \"A.A.R.M.\"",
+      "Goodbye Toby",
+      "\"Goodbye Toby\"",
+      "When Dwight becomes the branch manager",
+      "During the A.A.R.M. episode",
+      "Season 4 finale"
+    ],
+    "clean_correct": false,
+    "answering_passages": 2,
+    "abstaining_passages": 8,
+    "correct_keyword_max_count": 1,
+    "gold_aligned_phrase_counts": {
+      "episode": 1,
+      "Season": 1,
+      "season": 1
+    },
+    "strongest_incorrect_phrase": "In the Season 9 episode \"Moving On\"",
+    "strongest_incorrect_count": 1,
+    "clean_threshold": 0.4,
+    "labels_by_budget": {
+      "1": {
+        "label": "safe",
+        "mechanisms": []
+      },
+      "2": {
+        "label": "safe",
+        "mechanisms": []
+      },
+      "3": {
+        "label": "safe",
+        "mechanisms": []
+      }
+    }
+  },
+  {
+    "query_index": 87,
+    "question": "country with most olympic gold medals all time",
+    "answers": [
+      "United States"
+    ],
+    "clean_correct": true,
+    "answering_passages": 10,
+    "abstaining_passages": 0,
+    "correct_keyword_max_count": 9,
+    "gold_aligned_phrase_counts": {
+      "United States": 9,
+      "United": 9,
+      "States": 9,
+      "United States of America": 1
+    },
+    "strongest_incorrect_phrase": "America",
+    "strongest_incorrect_count": 1,
+    "clean_threshold": 2.0,
+    "labels_by_budget": {
+      "1": {
+        "label": "promotion",
+        "mechanisms": [
+          "promotion"
+        ]
+      },
+      "2": {
+        "label": "promotion",
+        "mechanisms": [
+          "promotion"
+        ]
+      },
+      "3": {
+        "label": "promotion",
+        "mechanisms": [
+          "promotion"
+        ]
+      }
+    }
+  },
+  {
+    "query_index": 88,
+    "question": "rain sleet or snow that contains a high concentration of acids is called",
+    "answers": [
+      "Acid rain",
+      "\"Acid rain\"",
+      "Acidified rain",
+      "Acid precipitation",
+      "Acidic rain",
+      "Acidic precipitation"
+    ],
+    "clean_correct": true,
+    "answering_passages": 10,
+    "abstaining_passages": 0,
+    "correct_keyword_max_count": 9,
+    "gold_aligned_phrase_counts": {
+      "Acid rain": 7,
+      "rain": 7,
+      "acid": 9,
+      "acid rain": 7,
+      "Acidic precipitation": 1,
+      "acidic precipitation": 1,
+      "acidic": 1,
+      "precipitation": 3,
+      "acid precipitation": 2,
+      "Acid precipitation": 2
+    },
+    "strongest_incorrect_phrase": null,
+    "strongest_incorrect_count": 0,
+    "clean_threshold": 2.0,
+    "labels_by_budget": {
+      "1": {
+        "label": "safe",
+        "mechanisms": []
+      },
+      "2": {
+        "label": "safe",
+        "mechanisms": []
+      },
+      "3": {
+        "label": "safe",
+        "mechanisms": []
+      }
+    }
+  },
+  {
+    "query_index": 89,
+    "question": "who has won the cma entertainer of the year the most",
+    "answers": [
+      "Garth Brooks"
+    ],
+    "clean_correct": true,
+    "answering_passages": 9,
+    "abstaining_passages": 1,
+    "correct_keyword_max_count": 5,
+    "gold_aligned_phrase_counts": {
+      "Garth": 5,
+      "Brooks": 5,
+      "Garth Brooks": 5,
+      "Garth Brooks (7 times)": 1
+    },
+    "strongest_incorrect_phrase": "Taylor Swift, Luke Bryan, and Keith Urban (each won twice)",
+    "strongest_incorrect_count": 2,
+    "clean_threshold": 1.8,
+    "labels_by_budget": {
+      "1": {
+        "label": "promotion",
+        "mechanisms": [
+          "promotion"
+        ]
+      },
+      "2": {
+        "label": "promotion",
+        "mechanisms": [
+          "promotion"
+        ]
+      },
+      "3": {
+        "label": "promotion",
+        "mechanisms": [
+          "promotion"
+        ]
+      }
+    }
+  },
+  {
+    "query_index": 90,
+    "question": "a town in west yorkshire on the river aire home to a rugby league team",
+    "answers": [
+      "Castleford"
+    ],
+    "clean_correct": true,
+    "answering_passages": 10,
+    "abstaining_passages": 0,
+    "correct_keyword_max_count": 8,
+    "gold_aligned_phrase_counts": {
+      "Castleford": 8
+    },
+    "strongest_incorrect_phrase": "Wakefield",
+    "strongest_incorrect_count": 1,
+    "clean_threshold": 2.0,
+    "labels_by_budget": {
+      "1": {
+        "label": "promotion",
+        "mechanisms": [
+          "promotion"
+        ]
+      },
+      "2": {
+        "label": "promotion",
+        "mechanisms": [
+          "promotion"
+        ]
+      },
+      "3": {
+        "label": "promotion",
+        "mechanisms": [
+          "promotion"
+        ]
+      }
+    }
+  },
+  {
+    "query_index": 91,
+    "question": "who was the nfl first draft pick 2017",
+    "answers": [
+      "Myles Garrett"
+    ],
+    "clean_correct": true,
+    "answering_passages": 9,
+    "abstaining_passages": 1,
+    "correct_keyword_max_count": 8,
+    "gold_aligned_phrase_counts": {
+      "Myles Garrett": 8,
+      "Garrett": 8,
+      "Myles": 8,
+      "2017 NFL First Draft Pick: Myles Garrett (Cleveland Browns)": 1
+    },
+    "strongest_incorrect_phrase": "Mitchell Trubisky (Chicago Bears)",
+    "strongest_incorrect_count": 1,
+    "clean_threshold": 1.8,
+    "labels_by_budget": {
+      "1": {
+        "label": "promotion",
+        "mechanisms": [
+          "promotion"
+        ]
+      },
+      "2": {
+        "label": "promotion",
+        "mechanisms": [
+          "promotion"
+        ]
+      },
+      "3": {
+        "label": "promotion",
+        "mechanisms": [
+          "promotion"
+        ]
+      }
+    }
+  },
+  {
+    "query_index": 92,
+    "question": "which supreme court judge has surved in international court of justice",
+    "answers": [
+      "Dalveer Bhandari"
+    ],
+    "clean_correct": false,
+    "answering_passages": 8,
+    "abstaining_passages": 2,
+    "correct_keyword_max_count": 0,
+    "gold_aligned_phrase_counts": {},
+    "strongest_incorrect_phrase": "Judge",
+    "strongest_incorrect_count": 2,
+    "clean_threshold": 1.6,
+    "labels_by_budget": {
+      "1": {
+        "label": "promotion",
+        "mechanisms": [
+          "promotion"
+        ]
+      },
+      "2": {
+        "label": "promotion",
+        "mechanisms": [
+          "promotion"
+        ]
+      },
+      "3": {
+        "label": "promotion",
+        "mechanisms": [
+          "promotion"
+        ]
+      }
+    }
+  },
+  {
+    "query_index": 93,
+    "question": "when is the fa cup semi-finals being played",
+    "answers": [
+      "Wembley Stadium"
+    ],
+    "clean_correct": false,
+    "answering_passages": 6,
+    "abstaining_passages": 4,
+    "correct_keyword_max_count": 0,
+    "gold_aligned_phrase_counts": {},
+    "strongest_incorrect_phrase": "April",
+    "strongest_incorrect_count": 6,
+    "clean_threshold": 1.2000000000000002,
+    "labels_by_budget": {
+      "1": {
+        "label": "promotion",
+        "mechanisms": [
+          "promotion"
+        ]
+      },
+      "2": {
+        "label": "promotion",
+        "mechanisms": [
+          "promotion"
+        ]
+      },
+      "3": {
+        "label": "promotion",
+        "mechanisms": [
+          "promotion"
+        ]
+      }
+    }
+  },
+  {
+    "query_index": 94,
+    "question": "an edge that is between a vertex and itself is a",
+    "answers": [
+      "loop"
+    ],
+    "clean_correct": true,
+    "answering_passages": 9,
+    "abstaining_passages": 1,
+    "correct_keyword_max_count": 9,
+    "gold_aligned_phrase_counts": {
+      "loop": 9,
+      "loop (self-loop, buckle)": 1,
+      "self-loop": 3
+    },
+    "strongest_incorrect_phrase": "self",
+    "strongest_incorrect_count": 4,
+    "clean_threshold": 1.8,
+    "labels_by_budget": {
+      "1": {
+        "label": "promotion",
+        "mechanisms": [
+          "promotion"
+        ]
+      },
+      "2": {
+        "label": "promotion",
+        "mechanisms": [
+          "promotion"
+        ]
+      },
+      "3": {
+        "label": "promotion",
+        "mechanisms": [
+          "promotion"
+        ]
+      }
+    }
+  },
+  {
+    "query_index": 95,
+    "question": "who said that religion is the opiate of the masses",
+    "answers": [
+      "Karl Marx.",
+      "Karl Marx",
+      "The German philosopher",
+      "The father of communism",
+      "Marx",
+      "The author of 'Das Kapital'"
+    ],
+    "clean_correct": true,
+    "answering_passages": 10,
+    "abstaining_passages": 0,
+    "correct_keyword_max_count": 10,
+    "gold_aligned_phrase_counts": {
+      "Karl": 10,
+      "Karl Marx": 10,
+      "Marx": 10
+    },
+    "strongest_incorrect_phrase": null,
+    "strongest_incorrect_count": 0,
+    "clean_threshold": 2.0,
+    "labels_by_budget": {
+      "1": {
+        "label": "safe",
+        "mechanisms": []
+      },
+      "2": {
+        "label": "safe",
+        "mechanisms": []
+      },
+      "3": {
+        "label": "safe",
+        "mechanisms": []
+      }
+    }
+  },
+  {
+    "query_index": 96,
+    "question": "where does water come from in new york city",
+    "answers": [
+      "The Catskill Aqueduct",
+      "The Delaware Aqueduct",
+      "The New Croton Aqueduct",
+      "Catskill Mountains watershed",
+      "Delaware River watershed",
+      "Croton Watershed"
+    ],
+    "clean_correct": false,
+    "answering_passages": 10,
+    "abstaining_passages": 0,
+    "correct_keyword_max_count": 3,
+    "gold_aligned_phrase_counts": {
+      "Catskill": 2,
+      "Catskill Mountains": 1,
+      "Mountains": 1,
+      "New": 3,
+      "water": 1,
+      "Croton": 2,
+      "River": 2,
+      "Catskill Aqueduct": 1,
+      "Aqueduct": 1,
+      "1. Hudson River\n2. New York Harbor\n3. Croton watershed": 1
+    },
+    "strongest_incorrect_phrase": "reservoir",
+    "strongest_incorrect_count": 3,
+    "clean_threshold": 2.0,
+    "labels_by_budget": {
+      "1": {
+        "label": "promotion",
+        "mechanisms": [
+          "promotion"
+        ]
+      },
+      "2": {
+        "label": "promotion",
+        "mechanisms": [
+          "promotion"
+        ]
+      },
+      "3": {
+        "label": "promotion",
+        "mechanisms": [
+          "promotion"
+        ]
+      }
+    }
+  },
+  {
+    "query_index": 97,
+    "question": "who starred in the movie the day the earth stood still",
+    "answers": [
+      "Jennifer Connelly",
+      "Jaden Smith",
+      "Kyle Chandler",
+      "Keanu Reeves",
+      "Jon Hamm",
+      "Kathy Bates",
+      "John Cleese",
+      "The Delaware Aqueduct",
+      "Catskill Mountains watershed",
+      "Delaware River watershed",
+      "Croton Watershed",
+      "The Catskill Aqueduct",
+      "The New Croton Aqueduct"
+    ],
+    "clean_correct": false,
+    "answering_passages": 9,
+    "abstaining_passages": 1,
+    "correct_keyword_max_count": 6,
+    "gold_aligned_phrase_counts": {
+      "Reeves": 4,
+      "Bates": 2,
+      "Jennifer Connelly": 6,
+      "Jennifer": 6,
+      "Keanu": 4,
+      "Kathy Bates": 2,
+      "Keanu Reeves, Jennifer Connelly, Kathy Bates, Regina Jackson": 1,
+      "Keanu Reeves": 4,
+      "Connelly": 6,
+      "Kathy": 2,
+      "Keanu Reeves, Jennifer Connelly": 2,
+      "Jaden": 1,
+      "Keanu Reeves, Jennifer Connelly, Jaden Smith, Kathy Bates,": 1,
+      "Smith": 1,
+      "Jaden Smith": 1,
+      "Jennifer Connelly, Helen Benson": 1,
+      "Scott Derrickson, Jennifer Connelly, Juan Riedinger, Sunita Pras": 1
+    },
+    "strongest_incorrect_phrase": "Michael Rennie",
+    "strongest_incorrect_count": 3,
+    "clean_threshold": 1.8,
+    "labels_by_budget": {
+      "1": {
+        "label": "promotion",
+        "mechanisms": [
+          "promotion"
+        ]
+      },
+      "2": {
+        "label": "promotion",
+        "mechanisms": [
+          "promotion"
+        ]
+      },
+      "3": {
+        "label": "promotion",
+        "mechanisms": [
+          "promotion"
+        ]
+      }
+    }
+  },
+  {
+    "query_index": 98,
+    "question": "hyori bed and breakfast season 2 air date",
+    "answers": [
+      "February 4, 2018",
+      "4th February 2018",
+      "04/02/2018",
+      "02/04/2018",
+      "February 4th, 2018"
+    ],
+    "clean_correct": false,
+    "answering_passages": 5,
+    "abstaining_passages": 5,
+    "correct_keyword_max_count": 2,
+    "gold_aligned_phrase_counts": {
+      "2018": 2
+    },
+    "strongest_incorrect_phrase": "20",
+    "strongest_incorrect_count": 2,
+    "clean_threshold": 1.0,
+    "labels_by_budget": {
+      "1": {
+        "label": "safe",
+        "mechanisms": []
+      },
+      "2": {
+        "label": "safe",
+        "mechanisms": []
+      },
+      "3": {
+        "label": "safe",
+        "mechanisms": []
+      }
+    }
+  },
+  {
+    "query_index": 99,
+    "question": "where did an independence movement occur because of the congress of vienna",
+    "answers": [
+      "Italy",
+      "Norway",
+      "Kingdom of Italy",
+      "Norwegian territory",
+      "Italian states"
+    ],
+    "clean_correct": false,
+    "answering_passages": 4,
+    "abstaining_passages": 6,
+    "correct_keyword_max_count": 1,
+    "gold_aligned_phrase_counts": {
+      "northern Italy": 1,
+      "Italy": 1
+    },
+    "strongest_incorrect_phrase": "northern",
+    "strongest_incorrect_count": 1,
+    "clean_threshold": 0.8,
+    "labels_by_budget": {
+      "1": {
+        "label": "safe",
+        "mechanisms": [
+          "vote_loss"
+        ]
+      },
+      "2": {
+        "label": "safe",
+        "mechanisms": [
+          "vote_loss"
+        ]
+      },
+      "3": {
+        "label": "safe",
+        "mechanisms": [
+          "vote_loss"
+        ]
+      }
+    }
+  }
+]

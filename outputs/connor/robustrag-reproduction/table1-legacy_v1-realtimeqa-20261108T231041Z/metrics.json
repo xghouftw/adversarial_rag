@@ -1,0 +1,13 @@
+{
+  "keyword": {
+    "sample_size": 2,
+    "correct_count": 1,
+    "accuracy": 0.5,
+    "counts": {
+      "undefended_correct": 0,
+      "defended_correct": 1,
+      "certified_correct": 1
+    },
+    "certified_accuracy": 0.5
+  }
+}

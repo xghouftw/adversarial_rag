@@ -1,0 +1,1978 @@
+[
+  {
+    "query_index": 0,
+    "question": "when did the newest macbook pro come out",
+    "exact": [
+      "November 7",
+      "November",
+      "2023",
+      "7"
+    ],
+    "lexical_family": [
+      "November 7",
+      "November",
+      "2023"
+    ]
+  },
+  {
+    "query_index": 1,
+    "question": "how long did it take to build the great pyramid of egypt",
+    "exact": [
+      "20 years",
+      "20 year",
+      "year",
+      "20"
+    ],
+    "lexical_family": [
+      "20 years",
+      "20 year",
+      "year",
+      "20"
+    ]
+  },
+  {
+    "query_index": 2,
+    "question": "when did the us cut off trade with cuba",
+    "exact": [
+      "1962"
+    ],
+    "lexical_family": [
+      "1962"
+    ]
+  },
+  {
+    "query_index": 3,
+    "question": "who wrote the phantom of the opera music",
+    "exact": [
+      "Andrew Lloyd Webber",
+      "Webber",
+      "Andrew",
+      "Lloyd"
+    ],
+    "lexical_family": [
+      "Andrew Lloyd Webber"
+    ]
+  },
+  {
+    "query_index": 4,
+    "question": "where was the tv show friday night lights filmed",
+    "exact": [
+      "fictional",
+      "School",
+      "Dillon",
+      "Austin",
+      "Valle",
+      "Texas",
+      "High",
+      "Del"
+    ],
+    "lexical_family": [
+      "fictional",
+      "School",
+      "Dillon",
+      "Austin",
+      "Valle",
+      "Texas",
+      "High",
+      "Del"
+    ]
+  },
+  {
+    "query_index": 5,
+    "question": "who was the first president of the constituent assembly",
+    "exact": [
+      "Rajendra Prasad",
+      "Sachidanand",
+      "Rajendra",
+      "Prasad",
+      "Sinha",
+      "Dr.",
+      "Dr"
+    ],
+    "lexical_family": [
+      "Rajendra Prasad",
+      "Sachidanand",
+      "Rajendra",
+      "Prasad",
+      "Sinha",
+      "Dr.",
+      "Dr"
+    ]
+  },
+  {
+    "query_index": 6,
+    "question": "who plays harley quinn in the lego batman movie",
+    "exact": [
+      "Jenny Slate",
+      "Slate",
+      "Jenny"
+    ],
+    "lexical_family": [
+      "Jenny Slate"
+    ]
+  },
+  {
+    "query_index": 7,
+    "question": "who won the champions league final in 2016",
+    "exact": [
+      "real Madrid",
+      "Real Madrid",
+      "Madrid",
+      "real",
+      "Real"
+    ],
+    "lexical_family": [
+      "real Madrid",
+      "Real Madrid",
+      "Madrid",
+      "real",
+      "Real"
+    ]
+  },
+  {
+    "query_index": 8,
+    "question": "who sings the songs in crazy ex girlfriend",
+    "exact": [
+      "Adam Schlesinger",
+      "Rachel Bloom",
+      "Schlesinger",
+      "Rachel",
+      "Crazy",
+      "Bloom",
+      "song",
+      "cast",
+      "Adam",
+      "Ex"
+    ],
+    "lexical_family": [
+      "Adam Schlesinger",
+      "Rachel Bloom",
+      "Schlesinger",
+      "Crazy",
+      "song",
+      "cast",
+      "Adam",
+      "Ex"
+    ]
+  },
+  {
+    "query_index": 9,
+    "question": "who played sonny in lemony snicket's a series of unfortunate events",
+    "exact": [
+      "context information",
+      "Presley Smith",
+      "information",
+      "Tara Strong",
+      "context",
+      "actress",
+      "Presley",
+      "Strong",
+      "voice",
+      "sunny",
+      "Smith",
+      "Tara"
+    ],
+    "lexical_family": [
+      "context information",
+      "Presley Smith",
+      "Tara Strong",
+      "actress",
+      "Presley",
+      "voice",
+      "sunny",
+      "Smith"
+    ]
+  },
+  {
+    "query_index": 10,
+    "question": "who does the voice of mickey mouse on mickey mouse clubhouse",
+    "exact": [
+      "Wayne Allwine",
+      "Bret Iwan",
+      "Allwine",
+      "Wayne",
+      "Iwan",
+      "Bret"
+    ],
+    "lexical_family": [
+      "Wayne Allwine",
+      "Bret Iwan"
+    ]
+  },
+  {
+    "query_index": 11,
+    "question": "where was the film coming home for christmas filmed",
+    "exact": [
+      "British Columbia",
+      "Vancouver",
+      "Columbia",
+      "British",
+      "Canada"
+    ],
+    "lexical_family": [
+      "British Columbia",
+      "Vancouver",
+      "Canada"
+    ]
+  },
+  {
+    "query_index": 12,
+    "question": "who gave the famous objective co relative theory",
+    "exact": [
+      "T. S. Eliot",
+      "T.S. Eliot",
+      "Eliot",
+      "T.S.",
+      "T.",
+      "S."
+    ],
+    "lexical_family": [
+      "T. S. Eliot",
+      "T.S. Eliot",
+      "Eliot",
+      "S."
+    ]
+  },
+  {
+    "query_index": 13,
+    "question": "who took the first steps on the moon in 1969",
+    "exact": [
+      "Neil Armstrong",
+      "Buzz Aldrin",
+      "Armstrong",
+      "Aldrin",
+      "Neil",
+      "Buzz"
+    ],
+    "lexical_family": [
+      "Neil Armstrong",
+      "Buzz Aldrin",
+      "Aldrin"
+    ]
+  },
+  {
+    "query_index": 14,
+    "question": "who won the national championship in volleyball 2017",
+    "exact": [
+      "Nebraska"
+    ],
+    "lexical_family": [
+      "Nebraska"
+    ]
+  },
+  {
+    "query_index": 15,
+    "question": "where is the white castle that harold and kumar go to",
+    "exact": [
+      "Filmed in Caledon, location is not specified in the context information as the one in the",
+      "Cherry Hill, N.J. (according to the movie)",
+      "398 Avenue Road, Toronto, Canada",
+      "context information",
+      "Cherry Hill, N.J.",
+      "398 Avenue Road",
+      "information",
+      "Hoboken, NJ",
+      "Cherry Hill",
+      "location",
+      "context",
+      "Toronto",
+      "Hoboken",
+      "Caledon",
+      "Cherry",
+      "Canada",
+      "Avenue",
+      "movie",
+      "Road",
+      "N.J.",
+      "Hill",
+      "one",
+      "398",
+      "NJ"
+    ],
+    "lexical_family": [
+      "Filmed in Caledon, location is not specified in the context information as the one in the",
+      "Cherry Hill, N.J. (according to the movie)",
+      "398 Avenue Road, Toronto, Canada",
+      "context information",
+      "Cherry Hill, N.J.",
+      "398 Avenue Road",
+      "Hoboken, NJ",
+      "Cherry Hill",
+      "location",
+      "Toronto",
+      "Hoboken",
+      "Caledon",
+      "Canada",
+      "movie",
+      "N.J.",
+      "one",
+      "NJ"
+    ]
+  },
+  {
+    "query_index": 16,
+    "question": "who sings what the world needs now in boss baby",
+    "exact": [
+      "Steve Mazzaro",
+      "Missi Hale",
+      "Mazzaro",
+      "Steve",
+      "Missi",
+      "Hale"
+    ],
+    "lexical_family": [
+      "Steve Mazzaro",
+      "Missi Hale"
+    ]
+  },
+  {
+    "query_index": 17,
+    "question": "when did to kill a mockingbird become popular",
+    "exact": [
+      "1960s",
+      "1960"
+    ],
+    "lexical_family": [
+      "1960s",
+      "1960"
+    ]
+  },
+  {
+    "query_index": 18,
+    "question": "who turned out to be the mother on how i met your mother",
+    "exact": [
+      "Tracy McConnell",
+      "Cristin Milioti",
+      "McConnell",
+      "Milioti",
+      "Cristin",
+      "Tracy"
+    ],
+    "lexical_family": [
+      "Tracy McConnell",
+      "Cristin Milioti",
+      "Tracy"
+    ]
+  },
+  {
+    "query_index": 19,
+    "question": "how much money did the film titanic make",
+    "exact": [
+      "2.2 billion dollars",
+      "2.2 billion dollar",
+      "million",
+      "billion",
+      "dollar",
+      "600",
+      "2.2"
+    ],
+    "lexical_family": [
+      "2.2 billion dollars",
+      "2.2 billion dollar",
+      "million",
+      "billion",
+      "dollar",
+      "600",
+      "2.2"
+    ]
+  },
+  {
+    "query_index": 20,
+    "question": "who wrote the country song i can only imagine",
+    "exact": [
+      "Bart Millard",
+      "mercyme",
+      "Millard",
+      "MercyMe",
+      "Bart"
+    ],
+    "lexical_family": [
+      "Bart Millard",
+      "mercyme",
+      "Millard",
+      "MercyMe"
+    ]
+  },
+  {
+    "query_index": 21,
+    "question": "who was the person who escaped from alcatraz",
+    "exact": [
+      "Frank Morris, John Anglin, and Clarence Anglin",
+      "Clarence Anglin",
+      "Frank Morris",
+      "John Anglin",
+      "Clarence",
+      "Morris",
+      "Anglin",
+      "Frank",
+      "John"
+    ],
+    "lexical_family": [
+      "Frank Morris, John Anglin, and Clarence Anglin",
+      "Clarence Anglin",
+      "Frank Morris",
+      "John Anglin",
+      "Clarence",
+      "Anglin",
+      "Frank",
+      "John"
+    ]
+  },
+  {
+    "query_index": 22,
+    "question": "who had the best strike rate among batsmen who scored over 200 runs in the world cup",
+    "exact": [
+      "DA Miller, SR Watson, R Ravindra, V Sehwag - strike rates:",
+      "Virender Sehwag",
+      "strike rate",
+      "R Ravindra",
+      "SR Watson",
+      "DA Miller",
+      "Virender",
+      "V Sehwag",
+      "Ravindra",
+      "strike",
+      "Watson",
+      "Sehwag",
+      "Miller",
+      "160.32",
+      "rate",
+      "SR",
+      "DA",
+      "V",
+      "R"
+    ],
+    "lexical_family": [
+      "DA Miller, SR Watson, R Ravindra, V Sehwag - strike rates:",
+      "Virender Sehwag",
+      "strike rate",
+      "R Ravindra",
+      "SR Watson",
+      "DA Miller",
+      "V Sehwag",
+      "strike",
+      "Sehwag",
+      "160.32",
+      "rate",
+      "V"
+    ]
+  },
+  {
+    "query_index": 23,
+    "question": "in photosynthesis the carbon in co2 is initially fixed to what molecule",
+    "exact": [
+      "Calvin cycle",
+      "molecule",
+      "carbon",
+      "Calvin",
+      "cycle",
+      "RuBP"
+    ],
+    "lexical_family": [
+      "Calvin cycle",
+      "molecule",
+      "carbon",
+      "Calvin",
+      "cycle",
+      "RuBP"
+    ]
+  },
+  {
+    "query_index": 24,
+    "question": "when is dancing on ice on the tv",
+    "exact": [
+      "2024, Sunday, February 18, ITV1 and ITVX.",
+      "February 18",
+      "February",
+      "January",
+      "Sunday",
+      "6:30pm",
+      "ITVX",
+      "ITV1",
+      "2024",
+      "18",
+      "14"
+    ],
+    "lexical_family": [
+      "2024, Sunday, February 18, ITV1 and ITVX.",
+      "February 18",
+      "February",
+      "January",
+      "Sunday",
+      "6:30pm",
+      "ITVX",
+      "ITV1",
+      "2024",
+      "18",
+      "14"
+    ]
+  },
+  {
+    "query_index": 25,
+    "question": "explorer who led an early voyage to the coast of newfoundland",
+    "exact": [
+      "Jacques Cartier",
+      "John Cabot",
+      "Jacques",
+      "Cartier",
+      "Cabot",
+      "John"
+    ],
+    "lexical_family": [
+      "Jacques Cartier",
+      "John Cabot"
+    ]
+  },
+  {
+    "query_index": 26,
+    "question": "who was the first british team to win the european cup",
+    "exact": [
+      "Tottenham Hotspur",
+      "Manchester United",
+      "Manchester",
+      "Tottenham",
+      "Hotspur",
+      "celtic",
+      "United",
+      "Celtic"
+    ],
+    "lexical_family": [
+      "Tottenham Hotspur",
+      "Manchester United",
+      "Tottenham",
+      "celtic",
+      "Celtic"
+    ]
+  },
+  {
+    "query_index": 27,
+    "question": "when does wentworth season 6 start in australia",
+    "exact": [
+      "19 June 2018",
+      "June",
+      "2018",
+      "19"
+    ],
+    "lexical_family": [
+      "19 June 2018",
+      "June"
+    ]
+  },
+  {
+    "query_index": 28,
+    "question": "who played lead guitar on 25 or 6 to 4",
+    "exact": [
+      "Terry Kath",
+      "Terry",
+      "Kath"
+    ],
+    "lexical_family": [
+      "Terry Kath"
+    ]
+  },
+  {
+    "query_index": 29,
+    "question": "when did jack mccoy join law and order",
+    "exact": [
+      "season",
+      "1994"
+    ],
+    "lexical_family": [
+      "season",
+      "1994"
+    ]
+  },
+  {
+    "query_index": 30,
+    "question": "when was the first hunger games book published",
+    "exact": [
+      "2008"
+    ],
+    "lexical_family": [
+      "2008"
+    ]
+  },
+  {
+    "query_index": 31,
+    "question": "who gets first pick of fa cup games",
+    "exact": [
+      "Manchester City and Chelsea",
+      "Manchester City",
+      "Manchester",
+      "home team",
+      "Home team",
+      "Chelsea",
+      "team",
+      "home",
+      "City"
+    ],
+    "lexical_family": [
+      "Manchester City and Chelsea",
+      "Manchester City",
+      "home team",
+      "Home team",
+      "Chelsea",
+      "team",
+      "home"
+    ]
+  },
+  {
+    "query_index": 32,
+    "question": "when was the last time a hurricane hit the uk",
+    "exact": [
+      "1996, Hurricane Lili",
+      "Hurricane Lili",
+      "Great Storm",
+      "hurricane",
+      "Hurricane",
+      "Storm",
+      "Great",
+      "Lili",
+      "1996",
+      "1987"
+    ],
+    "lexical_family": [
+      "1996, Hurricane Lili",
+      "Hurricane Lili",
+      "Great Storm",
+      "hurricane",
+      "Hurricane",
+      "1996",
+      "1987"
+    ]
+  },
+  {
+    "query_index": 33,
+    "question": "the most stable mineral at the earth's surface",
+    "exact": [
+      "Hematite",
+      "mineral",
+      "quartz",
+      "Quartz"
+    ],
+    "lexical_family": [
+      "Hematite",
+      "mineral",
+      "quartz",
+      "Quartz"
+    ]
+  },
+  {
+    "query_index": 34,
+    "question": "when was the last time iran had an earthquake",
+    "exact": [
+      "context information",
+      "information",
+      "context",
+      "2022"
+    ],
+    "lexical_family": [
+      "context information",
+      "2022"
+    ]
+  },
+  {
+    "query_index": 35,
+    "question": "who plays the principal in santa clarita diet",
+    "exact": [
+      "Drew Barrymore",
+      "Thomas Lennon",
+      "Barrymore",
+      "Thomas",
+      "Lennon",
+      "Novak",
+      "Drew"
+    ],
+    "lexical_family": [
+      "Drew Barrymore",
+      "Thomas Lennon",
+      "Novak"
+    ]
+  },
+  {
+    "query_index": 36,
+    "question": "who is the founder of el pollo loco",
+    "exact": [
+      "Juan Francisco Ochoa",
+      "Pancho Ochoa",
+      "Francisco",
+      "Pancho",
+      "Ochoa",
+      "Juan"
+    ],
+    "lexical_family": [
+      "Juan Francisco Ochoa",
+      "Pancho Ochoa",
+      "Francisco",
+      "Pancho",
+      "Ochoa"
+    ]
+  },
+  {
+    "query_index": 37,
+    "question": "who decides where the super bowl is played",
+    "exact": [
+      "bidding city",
+      "bidding",
+      "city",
+      "NFL"
+    ],
+    "lexical_family": [
+      "bidding city",
+      "bidding",
+      "city",
+      "NFL"
+    ]
+  },
+  {
+    "query_index": 38,
+    "question": "when did the anti smacking law come in nz",
+    "exact": [
+      "21 June 2007",
+      "year",
+      "June",
+      "2009",
+      "2007",
+      "21"
+    ],
+    "lexical_family": [
+      "21 June 2007",
+      "year",
+      "2009",
+      "2007"
+    ]
+  },
+  {
+    "query_index": 39,
+    "question": "does archie end up with betty or veronica in riverdale",
+    "exact": [
+      "Depending on the digest, Archie ends up with Veronica.",
+      "Betty and Archie did not end up together",
+      "They were in a quad relationship",
+      "They went their separate ways.",
+      "quad relationship",
+      "separate way",
+      "relationship",
+      "together",
+      "separate",
+      "Veronica",
+      "digest",
+      "Archie",
+      "Betty",
+      "quad",
+      "way"
+    ],
+    "lexical_family": [
+      "Depending on the digest, Archie ends up with Veronica.",
+      "Betty and Archie did not end up together",
+      "They were in a quad relationship",
+      "They went their separate ways.",
+      "quad relationship",
+      "separate way",
+      "together",
+      "separate",
+      "Veronica",
+      "digest",
+      "Archie",
+      "Betty",
+      "way"
+    ]
+  },
+  {
+    "query_index": 40,
+    "question": "what was the first star trek enterprise ship",
+    "exact": [
+      "USS Enterprise (NCC-1701)",
+      "USS Enterprise",
+      "Enterprise",
+      "ncc-1701",
+      "NCC-1701",
+      "NX-01",
+      "USS"
+    ],
+    "lexical_family": [
+      "USS Enterprise (NCC-1701)",
+      "USS Enterprise",
+      "Enterprise",
+      "ncc-1701",
+      "NCC-1701",
+      "NX-01"
+    ]
+  },
+  {
+    "query_index": 41,
+    "question": "who is the owner of the crowne plaza",
+    "exact": [
+      "InterContinental Hotels Group (IHG)",
+      "InterContinental Hotels Group",
+      "InterContinental",
+      "Hotels",
+      "Group",
+      "IHG"
+    ],
+    "lexical_family": [
+      "InterContinental Hotels Group (IHG)",
+      "InterContinental Hotels Group",
+      "Hotels",
+      "Group",
+      "IHG"
+    ]
+  },
+  {
+    "query_index": 42,
+    "question": "who was the first person to successfully introduce a device exclusively designed for data processing",
+    "exact": [
+      "Charles Babbage, Herman Hollerith, or John",
+      "Herman Hollerith",
+      "Charles Babbage",
+      "Hollerith",
+      "Charles",
+      "Babbage",
+      "Herman",
+      "John"
+    ],
+    "lexical_family": [
+      "Charles Babbage, Herman Hollerith, or John",
+      "Herman Hollerith",
+      "Charles Babbage",
+      "John"
+    ]
+  },
+  {
+    "query_index": 43,
+    "question": "what is the word for clarified butter in the balkans and middle east",
+    "exact": [
+      "Clarified",
+      "butter",
+      "Samneh",
+      "Ghee"
+    ],
+    "lexical_family": [
+      "Clarified",
+      "butter",
+      "Samneh",
+      "Ghee"
+    ]
+  },
+  {
+    "query_index": 44,
+    "question": "what is the minimum dollar amount for federal court",
+    "exact": [
+      "$75,000",
+      "75,000"
+    ],
+    "lexical_family": [
+      "$75,000",
+      "75,000"
+    ]
+  },
+  {
+    "query_index": 45,
+    "question": "who were the three elves who got rings",
+    "exact": [
+      "Galadriel",
+      "Círdan",
+      "galad",
+      "Vilya",
+      "Nenya",
+      "Narya",
+      "ring",
+      "Gil"
+    ],
+    "lexical_family": [
+      "Galadriel",
+      "Círdan",
+      "galad",
+      "Vilya",
+      "Nenya",
+      "Narya",
+      "ring",
+      "Gil"
+    ]
+  },
+  {
+    "query_index": 46,
+    "question": "who made the song we are the world",
+    "exact": [
+      "Michael Jackson and Quincy Jones",
+      "Michael Jackson",
+      "Lionel Richie",
+      "Quincy Jones",
+      "Michael",
+      "Jackson",
+      "Richie",
+      "Quincy",
+      "Lionel",
+      "Africa",
+      "Jones"
+    ],
+    "lexical_family": [
+      "Michael Jackson and Quincy Jones",
+      "Michael Jackson",
+      "Lionel Richie",
+      "Quincy Jones",
+      "Michael",
+      "Jackson",
+      "Africa"
+    ]
+  },
+  {
+    "query_index": 47,
+    "question": "where does the show the path take place",
+    "exact": [
+      "Upstate New York",
+      "New York",
+      "Upstate",
+      "Nyack",
+      "York",
+      "USA",
+      "New"
+    ],
+    "lexical_family": [
+      "Upstate New York",
+      "New York",
+      "Nyack",
+      "York",
+      "USA",
+      "New"
+    ]
+  },
+  {
+    "query_index": 48,
+    "question": "what was the biggest tank in world war 2",
+    "exact": [
+      "Panzerkampfwagen",
+      "Panzer",
+      "tonne",
+      "tank",
+      "VIII",
+      "Maus",
+      "ton",
+      "188",
+      "II"
+    ],
+    "lexical_family": [
+      "Panzerkampfwagen",
+      "Panzer",
+      "tonne",
+      "tank",
+      "VIII",
+      "Maus",
+      "ton",
+      "188",
+      "II"
+    ]
+  },
+  {
+    "query_index": 49,
+    "question": "what is the poorest county in the state of florida",
+    "exact": [
+      "Glades County",
+      "Glades",
+      "County"
+    ],
+    "lexical_family": [
+      "Glades County",
+      "County"
+    ]
+  },
+  {
+    "query_index": 50,
+    "question": "where is the citrus bowl held this year",
+    "exact": [
+      "2024 - Camping World Stadium, Orlando, Florida.",
+      "2024 - Camping World Stadium",
+      "Camping World Stadium",
+      "Stadium",
+      "Orlando",
+      "Florida",
+      "Camping",
+      "World",
+      "2024"
+    ],
+    "lexical_family": [
+      "2024 - Camping World Stadium, Orlando, Florida.",
+      "2024 - Camping World Stadium",
+      "Camping World Stadium",
+      "Stadium",
+      "Orlando",
+      "Florida",
+      "Camping",
+      "World",
+      "2024"
+    ]
+  },
+  {
+    "query_index": 51,
+    "question": "how many games does a football team have to win to be bowl eligible",
+    "exact": [
+      "7 games",
+      "6 games",
+      "7 game",
+      "6 game",
+      "6 win",
+      "game",
+      "win",
+      "7",
+      "6"
+    ],
+    "lexical_family": [
+      "7 games",
+      "6 games",
+      "7 game",
+      "6 game",
+      "6 win",
+      "game",
+      "win",
+      "7",
+      "6"
+    ]
+  },
+  {
+    "query_index": 52,
+    "question": "who played mrs warboys in one foot in the grave",
+    "exact": [
+      "Doreen Mantle",
+      "Mantle",
+      "Doreen"
+    ],
+    "lexical_family": [
+      "Doreen Mantle",
+      "Mantle",
+      "Doreen"
+    ]
+  },
+  {
+    "query_index": 53,
+    "question": "when did houston go to the american league",
+    "exact": [
+      "context information",
+      "information",
+      "context",
+      "2013",
+      "1965"
+    ],
+    "lexical_family": [
+      "context information",
+      "2013",
+      "1965"
+    ]
+  },
+  {
+    "query_index": 54,
+    "question": "the golden age of india took place during the rule of the",
+    "exact": [
+      "Gupta Empire",
+      "Empire",
+      "Gupta"
+    ],
+    "lexical_family": [
+      "Gupta Empire",
+      "Gupta"
+    ]
+  },
+  {
+    "query_index": 55,
+    "question": "vikram samvat calender is official in which country",
+    "exact": [
+      "Nepal and India",
+      "Nepal",
+      "India"
+    ],
+    "lexical_family": [
+      "Nepal and India",
+      "Nepal",
+      "India"
+    ]
+  },
+  {
+    "query_index": 56,
+    "question": "who played the dad in a christmas story",
+    "exact": [
+      "Darren McGavin",
+      "McGavin",
+      "Darren"
+    ],
+    "lexical_family": [
+      "Darren McGavin"
+    ]
+  },
+  {
+    "query_index": 57,
+    "question": "who is the new york state senate majority leader",
+    "exact": [
+      "Andrea Stewart-Cousins",
+      "Andrea Stewart",
+      "Stewart",
+      "Cousins",
+      "Andrea"
+    ],
+    "lexical_family": [
+      "Andrea Stewart-Cousins",
+      "Cousins",
+      "Andrea"
+    ]
+  },
+  {
+    "query_index": 58,
+    "question": "the victim was asking for it is an example of a",
+    "exact": [
+      "victim blaming statement.",
+      "statement",
+      "victim",
+      "rape",
+      "myth"
+    ],
+    "lexical_family": [
+      "victim blaming statement.",
+      "statement",
+      "victim",
+      "rape",
+      "myth"
+    ]
+  },
+  {
+    "query_index": 59,
+    "question": "what is the name of the compound p4010",
+    "exact": [
+      "Phosphorus pentoxide",
+      "Tetraphosphorus",
+      "Phosphorus",
+      "pentoxide"
+    ],
+    "lexical_family": [
+      "Phosphorus pentoxide",
+      "Tetraphosphorus",
+      "pentoxide"
+    ]
+  },
+  {
+    "query_index": 60,
+    "question": "when did the bill of rights come out",
+    "exact": [
+      "context",
+      "1791",
+      "1789"
+    ],
+    "lexical_family": [
+      "context",
+      "1791",
+      "1789"
+    ]
+  },
+  {
+    "query_index": 61,
+    "question": "when did skiing halfpipe become an olympic event",
+    "exact": [
+      "2014",
+      "2010",
+      "1998"
+    ],
+    "lexical_family": [
+      "2014",
+      "2010",
+      "1998"
+    ]
+  },
+  {
+    "query_index": 62,
+    "question": "state with highest population growth rate in india 2011",
+    "exact": [
+      "Dadra and Nagar Haveli",
+      "Nagar Haveli",
+      "Meghalaya",
+      "Haveli",
+      "Nagar",
+      "Dadra"
+    ],
+    "lexical_family": [
+      "Dadra and Nagar Haveli",
+      "Nagar Haveli",
+      "Meghalaya",
+      "Dadra"
+    ]
+  },
+  {
+    "query_index": 63,
+    "question": "where do the maple leafs play hockey in toronto",
+    "exact": [
+      "Scotiabank Arena",
+      "Scotiabank",
+      "Arena"
+    ],
+    "lexical_family": [
+      "Scotiabank Arena"
+    ]
+  },
+  {
+    "query_index": 64,
+    "question": "who sings the song i feel it still",
+    "exact": [
+      "Portugal. The Man",
+      "John Gourley",
+      "Portugal",
+      "Gourley",
+      "John",
+      "Man"
+    ],
+    "lexical_family": [
+      "Portugal. The Man",
+      "John Gourley",
+      "Portugal",
+      "Man"
+    ]
+  },
+  {
+    "query_index": 65,
+    "question": "what are the main functions of the stem",
+    "exact": [
+      "Provide support, hold leaves, flowers, and buds; store food.",
+      "store food",
+      "transport",
+      "nutrient",
+      "support",
+      "mineral",
+      "flower",
+      "water",
+      "store",
+      "leave",
+      "fruit",
+      "food",
+      "bud",
+      "2",
+      "1"
+    ],
+    "lexical_family": [
+      "Provide support, hold leaves, flowers, and buds; store food.",
+      "store food",
+      "transport",
+      "nutrient",
+      "support",
+      "mineral",
+      "flower",
+      "water",
+      "leave",
+      "fruit",
+      "bud",
+      "2",
+      "1"
+    ]
+  },
+  {
+    "query_index": 66,
+    "question": "who played in last train from gun hill",
+    "exact": [
+      "Earl Holliman",
+      "Carolyn Jones",
+      "Anthony Quinn",
+      "Kirk Douglas",
+      "Holliman",
+      "Douglas",
+      "Carolyn",
+      "Anthony",
+      "Morgan",
+      "Quinn",
+      "Jones",
+      "Brian",
+      "Ziva",
+      "Matt",
+      "Kirk",
+      "Earl"
+    ],
+    "lexical_family": [
+      "Earl Holliman",
+      "Carolyn Jones",
+      "Anthony Quinn",
+      "Kirk Douglas",
+      "Morgan",
+      "Brian",
+      "Ziva",
+      "Matt"
+    ]
+  },
+  {
+    "query_index": 67,
+    "question": "where do most star formation occur in the milky way today",
+    "exact": [
+      "Spiral arms",
+      "spiral arm",
+      "spiral",
+      "arm"
+    ],
+    "lexical_family": [
+      "Spiral arms",
+      "spiral arm",
+      "spiral",
+      "arm"
+    ]
+  },
+  {
+    "query_index": 68,
+    "question": "how many episodes in season 4 of last ship",
+    "exact": [
+      "13 episodes",
+      "10 episodes",
+      "13 episode",
+      "10 episode",
+      "episode",
+      "13",
+      "10",
+      "8"
+    ],
+    "lexical_family": [
+      "13 episodes",
+      "10 episodes",
+      "13 episode",
+      "10 episode",
+      "episode",
+      "13",
+      "10",
+      "8"
+    ]
+  },
+  {
+    "query_index": 69,
+    "question": "if a piece of music is perceived to have changed key then we say the piece has",
+    "exact": [
+      "modulated",
+      "key"
+    ],
+    "lexical_family": [
+      "modulated",
+      "key"
+    ]
+  },
+  {
+    "query_index": 70,
+    "question": "who is the girl in the stone sour video say you'll haunt me",
+    "exact": [],
+    "lexical_family": []
+  },
+  {
+    "query_index": 71,
+    "question": "where does the band imagine dragons come from",
+    "exact": [
+      "2009, formed, genre-bending sensibilities, independently released EPs.",
+      "They come from Provo and Las Vegas",
+      "Originates from Las Vegas",
+      "They come from Las Vegas",
+      "independently",
+      "sensibility",
+      "originate",
+      "Las Vegas",
+      "Anagram",
+      "genre",
+      "Vegas",
+      "Provo",
+      "2009",
+      "Las",
+      "ep"
+    ],
+    "lexical_family": [
+      "2009, formed, genre-bending sensibilities, independently released EPs.",
+      "They come from Provo and Las Vegas",
+      "Originates from Las Vegas",
+      "They come from Las Vegas",
+      "independently",
+      "sensibility",
+      "originate",
+      "Las Vegas",
+      "Anagram",
+      "genre",
+      "Provo",
+      "2009",
+      "ep"
+    ]
+  },
+  {
+    "query_index": 72,
+    "question": "who said i will not go quietly into the night",
+    "exact": [
+      "Dylan Thomas",
+      "Thomas",
+      "Dylan"
+    ],
+    "lexical_family": [
+      "Dylan Thomas"
+    ]
+  },
+  {
+    "query_index": 73,
+    "question": "when did mcdonald's sell 1 million burgers",
+    "exact": [
+      "1958",
+      "1955"
+    ],
+    "lexical_family": [
+      "1958",
+      "1955"
+    ]
+  },
+  {
+    "query_index": 74,
+    "question": "lilo and stitch the series season 1 episode 1",
+    "exact": [
+      "Lilo & Stitch, Season 1, Episode 1: Battle with Richter",
+      "- Lilo & Stitch: The Series\n- Season 1\n- Episode 1",
+      "Episode 1. Richter",
+      "S1 E1 - Richter",
+      "episode 1",
+      "Episode 1",
+      "season 1",
+      "Season 1",
+      "episode",
+      "Richter",
+      "Episode",
+      "season",
+      "battle",
+      "Stitch",
+      "Series",
+      "Season",
+      "S1 E1",
+      "Lilo",
+      "S1",
+      "E1",
+      "1"
+    ],
+    "lexical_family": [
+      "Lilo & Stitch, Season 1, Episode 1: Battle with Richter",
+      "- Lilo & Stitch: The Series\n- Season 1\n- Episode 1",
+      "Episode 1. Richter",
+      "S1 E1 - Richter",
+      "episode 1",
+      "Episode 1",
+      "season 1",
+      "Season 1",
+      "episode",
+      "Richter",
+      "Episode",
+      "season",
+      "battle",
+      "Stitch",
+      "Series",
+      "Season",
+      "Lilo",
+      "1"
+    ]
+  },
+  {
+    "query_index": 75,
+    "question": "who named all the animals in the world",
+    "exact": [
+      "animal",
+      "Adam"
+    ],
+    "lexical_family": [
+      "animal",
+      "Adam"
+    ]
+  },
+  {
+    "query_index": 76,
+    "question": "what type of government is in north america",
+    "exact": [
+      "constitutional federal republic",
+      "federal government",
+      "Federal republic",
+      "representative",
+      "constitutional",
+      "United States",
+      "government",
+      "democratic",
+      "republic",
+      "federal",
+      "United",
+      "States"
+    ],
+    "lexical_family": [
+      "constitutional federal republic",
+      "federal government",
+      "Federal republic",
+      "representative",
+      "United States",
+      "democratic",
+      "republic",
+      "federal"
+    ]
+  },
+  {
+    "query_index": 77,
+    "question": "how many gallons of water in the gulf of mexico",
+    "exact": [
+      "660 quadrillion gallons",
+      "643 quadrillion gallons",
+      "660 quadrillion gallon",
+      "643 quadrillion gallon",
+      "quadrillion",
+      "gallon",
+      "660",
+      "643"
+    ],
+    "lexical_family": [
+      "660 quadrillion gallons",
+      "643 quadrillion gallons",
+      "660 quadrillion gallon",
+      "643 quadrillion gallon",
+      "quadrillion",
+      "gallon",
+      "660",
+      "643"
+    ]
+  },
+  {
+    "query_index": 78,
+    "question": "which financial statement involves all aspects of the accounting​ equation",
+    "exact": [
+      "balance sheet",
+      "Balance sheet",
+      "balance",
+      "sheet"
+    ],
+    "lexical_family": [
+      "balance sheet",
+      "Balance sheet",
+      "balance",
+      "sheet"
+    ]
+  },
+  {
+    "query_index": 79,
+    "question": "where did the term 'robot' come from",
+    "exact": [
+      "czech word",
+      "1920 play",
+      "Slavonic",
+      "robota",
+      "rabota",
+      "R.U.R.",
+      "Church",
+      "Čapek",
+      "labor",
+      "czech",
+      "Karel",
+      "word",
+      "play",
+      "1920",
+      "Old"
+    ],
+    "lexical_family": [
+      "czech word",
+      "1920 play",
+      "Slavonic",
+      "robota",
+      "rabota",
+      "R.U.R.",
+      "Church",
+      "Čapek",
+      "labor",
+      "czech",
+      "Karel",
+      "word",
+      "1920",
+      "Old"
+    ]
+  },
+  {
+    "query_index": 80,
+    "question": "when did hootie and the blowfish come out",
+    "exact": [
+      "1994"
+    ],
+    "lexical_family": [
+      "1994"
+    ]
+  },
+  {
+    "query_index": 81,
+    "question": "where did the idea of a unicorn come from",
+    "exact": [
+      "Early Mesopotamia, India, China",
+      "Early Mesopotamia",
+      "Mesopotamia",
+      "european",
+      "century",
+      "Ctesias",
+      "India",
+      "Early",
+      "China",
+      "horn",
+      "BCE"
+    ],
+    "lexical_family": [
+      "Early Mesopotamia, India, China",
+      "Early Mesopotamia",
+      "european",
+      "century",
+      "Ctesias",
+      "India",
+      "China",
+      "horn",
+      "BCE"
+    ]
+  },
+  {
+    "query_index": 82,
+    "question": "how many farmers are there in the usa",
+    "exact": [
+      "2 million farmers",
+      "2 million farmer",
+      "1.89 million",
+      "million",
+      "farmer",
+      "1.89",
+      "2"
+    ],
+    "lexical_family": [
+      "2 million farmers",
+      "2 million farmer",
+      "1.89 million",
+      "million",
+      "farmer",
+      "2"
+    ]
+  },
+  {
+    "query_index": 83,
+    "question": "when did the song the joker come out",
+    "exact": [
+      "1973"
+    ],
+    "lexical_family": [
+      "1973"
+    ]
+  },
+  {
+    "query_index": 84,
+    "question": "who are the two teams in super bowl 2018",
+    "exact": [
+      "Philadelphia Eagles, New England Patriots",
+      "New England Patriots, Philadelphia Eagles",
+      "New England Patriots",
+      "Philadelphia Eagles",
+      "Philadelphia",
+      "Patriots",
+      "England",
+      "Eagles",
+      "New"
+    ],
+    "lexical_family": [
+      "Philadelphia Eagles, New England Patriots",
+      "New England Patriots, Philadelphia Eagles",
+      "New England Patriots",
+      "Philadelphia Eagles",
+      "Patriots"
+    ]
+  },
+  {
+    "query_index": 85,
+    "question": "who plays jack skellington in nightmare before christmas",
+    "exact": [
+      "Chris Sarandon",
+      "singing voice",
+      "Danny Elfman",
+      "Sarandon",
+      "singing",
+      "Elfman",
+      "voice",
+      "Danny",
+      "Chris"
+    ],
+    "lexical_family": [
+      "Chris Sarandon",
+      "singing voice",
+      "Danny Elfman",
+      "singing",
+      "voice"
+    ]
+  },
+  {
+    "query_index": 86,
+    "question": "when do dwight and angela start dating again",
+    "exact": [
+      "In the Season 9 episode \"Moving On\"",
+      "Season 9 episode",
+      "2nd season",
+      "episode",
+      "season",
+      "Season",
+      "2nd",
+      "9"
+    ],
+    "lexical_family": [
+      "In the Season 9 episode \"Moving On\"",
+      "Season 9 episode",
+      "2nd season"
+    ]
+  },
+  {
+    "query_index": 87,
+    "question": "country with most olympic gold medals all time",
+    "exact": [
+      "United States",
+      "United",
+      "States"
+    ],
+    "lexical_family": [
+      "United States"
+    ]
+  },
+  {
+    "query_index": 88,
+    "question": "rain sleet or snow that contains a high concentration of acids is called",
+    "exact": [
+      "acid precipitation",
+      "Acid precipitation",
+      "precipitation",
+      "acid rain",
+      "Acid rain",
+      "rain",
+      "acid"
+    ],
+    "lexical_family": [
+      "acid precipitation",
+      "Acid precipitation",
+      "precipitation",
+      "acid rain",
+      "Acid rain",
+      "rain",
+      "acid"
+    ]
+  },
+  {
+    "query_index": 89,
+    "question": "who has won the cma entertainer of the year the most",
+    "exact": [
+      "Taylor Swift, Luke Bryan, and Keith Urban (each won twice)",
+      "Taylor Swift",
+      "Garth Brooks",
+      "Keith Urban",
+      "Luke Bryan",
+      "Taylor",
+      "Brooks",
+      "twice",
+      "Urban",
+      "Swift",
+      "Keith",
+      "Garth",
+      "Bryan",
+      "Luke"
+    ],
+    "lexical_family": [
+      "Taylor Swift, Luke Bryan, and Keith Urban (each won twice)",
+      "Taylor Swift",
+      "Garth Brooks",
+      "Keith Urban",
+      "Luke Bryan",
+      "twice"
+    ]
+  },
+  {
+    "query_index": 90,
+    "question": "a town in west yorkshire on the river aire home to a rugby league team",
+    "exact": [
+      "Castleford"
+    ],
+    "lexical_family": [
+      "Castleford"
+    ]
+  },
+  {
+    "query_index": 91,
+    "question": "who was the nfl first draft pick 2017",
+    "exact": [
+      "Myles Garrett",
+      "Garrett",
+      "Myles"
+    ],
+    "lexical_family": [
+      "Myles Garrett"
+    ]
+  },
+  {
+    "query_index": 92,
+    "question": "which supreme court judge has surved in international court of justice",
+    "exact": [
+      "Judge"
+    ],
+    "lexical_family": [
+      "Judge"
+    ]
+  },
+  {
+    "query_index": 93,
+    "question": "when is the fa cup semi-finals being played",
+    "exact": [
+      "April",
+      "21",
+      "20"
+    ],
+    "lexical_family": [
+      "April",
+      "21",
+      "20"
+    ]
+  },
+  {
+    "query_index": 94,
+    "question": "an edge that is between a vertex and itself is a",
+    "exact": [
+      "self-loop",
+      "self",
+      "loop"
+    ],
+    "lexical_family": [
+      "self-loop",
+      "self",
+      "loop"
+    ]
+  },
+  {
+    "query_index": 95,
+    "question": "who said that religion is the opiate of the masses",
+    "exact": [
+      "Karl Marx",
+      "Marx",
+      "Karl"
+    ],
+    "lexical_family": [
+      "Karl Marx"
+    ]
+  },
+  {
+    "query_index": 96,
+    "question": "where does water come from in new york city",
+    "exact": [
+      "Kensico Reservoir",
+      "reservoir",
+      "Reservoir",
+      "Catskill",
+      "Kensico",
+      "Ashokan",
+      "Hudson",
+      "Croton",
+      "River",
+      "York",
+      "City",
+      "New",
+      "NYC"
+    ],
+    "lexical_family": [
+      "Kensico Reservoir",
+      "reservoir",
+      "Reservoir",
+      "Catskill",
+      "Ashokan",
+      "Hudson",
+      "Croton",
+      "River",
+      "York",
+      "City",
+      "New",
+      "NYC"
+    ]
+  },
+  {
+    "query_index": 97,
+    "question": "who starred in the movie the day the earth stood still",
+    "exact": [
+      "Michael Rennie, Patricia Neal, Hugh Marlowe, Sam Jaffe,",
+      "Keanu Reeves, Jennifer Connelly",
+      "Jennifer Connelly",
+      "Michael Rennie",
+      "Patricia Neal",
+      "Keanu Reeves",
+      "Hugh Marlowe",
+      "Kathy Bates",
+      "Sam Jaffe",
+      "Patricia",
+      "Jennifer",
+      "Connelly",
+      "Michael",
+      "Marlowe",
+      "Rennie",
+      "Reeves",
+      "Keanu",
+      "Kathy",
+      "Jaffe",
+      "Bates",
+      "Neal",
+      "Hugh",
+      "Sam"
+    ],
+    "lexical_family": [
+      "Michael Rennie, Patricia Neal, Hugh Marlowe, Sam Jaffe,",
+      "Keanu Reeves, Jennifer Connelly",
+      "Jennifer Connelly",
+      "Michael Rennie",
+      "Patricia Neal",
+      "Keanu Reeves",
+      "Hugh Marlowe",
+      "Kathy Bates",
+      "Sam Jaffe",
+      "Sam"
+    ]
+  },
+  {
+    "query_index": 98,
+    "question": "hyori bed and breakfast season 2 air date",
+    "exact": [
+      "16 Episodes available for streaming",
+      "20h00 Saturday, Apr 20, 2024",
+      "16 episode available",
+      "20h00 Saturday",
+      "2023-02-04",
+      "2018-05-20",
+      "available",
+      "Saturday",
+      "episode",
+      "Apr 20",
+      "20h00",
+      "05-20",
+      "2024",
+      "2023",
+      "2018",
+      "Apr",
+      "20",
+      "16",
+      "05",
+      "04",
+      "02"
+    ],
+    "lexical_family": [
+      "16 Episodes available for streaming",
+      "20h00 Saturday, Apr 20, 2024",
+      "16 episode available",
+      "20h00 Saturday",
+      "2023-02-04",
+      "2018-05-20",
+      "available",
+      "episode",
+      "Apr 20",
+      "2024",
+      "2018",
+      "Apr",
+      "20",
+      "16"
+    ]
+  },
+  {
+    "query_index": 99,
+    "question": "where did an independence movement occur because of the congress of vienna",
+    "exact": [
+      "northern Italy",
+      "northern",
+      "belgium",
+      "Belgium",
+      "Mexico",
+      "Greece",
+      "Italy"
+    ],
+    "lexical_family": [
+      "northern Italy",
+      "belgium",
+      "Belgium",
+      "Mexico",
+      "Greece"
+    ]
+  }
+]

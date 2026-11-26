@@ -1,0 +1,69 @@
+{
+  "status": "failed",
+  "started_at_utc": "2026-11-08T22:54:29.006176+00:00",
+  "profile": "legacy_v1",
+  "dataset": "realtimeqa",
+  "dataset_sha256": "0924fd01734f90e7910d6cb5802d387aaf5811eeba650667a8e72d6b94d7941e",
+  "upstream_commit": "9bc35b2fa5fa7d1088383b2789ec19a512d316b1",
+  "sample_limit": 2,
+  "conditions": [
+    "keyword"
+  ],
+  "parameters": {
+    "model": "mistralai/Mistral-7B-Instruct-v0.2",
+    "top_k": 10,
+    "group_size": 1,
+    "corruption_size": 1,
+    "alpha": 0.3,
+    "beta": 3.0,
+    "greedy_decoding": true
+  },
+  "expected_full_sample_counts": {
+    "no_rag": 8,
+    "vanilla": 69,
+    "keyword": 59,
+    "certified": 45
+  },
+  "environment": {
+    "python": "3.13.16 (main, Oct  1 2026, 15:40:24) [GCC 13.3.0]",
+    "platform": "Linux-6.6.159+-x86_64-with-glibc2.39",
+    "gpu": "NVIDIA L4, 580.82.07, 23034 MiB",
+    "hardware_matches_paper": false,
+    "packages": {
+      "accelerate": "1.15.0",
+      "joblib": "1.6.0",
+      "litellm": "1.14.4",
+      "nltk": "3.9.1",
+      "numpy": "2.4.6",
+      "openai": "2.54.0",
+      "scikit-learn": "1.6.1",
+      "spacy": "3.8.18",
+      "torch": "2.14.1+cu130",
+      "transformers": "5.22.1"
+    }
+  },
+  "commands": [
+    [
+      "/usr/bin/python3",
+      "/content/robustrag-upstream/main.py",
+      "--model_name",
+      "mistral7b",
+      "--dataset_name",
+      "realtimeqa",
+      "--save_response",
+      "--use_cache",
+      "--top_k",
+      "10",
+      "--defense_method",
+      "keyword",
+      "--corruption_size",
+      "1",
+      "--alpha",
+      "0.3",
+      "--beta",
+      "3.0",
+      "--no_vanilla"
+    ]
+  ],
+  "failed_at_utc": "2026-11-08T22:54:52.386582+00:00"
+}

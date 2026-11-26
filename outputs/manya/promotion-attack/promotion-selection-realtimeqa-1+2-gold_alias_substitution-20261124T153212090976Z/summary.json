@@ -1,0 +1,20 @@
+{
+  "question_count": 100,
+  "statuses": {
+    "baseline_not_verified_correct": 39,
+    "no_candidate": 49,
+    "selected": 12
+  },
+  "selected_questions": 12,
+  "candidate_rows": 18,
+  "structural_candidate_rows": 38,
+  "selector_rejected_rows": 20,
+  "selector_assessment_reasons": {
+    "eligible": 18,
+    "question_echo": 2,
+    "not_complete_answer_unit": 14,
+    "meta_nonanswer": 4
+  },
+  "certified_questions": 35,
+  "certification_frontier_rows": 351
+}

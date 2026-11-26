@@ -1,0 +1,23 @@
+{
+  "question_count": 100,
+  "statuses": {
+    "baseline_not_verified_correct": 41,
+    "selected": 19,
+    "no_candidate": 40
+  },
+  "selected_questions": 19,
+  "candidate_rows": 37,
+  "structural_candidate_rows": 105,
+  "selector_rejected_rows": 68,
+  "selector_assessment_reasons": {
+    "eligible": 37,
+    "strict_fragment_of_better_candidate": 18,
+    "not_complete_answer_unit": 27,
+    "answer_type_conflict": 17,
+    "single_generic_word": 4,
+    "question_echo": 1,
+    "initials_only": 1
+  },
+  "certified_questions": 0,
+  "certification_frontier_rows": 581
+}

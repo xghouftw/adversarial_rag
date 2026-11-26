@@ -1,0 +1,23 @@
+{
+  "question_count_per_arm": 19,
+  "gold_substring_counts": {
+    "clean/exact": 19,
+    "clean/lexical_family": 19,
+    "frozen/exact": 17,
+    "frozen/lexical_family": 18
+  },
+  "gold_substring_rank": 1,
+  "frozen_strict_success_counts": {
+    "exact": {
+      "success_at_1": 1,
+      "success_at_3": 1,
+      "success_at_all": 1
+    },
+    "lexical_family": {
+      "success_at_1": 1,
+      "success_at_3": 1,
+      "success_at_all": 1
+    }
+  },
+  "distinct_final_calls": 58
+}
